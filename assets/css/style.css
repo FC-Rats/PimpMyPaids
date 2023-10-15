@@ -1,0 +1,37 @@
+/* ===== ROOT ===== */
+:root {
+    --cerulean: #006F95;
+    --darkBlueMunsell: #0085A2;
+    --lightBlueMunsell: #009CB0;
+    --xanthous: #FFC65C;
+    --floralWhite: #F8F4EA;
+    --rasisinBlack: #272727;
+}
+
+@font-face {
+    font-family: 'Glegoo-Regular';
+    src: url('./../fonts/Glegoo/Glegoo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Glegoo-Bold';
+    src: url('./../fonts/Glegoo/Glegoo-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SplineSans-Regular';
+    src: url('./../fonts/Spline_Sans/SplineSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SplineSans-Bold';
+    src: url('./../fonts/Spline_Sans/SplineSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
