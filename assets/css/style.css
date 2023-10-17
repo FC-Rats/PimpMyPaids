@@ -40,3 +40,7 @@ body {
     background-color: var(--floralWhite)!important;
     font-family: 'SplineSans-Regular'!important;
 }
+
+.titleFont {
+    font-family: 'Glegoo-Bold'!important;
+}

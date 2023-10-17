@@ -17,7 +17,6 @@
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Beer CSS -->
   <link href="assets/css/beer.min.css" rel="stylesheet" />
-  <!-- JQuery -->
 </head>
 
 <body>
