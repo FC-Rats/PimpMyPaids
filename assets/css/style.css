@@ -35,3 +35,8 @@
     font-weight: bold;
     font-style: normal;
 }
+
+body {
+    background-color: var(--floralWhite)!important;
+    font-family: 'SplineSans-Regular'!important;
+}
