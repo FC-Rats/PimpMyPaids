@@ -14,7 +14,7 @@ class Connection {
      * @param String $login Le login pour la connexion à la base de données
      * @param String $password Le mot de passe pour la connexion à la base de données
      * 
-     * @example $db_connection = new Connection("upem.fr", "my-db", "example.login", "password");
+     * @example Connection $db_connection = new Connection("upem.fr", "my-db", "example.login", "password");
      */
     public function __construct($host, $db, $login, $password){
         $this->host = $host;
@@ -45,7 +45,7 @@ class Connection {
      * 
      * @return Array Liste contenant toute les lignes de la requête
      * 
-     * @example $sql = "SELECT * FROM table WHERE e1 = :e1 AND e2 = :e2 | $conditions = array(array(":e1", $var1), array(":e2" ; $var2))
+     * @example query $sql = "SELECT * FROM table WHERE e1 = :e1 AND e2 = :e2 | $conditions = array(array(":e1", $var1), array(":e2" ; $var2))
      */
     public function query($command, Array $conditions = null){
             $query = $this->connec->prepare($command);
@@ -62,4 +62,6 @@ class Connection {
             return $query->fetchAll();
     }
 }
+
+$db = new Connection("","","","");
 ?>
