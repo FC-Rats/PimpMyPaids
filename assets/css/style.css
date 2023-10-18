@@ -24,14 +24,14 @@
 
 @font-face {
     font-family: 'SplineSans-Regular';
-    src: url('./../fonts/Spline_Sans/SplineSans-VariableFont_wght.ttf') format('truetype');
+    src: url('./../fonts/Spline_Sans/static/SplineSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SplineSans-Bold';
-    src: url('./../fonts/Spline_Sans/SplineSans-VariableFont_wght.ttf') format('truetype');
+    src: url('./../fonts/Spline_Sans/static/SplineSans-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }

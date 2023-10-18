@@ -21,40 +21,59 @@
 
 <body>
     <div class="container-fluid login-section">
-        <div class="row h-100">
-            <div class="col-md-8 text-center d-flex flex-column justify-content-center p-5">
-                <h1 class="titleFont py-2 pb-5 fs-5 fs-md-1">Pimp My Paids</h1>
-                <p class="fs-4 fs-md-6 p-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
+        <div class="row container-cols-login">
+            <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center p-5">
+                <h1 class="titleFont py-2 pb-5 fs-2">Pimp My Paids</h1>
+                <p class="fs-4 p-0 p-md-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
                 <img class="p-2" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" class="img-fluid" />
             </div>
-            <div class="col-md-4 text-center bg-dark d-flex flex-column justify-content-center p-5">
+            <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="account-connection.php" method="post">
-                    <h2>Connexion</h2>
-                    <div class="form-group">
-                        <label for="username">Pseudo<span class="required"> *</span></label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                    <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
+                    <div class="form-floating mb-3 text-dark">
+                        <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
+                        <label for="username">Identifiant<span class="required"> *</span></label>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe<span class="required"> *</span></label>
-                        <div class="password-input">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Ex : MotDeP@sseCorr3cte" required>
-                            <button type="button" id="toggle-password"><i class="fa-solid fa-eye"></i></button>
+                    <div class="row">
+                        <div class="col-11 mb-3">
+                            <div class="form-floating text-dark">
+                                <input type="password" class="form-control" id="password" name="password" placeholder=" " required>
+                                <label for="password">Mot de passe<span class="required"> *</span></label>
+                            </div>
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center mb-3 p-0 h-100 mt-2">
+                            <button type="button" class="btn h-100" id="toggle-password">
+                                <i class="fa-solid fa-eye" style="color: var(--cerulean);"></i>
+                            </button>
                         </div>
                     </div>
-                    <span id="erreur"></span>
-                    <button type="submit" class="btn btn-dark">Se connecter</button>
-                    <br><a id="lien-mpd-oublie" href="recover.html">Mot de passe oublié ?</a>
+                    <div class="form-check mb-3 mb-md-2">
+                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="" id="stayConnected" required>
+                        <label class="form-check-label label-stay-connected" for="stayConnected">
+                            Rester connecté
+                        </label>
+                    </div>
+                    <div class="text-center d-flex flex-column justify-content-center">
+                        <span id="erreur"></span>
+                        <div class="mx-auto mb-5">
+                            <button type="submit" id="submit-button" class="btn btn-dark text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
+                                <i class="fa-solid fa-lock"></i>
+                                <span class="ms-2 fs-5">Connexion</span>
+                            </button>
+                        </div>
+                        <a class="text-light" id="lien-mpd-oublie" href="recover.html">Mot de passe oublié ?</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="assets/js/password-check.js"></script>
-    <script src="assets/js/password-toggle.js"></script>
+    <!-- <script src="assets/js/password-check.js"></script> -->
+    <!-- <script src="assets/js/password-toggle.js"></script> -->
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Beer CSS -->
-    <script type="module" src="assets/js/beer.min.js"></script>
+    <!-- <script type="module" src="assets/js/beer.min.js"></script> -->
     <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
 
 </body>
