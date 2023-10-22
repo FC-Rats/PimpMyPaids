@@ -16,9 +16,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const passwordInput = document.getElementById("password");
     togglePasswordField(passwordInput, document.getElementById("toggle-password"));
-
-    const confirmPasswordInput = document.getElementById("confirm-password");
-    if (confirmPasswordInput) {
-        togglePasswordField(confirmPasswordInput, document.getElementById("toggle-confirm-password"));
-    }
 });

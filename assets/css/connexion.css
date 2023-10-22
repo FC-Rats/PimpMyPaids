@@ -1,13 +1,32 @@
-/* Réinitialisation des styles de base */
+/* hauteur de la page */
 .login-section, .container-cols-login {
     min-height: 100vh;
 }
 
+/*colonne bleue de connexion*/
 .col-login {
     background-color: rgba(0, 111, 149, .9);
     color: var(--floralWhite);
 }
 
+/*colonne de togle*/
+#col-eye {
+    height: 58px!important;
+}
+
+/*bouton togle*/
+#toggle-password i {
+    color: var(--cerulean);
+}
+
+/*oeil*/
+#toggle-password {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*checkbox*/
 .stay-connected-checkbox:checked {
     background-color: var(--rasisinBlack) !important;
     border: 0;
@@ -20,6 +39,7 @@
     box-shadow: 0 0 0 0.1rem var(--cerulean) !important;
 }
 
+/*bouton connexion*/
 #submit-button[disabled] {
     background-color: #454545;
     cursor: not-allowed;
@@ -29,36 +49,8 @@
     background-color: var(--rasisinBlack);
 }
 
-/* Styles pour les conditions du mot de passe et de l'email */
-#password-conditions, #email-condition {
-    font-size: 14px;
-    color: gray;
-    text-align: left;
-}
-
-#password-conditions ul {
-    padding-left: 0;
-}
-
-#password-conditions li, #email-condition {
-    list-style: none;
-    margin-bottom: 5px;
-    text-align: left;
-}
-
-#email-condition.valid {
-    color: rgb(0, 96, 221);
-}
-
-#password-conditions li.valid {
-    color: rgb(0, 96, 221);
-}
-
+/* champs obligatoires */
 .required {
     color : rgb(228, 16, 16);
     font-size: 18px;
-}
-
-.correct {
-    border: 1px solid #479400;
 }
