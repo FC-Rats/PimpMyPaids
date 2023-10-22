@@ -56,6 +56,11 @@
     font-size: 18px;
 }
 
+/* Toast */
+.toast{
+    background-color: #FFB2B2!important;
+}
+
 /* ===== FORGET PASSWORD ===== */
 
 
