@@ -47,6 +47,7 @@
                             </button>
                         </div>
                     </div>
+                    <p class="form-label mandatory">* champs obligatoires</p>
                     <div class="form-check mb-3 mb-md-2">
                         <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="stayConnected" required>
                         <label class="form-check-label label-stay-connected" for="stayConnected">
