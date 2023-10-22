@@ -1,4 +1,4 @@
-<?
+<?php
 class Connection {
     private $login;
     private $host;
@@ -33,7 +33,7 @@ class Connection {
         $this->connec = $bd;
         }
         catch (PDOException $e) {
-            echo "Une exception a été levée lors de la connection $e"; 
+            throw new Exception("Erreur lors de la connexion à la base de données: " . $e->getMessage());
         }
     }
 
@@ -48,19 +48,21 @@ class Connection {
      * @example query $sql = "SELECT * FROM table WHERE e1 = :e1 AND e2 = :e2 | $conditions = array(array(":e1", $var1), array(":e2" ; $var2))
      */
     public function query($command, Array $conditions = null){
-            $query = $this->connec->prepare($command);
+        $query = $this->connec->prepare($command);
 
-            if($conditions){
-                foreach ($conditions as $condition) {
-                    foreach ($condition as $value) {
-                        $query->bindParam($value[0],$value[1]);
-                    }
-                }
+        if($conditions){
+            foreach ($conditions as $values) {
+                $query->bindParam($values[0],$values[1]);
             }
+        }
 
-            $query->execute();    
+        $success = $query->execute();
+        if ($success)
             return $query->fetchAll();
-    }
+        else {
+            throw new Exception("Erreur lors de l'exécution de la requête.");
+        }
+}
 }
 
 $db = new Connection("","","","");
