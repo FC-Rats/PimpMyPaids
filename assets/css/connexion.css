@@ -66,9 +66,18 @@
 /* Toast */
 .toast{
     background-color: #FFB2B2!important;
+    color: rgb(105, 0, 0)!important;
 }
 
 /* ===== FORGET PASSWORD ===== */
+/*bouton connexion*/
+#submit-recover-button[disabled] {
+    background-color: #ffcf77;
+    cursor: not-allowed;
+}
 
+#submit-recover-button:not([disabled]) {
+    background-color: var(--xanthous);
+}
 
 /* ===== CHANGE PASSWORD ===== */

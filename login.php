@@ -16,8 +16,6 @@
     <link href="assets/fonts/fontawesome/css/solid.min.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Beer CSS -->
-    <!-- <link href="assets/css/beer.min.css" rel="stylesheet" /> -->
 </head>
 
 <body>
@@ -85,8 +83,6 @@
     <script src="assets/js/stay-connected-checkbox.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Beer CSS -->
-    <!-- <script type="module" src="assets/js/beer.min.js"></script> -->
     <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
 
 </body>
