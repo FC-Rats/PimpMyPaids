@@ -39,7 +39,7 @@
                             <div class="form-floating text-dark">
                                 <input type="password" class="form-control" id="password" name="password" placeholder=" " required>
                                 <label for="password">Mot de passe<span class="required"> *</span></label>
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-2 col-md-1 col-lg-2 col-xxl-1 d-flex align-items-center justify-content-center p-0 h-100 m-0 pe-3" id="col-eye">
                             <button type="button" class="btn btn-light rounded p-0" id="toggle-password">
