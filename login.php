@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="form-check mb-3 mb-md-2">
-                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="" id="stayConnected" required>
+                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="stayConnected" required>
                         <label class="form-check-label label-stay-connected" for="stayConnected">
                             Rester connecté
                         </label>
@@ -68,6 +68,7 @@
         </div>
     </div>
     <script src="assets/js/password-toggle.js"></script>
+    <script src="assets/js/stay-connected-checkbox.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Beer CSS -->
