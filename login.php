@@ -6,6 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Connexion</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" href="assets/img/logo.ico">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/connexion.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/footer.css" />
@@ -22,10 +23,10 @@
 <body>
     <div class="container-fluid login-section">
         <div class="row container-cols-login">
-            <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center p-5">
-                <h1 class="titleFont py-2 pb-5 fs-2">Pimp My Paids</h1>
+            <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img class="p-2 img-fluid w-45" src="assets/img/logo.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids" />
                 <p class="fs-4 p-0 p-md-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
-                <img class="p-2" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" class="img-fluid" title="Image de coffre-fort"/>
+                <img class="p-2 img-fluid" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="account-connection.php" method="post">
@@ -65,6 +66,17 @@
                         <a class="text-light" id="lien-mpd-oublie" href="recover.php">Mot de passe oublié ?</a>
                     </div>
                 </form>
+            </div>
+        </div>
+        <!--Toast -->
+        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
+            <div class="toast fade show w-auto" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body fs-5">
+                        C'est la 2<sup>e</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
             </div>
         </div>
     </div>

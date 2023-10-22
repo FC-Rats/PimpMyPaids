@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Accueil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="assets/img/logo.ico">
     <!-- Nos pages CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/home.css" />

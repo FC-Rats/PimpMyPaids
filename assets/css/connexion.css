@@ -63,6 +63,11 @@
     letter-spacing: 1.5px;
 }
 
+/* Toast */
+.toast{
+    background-color: #FFB2B2!important;
+}
+
 /* ===== FORGET PASSWORD ===== */
 
 
