@@ -5,3 +5,7 @@ footer {
 body .footer p, body .footer ul li a, body .footer ul li i {
     color: var(--floralWhite)!important;
 }
+
+body .footer ul li a img {
+    width: 150px;
+}

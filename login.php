@@ -25,7 +25,7 @@
             <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center p-5">
                 <h1 class="titleFont py-2 pb-5 fs-2">Pimp My Paids</h1>
                 <p class="fs-4 p-0 p-md-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
-                <img class="p-2" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" class="img-fluid" />
+                <img class="p-2" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" class="img-fluid" title="Image de coffre-fort"/>
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="account-connection.php" method="post">
@@ -61,7 +61,7 @@
                                 <span class="ms-2 fs-5">Connexion</span>
                             </button>
                         </div>
-                        <a class="text-light" id="lien-mpd-oublie" href="recover.html">Mot de passe oublié ?</a>
+                        <a class="text-light" id="lien-mpd-oublie" href="recover.php">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>
