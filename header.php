@@ -1,4 +1,4 @@
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-primary">
+<header class="d-flex flex-wrap justify-content-center py-3 border-bottom bg-primary">
 
     <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
         <img src="./assets/img/logo.png" width="30" height="30" alt="">

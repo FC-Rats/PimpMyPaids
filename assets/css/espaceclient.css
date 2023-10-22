@@ -1,0 +1,13 @@
+/* hauteur de la page */
+.container-cols-espace-client, .espace-client-section {
+    min-height: calc(100vh - 200px - 90px);
+}
+
+/* gris des div */
+.bg-grey {
+    background-color: #D9D9D9;
+}
+
+.row {
+    height: 100%!important;
+}
