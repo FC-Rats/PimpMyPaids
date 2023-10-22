@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <?php include('./header.php'); ?>
   <i class="fa-solid fa-user"></i>
   <i class="fa-brands fa-github-square"></i>
   <i class="fa-solid fa-magnifying-glass fa-beat" style="color: #1f5120"></i>

@@ -56,17 +56,18 @@
     font-size: 18px;
 }
 
-/* labnel champs obligatoires */
-.mandatory{
-    color: rgb(255, 54, 54);
-    font-size: 12px;
+/* label champs obligatoires */
+.mandatory {
+    color: rgb(228, 93, 93);
+    font-size: 15px;
     letter-spacing: 1.5px;
+    font-weight: 800;
 }
 
 /* Toast */
-.toast{
-    background-color: #FFB2B2!important;
-    color: rgb(105, 0, 0)!important;
+.toast {
+    background-color: #FFB2B2 !important;
+    color: rgb(105, 0, 0) !important;
 }
 
 /* ===== FORGET PASSWORD ===== */
@@ -78,6 +79,10 @@
 
 #submit-recover-button:not([disabled]) {
     background-color: var(--xanthous);
+}
+
+.text-shadow {
+    text-shadow: 0px 2px 12px #000000;
 }
 
 /* ===== CHANGE PASSWORD ===== */

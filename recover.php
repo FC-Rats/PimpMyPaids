@@ -27,23 +27,23 @@
                 <img class="p-2 img-fluid" src="assets/img/forgot-password.svg" alt="J'ai oublié mon mot de passe" title="J'ai oublié mon mot de passe" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="account-connection.php" method="post">
+                <form action="recover-password.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Mot de passe oublié</h2>
-                    <p class="text-center text-dark fs-5 pb-3">Pour renouveler votre mot de passe, veuillez indiquer votre identifiant ci-dessous.</p>
+                    <p class="text-center text-dark fs-5 pb-3">Pour renouveler votre mot de passe, veuillez indiquer votre adresse mail ci-dessous.</p>
                     <div class="form-floating mb-3 text-dark">
-                        <input type="text" class="form-control" id="mail" name="mail" placeholder=" " required>
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder=" " pattern=".+@globex\.com" required>
                         <label for="mail">Adresse mail<span class="required"> *</span></label>
                     </div>
-                    <p class="form-label mandatory">* champs obligatoires</p>
+                    <p class="form-label mandatory text-shadow">* champs obligatoires</p>
                     <!-- doit etre sous la forme -->
                     <div class="text-center d-flex flex-column justify-content-center">
                         <span id="erreur"></span>
-                        <div class="mx-auto mb-5">
+                        <div class="d-flex justify-content-center align-items-center mb-5">
                             <button type="submit" id="submit-recover-button" class="btn text-dark border-0 text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
                                 <span class="fs-5 fw-semibold">Envoyer</span>
                             </button>
+                            <a href="login.php" class="ps-5 btn btn-link text-dark mx-3 text-decoration-none fs-4 fw-semibold">Annuler</a>
                         </div>
-                        <a class="text-light" id="lien-mpd-oublie" href="login.php">Je me souviens de mon mot de passe</a>
                     </div>
                 </form>
             </div>
