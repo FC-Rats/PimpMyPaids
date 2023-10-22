@@ -1,0 +1,12 @@
+/*====== HEADER ====*/
+header {
+    height: 90px!important;
+}
+
+
+/*====== ICONES HEADER ====*/
+header .nav-item img, svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
