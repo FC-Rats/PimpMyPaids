@@ -29,7 +29,7 @@
                 <img class="p-2 img-fluid" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="account-connection.php" method="post">
+                <form action="Includes/login-function.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
@@ -50,7 +50,7 @@
                     </div>
                     <p class="form-label mandatory">* champs obligatoires</p>
                     <div class="form-check mb-3 mb-md-2">
-                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="stayConnected" required>
+                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="stayConnected">
                         <label class="form-check-label label-stay-connected" for="stayConnected">
                             Rester connecté
                         </label>
@@ -74,6 +74,7 @@
                 <div class="d-flex">
                     <div class="toast-body fs-5">
                         C'est la 2<sup>e</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
+                        <!--echo $error-->
                     </div>
                     <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
