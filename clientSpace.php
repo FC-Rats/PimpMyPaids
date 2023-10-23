@@ -21,6 +21,10 @@
 </head>
 
 <body>
+  <script src="assets/js/highcharts.js"></script>
+  <script src="assets/js/exporting.js"></script>
+  <script src="assets/js/export-data.js"></script>
+  <script src="assets/js/accessibility.js"></script>
   <?php include('./header.php'); ?>
 
   <div class="container espace-client-section">
@@ -41,7 +45,9 @@
       </div>
       <div class="col-md-6 d-flex flex-column align-items-center justify-content-center h-100 pt-4">
         <div class="rounded p-3 bg-grey fs-4 d-flex align-items-center justify-content-center text-center col-12">
-          <span class="col-12">Graph</span>
+          <figure class="highcharts-figure col-12">
+            <div id="container-soldes"></div>
+          </figure>
         </div>
         <div class="rounded p-3 bg-grey fs-4 d-flex align-items-center justify-content-center text-center col-12 my-2">
           <span class="col-4">Somme remises : </span><span class="fw-bold col-3" id="remittance">1000,00</span><span class="col-1" id="devise"> EUR</span><i class="fa-solid fa-money-bill-transfer fa-xl col-4"></i></i>
@@ -59,12 +65,11 @@
 
   <?php include('./footer.php'); ?>
   <script src="assets/js/colorValueSolde.js"></script>
+  <script src="assets/js/clientSoldeChart.js"></script>
   <!-- Bootstrap -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
-  <!-- HighCharts JS -->
-  <script src="assets/js/highcharts.js"></script>
 </body>
 
 </html>

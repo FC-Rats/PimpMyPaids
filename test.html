@@ -17,21 +17,97 @@
 </head>
 
 <body>
+  <style type="text/css">
+    #container {
+      height: 400px;
+    }
 
-  <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
-    <!--Red variant -->
-    <div class="toast align-items-center fade show w-auto" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body fs-5">
-          C'est la 2<sup>e</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
-        </div>
-        <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
+    .highcharts-figure,
+    .highcharts-data-table table {
+      min-width: 310px;
+      max-width: 800px;
+      margin: 1em auto;
+    }
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="tets.js"></script>
-</body>
+    .highcharts-data-table table {
+      font-family: Verdana, sans-serif;
+      border-collapse: collapse;
+      border: 1px solid #ebebeb;
+      margin: 10px auto;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+      padding: 1em 0;
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .highcharts-data-table th {
+      font-weight: 600;
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
+      padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
+      background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+      background: #f1f7ff;
+    }
+  </style>
+
+  <body>
+    <script src="assets/js/highcharts.js"></script>
+    <script src="assets/js/exporting.js"></script>
+    <script src="assets/js/export-data.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">
+        Chart showing column comparisons with negative values.
+        Column charts are commonly used to compare values, and remains one of
+        the most popular and readable types of charts.
+      </p>
+    </figure>
+
+
+    <script type="text/javascript">
+      Highcharts.chart('container', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Évolution de votre trésorerie'
+        },
+        xAxis: {
+          categories: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+        },
+        credits: {
+          enabled: false
+        },
+        plotOptions: {
+          column: {
+            borderRadius: '25%'
+          }
+        },
+        series: [{
+          name: 'John',
+          data: [25000,20000,15000,10000,5000,0,-5000,-2500,3000,10000,20000,30000]
+        }]
+      });
+    </script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
 
 </html>
