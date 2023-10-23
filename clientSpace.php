@@ -44,10 +44,10 @@
           <span class="col-12">Graph</span>
         </div>
         <div class="rounded p-3 bg-grey fs-4 d-flex align-items-center justify-content-center text-center col-12 my-2">
-          <span class="col-4">Somme remises : </span><span class="fw-bold col-3" id="solde">1000,00</span><span class="col-1" id="devise"> EUR</span><i class="fa-solid fa-money-bill-transfer fa-xl col-4"></i></i>
+          <span class="col-4">Somme remises : </span><span class="fw-bold col-3" id="remittance">1000,00</span><span class="col-1" id="devise"> EUR</span><i class="fa-solid fa-money-bill-transfer fa-xl col-4"></i></i>
         </div>
         <div class="rounded p-3 bg-grey fs-4 d-flex align-items-center justify-content-center text-center col-12 my-2">
-          <span class="col-4">Somme impayés : </span><span class="fw-bold col-3" id="solde">-10000,00</span><span class="col-1" id="devise"> EUR</span><i class="fa-solid fa-file-invoice-dollar fa-xl col-4"></i>
+          <span class="col-4">Somme impayés : </span><span class="fw-bold col-3" id="unpaids">-10000,00</span><span class="col-1" id="devise"> EUR</span><i class="fa-solid fa-file-invoice-dollar fa-xl col-4"></i>
         </div>
         <div class="p-3 fs-4 d-flex align-items-center justify-content-center text-center col-12">
           <span>Pour apprendre à mieux gérer ses soldes : <a href="https://www.wikihow.com/Improve-Your-Sales" target="_blank" class="text-decoration-none">cliquez ici</a></span>
@@ -58,7 +58,7 @@
 
 
   <?php include('./footer.php'); ?>
-  <script src="assets/js/color-value-solde.js"></script>
+  <script src="assets/js/colorValueSolde.js"></script>
   <!-- Bootstrap -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery -->

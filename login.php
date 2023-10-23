@@ -79,8 +79,8 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/password-toggle.js"></script>
-    <script src="assets/js/stay-connected-checkbox.js"></script>
+    <script src="assets/js/passwordToggle.js"></script>
+    <script src="assets/js/stayConnectedCheckbox.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
