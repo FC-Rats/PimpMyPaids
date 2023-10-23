@@ -2,7 +2,7 @@
 
     <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none">
         <img src="./assets/img/logo.png" width="30" height="30" alt="">
-        <span class="fs-4">PimpMyPaid</span>
+        <span class="fs-4">PimpMyPaids</span>
     </a>
 
     <ul class="nav nav-pills text-light">
