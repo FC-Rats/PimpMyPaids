@@ -10,7 +10,7 @@
   <!-- Nos pages CSS -->
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/espaceclient.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/clientSpace.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/footer.css" />
   <!-- FontAwesome -->
   <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
@@ -36,7 +36,7 @@
           </div>
 
           <div class="align-items-center justify-content-center text-center pt-5">
-            <img class="p-2 img-fluid" src="assets/img/profil.svg" alt="Profil de compte" title="Profil de compte" />
+            <img class="p-2 img-fluid" src="assets/img/profile.svg" alt="Profil de compte" title="Profil de compte" />
           </div>
         </div>
       </div>

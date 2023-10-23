@@ -8,7 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" href="assets/img/logo.ico">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/connexion.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/connection.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/footer.css" />
     <!-- FontAwesome -->
     <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
             <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center align-items-center p-5">
                 <img class="p-2 img-fluid w-45" src="assets/img/logo.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids" />
                 <p class="fs-4 p-0 p-md-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
-                <img class="p-2 img-fluid" src="assets/img/coffre-fort.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
+                <img class="p-2 img-fluid" src="assets/img/safeDeposit.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="Includes/login-function.php" method="post">
