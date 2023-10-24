@@ -12,6 +12,23 @@
     height: 100% !important;
 }
 
+@media  screen and (max-width: 370px) {
+    .bg-grey span {
+        font-size: 15px;
+    }
+
+    .bg-grey .fa-xl {
+        font-size: 1.2;
+        padding-left: 10px;
+    }
+
+    #container-soldes {
+        max-width: 270px!important;
+        margin: 0!important;
+        padding: 0!important;
+    }
+}
+
 /* chart */
 #container-soldes {
     height: 400px;
