@@ -27,7 +27,7 @@
                 <img class="p-2 img-fluid" src="assets/img/safeDeposit.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="Includes/login-function.php" method="post">
+                <form action="includes/signIn.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
@@ -61,7 +61,7 @@
                                 <span class="ms-2 fs-5">Connexion</span>
                             </button>
                         </div>
-                        <a class="text-light" id="lien-mpd-oublie" href="recover.php">Mot de passe oublié ?</a>
+                        <a class="text-light" id="lien-mpd-oublie" href="index.php?p=recover-password">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>

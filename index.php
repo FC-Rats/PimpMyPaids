@@ -2,7 +2,7 @@
 session_start();
 $_SESSION["type"] = "";
 
-//include "/Includes/connexion-function.php";
+//include "/includes/connexionFunction.php";
 
 $p = isset($_GET['p']) ? $_GET['p'] : 'login';
 
