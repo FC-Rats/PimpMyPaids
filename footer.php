@@ -4,5 +4,5 @@
         <li class="nav-item"><a href="home.php" class="nav-link px-2 text-body-secondary"><img class="p-1 px-3 img-fluid" src="assets/img/logo.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids"/></a></li>
         <li class="nav-item"><a href="team.php" class="nav-link px-2 text-body-secondary"><i class="fa-solid fa-user-group fa-xl"></i></a></li>
     </ul>
-    <p class="text-center text-body-secondary">&copy; 2023 PimpMyPaids. All Rights Reserved</p>
+    <p class="text-center text-body-secondary">&copy; <?php echo date('Y'); ?> PimpMyPaids. All Rights Reserved</p>
 </footer>
