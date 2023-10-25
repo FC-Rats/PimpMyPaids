@@ -1,2 +1,2 @@
-mailer/password_mail.php
+mailer/passwordMail.php
 framework/PHPMailer
