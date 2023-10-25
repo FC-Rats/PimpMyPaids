@@ -41,7 +41,7 @@
             <span class="col-1" id="devise">EUR</span>
             <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
           </div>
-          <div class="align-items-center justify-content-center text-center pt-5">
+          <div class="align-items-center justify-content-center text-center pt-5 d-none d-sm-block">
             <img class="p-2 img-fluid" src="assets/img/profile.svg" alt="Profil de compte" title="Profil de compte" />
           </div>
         </div>
