@@ -61,7 +61,7 @@
                                 <span class="ms-2 fs-5">Connexion</span>
                             </button>
                         </div>
-                        <a class="text-light" id="lien-mpd-oublie" href="index.php?p=recover-password">Mot de passe oublié ?</a>
+                        <a class="text-light" id="lien-mpd-oublie" href="index.php?p=recover-password" title="Mot de passe oublié ?">Mot de passe oublié ?</a>
                     </div>
                 </form>
             </div>

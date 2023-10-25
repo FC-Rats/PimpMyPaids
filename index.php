@@ -11,7 +11,7 @@ switch ($p) {
         include_once("login.php");
         break;
     case 'recover-password':
-        include_once("");
+        include_once("recover.php");
     case 'change-password':
         include_once("");
     case 'my-space':

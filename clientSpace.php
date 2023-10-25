@@ -65,7 +65,7 @@
           <i class="fa-solid fa-file-invoice-dollar fa-xl col-3"></i>
         </div>
         <div class="p-3 fs-5 d-flex align-items-center justify-content-center text-center col-12">
-          <span>Pour apprendre à mieux gérer ses soldes : <a href="https://www.wikihow.com/Improve-Your-Sales" target="_blank" class="text-decoration-none">cliquez ici</a></span>
+          <span>Pour apprendre à mieux gérer ses soldes : <a href="https://www.wikihow.com/Improve-Your-Sales" target="_blank" class="text-decoration-none" title="Pour apprendre à mieux gérer ses soldes">cliquez ici</a></span>
         </div>
       </div>
     </div>

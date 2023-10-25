@@ -42,7 +42,7 @@
                             <button type="submit" id="submit-recover-button" class="btn text-dark border-0 text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
                                 <span class="fs-5 fw-semibold">Envoyer</span>
                             </button>
-                            <a href="index.php?p=login" class="ps-4 ps-lg-2 ps-xl-4 btn btn-link text-dark mx-3 text-decoration-none fs-4 fw-semibold">Annuler</a>
+                            <a href="index.php?p=login" class="ps-4 ps-lg-2 ps-xl-4 btn btn-link text-dark mx-3 text-decoration-none fs-4 fw-semibold" title="Annuler">Annuler</a>
                         </div>
                     </div>
                 </form>

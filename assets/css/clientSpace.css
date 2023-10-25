@@ -29,6 +29,10 @@
     }
 }
 
+.espace-client-section a {
+    color: var(--cerulean);
+}
+
 /* chart */
 #container-soldes {
     height: 400px;
