@@ -29,7 +29,7 @@
                         Impayés
                     </a>
                 </li>
-                <li class="nav-item dropdown text-light pe-4">
+                <li class="nav-item dropdown dropdown-center text-light pe-4">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center;">
                         <i class="fa-solid fa-house-user fa-xl"></i><br>
                         Mon Espace
