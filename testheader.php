@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page Title</title>
+  <title>test Header</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="assets/img/logo.ico">
   <!-- Nos pages CSS -->
@@ -22,10 +22,10 @@
 
 <body>
     <?php include('./header.php'); ?>
-  <!-- Bootstrap -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- Beer CSS -->
   <script type="module" src="assets/js/beer.min.js"></script>
   <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>

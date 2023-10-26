@@ -49,6 +49,8 @@
             </div>
         </div>
     </div>
+    <!-- JQuery -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>

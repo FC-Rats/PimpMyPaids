@@ -25,10 +25,10 @@
   <i class="fa-brands fa-github-square"></i>
   <i class="fa-solid fa-magnifying-glass fa-beat" style="color: #1f5120"></i>
   <?php include('./footer.php'); ?>
-  <!-- Bootstrap -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- HighCharts JS -->
   <script src="assets/js/highcharts.js"></script>
 </body>

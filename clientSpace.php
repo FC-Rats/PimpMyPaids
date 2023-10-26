@@ -76,10 +76,10 @@
   <?php include('./footer.php'); ?>
   <script src="assets/js/colorValueSolde.js"></script>
   <script src="assets/js/clientSoldeChart.js"></script>
-  <!-- Bootstrap -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery -->
   <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
