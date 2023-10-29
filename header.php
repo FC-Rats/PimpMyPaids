@@ -1,6 +1,6 @@
-<header class="d-flex flex-wrap justify-content-center py-3 border-bottom bg-primary navbar navbar-expand-lg ">
+<header class="d-flex flex-wrap justify-content-center py-2 border-bottom bg-primary navbar navbar-expand-lg align-center">
     <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto ms-md-4 text-light text-decoration-none navbar-brand">
-        <img src="./assets/img/logo.png" width="30" height="30" alt="">
+        <img src="./assets/img/logorond.png" width="60" height="60" alt="">
         <span class="fs-4">PimpMyPaids</span>
     </a>
 
