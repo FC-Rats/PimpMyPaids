@@ -43,7 +43,7 @@ function getRemises() {
 function getImpayes() {
     switch ($_SESSION["profil"]) {
         case 'PO':
-            //Liste des remises clients avec N°Siren | raison sociale | N°remise | date | nbr transaction | montant total (devise) (Group by N°Siren)
+            //Liste des remises clients avec N°Siren | raison sociale | date vente | date remise | VS N° de carte | num dossier impayé | montant total (devise) (Group by N°Siren)
             return;
         case 'Merchant':
             //Liste de ses impayés avec date vente | date remise | N° carte | N° dossier | montant (devise) |  libellé impayé
