@@ -31,7 +31,7 @@
                     <h2 class="text-center fs-1 pb-5">Mot de passe oublié</h2>
                     <p class="text-center text-dark fs-5 pb-3">Pour renouveler votre mot de passe, veuillez indiquer votre adresse mail ci-dessous.</p>
                     <div class="form-floating mb-3 text-dark">
-                        <input type="email" class="form-control" id="mail" name="mail" placeholder=" " pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" required>
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder=" " pattern="^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$" required>
                         <label for="mail">Adresse mail<span class="required"> *</span></label>
                     </div>
                     <p class="form-label mandatory text-shadow">* champs obligatoires</p>
