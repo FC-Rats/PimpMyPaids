@@ -33,7 +33,7 @@
                         <div class="col-10 col-md-11 col-lg-10 col-xxl-11 mb-3 pe-1">
                             <div class="form-floating text-dark">
                                 <input type="password" class="form-control" id="password" name="password" placeholder=" " required>
-                                <label for="password">Nouveau mot de passe<span class="required"> *</span></label>
+                                <label for="password" class="text-wrap">Nouveau mot de passe<span class="required"> *</span></label>
                             </div>
                         </div>
                         <div class="col-2 col-md-1 col-lg-2 col-xxl-1 d-flex align-items-center justify-content-center p-0 h-100 m-0 pe-3" id="col-eye">
@@ -46,7 +46,7 @@
                         <div class="col-10 col-md-11 col-lg-10 col-xxl-11 mb-3 pe-1">
                             <div class="form-floating text-dark">
                                 <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder=" " required>
-                                <label for="confirm-password">Confirmer le mot de passe<span class="required"> *</span></label>
+                                <label for="confirm-password" class="text-wrap">Confirmer le mot de passe<span class="required"> *</span></label>
                             </div>
                         </div>
                         <div class="col-2 col-md-1 col-lg-2 col-xxl-1 d-flex align-items-center justify-content-center p-0 h-100 m-0 pe-3" id="col-eye">
