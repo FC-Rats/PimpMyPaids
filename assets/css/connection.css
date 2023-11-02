@@ -54,12 +54,12 @@
 }
 
 /*bouton connexion*/
-#submit-button[disabled] {
+#submit-login-button[disabled] {
     background-color: #454545;
     cursor: not-allowed;
 }
 
-#submit-button:not([disabled]) {
+#submit-login-button:not([disabled]) {
     background-color: var(--rasisinBlack);
 }
 
