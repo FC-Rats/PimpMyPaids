@@ -22,9 +22,9 @@
     <div class="container-fluid login-section">
         <div class="row container-cols-login">
             <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center align-items-center p-5">
-                <img class="p-2 img-fluid w-45" src="assets/img/logo.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids" />
+                <img class="p-2 img-fluid img-max w-45" src="assets/img/logorect.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids" />
                 <p class="fs-4 p-0 p-md-5">Découvrez un monde où la gestion de vos finances devient une aventure de luxe, où chaque transaction est une étape vers une vie financière pimpante !</p>
-                <img class="p-2 img-fluid" src="assets/img/safeDeposit.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
+                <img class="p-2 img-fluid img-max" src="assets/img/safeDeposit.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="includes/signIn.php" method="post">
@@ -81,7 +81,7 @@
     </div>
     <script src="assets/js/passwordToggle.js"></script>
     <script src="assets/js/stayConnectedCheckbox.js"></script>
-      <!-- JQuery -->
+    <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>

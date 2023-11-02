@@ -13,15 +13,15 @@ switch ($p) {
     case 'recover-password':
         include_once("recover.php");
     case 'change-password':
-        include_once("");
+        include_once("change.php");
     case 'my-space':
         switch ($_SESSION["type"]) {
             case 'PO':
-                include_once("");
+                include_once("poSpace.php");
             case 'Admin':
                 include_once("");
             case 'Merchant':
-                include_once("");
+                include_once("clientSpace.php");
         }
     case 'list-remise':
         switch ($_SESSION["type"]) {
