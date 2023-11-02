@@ -49,10 +49,12 @@ switch ($p) {
     case 'list-compte':
         if ($_SESSION["type"] == 'PO')
             include_once("");
-            break;
+        break;
     case 'list-user':
         if ($_SESSION["type"] == 'Admin')
             include_once("");
-            break;
+        break;
+    default:
+        include_once("login.php");
+        break;
 }
-?>
