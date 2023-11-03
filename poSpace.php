@@ -29,34 +29,65 @@
 
     <div class="container espace-po-section">
         <div class="row container-cols-espace-po">
-            <div class="col-lg-6 col-12 d-flex flex-column justify-content-center align-items-center pt-4">
+            <div class="col-xl-6 col-12 d-flex flex-column justify-content-center align-items-center pt-4">
                 <div>
                     <div class="pb-5">
                         <h2>Content de vous revoir parmi nous,</h2>
                         <h1>NOM Prénom</h1>
                     </div>
 
-                    <div class="rounded p-5 bg-grey news">
-                        <div class="act rounded p-3 bg-dark fs-5 d-flex align-items-center justify-content-center text-center col-12 text-light">
-                            <span id="date" class="col-3">14/02/2023</span>
-                            <span id="numerocarte" class="col-3">N°123456789</span>
-                            <span class="fw-bold col-3" id="solde">-10000,00 $</span>
-                            <span class="col-1" id="type">Impayé</span>
-                            <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
+                    <div class="rounded p-2 p-md-5 bg-grey news">
+                        <h4 class="text-center">Dernières actions sur l'application</h4>
+                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="date">14/02/2023</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span id="numerocarte">N°123456789</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                            </div>
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="type">Impayé</span>
+                            </div>
+                            <div class="col-2 d-none d-md-block mb-2">
+                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
+                            </div>
                         </div>
-                        <div class="act rounded p-3 bg-dark fs-5 d-flex align-items-center justify-content-center text-center col-12 text-light">
-                            <span id="date" class="col-3">14/02/2023</span>
-                            <span id="numerocarte" class="col-3">N°123456789</span>
-                            <span class="fw-bold col-3" id="solde">-10000,00 $</span>
-                            <span class="col-1" id="type">Impayé</span>
-                            <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
+                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="date">14/02/2023</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span id="numerocarte">N°123456789</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                            </div>
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="type">Impayé</span>
+                            </div>
+                            <div class="col-2 d-none d-md-block mb-2">
+                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
+                            </div>
                         </div>
-                        <div class="act rounded p-3 bg-dark fs-5 d-flex align-items-center justify-content-center text-center col-12 text-light">
-                            <span id="date" class="col-3">14/02/2023</span>
-                            <span id="numerocarte" class="col-3">N°123456789</span>
-                            <span class="fw-bold col-3" id="solde">-10000,00 $</span>
-                            <span class="col-1" id="type">Impayé</span>
-                            <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
+                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="date">14/02/2023</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span id="numerocarte">N°123456789</span>
+                            </div>
+                            <div class="col-6 col-md-3 mb-2">
+                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                            </div>
+                            <div class="col-6 col-md-2 mb-2">
+                                <span id="type">Impayé</span>
+                            </div>
+                            <div class="col-2 d-none d-md-block mb-2">
+                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -66,27 +97,27 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-12 d-flex flex-column align-items-center pt-4">
+            <div class="col-xl-6 col-12 d-flex flex-column align-items-center pt-4">
                 <div id="formulaire" class="formulaire rounded mt-5">
                     <div class="intro-form">
-                        <h3 class="align-items-center d-flex justify-content-center">Demande à l'admin</h3>
+                        <h3 class="align-items-center d-flex justify-content-center pb-2">Demande à l'admin</h3>
                         <div class="choice">
-                            <button id="ajout-btn" class="active">Ajouter</button>
-                            <button id="suppression-btn">Supprimer</button>
+                            <button id="ajout-btn" class="active col-6">Ajouter</button>
+                            <button id="suppression-btn" class="col-6">Supprimer</button>
                         </div>
                     </div>
 
-                    <form id="ajout-form">
+                    <form id="ajout-form" class="mx-auto my-5">
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
                             <label for="username">SIREN</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="RaisonSociale" name="RaisonSociale" placeholder=" " required>
+                            <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
                             <label for="username">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
+                            <input type="email" class="form-control" id="username" name="username" placeholder=" " required>
                             <label for="username">Email</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
@@ -94,18 +125,18 @@
                             <label for="username">Devise</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="textarea" class="form-control" id="Commentaire" name="Commentaire" placeholder=" ">
+                            <input type="textarea" class="form-control" id="commentaire" name="commentaire" placeholder=" ">
                             <label for="username">Commentaire</label>
                         </div>
 
-                        <div class="">
+                        <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
                             <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="submit" value="Ajouter">
                         </div>
                     </form>
 
-                    <form id="suppression-form">
+                    <form id="suppression-form" class="mx-auto my-5">
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="RaisonSociale" name="RaisonSociale" placeholder=" " required>
+                            <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
                             <label for="username">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
@@ -113,11 +144,13 @@
                             <label for="username">Identifiant</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="textarea" class="form-control" id="Commentaire" name="Commentaire" placeholder=" ">
+                            <input type="textarea" class="form-control" id="commentaire" name="commentaire" placeholder=" ">
                             <label for="username">Commentaire</label>
                         </div>
 
-                        <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex align-items-center px-3 py-3 px-md-5" type="submit" value="Supprimer">
+                        <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
+                            <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex align-items-center px-3 py-3 px-md-5" type="submit" value="Supprimer">
+                        </div>
                     </form>
                 </div>
             </div>

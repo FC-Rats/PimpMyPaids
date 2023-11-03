@@ -32,10 +32,6 @@
     width: 90%;
 }
 
-.active {
-    font-weight: bolder;
-}
-
 .choice {
     border-bottom: solid black 2px;
     display: flex;
@@ -44,10 +40,19 @@
 }
 
 .choice button {
-    border: none!important;
     background-color: inherit;
     text-decoration-style: none;
     font-size: 1.5rem;
+}
+
+.choice button.active {
+    font-weight: 900;
+    border:none;
+    border-bottom: 2px solid black!important;
+}
+
+.choice button:not(.active) {
+    border: none!important;
 }
 
 .formulaire {
@@ -61,6 +66,13 @@
     justify-content: flex-start;
     align-items: center;
     padding-top: 10%;
+}
+
+@media (max-width: 1200px) {
+    .formulaire {
+        min-height: auto;
+        margin-bottom: 10%;
+    }
 }
 
 #submit-task-button[disabled] {
