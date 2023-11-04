@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 - - - FONCTIONS UTILES A LA CONNEXION AU SITE - - -
 */
