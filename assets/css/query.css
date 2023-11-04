@@ -1,0 +1,15 @@
+.danger {
+    background-color: rgb(255, 170, 170)!important;
+}
+
+.pasdanger {
+    background-color: var(--lightBlueMunsell)!important;
+}
+
+.compte {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--darkBlueMunsell)!important;
+}
