@@ -109,24 +109,24 @@
 
                     <form id="ajout-form" class="mx-auto my-5">
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
-                            <label for="username">SIREN</label>
+                            <input type="text" class="form-control" id="siren" name="siren" placeholder=" " required>
+                            <label for="siren">SIREN</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
-                            <label for="username">Raison Sociale</label>
+                            <label for="raisonSociale">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="email" class="form-control" id="username" name="username" placeholder=" " required>
-                            <label for="username">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
+                            <label for="email">Email</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
-                            <label for="username">Devise</label>
+                            <input type="text" class="form-control" id="devise" name="devise" placeholder=" " required>
+                            <label for="devise">Devise</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="textarea" class="form-control" id="commentaire" name="commentaire" placeholder=" ">
-                            <label for="username">Commentaire</label>
+                            <textarea class="form-control" id="commentaire" name="commentaire" placeholder=" "></textarea>
+                            <label for="commentaire">Commentaire</label>
                         </div>
 
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
@@ -135,17 +135,17 @@
                     </form>
 
                     <form id="suppression-form" class="mx-auto my-5">
-                        <div class="form-floating mb-3 text-dark">
+                    <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
-                            <label for="username">Raison Sociale</label>
+                            <label for="raisonSociale">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
-                            <label for="username">Identifiant</label>
+                            <input type="text" class="form-control" id="id" name="id" placeholder=" " required>
+                            <label for="id">Identifiant</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="textarea" class="form-control" id="commentaire" name="commentaire" placeholder=" ">
-                            <label for="username">Commentaire</label>
+                            <textarea class="form-control" id="commentaire" name="commentaire" placeholder=" "></textarea>
+                            <label for="commentaire">Commentaire</label>
                         </div>
 
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">

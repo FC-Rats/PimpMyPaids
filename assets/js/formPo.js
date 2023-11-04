@@ -10,7 +10,7 @@ ajoutBtn.addEventListener('click', function() {
     ajoutForm.style.display = 'block';
     suppressionForm.style.display = 'none';
 
-    formulaire.style.backgroundColor = "#FFC65C";
+    formulaire.style.backgroundColor = "#4594ac";
 
     ajoutBtn.classList.add('active');
     suppressionBtn.classList.remove('active');
@@ -20,7 +20,7 @@ suppressionBtn.addEventListener('click', function() {
     ajoutForm.style.display = 'none';
     suppressionForm.style.display = 'block';
 
-    formulaire.style.backgroundColor = "#4594ac";
+    formulaire.style.backgroundColor = "#FFC65C";
 
     suppressionBtn.classList.add('active');
     ajoutBtn.classList.remove('active');

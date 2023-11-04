@@ -59,7 +59,7 @@
     width: 100%;
     display: flex;
     min-height: 70vh;
-    background-color: var(--xanthous);
+    background-color: #4594ac;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
