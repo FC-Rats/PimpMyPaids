@@ -1,6 +1,6 @@
 /* hauteur de la page */
 .container-cols-espace-client, .espace-client-section {
-    min-height: calc(100vh - 193px - 90px);
+    min-height: calc(100vh - 197px - 90px);
 }
 
 /* gris des div */
