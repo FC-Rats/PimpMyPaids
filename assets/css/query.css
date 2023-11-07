@@ -13,3 +13,13 @@
 .btn-primary {
     background-color: var(--darkBlueMunsell)!important;
 }
+
+.accordion-button {
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black!important;
+}

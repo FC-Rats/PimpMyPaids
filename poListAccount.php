@@ -26,7 +26,7 @@
     <div class="container po-list-accounts-section">
             <h1 class="p-4 text-center">Liste des comptes clients</h1>
             <div class="searchnavbar bg-grey d-flex border border-dark ">
-                <form class="d-flex">
+                <form class="d-flex align-items-center justify-content-between">
                     <div class="form-floating text-dark">
                         <input type="text" class="form-control" id="SIREN" name="SIREN" placeholder=" ">
                         <label for="SIREN">N° SIREN</label>
@@ -43,15 +43,15 @@
                         <input type="date" class="form-control ps-4" id="Date" name="Date" placeholder=" ">
                         <label for="Date">Date</label>
                     </div>
-                    <div class="mb-3 mb-md-2 d-flex flex-column align-items-center">
+                    <div class="d-flex flex-column align-items-center">
                         <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="Impaye">
                         <label class="form-check-label label-stay-connected" for="Impaye">
                             Impayés
                         </label>
                     </div>
-                    <div class="form-floating text-dark">
-                            <button type="submit" id="search-login-button" class="btn btn-primary text-uppercase d-flex align-items-center px-2 py-2 px-md-2">
-                                <span class="ms-2 me-2 fs-5">Rechercher</span>
+                    <div class="form-floating text-dark d-flex align-items-center justify-content-between">
+                            <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3">
+                                <span class="me-2 fs-5 text-start">Rechercher</span>
                                 <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                             </button>
                     </div>
@@ -60,7 +60,7 @@
             <div class="headquery d-flex align-items-center justify-content-between mt-5">
             <span>X comptes</span>
                 <div class="export d-flex flex-row-reverse align-items-baseline">
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary border-0">
                         <span id="Export" class="col-6 col-md-1 flex-end">Trier</span>
                         <i class="fa-solid fa-file-export"></i>
                     </button>
@@ -84,7 +84,7 @@
                                 <span id="Devise" class="col-1">(EUR)</span>
                             </div>
                             <div class="export d-flex flex-row-reverse align-items-baseline">
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary border-0">
                                 <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
                                 <i class="fa-solid fa-file-export"></i>
                                 </button>
@@ -109,7 +109,7 @@
                                 <span id="Devise" class="col-1">(EUR)</span>
                             </div>
                             <div class="export d-flex flex-row-reverse align-items-baseline">
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary border-0">
                                 <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
                                 <i class="fa-solid fa-file-export"></i>
                                 </button>
@@ -134,7 +134,7 @@
                                 <span id="Devise" class="col-1">(EUR)</span>
                             </div>
                             <div class="export d-flex flex-row-reverse align-items-baseline">
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary border-0">
                                 <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
                                 <i class="fa-solid fa-file-export"></i>
                                 </button>

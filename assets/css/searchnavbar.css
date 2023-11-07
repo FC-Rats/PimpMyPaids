@@ -17,12 +17,5 @@ form {
 }
 
 .form-floating {
-    margin: 0% 2% 0% 0%!important;
-}
-
-
-input {
-    padding: 15% 0% 0% 0%!important;
-    width: fit-content;
-    height: auto;
+    margin: 0% 0% 0% 0%!important;
 }
