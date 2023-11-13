@@ -1,8 +1,12 @@
 /*====== HEADER ====*/
 header {
     height: 90px!important;
-    z-index: 1000;
 }
+
+header .container {
+    z-index: 1000!important;
+}
+
 
 /*====== ICONES HEADER ====*/
 header .nav-item {
