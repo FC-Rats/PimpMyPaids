@@ -60,7 +60,7 @@
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
             <span>X comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between ">
+            <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
                 <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" aria-label="Default select example">
                     <option selected>Trier</option>
                     <option value="1">SIREN</option>
