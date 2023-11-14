@@ -8,7 +8,7 @@ Highcharts.chart('container', {
         }
     },
     title: {
-        text: 'Répartition des raisons des impayés',
+        text: 'Répartition des raisons des vos impayés',
         align: 'left'
     },
     accessibility: {

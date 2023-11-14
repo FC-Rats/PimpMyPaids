@@ -1,13 +1,12 @@
 .unpaid-element {
-    background-color: #D9D9D9!important;
+    background-color: #D9D9D9 !important;
 }
-
 
 .searchnavbar {
-    height: auto!important;
+    height: auto !important;
 }
 
-.chart-container {
+.chart-container, #sumUnpaids {
     background-color: #c9c9c9;
 }
 
@@ -59,6 +58,19 @@
 }
 
 .highcharts-background {
-    background: none!important;
-    fill: transparent!important;
+    background: none !important;
+    fill: transparent !important;
+}
+
+.form-select {
+    width: auto !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--cerulean) !important;
+    color: white !important;
+    --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e) !important;
+}
+
+.form-select:focus {
+    border-color: black !important;
 }
