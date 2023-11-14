@@ -40,15 +40,15 @@ switch ($p) {
     case 'list-impayés':
         switch ($_SESSION["type"]) {
             case 'PO':
-                include_once("");
+                include_once("poUnpaids.php");
                 break;
             case 'Merchant':
-                include_once("");
+                include_once("clientUnpaids.php");
                 break;
         }
     case 'list-compte':
         if ($_SESSION["type"] == 'PO')
-            include_once("");
+            include_once("poListAccount.php");
         break;
     case 'list-user':
         if ($_SESSION["type"] == 'Admin')

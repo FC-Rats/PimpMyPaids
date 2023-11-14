@@ -26,7 +26,7 @@
     <div class="container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des comptes clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
+        <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
                     <input type="text" class="form-control" id="SIREN" name="SIREN" placeholder=" ">
                     <label for="SIREN">N° SIREN</label>
@@ -60,10 +60,13 @@
         <div class="headquery d-flex align-items-center justify-content-between mt-5">
             <span>X comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
-                <button class="btn btn-primary border-0">
-                    <span id="Export" class="col-6 col-md-1 flex-end">Trier</span>
-                    <i class="fa-solid fa-file-export"></i>
-                </button>
+            <form class="d-flex align-items-center justify-content-around justify-content-lg-between ">
+                <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" aria-label="Default select example">
+                    <option selected>Trier</option>
+                    <option value="1">SIREN</option>
+                    <option value="2">MONTANT</option>
+                </select>
+            </form>
             </div>
         </div>
         <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
