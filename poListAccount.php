@@ -57,7 +57,7 @@
                 </div>
             </form>
         </div>
-        <div class="headquery d-flex align-items-center justify-content-between mt-5">
+        <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
             <span>X comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between ">
