@@ -55,8 +55,7 @@
                         <select class="form-select" aria-label="formSortClientUnpaids">
                             <option selected>Trier les impayés</option>
                             <option value="az">Ordre croissant</option>
-                            <option value="za">Odre décroissant <i class="fa-solid fa-arrow-down-z-a"></i></option>
-                            <option value="motifs">Par motif d'impayés</option>
+                            <option value="za">Odre décroissant</option>
                         </select>
                     </div>
                     <div class="form-floating text-dark d-flex align-items-center justify-content-between mt-1 mb-2 mb-lg-0">
