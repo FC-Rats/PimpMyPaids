@@ -23,3 +23,21 @@
 .accordion-button:not(.collapsed) {
     color: black!important;
 }
+
+.remise-element {
+    background-color: rgb(206, 206, 206) !important;
+}
+
+.container-remise-list{
+    min-height: 380px;
+    min-width: none;
+}
+
+.clear-button {
+    background-color: transparent!important;
+    border: none;
+}
+
+#sumRemises {
+    background-color: #c9c9c9;
+}

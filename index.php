@@ -31,7 +31,7 @@ switch ($p) {
     case 'list-remise':
         switch ($_SESSION["type"]) {
             case 'PO':
-                include_once("");
+                include_once("poRemises.php");
                 break;
             case 'Merchant':
                 include_once("");

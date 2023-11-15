@@ -25,6 +25,7 @@
     <?php include('./header.php'); ?>
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises clients</h1>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale</div>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
@@ -73,8 +74,6 @@
         <div class="container-remise-list">
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="raisonsociale">Raison Sociale</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
@@ -127,8 +126,6 @@
             </div>
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="raisonsociale">Raison Sociale</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
@@ -181,8 +178,6 @@
             </div>
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="raisonsociale">Raison Sociale</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>

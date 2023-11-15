@@ -27,3 +27,13 @@ form {
 .form-select {
     width: fit-content!important;
 }
+
+.remise-section {
+    max-width: 1450px!important;
+}
+
+@media  screen and (max-width: 370px){
+    .headquery {
+        flex-direction: column;
+    }
+}
