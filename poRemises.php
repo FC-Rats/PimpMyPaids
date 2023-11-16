@@ -79,7 +79,7 @@
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button" type="button"
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
             </div>
@@ -133,7 +133,7 @@
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button" type="button"
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
             </div>
@@ -187,7 +187,7 @@
                 <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button" type="button"
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
             </div>
