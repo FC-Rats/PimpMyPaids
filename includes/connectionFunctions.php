@@ -62,7 +62,7 @@ class Connection {
         else {
             throw new Exception("Erreur lors de l'exécution de la requête.");
         }
-}
+    }
 }
 
 $db = new Connection("","","","");
