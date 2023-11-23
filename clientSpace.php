@@ -74,8 +74,8 @@
 
 
     <?php include('./footer.php'); ?>
-    <script src="assets/js/colorValueSolde.js"></script>
-    <script src="assets/js/clientSoldeChart.js"></script>
+    <script src="assets/js/clientColorValueBalance.js"></script>
+    <script src="assets/js/clientBalanceChart.js"></script>
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
