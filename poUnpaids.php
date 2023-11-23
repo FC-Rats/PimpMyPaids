@@ -221,11 +221,12 @@
         </div>
     </div>
     <?php include('./footer.php'); ?>
-    <script src="assets/js/poUnpaidsChart.js"></script>
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="assets/js/poUnpaidsChart.js"></script>
 </body>
 
 </html>

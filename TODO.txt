@@ -1,3 +1,10 @@
 clientSpace : 
 Pour solde, remise, impayes et devise : Include php
 Pour chart : json
+
+clientUnpaids :
+Pour somme total : Include php
+Pour chart : json ?
+Pour liste : json
+Pour sorting : JS ?
+Pour nombre res : Include php

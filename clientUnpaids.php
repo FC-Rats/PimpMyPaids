@@ -29,12 +29,12 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <div class="container po-unpaids-section align-items-center jsutify-content-center">
+    <div class="container client-unpaids-section align-items-center jsutify-content-center">
         <h1 class="p-4 text-center">Vos Impayés</h1>
-        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale</div>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale : <span id="clientSumUnpaids" class="fw-bold">100</span> <span id="clientCurrency">EUR</span></div>
         <div class="d-flex flex-row flex-wrap">
             <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0" style="height: auto!important;">
-                <form class="d-flex align-items-center justify-content-around" id="formPoUnpaids">
+                <form class="d-flex align-items-center justify-content-around" id="formClientUnpaids" onsubmit="return false">
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="date" class="form-control ps-4" id="beforeDate" name="beforeDate" placeholder=" ">
                         <label for="beforeDate">Avant le</label>
@@ -44,22 +44,22 @@
                         <label for="afterDate">Après le</label>
                     </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
-                        <input type="text" class="form-control" id="motif" name="motif" placeholder=" ">
-                        <label for="motif">Motif</label>
+                        <input type="text" class="form-control" id="label" name="label" placeholder=" ">
+                        <label for="label">Motif</label>
                     </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
-                        <input type="number" class="form-control" id="numDossier" name="numDossier" placeholder=" ">
-                        <label for="numDossier">Numéro Dossier</label>
+                        <input type="number" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
+                        <label for="idUnpaid">Numéro Dossier</label>
                     </div>
                     <div class="text-dark d-flex align-items-center justify-content-between">
-                        <select class="form-select" aria-label="formSortClientUnpaids">
-                            <option selected>Trier les impayés</option>
+                        <select class="form-select" id="formSortClientUnpaids">
+                            <option value="noSorting" selected>Trier les impayés</option>
                             <option value="az">Ordre croissant</option>
                             <option value="za">Odre décroissant</option>
                         </select>
                     </div>
                     <div class="form-floating text-dark d-flex align-items-center justify-content-between mt-1 mb-2 mb-lg-0">
-                        <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                        <button type="button" id="searchUnpaidsButton" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
                             <span class="me-2 fs-5 text-start">Rechercher</span>
                             <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                         </button>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
-            <span>X résultats</span>
+            <span><span id="countResults">X</span> résultats</span>
             <select class="form-select mb-2" aria-label="formExportClientDataUnpaids">
                 <option selected>Exporter les données</option>
                 <option value="pdf">PDF</option>
@@ -83,59 +83,60 @@
                 <option value="xls">Xls</option>
             </select>
         </div>
-        <div class="container-unpaid-list">
+        <div id="container-unpaid-list">
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="dateVente">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="dateRemise">Date remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="reseau">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numCarte">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numDossier">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="sens">-</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="montant">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="devise">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="libelle">Libellé</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
+                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
+                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
+                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
+                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
+                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
+                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
+                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="dateVente">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="dateRemise">Date remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="reseau">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numCarte">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numDossier">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="sens">-</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="montant">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="devise">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="libelle">Libellé</span>
+            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
+                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
+                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
+                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
+                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
+                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
+                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
+                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="dateVente">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="dateRemise">Date remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="reseau">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numCarte">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numDossier">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="sens">-</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="montant">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="devise">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="libelle">Libellé</span>
+            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
+                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
+                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
+                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
+                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
+                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
+                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
+                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="dateVente">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="dateRemise">Date remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="reseau">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numCarte">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="numDossier">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="sens">-</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="montant">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="devise">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="libelle">Libellé</span>
+            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
+                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
+                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
+                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
+                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
+                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
+                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
+                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
         </div>
     </div>
     <?php include('./footer.php'); ?>
-    <script src="assets/js/clientUnpaidsChart.js"></script>
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="assets/js/clientUnpaids.js"></script>
 </body>
 
 </html>

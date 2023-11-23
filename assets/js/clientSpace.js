@@ -33,6 +33,7 @@ $(function () {
   });
 });
 
+// a supprimer 
 Highcharts.chart("container-soldes", {
   chart: {
     type: "column",
