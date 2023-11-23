@@ -16,6 +16,23 @@ if (unpaids < 0) {
 }
 
 // clientBalanceChart
+$(function () {
+  $.ajax({
+    url: "Path/to/file.php",
+    type: "POST",
+    dataType: "JSON",
+    data: { idUser },
+    success: function (data) {
+      if (data.clientBalanceEvolution) {
+        //TODO: fill chart
+      }
+    },
+    error: function (data) {
+      console.log(data);
+    },
+  });
+});
+
 Highcharts.chart("container-soldes", {
   chart: {
     type: "column",
