@@ -32,7 +32,41 @@
     <div class="container po-unpaids-section">
         <h1 class="p-4 text-center">Liste des impayés clients</h1>
         <div class="d-flex flex-row flex-wrap">
-            <div class="col-12">
+            <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0">
+                <form class="d-flex align-items-center justify-content-around" id="formPoUnpaids">
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="text" class="form-control" id="siren" name="siren" placeholder=" ">
+                        <label for="siren">N° SIREN</label>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" ">
+                        <label for="raisonSociale">Raison Sociale</label>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="date" class="form-control ps-4" id="beforeDate" name="beforeDate" placeholder=" ">
+                        <label for="beforeDate">Avant le</label>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
+                        <label for="afterDate">Après le</label>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="text" class="form-control" id="motif" name="motif" placeholder=" ">
+                        <label for="motif">Motif</label>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="number" class="form-control" id="numDossier" name="numDossier" placeholder=" ">
+                        <label for="numDossier">Numéro Dossier</label>
+                    </div>
+                    <div class="form-floating text-dark d-flex align-items-center justify-content-between mt-1 mb-2 mb-lg-0">
+                        <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                            <span class="me-2 fs-5 text-start">Rechercher</span>
+                            <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-7 mt-2 mt-md-0">
                 <div class="chart-container border border-1 border-black ms-2 rounded-2 p-2">
                     <figure class="highcharts-figure">
                         <div id="container"></div>
@@ -133,10 +167,9 @@
             </div>
         </div>
         <div class="headquery d-flex align-items-center justify-content-start mt-5 border-bottom border-black">
-            <span>X résultats - Triés par motif</span>
+            <span>X résultats - Somme des impayés par Raison Sociale</span>
         </div>
         <div class="container-unpaid-list">
-            <h4 class="text-uppercase py-2 ms-4 fw-bold">Fraude à la carte</h4>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1" id="numSiren">N° SIREN</span>
                 <span class="col-12 col-sm-6 col-lg-3" id="dateVente">Raison sociale</span>
@@ -145,7 +178,6 @@
                     <span class="col-auto me-2 me-lg-0 col-lg-4" id="montant">Somme</span>
                     <span class="col-3 col-lg-2" id="devise">Devise</span>
                 </div>
-                <span class="col-12 col-sm-6 col-lg-2" id="motif">Motif</span>
                 <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
                     <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient">Détail</button>
                 </div>
@@ -158,7 +190,6 @@
                     <span class="col-auto me-2 me-lg-0 col-lg-4" id="montant">Somme</span>
                     <span class="col-3 col-lg-2" id="devise">Devise</span>
                 </div>
-                <span class="col-12 col-sm-6 col-lg-2" id="motif">Motif</span>
                 <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
                     <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient">Détail</button>
                 </div>
@@ -171,12 +202,10 @@
                     <span class="col-auto me-2 me-lg-0 col-lg-4" id="montant">Somme</span>
                     <span class="col-3 col-lg-2" id="devise">Devise</span>
                 </div>
-                <span class="col-12 col-sm-6 col-lg-2" id="motif">Motif</span>
                 <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
                     <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient">Détail</button>
                 </div>
             </div>
-            <h4 class="text-uppercase py-2 ms-4 fw-bold">Mort</h4>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1" id="numSiren">N° SIREN</span>
                 <span class="col-12 col-sm-6 col-lg-3" id="dateVente">Raison sociale</span>
@@ -185,7 +214,6 @@
                     <span class="col-auto me-2 me-lg-0 col-lg-4" id="montant">Somme</span>
                     <span class="col-3 col-lg-2" id="devise">Devise</span>
                 </div>
-                <span class="col-12 col-sm-6 col-lg-2" id="motif">Motif</span>
                 <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
                     <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient">Détail</button>
                 </div>

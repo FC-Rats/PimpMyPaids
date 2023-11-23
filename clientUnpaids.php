@@ -33,7 +33,7 @@
         <h1 class="p-4 text-center">Vos Impayés</h1>
         <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale</div>
         <div class="d-flex flex-row flex-wrap">
-            <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0">
+            <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0" style="height: auto!important;">
                 <form class="d-flex align-items-center justify-content-around" id="formPoUnpaids">
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="date" class="form-control ps-4" id="beforeDate" name="beforeDate" placeholder=" ">
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
-            <span>X résultats - Triés par motifs d'impayés</span>
+            <span>X résultats</span>
             <select class="form-select mb-2" aria-label="formExportClientDataUnpaids">
                 <option selected>Exporter les données</option>
                 <option value="pdf">PDF</option>
