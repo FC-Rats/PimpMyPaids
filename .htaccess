@@ -1,5 +1,6 @@
 # Ré-écriture des URLS
 RewriteEngine On
+RewriteBase /
 RewriteRule ^(.*)\.html$ $1.php [L]
 
 # Supprimer index.php de l'url

@@ -26,7 +26,7 @@
     <div class="container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des comptes clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
-        <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
+            <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
                     <input type="text" class="form-control" id="SIREN" name="SIREN" placeholder=" ">
                     <label for="SIREN">N° SIREN</label>
@@ -36,37 +36,35 @@
                     <label for="RaisonSociale">Raison Sociale</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="number" class="form-control" id="Montant" name="Montant" placeholder=" ">
-                    <label for="Montant">Montant</label>
-                </div>
-                <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
                     <input type="date" class="form-control ps-4" id="Date" name="Date" placeholder=" ">
                     <label for="Date">Date</label>
                 </div>
-                <div class="d-flex flex-column align-items-center m-1 col-4 col-lg-1">
-                    <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="Impaye">
-                    <label class="form-check-label label-stay-connected" for="Impaye">
-                        Impayés
-                    </label>
-                </div>
-                <div class="form-floating text-dark d-flex align-items-center justify-content-between">
-                    <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
+                    <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex justify-content-center align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>
                         <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                     </button>
+                </div>
+                <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
+                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5">
+                        <option selected>Trier</option>
+                        <option value="siren">N° SIREN</option>
+                        <option value="montant">MONTANT</option>
+                    </select>
                 </div>
             </form>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
             <span>X comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
-                <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" aria-label="Default select example">
-                    <option selected>Trier</option>
-                    <option value="1">SIREN</option>
-                    <option value="2">MONTANT</option>
-                </select>
-            </form>
+                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
+                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5">
+                        <option selected>Exporter les données</option>
+                        <option value="pdf">PDF</option>
+                        <option value="csv">CSV</option>
+                        <option value="xls">XLS</option>
+                    </select>
+                </form>
             </div>
         </div>
         <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
@@ -85,12 +83,6 @@
                             <span id="Sens" class="col-1">+-</span>
                             <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
                             <span id="Devise" class="col-2">(EUR)</span>
-                        </div>
-                        <div class="export d-flex flex-row-reverse align-items-baseline">
-                            <button class="btn btn-primary border-0">
-                                <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
-                                <i class="fa-solid fa-file-export"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -111,12 +103,6 @@
                             <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
                             <span id="Devise" class="col-2">(EUR)</span>
                         </div>
-                        <div class="export d-flex flex-row-reverse align-items-baseline">
-                            <button class="btn btn-primary border-0">
-                                <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
-                                <i class="fa-solid fa-file-export"></i>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -135,12 +121,6 @@
                             <span id="Sens" class="col-1">+-</span>
                             <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
                             <span id="Devise" class="col-2">(EUR)</span>
-                        </div>
-                        <div class="export d-flex flex-row-reverse align-items-baseline">
-                            <button class="btn btn-primary border-0">
-                                <span id="Export" class="col-6 col-md-1 flex-end">Exporter</span>
-                                <i class="fa-solid fa-file-export"></i>
-                            </button>
                         </div>
                     </div>
                 </div>

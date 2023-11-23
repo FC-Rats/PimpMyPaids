@@ -33,12 +33,12 @@
                 <div>
                     <div class="pb-5">
                         <h2>Content de vous revoir parmi nous,</h2>
-                        <h1>NOM Prénom</h1>
+                        <h1><span id="clientName">NOM</span> <span id="clientFirstName">Prénom</span></h1>
                     </div>
                     <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12">
                         <span class="col-4">Votre solde :</span>
-                        <span class="fw-bold col-4" id="solde">-10000,00</span>
-                        <span class="col-1" id="devise">EUR</span>
+                        <span class="fw-bold col-4" id="clientBalance">-10000,00</span>
+                        <span class="col-1 clientCurrency">EUR</span>
                         <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
                     </div>
                     <div class="align-items-center justify-content-center text-center pt-5 d-none d-sm-block">
@@ -54,14 +54,14 @@
                 </div>
                 <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12 my-2">
                     <span class="col-4">Somme remises :</span>
-                    <span class="fw-bold col-4" id="remittance">1000,00</span>
-                    <span class="col-1" id="devise">EUR</span>
+                    <span class="fw-bold col-4" id="clientRemittances">1000,00</span>
+                    <span class="col-1 clientCurrency">EUR</span>
                     <i class="fa-solid fa-money-bill-transfer fa-xl col-3"></i>
                 </div>
                 <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12 my-2">
                     <span class="col-4">Somme impayés :</span>
-                    <span class="fw-bold col-4" id="unpaids">-10000,00</span>
-                    <span class="col-1" id="devise">EUR</span>
+                    <span class="fw-bold col-4" id="clientUnpaids">-10000,00</span>
+                    <span class="col-1 clientCurrency">EUR</span>
                     <i class="fa-solid fa-file-invoice-dollar fa-xl col-3"></i>
                 </div>
                 <div class="p-3 fs-5 d-flex align-items-center justify-content-center text-center col-12">

@@ -60,12 +60,11 @@
             <span>X résultats</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
                 <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5"
-                        aria-label="Default select example">
+                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5">
                         <option selected>Exporter les données</option>
-                        <option value="1">PDF</option>
-                        <option value="2">CSV</option>
-                        <option value="3">XLSX</option>
+                        <option value="pdf">PDF</option>
+                        <option value="csv">CSV</option>
+                        <option value="xls">XLS</option>
                     </select>
                 </form>
             </div>
