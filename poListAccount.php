@@ -81,7 +81,7 @@
                         <div class="infos d-flex flex-column flex-sm-row pb-2">
                             <span id="Transactions" class="col-5 col-sm-5 col-md-6">X transactions</span>
                             <span id="Sens" class="col-1">+-</span>
-                            <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
+                            <span id="Montant" class="col-4 col-sm-4 col-md-3">SOLDE</span>
                             <span id="Devise" class="col-2">(EUR)</span>
                         </div>
                     </div>
