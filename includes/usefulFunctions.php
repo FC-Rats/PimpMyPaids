@@ -4,6 +4,10 @@
 */
 session_start();
 
+function getNames() {
+    return $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = : idUser', array(array(':idUser', $_SESSION['id'])));
+}
+
 function getEspaceData() {
     switch ($_SESSION["profil"]) {
         case 'PO':
@@ -23,25 +27,6 @@ function getEspaceData() {
     }
 }
 
-function getCompte() {
-    switch ($_SESSION["profil"]) {
-        case 'PO':
-            $sql = "SELECT 
-                        c.siren, 
-                        COUNT(t.idTransaction) AS nbTransactions, 
-                        SUM(t.amount) AS montantTotal
-                    FROM CUSTOMER_ACCOUNTS c
-                    LEFT JOIN TRANSACTIONS t ON c.siren = t.siren
-                    GROUP BY c.siren
-                    ORDER BY c.siren";
-            return $db->query($sql);
-        case 'Admin':
-            $sql = "SELECT u.email, u.login, c.currency
-                        FROM USERS u
-                        INNER JOIN CUSTOMER_ACCOUNTS c ON u.idUser = c.idUser";
-            return $db->query($sql);
-    }
-}
 
 function getRemises() {
     switch ($_SESSION["profil"]) {
@@ -88,15 +73,7 @@ function getImpayes() {
     
             $conditions = array(":siren", $_SESSION["siren"]);
     
-            // Conditions supplémentaires
-            if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate'], "t.dateTransac");
-            }
-    
-            if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate'], "t.dateTransac");
-            }
-    
+            // Conditions supplémentaires    
             if (!empty($_POST['motif'])) {
                 $conditions[] = array(":motif", $_POST['motif'], "un.unpaidName");
             }
@@ -124,6 +101,18 @@ function getImpayes() {
             foreach ($conditions as $values) {
                 $query .= "AND {$values[2]} = {$values[0]} ";
             }
+
+            if (!empty($_POST['beforeDate'])) {
+                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+            }
+
+            $query .= "AND beforeDate < :beforeDate";
+    
+            if (!empty($_POST['afterDate'])) {
+                $conditions[] = array(":afterDate", $_POST['afterDate']);
+            }
+
+            $query .= "AND afterDate > :afterDate";
     
             // Add ORDER BY clause
             $query .= $orderBy;

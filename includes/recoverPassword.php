@@ -7,8 +7,8 @@ ini_set('display_errors', 1);
 
 include('../mailer/mailer.php');
 
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
+if (isset($_POST['mail'])) {
+    $email = $_POST['mail'];
 
     $objet = "Récuperation mot de passe";
     $message = " Cher client, 
