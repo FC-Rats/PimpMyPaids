@@ -125,6 +125,10 @@
                             <label for="devise">Devise</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="id" name="id" placeholder=" " required>
+                            <label for="id">Identifiant</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
                             <textarea class="form-control" id="commentaire" name="commentaire" placeholder=" "></textarea>
                             <label for="commentaire">Commentaire</label>
                         </div>
