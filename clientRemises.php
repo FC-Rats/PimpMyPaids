@@ -37,7 +37,7 @@
                     <label for="RaisonSociale">Raison Sociale</label>
                 </div>
                 <div class="form-floating text-dark col-sm-12 col-lg-2">
-                    <input type="number" class="form-control" id="Montant" name="Montant" placeholder=" ">
+                    <input type="number" class="form-control"  name="Montant" placeholder=" ">
                     <label for="Montant">N° Remise</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
@@ -74,10 +74,10 @@
         <div class="container-remise-list">
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
+                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
                 <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
@@ -92,44 +92,44 @@
                 <div class="offcanvas-body">
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6">Date vente</span>
+                        <span class="col-12 col-lg-3">VISA</span>
+                        <span class="col-12 col-lg-3">N° Carte</span>
+                        <span class="col-12 col-lg-5">Montant</span>
+                        <span class="col-12 col-lg-1">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                 </div>
             </div>
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
+                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
                 <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
@@ -144,44 +144,44 @@
                 <div class="offcanvas-body">
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                 </div>
             </div>
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                 id="">
-                <span class="col-12 col-sm-6 col-lg-1" id="numremise">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" id="datetraitement">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="nbtransactions">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" id="montant"> + Montant total (EUR)</span>
+                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
                 <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight">+</button>
@@ -196,35 +196,35 @@
                 <div class="offcanvas-body">
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" id="Datevente">Date vente</span>
-                        <span class="col-12 col-lg-3" id="CB">VISA</span>
-                        <span class="col-12 col-lg-3" id="numcarte">N° Carte</span>
-                        <span class="col-12 col-lg-5" id="numcarte">Montant</span>
-                        <span class="col-12 col-lg-1" id="numcarte">EUR</span>
+                        <span class="col-12 col-lg-6" >Date vente</span>
+                        <span class="col-12 col-lg-3" >VISA</span>
+                        <span class="col-12 col-lg-3" >N° Carte</span>
+                        <span class="col-12 col-lg-5" >Montant</span>
+                        <span class="col-12 col-lg-1" >EUR</span>
                     </div>
                 </div>
             </div>

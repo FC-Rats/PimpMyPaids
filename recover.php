@@ -38,7 +38,7 @@
                     <!-- doit etre sous la forme -->
                     <div class="text-center d-flex flex-column justify-content-center">
                         <span id="erreur"></span>
-                        <div class="d-flex justify-content-center align-items-center mb-5">
+                        <div class="d-flex justify-content-center align-items-center mb-5 mt-3">
                             <button type="submit" id="submit-recover-button" class="btn text-dark border-0 text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
                                 <span class="fs-5 fw-semibold">Envoyer</span>
                             </button>

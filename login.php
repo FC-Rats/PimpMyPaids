@@ -55,7 +55,7 @@
                     </div>
                     <div class="text-center d-flex flex-column justify-content-center">
                         <span id="erreur"></span>
-                        <div class="mx-auto mb-5">
+                        <div class="mx-auto mb-4 mt-3">
                             <button type="submit" id="submit-login-button" class="btn btn-dark text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
                                 <i class="fa-solid fa-lock"></i>
                                 <span class="ms-2 fs-5">Connexion</span>

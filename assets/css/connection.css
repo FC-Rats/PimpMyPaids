@@ -71,7 +71,7 @@
 
 /* label champs obligatoires */
 .mandatory {
-    color: rgb(228, 93, 93);
+    color: rgb(255, 115, 115);
     font-size: 15px;
     letter-spacing: 1.5px;
     font-weight: 800;
@@ -100,7 +100,7 @@
 }
 
 .text-shadow {
-    text-shadow: 0px 2px 12px #000000;
+    text-shadow: none;
 }
 
 /* ===== CHANGE PASSWORD ===== */
@@ -130,7 +130,7 @@
 
 /*bouton change*/
 #submit-button[disabled] {
-    background-color: #ffcf77;
+    background-color: #a5a5a5;
     cursor: not-allowed;
 }
 

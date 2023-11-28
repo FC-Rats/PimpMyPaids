@@ -136,7 +136,6 @@
                             <textarea class="form-control" id="comment" name="comment" placeholder=" "></textarea>
                             <label for="comment">Commentaire</label>
                         </div>
-
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
                             <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="submit" value="Ajouter">
                         </div>
