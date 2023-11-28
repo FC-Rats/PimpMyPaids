@@ -1,3 +1,7 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+    $_SESSION["siren"] = "123456789";
+} ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -85,7 +89,7 @@
         </div>
         <div id="container-unpaid-list">
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
                 <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
                 <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
                 <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
@@ -96,7 +100,7 @@
                 <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
                 <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
                 <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
                 <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
@@ -107,7 +111,7 @@
                 <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
                 <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
                 <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
                 <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
@@ -118,7 +122,7 @@
                 <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
             </div>
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-            <span class="col-12 col-sm-6 col-lg-1 dateVente">Date vente</span>
+                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
                 <span class="col-12 col-sm-6 col-lg-1 dateRemittance">Date remise</span>
                 <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
                 <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
@@ -131,6 +135,11 @@
         </div>
     </div>
     <?php include('./footer.php'); ?>
+
+    <script>
+        var siren = <?php echo json_encode($_SESSION["siren"]); ?>;
+    </script>
+
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->

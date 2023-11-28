@@ -1,11 +1,15 @@
 var listClientUnpaidsData = "";
+var beforeDate = "";
+var afterDate = "";
+var label = "";
+var idUnpaid = "";
 
 $(function () {
     $.ajax({
         url: "Path/to/file.php",
         type: "POST",
         dataType: "JSON",
-        data: { idUser },
+        data: { siren },
         success: function (data) {
             if (data.clientUnpaidsGroupByReason) {
                 //TODO: fill chart
@@ -16,12 +20,19 @@ $(function () {
         },
     });
 
-    listClientUnpaids(idUser, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+    beforeDate = $('#beforeDate').val();
+    afterDate = $('#afterDate').val();
+    label = $('#label').val();
+    idUnpaid = $('#idUnpaid').val();
+    listClientUnpaids(siren, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
 
     $("#formSortClientUnpaids").on("change", function () {
-        // other varaibles to initialize !
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        label = $('#label').val();
+        idUnpaid = $('#idUnpaid').val();
         listClientUnpaids(
-            idUser,
+            siren,
             beforeDate,
             afterDate,
             label,
@@ -31,13 +42,16 @@ $(function () {
     });
 
     $("#searchUnpaidsButton").on("click", function () {
-        // other varaibles to initialize !
-        listClientUnpaids(idUser, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        label = $('#label').val();
+        idUnpaid = $('#idUnpaid').val();
+        listClientUnpaids(siren, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
     });
 });
 
 function listClientUnpaids(
-    idUser,
+    siren,
     beforeDate,
     afterDate,
     label,
@@ -48,7 +62,7 @@ function listClientUnpaids(
         url: "Path/to/file.php",
         type: "POST",
         dataType: "JSON",
-        data: { idUser, beforeDate, afterDate, label, idUnpaid, sort },
+        data: { siren, beforeDate, afterDate, label, idUnpaid, sort },
         success: function (data) {
             listClientUnpaidsData = data.ListClientUnpaids;
         },

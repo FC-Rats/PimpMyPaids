@@ -93,6 +93,7 @@ $_SESSION["try"] = 3; ?>
             </div>
         </div>
     </div>
+    
     <script>
         var nbAttemptsCo = <?php echo json_encode($_SESSION["try"]); ?>;
     </script>
