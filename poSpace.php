@@ -44,16 +44,16 @@
                         <!-- getEspaceData() -->
                         <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="date">14/02/2023</span>
+                                <span >14/02/2023</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span id="numerocarte">N°123456789</span>
+                                <span >N°123456789</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                                <span class="fw-bold" >-10000,00 $</span>
                             </div>
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="type">Impayé</span>
+                                <span >Impayé</span>
                             </div>
                             <div class="col-2 d-none d-md-block mb-2">
                                 <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
@@ -61,16 +61,16 @@
                         </div>
                         <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="date">14/02/2023</span>
+                                <span >14/02/2023</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span id="numerocarte">N°123456789</span>
+                                <span >N°123456789</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                                <span class="fw-bold" >-10000,00 $</span>
                             </div>
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="type">Impayé</span>
+                                <span >Impayé</span>
                             </div>
                             <div class="col-2 d-none d-md-block mb-2">
                                 <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
@@ -78,16 +78,16 @@
                         </div>
                         <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="date">14/02/2023</span>
+                                <span >14/02/2023</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span id="numerocarte">N°123456789</span>
+                                <span >N°123456789</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" id="solde">-10000,00 $</span>
+                                <span class="fw-bold" >-10000,00 $</span>
                             </div>
                             <div class="col-6 col-md-2 mb-2">
-                                <span id="type">Impayé</span>
+                                <span >Impayé</span>
                             </div>
                             <div class="col-2 d-none d-md-block mb-2">
                                 <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>

@@ -29,7 +29,7 @@
             <!-- getAccounts.php -->
             <form id="poListAccountsForm" class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="text" class="form-control" id="siren" name="siren" placeholder=" ">
+                    <input type="text" class="form-control" name="siren" placeholder=" ">
                     <label for="siren">N° SIREN</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
@@ -74,18 +74,18 @@
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        <span id="Siren" class="col-3 col-md-1">SIREN</span>
+                        <span class="col-3 col-md-1">SIREN</span>
                         <span class="col-1">-</span>
-                        <span id="RaisonSociale" class="col-6 col-md-3">RAISON SOCIALE</span>
+                        <span  class="col-6 col-md-3">RAISON SOCIALE</span>
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse">
                     <div class="accordion-body">
                         <div class="infos d-flex flex-column flex-sm-row pb-2">
-                            <span id="Transactions" class="col-5 col-sm-5 col-md-6">X transactions</span>
-                            <span id="Sens" class="col-1">+-</span>
-                            <span id="Montant" class="col-4 col-sm-4 col-md-3">SOLDE</span>
-                            <span id="Devise" class="col-2">(EUR)</span>
+                            <span class="col-5 col-sm-5 col-md-6">X transactions</span>
+                            <span class="col-1">+-</span>
+                            <span class="col-4 col-sm-4 col-md-3">SOLDE</span>
+                            <span class="col-2">(EUR)</span>
                         </div>
                     </div>
                 </div>
@@ -93,18 +93,18 @@
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed rounded compte danger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        <span id="Siren" class="col-3 col-md-1">SIREN</span>
+                        <span class="col-3 col-md-1">SIREN</span>
                         <span class="col-1">-</span>
-                        <span id="RaisonSociale" class="col-6 col-md-3">RAISON SOCIALE</span>
+                        <span  class="col-6 col-md-3">RAISON SOCIALE</span>
                     </button>
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse">
                     <div class="accordion-body">
                         <div class="infos d-flex flex-column flex-sm-row pb-2">
-                            <span id="Transactions" class="col-5 col-sm-5 col-md-6">X transactions</span>
-                            <span id="Sens" class="col-1">+-</span>
-                            <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
-                            <span id="Devise" class="col-2">(EUR)</span>
+                            <span  class="col-5 col-sm-5 col-md-6">X transactions</span>
+                            <span  class="col-1">+-</span>
+                            <span class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
+                            <span class="col-2">(EUR)</span>
                         </div>
                     </div>
                 </div>
@@ -112,18 +112,18 @@
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed compte rounded pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                        <span id="Siren" class="col-3 col-md-1">SIREN</span>
+                        <span class="col-3 col-md-1">SIREN</span>
                         <span class="col-1">-</span>
-                        <span id="RaisonSociale" class="col-6 col-md-3">RAISON SOCIALE</span>
+                        <span  class="col-6 col-md-3">RAISON SOCIALE</span>
                     </button>
                 </h2>
                 <div id="flush-collapse3" class="accordion-collapse collapse">
                     <div class="accordion-body">
                         <div class="infos d-flex flex-column flex-sm-row pb-2">
-                            <span id="Transactions" class="col-5 col-sm-5 col-md-6">X transactions</span>
-                            <span id="Sens" class="col-1">+-</span>
-                            <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
-                            <span id="Devise" class="col-2">(EUR)</span>
+                            <span  class="col-5 col-sm-5 col-md-6">X transactions</span>
+                            <span  class="col-1">+-</span>
+                            <span class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
+                            <span class="col-2">(EUR)</span>
                         </div>
                     </div>
                 </div>

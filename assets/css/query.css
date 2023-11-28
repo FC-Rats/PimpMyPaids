@@ -41,3 +41,10 @@
 #sumRemises {
     background-color: #c9c9c9;
 }
+
+.pagi {
+    border-radius: 20%;
+    width: 12%;
+    color: var(--darkBlueMunsell);
+    font-weight: bold;
+}
