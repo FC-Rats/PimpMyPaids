@@ -58,18 +58,23 @@
             </form>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom ">
-            <span>X résultats</span>
+            <div class="d-flex flex-row" >
+                <span class="px-2">X résultats </span>
+                <span class="d-flex flex-row">Afficher<input type="number" id="typeNumber" class="pagi mx-2" placeholder="10" min="0" max="100"/>lignes par page</span>
+            </div>
             <div class="export d-flex flex-row-reverse align-items-baseline">
                 <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5"
-                        aria-label="Default select example">
+                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5">
                         <option selected>Exporter les données</option>
-                        <option value="1">PDF</option>
-                        <option value="2">CSV</option>
-                        <option value="3">XLSX</option>
+                        <option value="pdf">PDF</option>
+                        <option value="csv">CSV</option>
+                        <option value="xls">XLS</option>
                     </select>
                 </form>
             </div>
+        </div>
+        <div class="d-flex flex-row my-1" >
+            <span class="d-flex flex-row">Afficher la page<input type="number" id="typeNumber" class="pagi mx-2" placeholder="1" min="0"/></span>
         </div>
         <div class="container-remise-list">
             <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
