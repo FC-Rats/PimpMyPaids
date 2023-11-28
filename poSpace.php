@@ -26,6 +26,8 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
+    <?php //include('../includes/usefulFunctions.php'); 
+    ?>
 
     <div class="container espace-po-section">
         <div class="row container-cols-espace-po">
@@ -33,11 +35,13 @@
                 <div>
                     <div class="pb-5">
                         <h2>Content de vous revoir parmi nous,</h2>
-                        <h1>NOM Prénom</h1>
+                        <h1><span id="poName">NOM</span> <span id="poFirstName">Prénom</span></h1>
+                        <!-- getNames() -->
                     </div>
 
                     <div class="rounded p-2 p-md-5 bg-grey news">
                         <h4 class="text-center">Dernières actions sur l'application</h4>
+                        <!-- getEspaceData() -->
                         <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
                             <div class="col-6 col-md-2 mb-2">
                                 <span id="date">14/02/2023</span>
@@ -107,26 +111,30 @@
                         </div>
                     </div>
 
-                    <form id="ajout-form" class="mx-auto my-5">
+                    <form id="ajout-form" class="mx-auto my-5" action="../includes/addMerchant.php" method="POST">
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
+                            <label for="login">Identifiant</label>
+                        </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="siren" name="siren" placeholder=" " required>
                             <label for="siren">SIREN</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
-                            <label for="raisonSociale">Raison Sociale</label>
+                            <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" " required>
+                            <label for="companyName">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
                             <label for="email">Email</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="devise" name="devise" placeholder=" " required>
-                            <label for="devise">Devise</label>
+                            <input type="text" class="form-control" id="currency" name="currency" placeholder=" " required>
+                            <label for="currency">Devise</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <textarea class="form-control" id="commentaire" name="commentaire" placeholder=" "></textarea>
-                            <label for="commentaire">Commentaire</label>
+                            <textarea class="form-control" id="comment" name="comment" placeholder=" "></textarea>
+                            <label for="comment">Commentaire</label>
                         </div>
 
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
@@ -134,18 +142,18 @@
                         </div>
                     </form>
 
-                    <form id="suppression-form" class="mx-auto my-5">
-                    <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="raisonSociale" name="raisonSociale" placeholder=" " required>
-                            <label for="raisonSociale">Raison Sociale</label>
+                    <form id="suppression-form" class="mx-auto my-5" action="../includes/deleteMerchant.php" method="POST">
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" " required>
+                            <label for="companyName">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="id" name="id" placeholder=" " required>
-                            <label for="id">Identifiant</label>
+                            <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
+                            <label for="login">Identifiant</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <textarea class="form-control" id="commentaire" name="commentaire" placeholder=" "></textarea>
-                            <label for="commentaire">Commentaire</label>
+                            <textarea class="form-control" id="comment" name="comment" placeholder=" "></textarea>
+                            <label for="comment">Commentaire</label>
                         </div>
 
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">

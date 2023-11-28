@@ -26,18 +26,19 @@
     <div class="container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des comptes clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
+            <!-- getAccounts.php -->
+            <form id="poListAccountsForm" class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="text" class="form-control" id="SIREN" name="SIREN" placeholder=" ">
-                    <label for="SIREN">N° SIREN</label>
+                    <input type="text" class="form-control" id="siren" name="siren" placeholder=" ">
+                    <label for="siren">N° SIREN</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="text" class="form-control" id="RaisonSociale" name="RaisonSociale" placeholder=" ">
-                    <label for="RaisonSociale">Raison Sociale</label>
+                    <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" ">
+                    <label for="companyName">Raison Sociale</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="date" class="form-control ps-4" id="Date" name="Date" placeholder=" ">
-                    <label for="Date">Date</label>
+                    <input type="date" class="form-control ps-4" id="date" name="date" placeholder=" ">
+                    <label for="date">Date</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
                     <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex justify-content-center align-items-center px-2 py-2 px-md-3 col-12">
@@ -46,8 +47,9 @@
                     </button>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
-                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5">
-                        <option selected>Trier</option>
+                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5" id="sortAccount">
+                        <!-- sortAccount -->
+                        <option value="noSorting" selected>Trier</option>
                         <option value="siren">N° SIREN</option>
                         <option value="montant">MONTANT</option>
                     </select>
@@ -67,6 +69,7 @@
                 </form>
             </div>
         </div>
+        <!-- $accountInfo -->
         <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
@@ -81,7 +84,7 @@
                         <div class="infos d-flex flex-column flex-sm-row pb-2">
                             <span id="Transactions" class="col-5 col-sm-5 col-md-6">X transactions</span>
                             <span id="Sens" class="col-1">+-</span>
-                            <span id="Montant" class="col-4 col-sm-4 col-md-3">RAISON SOCIALE</span>
+                            <span id="Montant" class="col-4 col-sm-4 col-md-3">montant</span>
                             <span id="Devise" class="col-2">(EUR)</span>
                         </div>
                     </div>

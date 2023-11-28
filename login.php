@@ -30,8 +30,8 @@
                 <form action="includes/signIn.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
                     <div class="form-floating mb-3 text-dark">
-                        <input type="text" class="form-control" id="username" name="username" placeholder=" " required>
-                        <label for="username">Identifiant<span class="required"> *</span></label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
+                        <label for="login">Identifiant<span class="required"> *</span></label>
                     </div>
                     <div class="row">
                         <div class="col-10 col-md-11 col-lg-10 col-xxl-11 mb-3 pe-1">
