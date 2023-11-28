@@ -1,0 +1,22 @@
+/* hauteur de la page */
+.container-cols-espace-admin, .espace-admin-section {
+    min-height: calc(100vh - 193px - 90px);
+    margin-bottom: 1%;
+}
+
+
+.adminnews {
+    width: 100%;
+}
+
+.ajout {
+    background-color: var(--lightBlueMunsell)!important;
+}
+
+.delete {
+    background-color: var(--xanthous)!important;
+}
+
+.accordion-item {
+    border-radius: 10px!important;
+}

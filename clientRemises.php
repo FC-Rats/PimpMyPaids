@@ -97,87 +97,35 @@
                 <div class="offcanvas-body">
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6">Date vente</span>
-                        <span class="col-12 col-lg-3">VISA</span>
-                        <span class="col-12 col-lg-3">N° Carte</span>
-                        <span class="col-12 col-lg-5">Montant</span>
-                        <span class="col-12 col-lg-1">EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
-                    </div>
-                </div>
-            </div>
-            <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                id="">
-                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">+</button>
-            </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Détail Remises Compte <br> RAISON SOCIALE - N° Remise</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                 </div>
             </div>
@@ -201,35 +149,87 @@
                 <div class="offcanvas-body">
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                     <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
                         id="">
-                        <span class="col-12 col-lg-6" >Date vente</span>
-                        <span class="col-12 col-lg-3" >VISA</span>
-                        <span class="col-12 col-lg-3" >N° Carte</span>
-                        <span class="col-12 col-lg-5" >Montant</span>
-                        <span class="col-12 col-lg-1" >EUR</span>
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
+                    </div>
+                </div>
+            </div>
+            <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
+                id="">
+                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">+</button>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Détail Remises Compte <br> RAISON SOCIALE - N° Remise</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
+                        id="">
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
+                    </div>
+                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
+                        id="">
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
+                    </div>
+                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
+                        id="">
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
+                    </div>
+                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
+                        id="">
+                        <span class="col-12">Date vente</span>
+                        <span class="col-4">VISA</span>
+                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">Montant</span>
+                        <span class="col-8">EUR</span>
                     </div>
                 </div>
             </div>
