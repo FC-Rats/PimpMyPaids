@@ -1,14 +1,14 @@
 session : 
-    nom
-    prenom    
+    name
+    firstName
     siren
     profil
-    nb_tentatives_co
+    try
 
 login : 
     login avec id+mdp
     rester connecté
-    incrémenter le compteur nb_tentatives_co
+    incrémenter le compteur try
 
 recover :
     input email

@@ -1,5 +1,8 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+} ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset='utf-8'>
@@ -27,7 +30,7 @@
                 <img class="p-2 img-fluid img-max" src="assets/img/forgotPassword.svg" alt="J'ai oublié mon mot de passe" title="J'ai oublié mon mot de passe" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="includes/recoverPassword.php" method="post">
+                <form action="./includes/recoverPassword.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Mot de passe oublié</h2>
                     <p class="text-center text-dark fs-5 pb-3">Pour renouveler votre mot de passe, veuillez indiquer votre adresse mail ci-dessous.</p>
                     <div class="form-floating mb-3 text-dark">
@@ -53,7 +56,6 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
 
 </body>
 

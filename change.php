@@ -1,5 +1,8 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+} ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset='utf-8'>
@@ -27,7 +30,7 @@
                 <img class="p-2 img-fluid img-max " src="assets/img/authpassword.svg" alt="Je change mon mot de passe" title="Je change mon mot de passe" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="includes/recoverPassword.php" method="post">
+                <form action="./includes/updatePassword.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Changement du mot de passe</h2>
                     <div class="row">
                         <div class="col-10 col-md-11 col-lg-10 col-xxl-11 mb-3 pe-1">
@@ -85,7 +88,6 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/passwordCheck.js"></script>
     <script src="assets/js/passwordToggle.js"></script>
-    <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
 
 </body>
 

@@ -1,5 +1,10 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+}
+$_SESSION["try"] = 3; ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset='utf-8'>
@@ -27,7 +32,7 @@
                 <img class="p-2 img-fluid img-max" src="assets/img/safeDeposit.svg" alt="Image de coffre-fort" title="Image de coffre-fort" />
             </div>
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
-                <form action="includes/signIn.php" method="post">
+                <form action="./includes/signIn.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
@@ -66,27 +71,38 @@
                 </form>
             </div>
         </div>
-        <!--Toast -->
+        <!--Toasts -->
         <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
-            <div class="toast fade show w-auto" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast toastAlert fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                     <div class="toast-body fs-5">
                         C'est la 2<sup>e</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
-                        <!--echo $error-->
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
+            <div class="toast toastQuit fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body fs-5">
+                        Vous avez utilisé vos 3 tentatives de connexion... Vous ne pouvez plus vous connecter !
                     </div>
                     <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="assets/js/passwordToggle.js"></script>
-    <script src="assets/js/stayConnectedCheckbox.js"></script>
+    <script>
+        var nbAttemptsCo = <?php echo json_encode($_SESSION["try"]); ?>;
+    </script>
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="assets/js/material-dynamic-colors.min.js"></script>
-
+    <script src="assets/js/passwordToggle.js"></script>
+    <script src="assets/js/stayConnectedCheckbox.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>
