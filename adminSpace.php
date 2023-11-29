@@ -33,13 +33,13 @@
     <div class="container espace-admin-section">
         <div class="row container-cols-espace-admin ">
             <div class="col-xl-6 col-12 d-flex flex-column justify-content-center align-items-center pt-4">
-                    <div class="pb-5">
-                        <h2>Content de vous revoir parmi nous,</h2>
-                        <h1>Administrateur</h1>
-                    </div>
+                <div class="pb-5">
+                    <h2>Content de vous revoir parmi nous,</h2>
+                    <h1>Administrateur</h1>
+                </div>
 
-                    <div class="rounded p-2 p-md-5 bg-grey adminnews">
-                        <h4 class="text-center">Dernières requetes du Product Owner</h4>
+                <div class="rounded p-2 p-md-5 bg-grey adminnews">
+                    <h4 class="text-center">Dernières requetes du Product Owner</h4>
 
 
                     <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
@@ -93,7 +93,7 @@
                             <div id="flush-collapse3" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <div class="infos d-flex flex-wrap pb-2">
-                                    <span class="col-12">Raison Sociale : RS</span>
+                                        <span class="col-12">Raison Sociale : RS</span>
                                         <span class="col-12">Num Siren : 0125412265542415</span>
                                         <span class="col-12">Devise : EUR</span>
                                         <span class="col-12">Login : RS</span>
