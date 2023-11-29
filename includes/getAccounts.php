@@ -17,8 +17,8 @@ switch ($_SESSION["profil"]) {
                         c.companyName,
                         COUNT(t.idTransaction) AS nbTransactions,
                         SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montant,
-                    FROM CUSTOMER_ACCOUNTS c
-                    LEFT JOIN TRANSACTIONS t ON c.siren = t.siren";
+                    FROM TRAN_CUSTOMER_ACCOUNTS c
+                    LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
             foreach ($conditions as $values) {
                 $query .= "AND {$values[2]} = {$values[0]} ";
@@ -26,9 +26,8 @@ switch ($_SESSION["profil"]) {
             
             if (!empty($_POST['date'])) {
                 $conditions[] = array(":date", $_POST['date']);
+                $query .= "AND dateTransac < :date";
             }
-
-            $query .= "AND dateTransac < :date";
 
             $orderBy = "";
             if (!empty($_POST['sortAccount'])) {
@@ -43,8 +42,8 @@ switch ($_SESSION["profil"]) {
 
         case 'Admin':
             $sql = "SELECT u.email, u.login, c.currency
-                        FROM USERS u
-                        INNER JOIN CUSTOMER_ACCOUNTS c ON u.idUser = c.idUser";
-            return $db->query($sql);
+                        FROM TRAN_USERS u
+                        INNER JOIN TRAN_CUSTOMER_ACCOUNTS c ON u.idUser = c.idUser";
+            $accountAdmin = $db->query($sql);
     }
 ?>
