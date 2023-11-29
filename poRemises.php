@@ -22,30 +22,31 @@
 </head>
 
 <body>
+    <!-- listRemittances.php -->
     <?php include('./header.php'); ?>
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" method="POST">
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control"  name="SIREN" placeholder=" ">
-                    <label for="SIREN">N° SIREN</label>
+                    <input type="text" class="form-control" name="siren" id="siren" placeholder=" ">
+                    <label for="siren">N° SIREN</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control"  name="RaisonSociale" placeholder=" ">
-                    <label for="RaisonSociale">Raison Sociale</label>
+                    <input type="text" class="form-control" name="companyName" id="companyName" placeholder=" ">
+                    <label for="companyName">Raison Sociale</label>
                 </div>
                 <div class="form-floating text-dark col-sm-12 col-lg-2">
-                    <input type="number" class="form-control"  name="Montant" placeholder=" ">
-                    <label for="Montant">N° Remise</label>
+                    <input type="number" class="form-control" name="remittanceNumber" id="remittanceNumber" placeholder=" ">
+                    <label for="remittanceNumber">N° Remise</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="date" class="form-control ps-4 hidden" id="Date" name="Date" placeholder="">
-                    <label for="Date">Avant le</label>
+                    <input type="date" class="form-control ps-4 hidden" id="beforeDate" name="beforeDate" placeholder="">
+                    <label for="beforeDate">Avant le</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="date" class="form-control ps-4" id="Date" name="Date" placeholder=" ">
-                    <label for="Date">Apres le</label>
+                    <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
+                    <label for="afterDate">Apres le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
                     <button type="submit" id="search-login-button"

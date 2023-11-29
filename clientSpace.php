@@ -29,7 +29,7 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-
+    <!-- getEspaceData() -->
     <div class="container espace-client-section">
         <div class="row container-cols-espace-client">
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center pt-4">
