@@ -1,0 +1,50 @@
+.danger {
+    background-color: rgb(255, 170, 170)!important;
+}
+
+.pasdanger {
+    background-color: var(--lightBlueMunsell)!important;
+}
+
+.compte {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--darkBlueMunsell)!important;
+}
+
+.accordion-button {
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black!important;
+}
+
+.remise-element {
+    background-color: rgb(206, 206, 206) !important;
+}
+
+.container-remise-list{
+    min-height: 380px;
+    min-width: none;
+}
+
+.clear-button {
+    background-color: transparent!important;
+    border: none;
+}
+
+#sumRemises {
+    background-color: #c9c9c9;
+}
+
+.pagi {
+    border-radius: 20%;
+    width: 20%;
+    color: var(--darkBlueMunsell);
+    font-weight: bold;
+}

@@ -1,0 +1,15 @@
+/* hauteur de page */
+.container-home {
+    min-height: calc(100vh - 200px)!important;
+}
+
+/* bouton se connecter */
+.container-home button {
+    background-color: var(--cerulean);
+    color: var(--floralWhite);
+}
+
+.container-home button:hover {
+    background-color: var(--darkBlueMunsell);
+    color: var(--floralWhite);
+}

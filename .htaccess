@@ -1,0 +1,11 @@
+# Ré-écriture des URLS
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(.*)\.html$ $1.php [L]
+
+# Supprimer index.php de l'url
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index\.php($|\ |\?)
+RewriteRule ^ /%1 [R=301,L]
+
+#Custom 404 errors
+ErrorDocument 404 '/PimpMyPaids/404.php'

@@ -1,0 +1,58 @@
+/* ===== ROOT ===== */
+:root {
+    --cerulean: #006F95;
+    --darkBlueMunsell: #0085A2;
+    --lightBlueMunsell: #009CB0;
+    --xanthous: #FFC65C;
+    --floralWhite: #F8F4EA;
+    --rasisinBlack: #272727;
+}
+/* Colors
+    --bs-cerulean: 0,111,149;
+    --bs-darkBlueMunsell: 0,133,162;
+    --bs-lightBlueMunsell: 0,156,176;
+    --bs-xanthous: 255,198,92;
+    --bs-floralWhite: 248,244,234;
+    --bs-rasisinBlack: 39,39,39;
+*/
+
+@font-face {
+    font-family: 'Glegoo-Regular';
+    src: url('./../fonts/Glegoo/Glegoo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Glegoo-Bold';
+    src: url('./../fonts/Glegoo/Glegoo-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SplineSans-Regular';
+    src: url('./../fonts/Spline_Sans/static/SplineSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SplineSans-Bold';
+    src: url('./../fonts/Spline_Sans/static/SplineSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--floralWhite)!important;
+    font-family: 'SplineSans-Regular'!important;
+}
+
+.titleFont {
+    font-family: 'Glegoo-Bold'!important;
+}
+
+.po-list-accounts-section {
+    min-height: calc(100vh - 197px - 90px);
+}

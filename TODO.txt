@@ -1,0 +1,53 @@
+session : 
+    name
+    firstName
+    siren
+    profil
+    try
+
+login : 
+    login avec id+mdp
+    rester connecté
+    incrémenter le compteur try
+
+recover :
+    input email
+    envoi mail
+
+change pwd :
+    input nouveau mdp*2
+    refaire les test de critères de mdp côté serveur
+    hashage
+
+espace client : 
+    solde actuel → include
+    somme remises actuelle → include
+    somme impayés actuelle → include
+    graph sur 12 mois glissants → ajax
+
+remises client : 
+    somme totale actuelle → include
+    recherche → ajax
+(on oublie pas de donner le détail )
+
+impayés client : 
+    somme totale actuelle → somme en js
+    graph par motif → ajax
+    recherche + tri → ajax
+
+espace PO : 
+    dernières actions → include
+    demande à l'admin → ajax
+
+liste comptes : 
+    recherche + tri → ajax
+
+liste remises PO : 
+    recherche → ajax
+(on oublie pas de donner le détail )
+
+
+impayés PO : 
+    graph par motif → ajax
+    recherche → ajax
+(on oublie pas de donner le détail )

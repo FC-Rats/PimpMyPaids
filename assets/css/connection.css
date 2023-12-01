@@ -1,0 +1,144 @@
+/* ===== CONNEXION ===== */
+
+/* hauteur de la page */
+.login-section, .container-cols-login {
+    min-height: 100vh;
+}
+
+/* logo */
+.img-max {
+    max-width: 33%!important;
+    width:100%;
+}
+
+/*colonne bleue de connexion*/
+.col-login {
+    background-color: rgba(0, 111, 149, .9);
+    color: var(--floralWhite);
+}
+
+/*colonne de togle*/
+#col-eye {
+    height: 58px !important;
+}
+
+/*bouton togle*/
+#toggle-password i {
+    color: var(--cerulean);
+}
+#toggle-confirm-password i {
+    color: var(--cerulean);
+}
+
+/*oeil*/
+#toggle-password {
+    width: 100%;
+    height: 100%;
+}
+#toggle-confirm-password {
+    width: 100%;
+    height: 100%;
+}
+
+/*checkbox*/
+.stay-connected-checkbox:checked {
+    background-color: var(--rasisinBlack) !important;
+    border: 0;
+}
+
+.stay-connected-checkbox:focus, .label-stay-connected::after, .label-stay-connected:focus, .stay-connected-checkbox::after, .stay-connected-checkbox:not(:disabled):not(.disabled):active:focus {
+    color: black;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.1rem var(--cerulean) !important;
+}
+
+/*bouton connexion*/
+#submit-login-button[disabled] {
+    background-color: #454545;
+    cursor: not-allowed;
+}
+
+#submit-login-button:not([disabled]) {
+    background-color: var(--rasisinBlack);
+}
+
+/* champs obligatoires */
+.required {
+    color: rgb(228, 16, 16);
+    font-size: 18px;
+}
+
+/* label champs obligatoires */
+.mandatory {
+    color: rgb(255, 115, 115);
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+/* Toast */
+.toast {
+    background-color: #FFB2B2 !important;
+    color: rgb(105, 0, 0) !important;
+}
+
+/* ===== FORGET PASSWORD ===== */
+/*bouton connexion*/
+#submit-recover-button[disabled] {
+    background-color: #ffcf77;
+    cursor: not-allowed;
+}
+
+#submit-recover-button:not([disabled]) {
+    background-color: var(--xanthous);
+}
+
+#submit-recover-button:active {
+    background-color: #ffa600;
+    cursor: not-allowed;
+}
+
+.text-shadow {
+    text-shadow: none;
+}
+
+/* ===== CHANGE PASSWORD ===== */
+/* Styles pour les conditions du mot de passe et de l'email */
+#password-conditions, #email-condition {
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+#password-conditions ul {
+    padding-left: 0;
+}
+
+#password-conditions li, #email-condition {
+    list-style: none;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#email-condition.valid {
+    color: var(--xanthous);
+}
+
+#password-conditions li.valid {
+    color: var(--xanthous);
+}
+
+/*bouton change*/
+#submit-button[disabled] {
+    background-color: #a5a5a5;
+    cursor: not-allowed;
+}
+
+#submit-button:not([disabled]) {
+    background-color: var(--xanthous);
+}
+
+#submit-button:active {
+    background-color: #ffa600;
+    cursor: not-allowed;
+}

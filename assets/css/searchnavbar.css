@@ -1,0 +1,39 @@
+.searchnavbar {
+    display: flex!important;
+    justify-content: space-around!important;
+    align-items: center!important;
+    background-color: rgb(201, 201, 201)!important;
+    border: 2px solid black;
+    border-radius: 10px ;
+    padding: 1%;
+}
+
+form {
+    width: 98%!important;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.form-floating {
+    margin: 0% 0% 0% 0%!important;
+}
+
+.form-select {
+    width: fit-content!important;
+}
+
+.form-select {
+    width: fit-content!important;
+}
+
+.remise-section {
+    max-width: 1450px!important;
+}
+
+@media  screen and (max-width: 370px){
+    .headquery {
+        flex-direction: column;
+    }
+}
