@@ -99,7 +99,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -107,7 +108,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -115,7 +117,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -123,7 +126,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -151,7 +155,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -159,7 +164,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -167,7 +173,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
@@ -175,7 +182,8 @@
                         id="">
                         <span class="col-12">Date vente</span>
                         <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
+                        <span class="col-4">N° Carte</span>
+                        <span class="col-4">N° Autoris</span>
                         <span class="col-4">Montant</span>
                         <span class="col-8">EUR</span>
                     </div>
