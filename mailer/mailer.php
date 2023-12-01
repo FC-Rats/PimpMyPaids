@@ -3,11 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // include('./db-connection.php');
-include('./passwordMail.php');
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+require '../framework/PHPMailer/src/Exception.php';
+require '../framework/PHPMailer/src/PHPMailer.php';
+require '../framework/PHPMailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -15,6 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function envoi_mail($to_email,$conn,$objet,$message)
 {
+    include('../mailer/passwordMail.php');
     $mail = new PHPMailer(true);
 
     try {
