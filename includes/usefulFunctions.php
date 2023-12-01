@@ -14,7 +14,7 @@ function getEspaceData() {
             $lastTr = "SELECT * FROM TRAN_TRANSACTIONS ORDER BY dateTransac DESC LIMIT 3";
             return $db->query($lastTr);
         case 'Admin':
-            $lastRequest = "SELECT * FROM REQUEST_PO ORDER BY idRequest DESC";
+            $lastRequest = "SELECT * FROM TRAN_REQUEST_PO ORDER BY idRequest DESC";
             return $db->query($lastRequest, $conditions);
         case 'Merchant':
             $allDataClient = "SELECT 

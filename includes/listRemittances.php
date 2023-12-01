@@ -110,9 +110,9 @@ switch ($_SESSION["profil"]) {
                         t.numAutorisation, 
                         SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montantTotal,
                         c.currency
-                    FROM REMITTANCES r
-                    LEFT JOIN TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
-                    LEFT JOIN CUSTOMER_ACCOUNTS c ON r.siren = c.siren
+                    FROM TRAN_REMITTANCES r
+                    LEFT JOIN TRAN_TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
+                    LEFT JOIN TRAN_CUSTOMER_ACCOUNTS c ON r.siren = c.siren
                     WHERE c.siren = :siren";
             
             foreach ($conditions as $values) {
@@ -141,9 +141,9 @@ switch ($_SESSION["profil"]) {
                         t.sign,
                         t.amount,
                         c.currency
-                    FROM REMITTANCES r
-                    LEFT JOIN TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
-                    LEFT JOIN CUSTOMER_ACCOUNTS c ON r.siren = c.siren
+                    FROM TRAN_REMITTANCES r
+                    LEFT JOIN TRAN_TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
+                    LEFT JOIN TRAN_CUSTOMER_ACCOUNTS c ON r.siren = c.siren
                     WHERE c.siren = :siren";
 
             foreach ($conditions as $values) {
