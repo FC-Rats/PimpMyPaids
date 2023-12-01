@@ -29,24 +29,24 @@
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control" id="numCarte" name="numCarte" placeholder=" ">
-                    <label for="numCarte">N° Carte</label>
+                    <input type="text" class="form-control" id="creditCardNumber" name="creditCardNumber" placeholder=" ">
+                    <label for="creditCardNumber">N° Carte</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control" id="Montant" name="Montant" placeholder=" ">
-                    <label for="Montant">Montant</label>
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder=" ">
+                    <label for="amount">Montant</label>
                 </div>
                 <div class="form-floating text-dark col-sm-12 col-lg-2">
-                    <input type="number" class="form-control"  name="Montant" placeholder=" ">
-                    <label for="Montant">N° Remise</label>
+                    <input type="number" class="form-control" id="remittanceNumber" name="remittanceNumber" placeholder=" ">
+                    <label for="remittanceNumber">N° Remise</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="date" class="form-control ps-4 hidden" id="Date" name="Date" placeholder="">
-                    <label for="Date">Avant le</label>
+                    <input type="date" class="form-control ps-4 hidden" id="beforeDate" name="beforeDate" placeholder="">
+                    <label for="beforeDate">Avant le</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="date" class="form-control ps-4" id="Date" name="Date" placeholder=" ">
-                    <label for="Date">Apres le</label>
+                    <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
+                    <label for="afterDate">Apres le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
                     <button type="submit" id="search-login-button"
