@@ -29,12 +29,12 @@
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control" id="SIREN" name="SIREN" placeholder=" ">
-                    <label for="SIREN">N° SIREN</label>
+                    <input type="text" class="form-control" id="numCarte" name="numCarte" placeholder=" ">
+                    <label for="numCarte">N° Carte</label>
                 </div>
                 <div class="form-floating text-dark col-sm-6 col-lg-2">
-                    <input type="text" class="form-control" id="RaisonSociale" name="RaisonSociale" placeholder=" ">
-                    <label for="RaisonSociale">Raison Sociale</label>
+                    <input type="text" class="form-control" id="Montant" name="Montant" placeholder=" ">
+                    <label for="Montant">Montant</label>
                 </div>
                 <div class="form-floating text-dark col-sm-12 col-lg-2">
                     <input type="number" class="form-control"  name="Montant" placeholder=" ">
