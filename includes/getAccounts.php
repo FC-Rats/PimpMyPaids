@@ -15,9 +15,9 @@ switch ($_SESSION["profil"]) {
             $query = "SELECT 
                         c.siren,
                         c.companyName,
-                        COUNT(t.idTransaction) AS nbTransactions,
-                        SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montant,
-                    FROM TRAN_CUSTOMER_ACCOUNTS c
+                        COUNT(t.idTransac) AS nbTransactions,
+                        SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montant
+                    FROM TRAN_CUSTOMER_ACCOUNT c
                     LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
             foreach ($conditions as $values) {
@@ -43,7 +43,7 @@ switch ($_SESSION["profil"]) {
         case 'Admin':
             $sql = "SELECT u.email, u.login, c.currency
                         FROM TRAN_USERS u
-                        INNER JOIN TRAN_CUSTOMER_ACCOUNTS c ON u.idUser = c.idUser";
+                        INNER JOIN TRAN_CUSTOMER_ACCOUNT c ON u.idUser = c.idUser";
             $accountAdmin = $db->query($sql);
     }
 ?>
