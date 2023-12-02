@@ -1,0 +1,17 @@
+{
+    "name": "vendor/package",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Package\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chamsedine Amouche",
+            "email": "117311972+ChamsedineAmouche@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29"
+    }
+}

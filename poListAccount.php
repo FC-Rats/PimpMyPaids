@@ -59,8 +59,9 @@
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
             <span>X comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
-                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5">
+                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1" method="post" action="./export/export_data.php" >
+                    <input type="hidden" name="context" value="poListAccount">
+                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" onchange="this.form.submit()">
                         <option selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
