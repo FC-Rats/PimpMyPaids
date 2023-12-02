@@ -44,3 +44,28 @@ function envoi_mail($to_email,$conn,$objet,$message)
         return false;
     }
 }
+
+function generateUniqueID($length)
+{
+    $characters = '0123456789';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, 9)];
+    }
+    return $randomString;
+}
+
+function generateTokenLink($email, $conn)
+{
+    // TODO: change link to the real one on chamsedine's database
+    $token = generateUniqueID(12);
+    $link = "http://perso-etudiant.u-pem.fr/~kellian.bredeau/Projet-SAE/Pages/recuperation-password.php?token=";
+    $link .= $token;
+    session_start();
+    if (isset($_SESSION['db'])) {
+        $db = $_SESSION['db'];
+        $getId = $db->query("SELECT id FROM Users WHERE email = :email;",array(array(":email", $email)));
+        $updatePassword = $db->query("UPDATE Users SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
+    }
+    return $link;
+}
