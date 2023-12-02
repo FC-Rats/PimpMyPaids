@@ -1,6 +1,6 @@
 [submodule "framework/PHPMailer"]
 	path = framework/PHPMailer
 	url = https://github.com/PHPMailer/PHPMailer.git
-[submodule "PimpMyPaids/framework"]
-	path = PimpMyPaids/framework
+[submodule "framework/PhpSpreadsheet"]
+	path = framework/PhpSpreadsheet
 	url = https://github.com/PHPOffice/PhpSpreadsheet.git
