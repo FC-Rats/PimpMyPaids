@@ -49,9 +49,9 @@
                         <div class="accordion-item my-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed rounded compte ajout" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <span class="col-3 col-md-3">AJOUTER</span>
+                                    <span class="col-5 col-md-3">AJOUTER</span>
                                     <span class="col-1">-</span>
-                                    <span class="col-6 col-md-6">RAISON SOCIALE</span>
+                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse">
@@ -70,9 +70,9 @@
                         <div class="accordion-item my-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed rounded compte delete" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    <span class="col-3 col-md-3">SUPPRIMER</span>
+                                    <span class="col-5 col-md-3">SUPPRIMER</span>
                                     <span class="col-1">-</span>
-                                    <span class="col-6 col-md-6">RAISON SOCIALE</span>
+                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
                                 </button>
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse">
@@ -88,9 +88,9 @@
                         <div class="accordion-item my-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed compte rounded ajout" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                                    <span class="col-3 col-md-3">AJOUTER</span>
+                                    <span class="col-5 col-md-3">AJOUTER</span>
                                     <span class="col-1">-</span>
-                                    <span class="col-6 col-md-6">RAISON SOCIALE</span>
+                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
                                 </button>
                             </h2>
                             <div id="flush-collapse3" class="accordion-collapse collapse">
@@ -114,10 +114,10 @@
             <div class="col-xl-6 col-12 d-flex flex-column align-items-center pt-4 mb-5">
                 <div id="formulaire" class="formulaire rounded mt-5">
                     <div class="intro-form">
-                        <h3 class="align-items-center d-flex justify-content-center pb-2">Formulaire d'ajout de client</h3>
+                        <h3 class="align-items-center d-flex justify-content-center p-2">Formulaire d'ajout de client</h3>
                     </div>
 
-                    <form id="ajout-form" class="mx-auto my-5" action="../includes/addMerchant.php" method="POST">
+                    <form id="ajout-form" class="mx-auto my-5" onsubmit="return false">
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
                             <label for="login">Identifiant</label>
@@ -143,7 +143,7 @@
                             <label for="comment">Mot de Passe</label>
                         </div>
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
-                            <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="submit" value="Ajouter">
+                            <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="button" value="Ajouter">
                         </div>
                     </form>
                 </div>
