@@ -39,6 +39,8 @@ switch ($_SESSION["profil"]) {
             $query .= $orderBy;
 
             $accountInfo = $db->query($query, $conditions);
+            $response["ListAccounts"] = $accountInfo;
+            echo json_encode($response);
 
         case 'Admin':
             $sql = "SELECT u.email, u.login, c.currency

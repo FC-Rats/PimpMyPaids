@@ -27,9 +27,9 @@
         <h1 class="p-4 text-center">Liste des comptes clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <!-- getAccounts.php -->
-            <form id="poListAccountsForm" class="d-flex align-items-center justify-content-around justify-content-lg-between">
+            <form id="poListAccountsForm" class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="text" class="form-control" name="siren" placeholder=" ">
+                    <input type="text" class="form-control" id="siren" name="siren" placeholder=" ">
                     <label for="siren">N° SIREN</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
@@ -41,7 +41,7 @@
                     <label for="date">Date</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
-                    <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex justify-content-center align-items-center px-2 py-2 px-md-3 col-12">
+                    <button type="button" id="searchAccountsButton" class="btn btn-primary border-0 text-uppercase d-flex justify-content-center align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>
                         <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                     </button>
@@ -57,11 +57,11 @@
             </form>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
-            <span>X comptes</span>
+            <span><span id="numberAccounts">X</span> comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
                 <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1" method="post" action="./export/export_data.php" >
-                    <input type="hidden" name="context" value="poListAccount">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" onchange="this.form.submit()">
+                    <input type="hidden" name="context" value="poListAccount" id="context">
+                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
                         <option selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <!-- $accountInfo -->
-        <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
+        <div class="accordion accordion-flush py-3 mb-3" id="accordionListAcounts">
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
