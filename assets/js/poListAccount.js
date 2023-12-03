@@ -30,18 +30,11 @@ $(function () {
 
     // export
     $("#export_type").on("change", function () {
-        console.log('changing export type');
-        var formData = [];
         siren = $('#siren').val();
         companyName = $('#companyName').val();
         date = $('#date').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
-        formData.push({ name: 'siren', value: siren });
-        formData.push({ name: 'companyName', value: companyName });
-        formData.push({ name: 'date', value: date });
-        formData.push({ name: 'context', value: context });
-        formData.push({ name: 'export_type', value: export_type });
         $.ajax({
             url: "../../export/export_data.php",
             type: "POST",
@@ -74,9 +67,10 @@ function listAccounts(
         url: "../../includes/getAccounts.php",
         type: "POST",
         dataType: "JSON",
-        data: { formData },
+        data: { "siren": siren, "companyName": companyName, "date": date, "sortAccount": sort },
         success: function (data) {
             listAccountData = data.ListAccounts;
+            $("#numberAccounts").text(listAccountData.length);
         },
         error: function (data) {
             console.log(data);

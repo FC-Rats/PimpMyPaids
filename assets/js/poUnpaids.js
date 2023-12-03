@@ -1,4 +1,5 @@
 var listUnpaidsData = "";
+var listUnpaidsDetailsData = "";
 var siren = "";
 var companyName = "";
 var beforeDate = "";
@@ -8,12 +9,12 @@ var idUnpaid = "";
 
 $(function () {
     $.ajax({
-        url: "Path/to/file.php",
+        url: "../../includes/graphUnpaid.php",
         type: "POST",
         dataType: "JSON",
-        data: { siren },
+        data: { },
         success: function (data) {
-            if (data.unpaidsGroupByReason) {
+            if (data.GraphUnpaids) {
                 //TODO: fill chart
             }
         },
@@ -39,6 +40,32 @@ $(function () {
         idUnpaid = $('#idUnpaid').val();
         listUnpaids(siren, companyName, beforeDate, afterDate, label, idUnpaid);
     });
+
+    // export
+    $("#export_type").on("change", function () {
+        siren = $('#siren').val();
+        companyName = $('#companyName').val();
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        label = $('#label').val();
+        idUnpaid = $('#idUnpaid').val();
+        context = $('#context').val();
+        export_type = $('#export_type').val();
+        $.ajax({
+            url: "../../export/export_data.php",
+            type: "POST",
+            dataType: "JSON",
+            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "context": context, "export_type": export_type },
+            success: function (data) {
+                if (data.Test) {
+                    console.log(data.Test);
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            },
+        });
+    });
 });
 
 function listUnpaids(
@@ -50,13 +77,16 @@ function listUnpaids(
     idUnpaid
 ) {
     $.ajax({
-        url: "../test.php",
+        url: "../../includes/listUnpaids.php",
         type: "POST",
         dataType: "JSON",
-        data: { siren, companyName, beforeDate, afterDate, label, idUnpaid },
+        data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "numDossier": idUnpaid },
         success: function (data) {
             listUnpaidsData = data.ListUnpaids;
+            listUnpaidsDetailsData = data.ListUnpaidsDetails;
             console.log(listUnpaidsData);
+            console.log(listUnpaidsDetailsData);
+            $("#nbResults").text(listUnpaidsData.length);
         },
         error: function (data) {
             console.log(data);
@@ -73,7 +103,7 @@ function listUnpaids(
 }
 
 function viewData(id) {
-    var dataDetail = listUnpaidsData[id];
+    var dataDetail = listUnpaidsDetailsData[id];
     $.map(dataDetail, function (data, dataKey) {
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.siren").val(data.siren);
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.dateTransac").val(data.dateTransac);

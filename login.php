@@ -1,7 +1,6 @@
 <?php if (!isset($_SESSION)) {
     session_start();
-}
-$_SESSION["try"] = 3; ?>
+}?>
 
 <!DOCTYPE html>
 <html lang="fr">

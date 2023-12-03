@@ -1,6 +1,5 @@
 <?php if (!isset($_SESSION)) {
     session_start();
-    $_SESSION["siren"] = "123456789";
 } ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -81,8 +80,9 @@
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
             <span><span id="countResults">X</span> résultats</span>
+            <input type="hidden" name="context" value="clientUnpaids" id="context">
             <select class="form-select mb-2" aria-label="formExportClientDataUnpaids">
-                <option selected>Exporter les données</option>
+                <option value="noExport" selected>Exporter les données</option>
                 <option value="pdf">PDF</option>
                 <option value="csv">CSV</option>
                 <option value="xls">Xls</option>

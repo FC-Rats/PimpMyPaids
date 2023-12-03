@@ -1,4 +1,5 @@
 <?php
+$response = [];
 switch ($_SESSION["profil"]) {
         case 'PO':
 

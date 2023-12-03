@@ -6,12 +6,12 @@ var idUnpaid = "";
 
 $(function () {
     $.ajax({
-        url: "Path/to/file.php",
+        url: "../../includes/graphUnpaid.php",
         type: "POST",
         dataType: "JSON",
-        data: { siren },
+        data: {},
         success: function (data) {
-            if (data.clientUnpaidsGroupByReason) {
+            if (data.GraphUnpaids) {
                 //TODO: fill chart
             }
         },
@@ -24,7 +24,7 @@ $(function () {
     afterDate = $('#afterDate').val();
     label = $('#label').val();
     idUnpaid = $('#idUnpaid').val();
-    listClientUnpaids(siren, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+    listClientUnpaids(beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
 
     $("#formSortClientUnpaids").on("change", function () {
         beforeDate = $('#beforeDate').val();
@@ -32,7 +32,6 @@ $(function () {
         label = $('#label').val();
         idUnpaid = $('#idUnpaid').val();
         listClientUnpaids(
-            siren,
             beforeDate,
             afterDate,
             label,
@@ -46,12 +45,35 @@ $(function () {
         afterDate = $('#afterDate').val();
         label = $('#label').val();
         idUnpaid = $('#idUnpaid').val();
-        listClientUnpaids(siren, beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+        listClientUnpaids(beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+    });
+
+    // export
+    $("#export_type").on("change", function () {
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        label = $('#label').val();
+        idUnpaid = $('#idUnpaid').val();
+        context = $('#context').val();
+        export_type = $('#export_type').val();
+        $.ajax({
+            url: "../../export/export_data.php",
+            type: "POST",
+            dataType: "JSON",
+            data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "context": context, "export_type": export_type },
+            success: function (data) {
+                if (data.Test) {
+                    console.log(data.Test);
+                }
+            },
+            error: function (data) {
+                console.log(data);
+            },
+        });
     });
 });
 
 function listClientUnpaids(
-    siren,
     beforeDate,
     afterDate,
     label,
@@ -59,12 +81,14 @@ function listClientUnpaids(
     sort
 ) {
     $.ajax({
-        url: "Path/to/file.php",
+        url: "../../includes/listUnpaids.php",
         type: "POST",
         dataType: "JSON",
-        data: { siren, beforeDate, afterDate, label, idUnpaid, sort },
+        data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "numDossier": idUnpaid, "formSortClientUnpaids": sort },
         success: function (data) {
-            listClientUnpaidsData = data.ListClientUnpaids;
+            listClientUnpaidsData = data.ListUnpaidsClient;
+            console.log(listClientUnpaidsData);
+            $("#countResults").text(listClientUnpaidsData.length);
         },
         error: function (data) {
             console.log(data);

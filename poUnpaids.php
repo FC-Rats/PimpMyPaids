@@ -169,8 +169,19 @@
                 </div>
             </div>
         </div>
-        <div class="headquery d-flex align-items-center justify-content-start mt-5 border-bottom border-black">
+        <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
             <span><span id="nbResults">X</span> résultats - Somme des impayés par Raison Sociale</span>
+            <div class="export d-flex flex-row-reverse align-items-baseline">
+                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
+                    <input type="hidden" name="context" value="poUnpaids" id="context">
+                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
+                        <option value="noExport" selected>Exporter les données</option>
+                        <option value="pdf">PDF</option>
+                        <option value="csv">CSV</option>
+                        <option value="xls">XLS</option>
+                    </select>
+                </form>
+            </div>
         </div>
         <div class="container-unpaid-list">
             <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">

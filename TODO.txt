@@ -51,3 +51,24 @@ impayés PO :
     graph par motif → ajax
     recherche → ajax
 (on oublie pas de donner le détail )
+
+
+---- export 
+context : 
+    fait : 
+    poListAccount
+
+    typhus : 
+    clientListRemises
+    poRemises
+    clientListRemisesDetails
+    poRemisesDetails
+
+    ok-tiers : 
+    poUnpaids
+    clientUnpaids
+
+export_type : 
+    xls
+    csv
+    pdf

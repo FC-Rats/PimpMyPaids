@@ -1,4 +1,5 @@
 <?php
+$response = [];
     switch ($_SESSION["profil"]) {
         case 'PO':
             $query = "SELECT
@@ -12,6 +13,8 @@
                             UR.unpaidName";
 
             $graphUnpaidPO = $db->query($query);
+            $response["GraphUnpaids"] = $graphUnpaidPO;
+            echo json_encode($response);
 
         case 'Merchant':
             $query =  "SELECT
@@ -29,5 +32,7 @@
                             UR.unpaidName";
             
             $graphUnpaidMerchant = $db->query($query, array(array(":siren", $_SESSION["siren"])));
+            $response["GraphUnpaids"] = $graphUnpaidMerchant;
+            echo json_encode($response);
     }
 ?>

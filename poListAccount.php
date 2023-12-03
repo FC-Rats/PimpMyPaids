@@ -1,6 +1,5 @@
 <?php if (!isset($_SESSION)) {
     session_start();
-    $_SESSION["profil"] = "PO";
 } ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -63,10 +62,10 @@
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom">
             <span><span id="numberAccounts">X</span> comptes</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
-                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1" method="post" action="./export/export_data.php" >
+                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
                     <input type="hidden" name="context" value="poListAccount" id="context">
                     <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
-                        <option selected>Exporter les données</option>
+                        <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
                         <option value="xls">XLS</option>
@@ -81,7 +80,7 @@
                     <button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                         <span class="col-3 col-md-1">SIREN</span>
                         <span class="col-1">-</span>
-                        <span  class="col-6 col-md-3">RAISON SOCIALE</span>
+                        <span class="col-6 col-md-3">RAISON SOCIALE</span>
                     </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse">

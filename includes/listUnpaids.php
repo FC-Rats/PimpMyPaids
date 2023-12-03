@@ -1,4 +1,5 @@
 <?php
+$response = [];
 switch ($_SESSION["profil"]) {
         case 'PO':
     
@@ -93,6 +94,10 @@ switch ($_SESSION["profil"]) {
                 $orderUnpaidDetailPO[$siren][] = $row;
             }
 
+            $response["ListUnpaids"] = $unpaidPO;
+            $response["ListUnpaidsDetails"] = $orderUnpaidDetailPO;
+            echo json_encode($response);
+
         case 'Merchant':
             // Liste de ses impayés avec date vente | date remise | N° carte | N° dossier | montant (devise) |  libellé impayé
     
@@ -141,5 +146,7 @@ switch ($_SESSION["profil"]) {
             $query .= $orderBy;
     
             $unpaidClient = $db->query($query, $conditions);
+            $response["ListUnpaidsClient"] = $unpaidClient;
+            echo json_encode($response);
         }
 ?>
