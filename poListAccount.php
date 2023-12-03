@@ -1,5 +1,6 @@
 <?php if (!isset($_SESSION)) {
     session_start();
+    $_SESSION["profil"] = "PO";
 } ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -46,7 +46,7 @@ $(function () {
             url: "../../export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { formData },
+            data: { "siren": siren, "companyName": companyName, "date": date, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);

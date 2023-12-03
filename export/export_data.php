@@ -13,8 +13,14 @@ if (isset($_POST['export_type']) && $_POST['export_type'] == 'xls') {
                 ', '11', '7146', 'EUR']];
         
                 // Appel à la fonction d'exportation
-                exportToXlsx('export_poListAccount.xlsx', $headers, $data, 'LISTE DES COMPTES CLIENTS');
-                $response["Test"] = ["Test" => "Test"];
+                //exportToXlsx('export_poListAccount.xlsx', $headers, $data, 'LISTE DES COMPTES CLIENTS');
+                $tab = [];
+                $tab[] = $_POST['siren'];
+                $tab[] = $_POST['companyName'];
+                $tab[] = $_POST['date'];
+                $tab[] = $_POST['export_type'];
+                $tab[] = $_POST['context'];
+                $response["Test"] = $tab;
                 echo json_encode($response);
                 break;
 
