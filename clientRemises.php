@@ -27,7 +27,7 @@
 <body>
     <?php include('./header.php'); ?>
     <div class="container remise-section">
-        <h1 class="p-4 text-center">Liste des remises clients</h1>
+        <h1 class="p-4 text-center">Liste des remises</h1>
         <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold">100</span> <span id="clientCurrency">EUR</span></div>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
@@ -125,21 +125,21 @@
                 <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
             </div>
             <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
             </div>
             <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
             </div>
         </div>
     </div>
@@ -150,6 +150,8 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="assets/js/clientRemises.js"></script>
 </body>
 
 </html>

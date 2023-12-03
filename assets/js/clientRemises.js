@@ -1,7 +1,7 @@
 var listRemittancesData = "";
 var listRemittancesDetailsData = "";
-var siren = "";
-var companyName = "";
+var creditCardNumber = "";
+var amount = "";
 var remittanceNumber = "";
 var beforeDate = "";
 var afterDate = "";
@@ -12,36 +12,36 @@ var listRemittancesData = [
 ];
 
 $(function () {
-    siren = $('#siren').val();
-    companyName = $('#companyName').val();
+    creditCardNumber = $('#creditCardNumber').val();
+    amount = $('#amount').val();
     remittanceNumber = $('#remittanceNumber').val();
     beforeDate = $('#beforeDate').val();
     afterDate = $('#afterDate').val();
-    listRemittances(siren, companyName, remittanceNumber, beforeDate, afterDate);
+    listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
 
-    $("#searchRemittances").on("click", function () {
-        siren = $('#siren').val();
-        companyName = $('#companyName').val();
+    $("#searchRemittanceClientButton").on("click", function () {
+        creditCardNumber = $('#creditCardNumber').val();
+        amount = $('#amount').val();
         remittanceNumber = $('#remittanceNumber').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
-        listRemittances(siren, companyName, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
     });
 
     // pagination
     $("#nbLineByPage").on("input", function () {
         rowsPerPage=$(this).val();
-        listRemittances(siren, companyName, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
     });
     $("#pageToShow").on("input", function () {
         pageToShow=$(this).val();
-        listRemittances(siren, companyName, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
     });
 
     // export
     $("#export_type").on("change", function () {
-        siren = $('#siren').val();
-        companyName = $('#companyName').val();
+        creditCardNumber = $('#creditCardNumber').val();
+        amount = $('#amount').val();
         remittanceNumber = $('#remittanceNumber').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
@@ -51,7 +51,7 @@ $(function () {
             url: "../../export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
+            data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
@@ -64,9 +64,9 @@ $(function () {
     });
 });
 
-function listRemittances(
-    siren,
-    companyName,
+function listClientRemittances(
+    creditCardNumber,
+    amount,
     remittanceNumber,
     beforeDate,
     afterDate,
@@ -75,10 +75,10 @@ function listRemittances(
         url: "../../includes/listRemittances.php",
         type: "POST",
         dataType: "JSON",
-        data: { "siren": siren, "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate },
+        data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate },
         success: function (data) {
-            listRemittancesData = data.ListRemittances;
-            listRemittancesDetailsData = data.ListRemittancesDetails;
+            listRemittancesData = data.ListRemittancesClient;
+            listRemittancesDetailsData = data.ListRemittancesDetailsClient;
             console.log(listRemittancesData);
             console.log(listRemittancesDetailsData);
             $("#countResults").text(listRemittancesData.length);
@@ -106,21 +106,21 @@ function listRemittances(
     });
 }
 
-function viewDetailRemittance(id) {
+function viewClientDetailRemittance(id) {
     var dataDetail = listRemittancesDetailsData[id];
-    $("#offcanvasDetailRemittance").empty();
+    $("#offcanvasDetailRemittanceClient").empty();
     $.map(dataDetail, function (data, dataKey) {
         html = "";
         // html += "to Add";
         // à changer : 
         // + changer le label offcanvas
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.dateTransac").val(data.dateTransac);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.network").val(data.network);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.creditCardNumber").val(data.creditCardNumber);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.numAutorisation").val(data.numAutorisation);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.sign").val(data.sign);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.amount").val(data.amount);
-        $("#offcanvasDetailRemittance\\#" + data.id + "\\.currency").val(data.currency);
-        $("#offcanvasDetailRemittance").append(html);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.dateTransac").val(data.dateTransac);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.network").val(data.network);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.creditCardNumber").val(data.creditCardNumber);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.numAutorisation").val(data.numAutorisation);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.sign").val(data.sign);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.amount").val(data.amount);
+        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.currency").val(data.currency);
+        $("#offcanvasDetailRemittanceClient").append(html);
     });
 }

@@ -102,7 +102,7 @@ function listUnpaids(
     });
 }
 
-function viewData(id) {
+function viewDetailUnpaid(id) {
     var dataDetail = listUnpaidsDetailsData[id];
     $.map(dataDetail, function (data, dataKey) {
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.siren").val(data.siren);

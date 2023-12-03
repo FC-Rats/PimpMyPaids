@@ -52,7 +52,7 @@
                     <label for="afterDate">Apres le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
-                    <button type="submit" id="search-login-button" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                    <button type="submit" id="searchRemittances" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>
                         <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                     </button>

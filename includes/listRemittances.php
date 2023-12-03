@@ -1,4 +1,5 @@
 <?php
+$response = [];
 switch ($_SESSION["profil"]) {
         case 'PO':
             if (!empty($_POST['siren'])) {
@@ -87,6 +88,10 @@ switch ($_SESSION["profil"]) {
                 $orderRemittancesDetailsPO[$remittanceNumber][] = $row;
             }
 
+            $response["ListRemittances"] = $remittancesPO;
+            $response["ListRemittancesDetails"] = $orderRemittancesDetailsPO;
+            echo json_encode($response);
+
         case 'Merchant':
 
             $conditions = array(":siren", $_SESSION["siren"]);
@@ -174,5 +179,9 @@ switch ($_SESSION["profil"]) {
                 
                 $orderRemittancesDetailsMerchant[$remittanceNumber][] = $row;
             }
+
+            $response["ListRemittancesClient"] = $remittancesMerchant;
+            $response["ListRemittancesDetailsClient"] = $orderRemittancesDetailsMerchant;
+            echo json_encode($response);
     }
 ?>
