@@ -28,48 +28,47 @@
     <?php include('./header.php'); ?>
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises clients</h1>
-        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale</div>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold">100</span> <span id="clientCurrency">EUR</span></div>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between">
-                <div class="form-floating text-dark col-sm-6 col-lg-2">
+            <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
+                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="text" class="form-control" id="creditCardNumber" name="creditCardNumber" placeholder=" ">
                     <label for="creditCardNumber">N° Carte</label>
                 </div>
-                <div class="form-floating text-dark col-sm-6 col-lg-2">
+                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="text" class="form-control" id="amount" name="amount" placeholder=" ">
                     <label for="amount">Montant</label>
                 </div>
-                <div class="form-floating text-dark col-sm-12 col-lg-2">
+                <div class="form-floating text-dark col-12 col-sm-12 col-lg-2">
                     <input type="number" class="form-control" id="remittanceNumber" name="remittanceNumber" placeholder=" ">
                     <label for="remittanceNumber">N° Remise</label>
                 </div>
-                <div class="form-floating text-dark col-sm-6 col-lg-2">
+                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="date" class="form-control ps-4 hidden" id="beforeDate" name="beforeDate" placeholder="">
                     <label for="beforeDate">Avant le</label>
                 </div>
-                <div class="form-floating text-dark col-sm-6 col-lg-2">
+                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
                     <label for="afterDate">Apres le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
-                    <button type="submit" id="search-login-button"
-                        class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                    <button type="button" id="searchRemittanceClientButton" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>
                         <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                     </button>
                 </div>
             </form>
         </div>
-        <div class="headquery d-flex align-items-center justify-content-between mt-5 border-black border-bottom ">
-            <div class="d-flex flex-row" >
-                <span class="px-2">X résultats </span>
-                <span class="d-flex flex-row">Afficher<input type="number" id="typeNumber" class="pagi mx-2" placeholder="10" min="0" max="100"/>lignes par page</span>
+        <div class="headquery d-flex flex-row flex-wrap align-items-center justify-content-between mt-5 border-black border-bottom ">
+            <div class="d-flex flex-row flex-wrap col-12 col-sm-auto">
+                <span class="pe-2"><span id="countResults">X</span> résultats -</span>
+                <span class="d-flex flex-row">Afficher<input type="number" id="nbLineByPage" class="pagi mx-2" placeholder="3" value="3" min="1" max="100" style="min-width: 50px!important; max-height: 30px!important;" />lignes par page</span>
             </div>
-            <div class="export d-flex flex-row-reverse align-items-baseline">
-                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1" method="post" action="./export/export_data.php" >
-                    <input type="hidden" name="context" value="clientListRemises">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" onchange="this.form.submit()">
-                        <option selected>Exporter les données</option>
+            <div class="export d-flex flex-row-reverse align-items-baseline col-12 col-sm-auto">
+                <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
+                    <input type="hidden" name="context" value="clientListRemises" id="context">
+                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
+                        <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
                         <option value="xls">XLS</option>
@@ -77,173 +76,70 @@
                 </form>
             </div>
         </div>
-        <div class="d-flex flex-row my-1" >
-            <span class="d-flex flex-row">Afficher la page<input type="number" id="typeNumber" class="pagi mx-2" placeholder="1" min="0"/></span>
+        <div class="d-flex flex-row my-1">
+            <span class="d-flex flex-row">Afficher la page<input type="number" id="pageToShow" class="pagi mx-2" placeholder="1" value="1" min="1" style="width:15%!important; min-width: 50px!important;" /></span>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDetailRemittanceClient" aria-labelledby="offcanvasDetailRemittanceClientLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasDetailRemittanceClientLabel">Détail Remises <br> N° : <span id="idRemittanceDetail">Remise</span></h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
+                    <span class="col-12">Date vente</span>
+                    <span class="col-4">VISA</span>
+                    <span class="col-4">N° Carte</span>
+                    <span class="col-4">N° Autoris</span>
+                    <span class="col-4">Montant</span>
+                    <span class="col-8">EUR</span>
+                </div>
+                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
+                    <span class="col-12">Date vente</span>
+                    <span class="col-4">VISA</span>
+                    <span class="col-4">N° Carte</span>
+                    <span class="col-4">N° Autoris</span>
+                    <span class="col-4">Montant</span>
+                    <span class="col-8">EUR</span>
+                </div>
+                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
+                    <span class="col-12">Date vente</span>
+                    <span class="col-4">VISA</span>
+                    <span class="col-4">N° Carte</span>
+                    <span class="col-4">N° Autoris</span>
+                    <span class="col-4">Montant</span>
+                    <span class="col-8">EUR</span>
+                </div>
+                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
+                    <span class="col-12">Date vente</span>
+                    <span class="col-4">VISA</span>
+                    <span class="col-4">N° Carte</span>
+                    <span class="col-4">N° Autoris</span>
+                    <span class="col-4">Montant</span>
+                    <span class="col-8">EUR</span>
+                </div>
+            </div>
         </div>
         <div class="container-remise-list">
-            <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                id="">
+            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
                 <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
                 <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
                 <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">+</button>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
             </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Détail Remises Compte <br> RAISON SOCIALE - N° Remise</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                </div>
+            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
+                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
             </div>
-            <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                id="">
-                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">+</button>
-            </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Détail Remises Compte <br> RAISON SOCIALE - N° Remise</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-4">N° Carte</span>
-                        <span class="col-4">N° Autoris</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                </div>
-            </div>
-            <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                id="">
-                <span class="col-12 col-sm-6 col-lg-1" >N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1" >11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2" >X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2" > + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button"
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">+</button>
-            </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Détail Remises Compte <br> RAISON SOCIALE - N° Remise</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                    <div class="remise-element rounded-3 my-3 px-5 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center"
-                        id="">
-                        <span class="col-12">Date vente</span>
-                        <span class="col-4">VISA</span>
-                        <span class="col-8">N° Carte</span>
-                        <span class="col-4">Montant</span>
-                        <span class="col-8">EUR</span>
-                    </div>
-                </div>
+            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
+                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
+                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
+                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
+                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
+                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewDetailRemittance(id);">+</button>
             </div>
         </div>
     </div>
@@ -254,8 +150,6 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- HighCharts JS -->
-    <script src="assets/js/highcharts.js"></script>
 </body>
 
 </html>
