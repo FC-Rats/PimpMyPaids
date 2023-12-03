@@ -156,8 +156,6 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- HighCharts JS -->
-    <script src="assets/js/highcharts.js"></script>
     <!-- JS -->
     <script src="assets/js/poRemises.js"></script>
 </body>
