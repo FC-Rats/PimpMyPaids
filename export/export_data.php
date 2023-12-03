@@ -14,6 +14,8 @@ if (isset($_POST['export_type']) && $_POST['export_type'] == 'xls') {
         
                 // Appel à la fonction d'exportation
                 exportToXlsx('export_poListAccount.xlsx', $headers, $data, 'LISTE DES COMPTES CLIENTS');
+                $response["Test"] = ["Test" => "Test"];
+                echo json_encode($response);
                 break;
 
             case 'clientListRemises':

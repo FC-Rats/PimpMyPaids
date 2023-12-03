@@ -1,3 +1,6 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+} ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -137,8 +140,8 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- HighCharts JS -->
-    <script src="assets/js/highcharts.js"></script>
+    <!-- JS -->
+    <script src="assets/js/poListAccount.js"></script>
 </body>
 
 </html>

@@ -30,6 +30,7 @@ $(function () {
 
     // export
     $("#export_type").on("change", function () {
+        console.log('changing export type');
         var formData = [];
         siren = $('#siren').val();
         companyName = $('#companyName').val();
@@ -47,8 +48,8 @@ $(function () {
             dataType: "JSON",
             data: { formData },
             success: function (data) {
-                if (data.something) {
-                    //TODO: export
+                if (data.Test) {
+                    console.log(data.Test);
                 }
             },
             error: function (data) {
