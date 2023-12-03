@@ -1,4 +1,5 @@
 <?php
+    $response = [];
     $query = "SELECT
                     DATE_FORMAT(dateTransac, '%m') AS mois,
                     AVG(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) AS moyenneTransactions
@@ -14,4 +15,6 @@
                     mois";
 
     $graphBalanceMerchant = $db->query($query, array(array(":siren", $_SESSION["siren"])));
+    $response["GraphBalance"] = $graphBalanceMerchant;
+    echo json_encode($response);
 ?>

@@ -12,6 +12,7 @@ $(function () {
         data: {},
         success: function (data) {
             if (data.GraphUnpaids) {
+                console.log(data.GraphUnpaids);
                 //TODO: fill chart
             }
         },

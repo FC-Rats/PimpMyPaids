@@ -70,6 +70,7 @@ function listAccounts(
         data: { "siren": siren, "companyName": companyName, "date": date, "sortAccount": sort },
         success: function (data) {
             listAccountData = data.ListAccounts;
+            console.log(listAccountData);
             $("#numberAccounts").text(listAccountData.length);
         },
         error: function (data) {
