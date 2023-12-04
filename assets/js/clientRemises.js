@@ -48,7 +48,7 @@ $(function () {
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
-            url: "../../export/export_data.php",
+            url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
             data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
@@ -72,7 +72,7 @@ function listClientRemittances(
     afterDate,
 ) {
     $.ajax({
-        url: "../../includes/listRemittances.php",
+        url: "includes/listRemittances.php",
         type: "POST",
         dataType: "JSON",
         data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate },

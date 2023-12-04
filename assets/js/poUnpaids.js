@@ -9,7 +9,7 @@ var idUnpaid = "";
 
 $(function () {
     $.ajax({
-        url: "../../includes/graphUnpaid.php",
+        url: "includes/graphUnpaid.php",
         type: "POST",
         dataType: "JSON",
         data: { },
@@ -53,7 +53,7 @@ $(function () {
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
-            url: "../../export/export_data.php",
+            url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
             data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "context": context, "export_type": export_type },
@@ -78,7 +78,7 @@ function listUnpaids(
     idUnpaid
 ) {
     $.ajax({
-        url: "../../includes/listUnpaids.php",
+        url: "includes/listUnpaids.php",
         type: "POST",
         dataType: "JSON",
         data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "numDossier": idUnpaid },

@@ -36,7 +36,7 @@ $(function () {
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
-            url: "../../export/export_data.php",
+            url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
             data: { "siren": siren, "companyName": companyName, "date": date, "context": context, "export_type": export_type },
@@ -64,7 +64,7 @@ function listAccounts(
     formData.push({ name: 'date', value: date });
     formData.push({ name: 'sortAccount', value: sort });
     $.ajax({
-        url: "../../includes/getAccounts.php",
+        url: "includes/getAccounts.php",
         type: "POST",
         dataType: "JSON",
         data: { "siren": siren, "companyName": companyName, "date": date, "sortAccount": sort },

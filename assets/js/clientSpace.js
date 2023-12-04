@@ -18,7 +18,7 @@ if (unpaids < 0) {
 // clientBalanceChart
 $(function () {
     $.ajax({
-        url: "../../includes/graphBalanceEvolution.php",
+        url: "includes/graphBalanceEvolution.php",
         type: "POST",
         dataType: "JSON",
         data: { },
