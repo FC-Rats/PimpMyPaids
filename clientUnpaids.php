@@ -1,5 +1,7 @@
 <?php if (!isset($_SESSION)) {
     session_start();
+    $_SESSION["profil"]="Merchant";
+    $_SESSION["siren"]="123456789";
 } ?>
 <!DOCTYPE html>
 <html lang="fr">

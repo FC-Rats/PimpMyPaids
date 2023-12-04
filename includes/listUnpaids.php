@@ -1,10 +1,9 @@
 <?php
+session_start();
 $response = [];
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
 }
-$db = $_SESSION['db'];
 
 switch ($_SESSION["profil"]) {
         case 'PO':
@@ -107,7 +106,7 @@ switch ($_SESSION["profil"]) {
         case 'Merchant':
             // Liste de ses impayés avec date vente | date remise | N° carte | N° dossier | montant (devise) |  libellé impayé
     
-            $conditions = array(":siren", $_SESSION["siren"]);
+            $conditions = array();
     
             // Conditions supplémentaires    
             if (!empty($_POST['label'])) {
@@ -135,7 +134,8 @@ switch ($_SESSION["profil"]) {
     
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
-                $query .= "AND {$values[2]} = '{$values[0]}' ";
+                print_r($values);
+                $query .= "AND {$values[2]} = {$values[0]} ";
             }
 
             if (!empty($_POST['beforeDate'])) {
@@ -150,6 +150,8 @@ switch ($_SESSION["profil"]) {
     
             // Add ORDER BY clause
             $query .= $orderBy;
+
+            $conditions[] = array(":siren", $_SESSION["siren"]);
     
             $unpaidClient = $db->query($query, $conditions);
             $response["ListUnpaidsClient"] = $unpaidClient;
