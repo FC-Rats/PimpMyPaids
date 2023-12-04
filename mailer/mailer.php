@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // include('./db-connection.php');
+$config = parse_ini_file('config.ini');
 
 require '../framework/PHPMailer/src/Exception.php';
 require '../framework/PHPMailer/src/PHPMailer.php';
@@ -14,7 +15,6 @@ use PHPMailer\PHPMailer\Exception;
 
 function envoi_mail($to_email,$conn,$objet,$message)
 {
-    include('../mailer/passwordMail.php');
     $mail = new PHPMailer(true);
 
     try {
@@ -24,12 +24,12 @@ function envoi_mail($to_email,$conn,$objet,$message)
         $mail->SMTPSecure = 'ssl';
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'projet.saebut@gmail.com';
-        $mail->Password = $password;
+        $mail->Username = $config['mailadress'];
+        $mail->Password = $config['mailpassword'];
         $mail->Port = 465;
 
         //Recipients
-        $mail->setFrom('projet.saebut@gmail.com', 'FC Rats');
+        $mail->setFrom($config['mailadress'], 'FC Rats');
         $mail->addAddress(trim(strip_tags($to_email)), 'Client');
 
         //Content à changer

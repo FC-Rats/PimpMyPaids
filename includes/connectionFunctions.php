@@ -65,5 +65,6 @@ class Connection {
     }
 }
 
-$db = new Connection("","","","");
+$config = parse_ini_file('config.ini');
+$db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
 ?>
