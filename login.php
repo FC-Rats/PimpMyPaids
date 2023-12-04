@@ -1,6 +1,12 @@
-<?php if (!isset($_SESSION)) {
-    session_start();
-}?>
+<?php 
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (!isset($_SESSION["try"])){
+        $_SESSION["try"] = 3;
+    }
+    
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,6 +39,7 @@
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="./includes/signIn.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
+                
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
                         <label for="login">Identifiant<span class="required"> *</span></label>
@@ -51,12 +58,6 @@
                         </div>
                     </div>
                     <p class="form-label mandatory">* champs obligatoires</p>
-                    <div class="form-check mb-3 mb-md-2">
-                        <input class="form-check-input stay-connected-checkbox" type="checkbox" value="0" id="stayConnected">
-                        <label class="form-check-label label-stay-connected" for="stayConnected">
-                            Rester connecté
-                        </label>
-                    </div>
                     <div class="text-center d-flex flex-column justify-content-center">
                         <span id="erreur"></span>
                         <div class="mx-auto mb-4 mt-3">
@@ -71,6 +72,16 @@
             </div>
         </div>
         <!--Toasts -->
+        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
+            <div class="toast toastFirst fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body fs-5">
+                        C'est la 1<sup>ere</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
         <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
             <div class="toast toastAlert fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
@@ -101,7 +112,6 @@
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/passwordToggle.js"></script>
-    <script src="assets/js/stayConnectedCheckbox.js"></script>
     <script src="assets/js/login.js"></script>
 </body>
 

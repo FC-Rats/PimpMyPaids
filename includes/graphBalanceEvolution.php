@@ -1,5 +1,11 @@
 <?php
     $response = [];
+    if (!class_exists('Connection')) {
+        include('connectionFunctions.php');
+        $_SESSION['db'] = $db;
+    }
+    $db = $_SESSION['db'];
+
     $query = "SELECT
                     DATE_FORMAT(dateTransac, '%m') AS mois,
                     AVG(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) AS moyenneTransactions

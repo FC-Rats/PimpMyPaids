@@ -1,4 +1,10 @@
 <?php
+if (!class_exists('Connection')) {
+    include('connectionFunctions.php');
+    $_SESSION['db'] = $db;
+}
+$db = $_SESSION['db'];
+
     $add = 'INSERT INTO TRAN_REQUEST_PO VALUES (:login, :companyName, :comment)';
     if (!isset(($_POST['comment']))) {
         $comment = "";

@@ -1,5 +1,11 @@
 <?php
 $response = [];
+if (!class_exists('Connection')) {
+    include('connectionFunctions.php');
+    $_SESSION['db'] = $db;
+}
+$db = $_SESSION['db'];
+
 switch ($_SESSION["profil"]) {
         case 'PO':
     

@@ -1,4 +1,5 @@
 $(function () {
+    console.log(nbAttemptsCo);
     if (nbAttemptsCo == 1) {
         var toastElement = document.querySelector(".toast.toastAlert");
 
@@ -18,5 +19,13 @@ $(function () {
             toast.show();
         }
         $('#submit-login-button').prop('disabled', true);
+    } else if (nbAttemptsCo == 2) {
+        var toastElement = document.querySelector(".toast.toasFirst");
+        if (toastElement) {
+            var toast = new bootstrap.Toast(toastElement, {
+                autohide: false,
+            });
+            toast.show();
+        }
     }
 });

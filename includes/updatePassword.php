@@ -5,7 +5,11 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include('connectionFunction.php');
+if (!class_exists('Connection')) {
+    include('connectionFunctions.php');
+    $_SESSION['db'] = $db;
+}
+$db = $_SESSION['db'];
 
 $token = $_POST['token'];
 $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
