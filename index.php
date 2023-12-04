@@ -22,7 +22,7 @@ switch ($p) {
                 include_once("poSpace.php");
                 break;
             case 'Admin':
-                include_once("");
+                include_once("adminSpace.php");
                 break;
             case 'Merchant':
                 include_once("clientSpace.php");
@@ -52,7 +52,7 @@ switch ($p) {
         break;
     case 'list-user':
         if ($_SESSION["type"] == 'Admin')
-            include_once("");
+            include_once("adminListAccount.php");
         break;
     default:
         include_once("login.php");
