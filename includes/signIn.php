@@ -2,11 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+session_start();
+
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
 }
-$db = $_SESSION['db'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["id"] = $connectionVerif[0]['idUser'];
                 $_SESSION["profil"] = $connectionVerif[0]['profil'];
                 header("Location: ../index.php?p=my-space");
+                exit();
 
             //Si le mot de passe est incorrect on renvoie l'erreur et on diminue les essais restants
             } else if (!password_verify($password, $connectionVerif[0]['password'] || $connectionVerif[0]['login'] != $login)) {

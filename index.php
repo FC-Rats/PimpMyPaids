@@ -1,8 +1,9 @@
 <?php
 session_start();
-$_SESSION["type"] = "";
 
-//include "/includes/connexionFunction.php";
+if (!isset($_SESSION["profil"])){
+    $_SESSION["profil"] = "";
+}
 
 $p = isset($_GET['p']) ? $_GET['p'] : 'login';
 
@@ -17,7 +18,7 @@ switch ($p) {
         include_once("change.php");
         break;
     case 'my-space':
-        switch ($_SESSION["type"]) {
+        switch ($_SESSION["profil"]) {
             case 'PO':
                 include_once("poSpace.php");
                 break;
@@ -27,32 +28,36 @@ switch ($p) {
             case 'Merchant':
                 include_once("clientSpace.php");
                 break;
-        }
+        }break;
     case 'list-remise':
-        switch ($_SESSION["type"]) {
+        switch ($_SESSION["profil"]) {
             case 'PO':
                 include_once("poRemises.php");
                 break;
             case 'Merchant':
-                include_once("");
+                include_once("clientRemises.php");
                 break;
-        }
+        }break;
     case 'list-impayés':
-        switch ($_SESSION["type"]) {
+        switch ($_SESSION["profil"]) {
             case 'PO':
                 include_once("poUnpaids.php");
                 break;
             case 'Merchant':
                 include_once("clientUnpaids.php");
                 break;
-        }
+        }break;
     case 'list-compte':
-        if ($_SESSION["type"] == 'PO')
-            include_once("poListAccount.php");
-        break;
-    case 'list-user':
-        if ($_SESSION["type"] == 'Admin')
-            include_once("adminListAccount.php");
+        switch ($_SESSION["profil"]) {
+            case 'PO':
+                include_once("poListAccount.php");
+                break;
+            case 'Admin':
+                include_once("adminListAccount.php");
+                break;
+        }break;
+    case 'deconnexion':
+        include("../includes/SignOut.php");
         break;
     default:
         include_once("login.php");
