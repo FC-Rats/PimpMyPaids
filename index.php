@@ -57,7 +57,7 @@ switch ($p) {
                 break;
         }break;
     case 'deconnexion':
-        include("../includes/SignOut.php");
+        header("Location: ./includes/signOut.php");
         break;
     default:
         include_once("login.php");
