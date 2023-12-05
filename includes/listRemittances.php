@@ -100,7 +100,7 @@ switch ($_SESSION["profil"]) {
 
         case 'Merchant':
 
-            $conditions = array(":siren", $_SESSION["siren"]);
+            $conditions = array();
 
             if (!empty($_POST['creditCardNumber'])) {
                 $conditions[] = array(":creditCardNumber", $_POST['creditCardNumber'], "t.creditCardNumber");
@@ -139,6 +139,8 @@ switch ($_SESSION["profil"]) {
                 $conditions[] = array(":afterDate", $_POST['afterDate']);
                 $query1 .= "AND dateTransac > :afterDate";
             }
+
+            $conditions[] = array(":siren", $_SESSION["siren"]);
 
             $query1 .= "GROUP BY r.remittanceNumber";
 
