@@ -3,15 +3,11 @@
 - - - FONCTIONS UTILES A LA CONNEXION AU SITE - - -
 */
 session_start();
+
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
 }
-$db = $_SESSION['db'];
 
-function getNames() {
-    return $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = : idUser', array(array(':idUser', $_SESSION['id'])));
-}
 
 function getEspaceData() {
     switch ($_SESSION["profil"]) {

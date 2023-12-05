@@ -7,7 +7,6 @@ session_start();
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //On définit la variable de session "try" à 3 s'il est pas défini
@@ -21,8 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // On récupère les informations en fonction de l'identifiant
         $connectionVerif = $db->query("SELECT idUser, login, password, profil FROM TRAN_USERS WHERE login = :login", array(array(":login", $login)));
-        print_r($connectionVerif);
-        echo count($connectionVerif);
         //On vérifie si on obtient UN résultat (si l'identifiant est correct)
         if (count($connectionVerif) == 1) {
             
@@ -31,6 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["login"] = $connectionVerif[0]['login'];
                 $_SESSION["id"] = $connectionVerif[0]['idUser'];
                 $_SESSION["profil"] = $connectionVerif[0]['profil'];
+
+                if ($_SESSION["profil"] == 'Merchant'){
+                    $siren = $db->query("SELECT siren FROM TRAN_CUSTOMER_ACCOUNT WHERE idUser = :idUser", array(array(":idUser",$_SESSION["id"])));
+                    $_SESSION["siren"] = $siren[0]["siren"];
+                }
                 header("Location: ../index.php?p=my-space");
                 exit();
 

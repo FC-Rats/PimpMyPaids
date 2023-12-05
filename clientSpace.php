@@ -1,6 +1,21 @@
 <?php if (!isset($_SESSION)) {
     session_start();
-} ?>
+} 
+if (!class_exists('Connection')) {
+    include('./includes/connectionFunctions.php');
+}
+include('./includes/usefulFonctions.php');
+$names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
+
+$allDataClient = "SELECT 
+(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) AS totalAmount,
+(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
+(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
+((SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) - (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) + (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren)) AS tresorerie;";        
+$conditions = array(array(":siren", $_SESSION["siren"]));
+$datas = $db->query($allDataClient, $conditions);
+print_r($datas);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,11 +51,11 @@
                 <div>
                     <div class="pb-5">
                         <h2>Content de vous revoir parmi nous,</h2>
-                        <h1><span id="clientName">NOM</span> <span id="clientFirstName">Prénom</span></h1>
+                        <h1><span id="clientName"><?php echo $names[0]['lastName'];?></span> <span id="clientFirstName"><?php echo $names[0]['firstName'];?></span></h1>
                     </div>
                     <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12">
                         <span class="col-4">Votre solde :</span>
-                        <span class="fw-bold col-4" id="clientBalance">-10000,00</span>
+                        <span class="fw-bold col-4" id="clientBalance"><?php print_r($datas)?></span>
                         <span class="col-1 clientCurrency">EUR</span>
                         <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
                     </div>

@@ -48,17 +48,17 @@ class Connection {
      * @example query $sql = "SELECT * FROM table WHERE e1 = :e1 AND e2 = :e2 | $conditions = array(array(":e1", $var1), array(":e2" ; $var2))
      */
     public function query($command, Array $conditions = null){
-        $query = $this->connec->prepare($command);
+        $q = $this->connec->prepare($command);
 
         if($conditions){
             foreach ($conditions as $values) {
-                $query->bindParam($values[0],$values[1]);
+                $q->bindParam($values[0],$values[1]);
             }
         }
 
-        $success = $query->execute();
+        $success = $q->execute();
         if ($success)
-            return $query->fetchAll();
+            return $q->fetchAll();
         else {
             throw new Exception("Erreur lors de l'exécution de la requête.");
         }
