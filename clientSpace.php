@@ -11,10 +11,9 @@ $allDataClient = "SELECT
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) AS totalAmount,
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
-((SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) - (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) + (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren)) AS tresorerie;";        
+SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren;";        
 $conditions = array(array(":siren", $_SESSION["siren"]));
 $datas = $db->query($allDataClient, $conditions);
-print_r($datas);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,8 +54,8 @@ print_r($datas);
                     </div>
                     <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12">
                         <span class="col-4">Votre solde :</span>
-                        <span class="fw-bold col-4" id="clientBalance"><?php print_r($datas)?></span>
-                        <span class="col-1 clientCurrency">EUR</span>
+                        <span class="fw-bold col-4" id="clientBalance"><?php echo $datas[0]["totalAmount"];?></span>
+                        <span class="col-1 clientCurrency"><?php echo $datas[0]["currency"];?></span>
                         <i class="fa-solid fa-piggy-bank fa-xl fa-bounce col-3"></i>
                     </div>
                     <div class="align-items-center justify-content-center text-center pt-5 d-none d-sm-block">
@@ -72,14 +71,14 @@ print_r($datas);
                 </div>
                 <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12 my-2">
                     <span class="col-4">Somme remises :</span>
-                    <span class="fw-bold col-4" id="clientRemittances">1000,00</span>
-                    <span class="col-1 clientCurrency">EUR</span>
+                    <span class="fw-bold col-4" id="clientRemittances"><?php echo $datas[0]["sumRemises "];?></span>
+                    <span class="col-1 clientCurrency"><?php echo $datas[0]["currency"];?></span>
                     <i class="fa-solid fa-money-bill-transfer fa-xl col-3"></i>
                 </div>
                 <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12 my-2">
                     <span class="col-4">Somme impayés :</span>
-                    <span class="fw-bold col-4" id="clientUnpaids">-10000,00</span>
-                    <span class="col-1 clientCurrency">EUR</span>
+                    <span class="fw-bold col-4" id="clientUnpaids"><?php echo $datas[0]["sumImpayes"];?></span>
+                    <span class="col-1 clientCurrency"><?php echo $datas[0]["currency"];?></span>
                     <i class="fa-solid fa-file-invoice-dollar fa-xl col-3"></i>
                 </div>
                 <div class="p-3 fs-5 d-flex align-items-center justify-content-center text-center col-12">
