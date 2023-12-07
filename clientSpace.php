@@ -11,7 +11,7 @@ $allDataClient = "SELECT
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) AS totalAmount,
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
-SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren;";        
+(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
 $conditions = array(array(":siren", $_SESSION["siren"]));
 $datas = $db->query($allDataClient, $conditions);
 ?>
@@ -71,7 +71,7 @@ $datas = $db->query($allDataClient, $conditions);
                 </div>
                 <div class="rounded p-3 bg-grey fs-5 d-flex align-items-center justify-content-center text-center col-12 my-2">
                     <span class="col-4">Somme remises :</span>
-                    <span class="fw-bold col-4" id="clientRemittances"><?php echo $datas[0]["sumRemises "];?></span>
+                    <span class="fw-bold col-4" id="clientRemittances"><?php echo $datas[0]["sumRemises"];?></span>
                     <span class="col-1 clientCurrency"><?php echo $datas[0]["currency"];?></span>
                     <i class="fa-solid fa-money-bill-transfer fa-xl col-3"></i>
                 </div>
