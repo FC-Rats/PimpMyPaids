@@ -89,7 +89,6 @@ switch ($_SESSION["profil"]) {
             $orderUnpaidDetailPO = array();
 
             foreach ($unpaidDetailPO as $row) {
-                print_r($row);
                 $siren = $row['siren'];
                 
                 if (!isset($orderUnpaidDetailPO[$siren])) {
@@ -134,7 +133,6 @@ switch ($_SESSION["profil"]) {
     
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
-                print_r($values);
                 $query .= "AND {$values[2]} = {$values[0]} ";
             }
 
