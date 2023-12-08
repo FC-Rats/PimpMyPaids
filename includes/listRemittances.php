@@ -1,10 +1,9 @@
 <?php
+session_start();
 $response = [];
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
 }
-$db = $_SESSION['db'];
 
 switch ($_SESSION["profil"]) {
         case 'PO':
@@ -115,81 +114,57 @@ switch ($_SESSION["profil"]) {
             }
 
             $query1 = "SELECT 
+                        r.remittanceNumber,
                         COUNT(t.idTransac) AS nbTransactions,
                         r.dateRemittance,
-                        t.creditCardNumber, 
-                        t.numAutorisation, 
                         SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montantTotal,
                         c.currency
                     FROM TRAN_REMITTANCES r
                     LEFT JOIN TRAN_TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
-                    LEFT JOIN TRAN_CUSTOMER_ACCOUNTS c ON r.siren = c.siren
+                    LEFT JOIN TRAN_CUSTOMER_ACCOUNT c ON t.siren = c.siren
                     WHERE c.siren = :siren";
             
             foreach ($conditions as $values) {
-                $query1 .= "AND {$values[2]} = '{$values[0]}' ";
+                $query1 .= " AND {$values[2]} = '{$values[0]}' ";
             }
 
             if (!empty($_POST['beforeDate'])) {
                 $conditions[] = array(":beforeDate", $_POST['beforeDate']);
-                $query1 .= "AND dateTransac < :beforeDate";
+                $query1 .= " AND dateTransac < :beforeDate";
             }
     
             if (!empty($_POST['afterDate'])) {
                 $conditions[] = array(":afterDate", $_POST['afterDate']);
-                $query1 .= "AND dateTransac > :afterDate";
+                $query1 .= " AND dateTransac > :afterDate";
             }
 
             $conditions[] = array(":siren", $_SESSION["siren"]);
 
-            $query1 .= "GROUP BY r.remittanceNumber";
+            $query1 .= " GROUP BY r.remittanceNumber;";
 
             $remittancesMerchant = $db->query($query1, $conditions);
-
-            $query2 = "SELECT 
-                        r.dateTransac,
-                        t.creditCardNumber, 
-                        t.network
-                        t.numAutorisation, 
-                        t.sign,
-                        t.amount,
-                        c.currency
-                    FROM TRAN_REMITTANCES r
-                    LEFT JOIN TRAN_TRANSACTIONS t ON r.remittanceNumber = t.remittanceNumber
-                    LEFT JOIN TRAN_CUSTOMER_ACCOUNTS c ON r.siren = c.siren
-                    WHERE c.siren = :siren";
-
-            foreach ($conditions as $values) {
-                $query2 .= "AND {$values[2]} = '{$values[0]}' ";
-            }
-
-            if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
-                $query2 .= "AND dateTransac < :beforeDate";
-            }
-
-            if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
-                $query2 .= "AND dateTransac > :afterDate";
-            }
-
-            $remittancesDetailsMerchant = $db->query($query2, $conditions);
-
-            $orderRemittancesDetailsMerchant= array();
-
-            foreach ($remittancesDetailsMerchant as $row) {
-                print_r($row);
+            
+            foreach ($remittancesMerchant as &$row) {
                 $remittanceNumber = $row['remittanceNumber'];
-                
-                if (!isset($orderRemittancesDetailsMerchant[$remittanceNumber])) {
-                    $orderRemittancesDetailsMerchant[$remittanceNumber] = array();
-                }
-                
-                $orderRemittancesDetailsMerchant[$remittanceNumber][] = $row;
+
+                $query2 = "SELECT t.remittanceNumber, 
+                                t.dateTransac, 
+                                t.creditCardNumber, 
+                                t.network, 
+                                t.numAutorisation, 
+                                t.sign, 
+                                t.amount, 
+                                c.currency 
+                            FROM TRAN_TRANSACTIONS t 
+                            LEFT JOIN TRAN_CUSTOMER_ACCOUNT c 
+                            ON t.siren = c.siren 
+                            WHERE t.remittanceNumber = :remittanceNumber";
+
+                $details = $db->query($query2, array(array(":remittanceNumber", $remittanceNumber)));
+                $row['details'] = $details;
             }
 
             $response["ListRemittancesClient"] = $remittancesMerchant;
-            $response["ListRemittancesDetailsClient"] = $orderRemittancesDetailsMerchant;
             echo json_encode($response);
     }
 ?>

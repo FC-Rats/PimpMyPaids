@@ -120,7 +120,7 @@ switch ($_SESSION["profil"]) {
             $orderBy = "";
             if (!empty($_POST['formSortClientUnpaids'])) {
                 $sortOption = ($_POST['formSortClientUnpaids'] === 'az') ? 'ASC' : 'DESC';
-                $orderBy = "ORDER BY dateTransac {$sortOption}";
+                $orderBy = " ORDER BY dateTransac {$sortOption}";
             }
     
             // Construction de la query
@@ -133,17 +133,17 @@ switch ($_SESSION["profil"]) {
     
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
-                $query .= "AND {$values[2]} = {$values[0]} ";
+                $query .= " AND {$values[2]} = {$values[0]}";
             }
 
             if (!empty($_POST['beforeDate'])) {
                 $conditions[] = array(":beforeDate", $_POST['beforeDate']);
-                $query .= "AND dateTransac < :beforeDate";
+                $query .= " AND dateTransac < :beforeDate";
             }
     
             if (!empty($_POST['afterDate'])) {
                 $conditions[] = array(":afterDate", $_POST['afterDate']);
-                $query .= "AND dateTransac > :afterDate";
+                $query .= " AND dateTransac > :afterDate";
             }
     
             // Add ORDER BY clause

@@ -1,10 +1,9 @@
 <?php
+    session_start();
     $response = [];
     if (!class_exists('Connection')) {
         include('connectionFunctions.php');
-        $_SESSION['db'] = $db;
     }
-    $db = $_SESSION['db'];
 
     $query = "SELECT
                     DATE_FORMAT(dateTransac, '%m') AS mois,
