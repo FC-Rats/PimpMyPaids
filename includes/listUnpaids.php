@@ -8,6 +8,7 @@ if (!class_exists('Connection')) {
 switch ($_SESSION["profil"]) {
         case 'PO':
     
+            $conditions = array();
             // Conditions supplémentaires    
             if (!empty($_POST['siren'])) {
                 $conditions[] = array(":siren", $_POST['siren'], "T.siren");
@@ -27,80 +28,66 @@ switch ($_SESSION["profil"]) {
     
             // Construction de la query
             $query = "SELECT
-                        CA.siren,
-                        CA.companyName,
-                        COUNT(UA.unpaidFileNumber) AS nombre_impayes,
-                        SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) AS somme_impayes
-                    FROM
-                        TRAN_UNPAIDS UA
-                    JOIN
-                        TRAN_UNPAID_REASONS UR ON UA.idUnpaidReason = UR.idUnpaidReason
-                    JOIN
-                        TRAN_TRANSACTIONS T ON UA.idTransac = T.idTransac
-                    JOIN
-                        TRAN_CUSTOMER_ACCOUNT CA ON T.siren = CA.siren";
+                            ca.siren,
+                            ca.companyName,
+                            ca.currency,
+                            SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS totalUnpaids
+                        FROM
+                            TRAN_CUSTOMER_ACCOUNT ca
+                        JOIN
+                            TRAN_TRANSACTIONS t ON ca.siren = t.siren
+                        JOIN
+                            TRAN_UNPAIDS u ON t.idTransac = u.idTransac
+                        GROUP BY
+                            ca.siren;";
     
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
                 if (strpos($query, "WHERE") == false) {
-                    $query .= "WHERE {$values[2]} = '{$values[0]}' ";
+                    $query .= " WHERE {$values[2]} = '{$values[0]}' ";
                 } else {
-                    $query .= "AND {$values[2]} = '{$values[0]}' ";
+                    $query .= " AND {$values[2]} = '{$values[0]}' ";
                 }
             }
 
             if (!empty($_POST['beforeDate'])) {
                 $conditions[] = array(":beforeDate", $_POST['beforeDate']);
                 if (strpos($query, "WHERE") == false) {
-                    $query .= "WHERE dateTransac < :beforeDate";
+                    $query .= " WHERE dateTransac < :beforeDate";
                 } else {
-                    $query .= "AND dateTransac < :beforeDate";
+                    $query .= " AND dateTransac < :beforeDate";
                 }
             }
     
             if (!empty($_POST['afterDate'])) {
                 $conditions[] = array(":afterDate", $_POST['afterDate']);
                 if (strpos($query, "WHERE") == false) {
-                    $query .= "WHERE dateTransac > :afterDate";
+                    $query .= " WHERE dateTransac > :afterDate";
                 } else {
-                    $query .= "AND dateTransac > :afterDate";
+                    $query .= " AND dateTransac > :afterDate";
                 }
             }
-    
+
             $unpaidPO = $db->query($query, $conditions);
 
-            $query2 = "SELECT t.siren, t.dateTransac, r.dateRemittance, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, t.currency, un.unpaidName, t.network
-            FROM TRAN_TRANSACTIONS t
-            JOIN TRAN_REMITTANCES r ON t.remittanceNumber = r.remittanceNumber
-            JOIN TRAN_UNPAIDS u ON t.idTransac = u.idTransac
-            JOIN TRAN_UNPAID_REASONS un ON u.idUnpaidReason = un.idUnpaidReason";
-
-            // Ajout des conditions à la query
-            foreach ($conditions as $values) {
-                if (strpos($query2, "WHERE") == false) {
-                    $query2 .= "WHERE {$values[2]} = '{$values[0]}' ";
-                } else {
-                    $query2 .= "AND {$values[2]} = '{$values[0]}' ";
-                }
-            }
-
-            $unpaidDetailPO = $db->query($query2, $conditions);
-
-            $orderUnpaidDetailPO = array();
-
-            foreach ($unpaidDetailPO as $row) {
+            foreach ($unpaidPO as &$row) {
                 $siren = $row['siren'];
-                
-                if (!isset($orderUnpaidDetailPO[$siren])) {
-                    $orderUnpaidDetailPO[$siren] = array();
-                }
-                
-                $orderUnpaidDetailPO[$siren][] = $row;
+
+                $query2 = "SELECT t.dateTransac, r.dateRemittance, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, c.currency, un.unpaidName, t.network
+                                FROM TRAN_TRANSACTIONS t
+                                JOIN TRAN_CUSTOMER_ACCOUNT c ON t.siren = c.siren
+                                JOIN TRAN_REMITTANCES r ON t.remittanceNumber = r.remittanceNumber
+                                JOIN TRAN_UNPAIDS u ON t.idTransac = u.idTransac
+                                JOIN TRAN_UNPAID_REASONS un ON u.idUnpaidReason = un.idUnpaidReason
+                                WHERE t.siren = :siren";
+
+                $details = $db->query($query2, array(array(":siren", $siren)));
+                $row['details'] = $details;
             }
 
             $response["ListUnpaids"] = $unpaidPO;
-            $response["ListUnpaidsDetails"] = $orderUnpaidDetailPO;
             echo json_encode($response);
+            break;
 
         case 'Merchant':
             // Liste de ses impayés avec date vente | date remise | N° carte | N° dossier | montant (devise) |  libellé impayé
@@ -154,5 +141,6 @@ switch ($_SESSION["profil"]) {
             $unpaidClient = $db->query($query, $conditions);
             $response["ListUnpaidsClient"] = $unpaidClient;
             echo json_encode($response);
-        }
+            break;
+}
 ?>

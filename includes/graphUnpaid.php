@@ -17,10 +17,10 @@ if (!class_exists('Connection')) {
                         GROUP BY
                             UR.unpaidName";
 
-            $graphUnpaidPO = $db->query($query);
+            $graphUnpaidPO = $db->query($query, array());
             $response["GraphUnpaids"] = $graphUnpaidPO;
             echo json_encode($response);
-
+            break;
         case 'Merchant':
             $query =  "SELECT
                             UR.unpaidName AS motif_impaye,
@@ -39,5 +39,6 @@ if (!class_exists('Connection')) {
             $graphUnpaidMerchant = $db->query($query, array(array(":siren", $_SESSION["siren"])));
             $response["GraphUnpaids"] = $graphUnpaidMerchant;
             echo json_encode($response);
+            break;
     }
 ?>

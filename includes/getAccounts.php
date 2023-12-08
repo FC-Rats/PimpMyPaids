@@ -1,10 +1,9 @@
 <?php
+session_start();
 $response = [];
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
 }
-$db = $_SESSION['db'];
 
 switch ($_SESSION["profil"]) {
         case 'PO':
@@ -28,24 +27,29 @@ switch ($_SESSION["profil"]) {
                     LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
             foreach ($conditions as $values) {
-                $query .= "AND {$values[2]} = {$values[0]} ";
+                if (strpos($query2, "WHERE") == false) {
+                    $query .= " WHERE {$values[2]} = '{$values[0]}' ";
+                } else {
+                    $query .= " AND {$values[2]} = '{$values[0]}' ";
+                }
             }
             
             if (!empty($_POST['date'])) {
                 $conditions[] = array(":date", $_POST['date']);
-                $query .= "AND dateTransac < :date";
+                $query .= " AND dateTransac < :date";
             }
 
             $orderBy = "";
             if (!empty($_POST['sortAccount'])) {
                 $sortOption = ($_POST['sortAccount'] === 'siren') ? 'siren' : 'montant';
-                $orderBy = "ORDER BY {$sortOption} ASC";
+                $orderBy = " ORDER BY {$sortOption} ASC";
             }
 
-            $query .= "GROUP BY c.siren";
+            $query .= " GROUP BY c.siren";
             $query .= $orderBy;
 
             $accountInfo = $db->query($query, $conditions);
+            
             $response["ListAccounts"] = $accountInfo;
             echo json_encode($response);
 
