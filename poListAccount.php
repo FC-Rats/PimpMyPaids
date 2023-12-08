@@ -39,10 +39,6 @@
                     <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" ">
                     <label for="companyName">Raison Sociale</label>
                 </div>
-                <div class="form-floating text-dark col-12 col-sm-5 col-lg-2 m-1">
-                    <input type="date" class="form-control ps-4" id="date" name="date" placeholder=" ">
-                    <label for="date">Date</label>
-                </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-center col-12 col-sm-5 col-lg-2 m-1">
                     <button type="button" id="searchAccountsButton" class="btn btn-primary border-0 text-uppercase d-flex justify-content-center align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>

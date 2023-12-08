@@ -32,15 +32,11 @@
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
-                    <input type="text" class="form-control" id="creditCardNumber" name="creditCardNumber" placeholder=" ">
-                    <label for="creditCardNumber">N° Carte</label>
-                </div>
-                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="text" class="form-control" id="amount" name="amount" placeholder=" ">
                     <label for="amount">Montant</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-12 col-lg-2">
-                    <input type="number" class="form-control" id="remittanceNumber" name="remittanceNumber" placeholder=" ">
+                    <input type="text" class="form-control" id="remittanceNumber" name="remittanceNumber" placeholder=" ">
                     <label for="remittanceNumber">N° Remise</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">

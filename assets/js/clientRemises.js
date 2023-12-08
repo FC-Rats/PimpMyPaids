@@ -1,6 +1,5 @@
 var listRemittancesData = "";
 var listRemittancesDetailsData = "";
-var creditCardNumber = "";
 var amount = "";
 var remittanceNumber = "";
 var beforeDate = "";
@@ -12,35 +11,32 @@ var listRemittancesData = [
 ];
 
 $(function () {
-    creditCardNumber = $('#creditCardNumber').val();
     amount = $('#amount').val();
     remittanceNumber = $('#remittanceNumber').val();
     beforeDate = $('#beforeDate').val();
     afterDate = $('#afterDate').val();
-    listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
+    listClientRemittances( amount, remittanceNumber, beforeDate, afterDate);
 
     $("#searchRemittanceClientButton").on("click", function () {
-        creditCardNumber = $('#creditCardNumber').val();
         amount = $('#amount').val();
         remittanceNumber = $('#remittanceNumber').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
-        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances( amount, remittanceNumber, beforeDate, afterDate);
     });
 
     // pagination
     $("#nbLineByPage").on("input", function () {
         rowsPerPage=$(this).val();
-        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances( amount, remittanceNumber, beforeDate, afterDate);
     });
     $("#pageToShow").on("input", function () {
         pageToShow=$(this).val();
-        listClientRemittances(creditCardNumber, amount, remittanceNumber, beforeDate, afterDate);
+        listClientRemittances( amount, remittanceNumber, beforeDate, afterDate);
     });
 
     // export
     $("#export_type").on("change", function () {
-        creditCardNumber = $('#creditCardNumber').val();
         amount = $('#amount').val();
         remittanceNumber = $('#remittanceNumber').val();
         beforeDate = $('#beforeDate').val();
@@ -51,7 +47,7 @@ $(function () {
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
+            data: {"amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
@@ -65,7 +61,6 @@ $(function () {
 });
 
 function listClientRemittances(
-    creditCardNumber,
     amount,
     remittanceNumber,
     beforeDate,
@@ -75,7 +70,7 @@ function listClientRemittances(
         url: "includes/listRemittances.php",
         type: "POST",
         dataType: "JSON",
-        data: { "creditCardNumber": creditCardNumber, "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate },
+        data: { "amount": amount, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate },
         success: function (data) {
             listRemittancesData = data.ListRemittancesClient;
             listRemittancesDetailsData = data.ListRemittancesDetailsClient;
@@ -116,7 +111,6 @@ function viewClientDetailRemittance(id) {
         // + changer le label offcanvas
         $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.dateTransac").val(data.dateTransac);
         $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.network").val(data.network);
-        $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.creditCardNumber").val(data.creditCardNumber);
         $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.numAutorisation").val(data.numAutorisation);
         $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.sign").val(data.sign);
         $("#offcanvasDetailRemittanceClient\\#" + data.id + "\\.amount").val(data.amount);

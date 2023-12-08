@@ -40,7 +40,7 @@
                     <label for="companyName">Raison Sociale</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-12 col-lg-2">
-                    <input type="number" class="form-control" name="remittanceNumber" id="remittanceNumber" placeholder=" ">
+                    <input type="text" class="form-control" name="remittanceNumber" id="remittanceNumber" placeholder=" ">
                     <label for="remittanceNumber">N° Remise</label>
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">

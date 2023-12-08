@@ -1,22 +1,18 @@
 var listAccountData = "";
 var siren = "";
 var companyName = "";
-var date = "";
 
 $(function () {
     siren = $('#siren').val();
     companyName = $('#companyName').val();
-    date = $('#date').val();
-    listAccounts(siren, companyName, date, $("#sortAccount").val());
+    listAccounts(siren, companyName, $("#sortAccount").val());
 
     $("#sortAccount").on("change", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
-        date = $('#date').val();
         listAccounts(
             siren,
             companyName,
-            date,
             $("#sortAccount").val()
         );
     });
@@ -24,22 +20,20 @@ $(function () {
     $("#searchAccountsButton").on("click", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
-        date = $('#date').val();
-        listAccounts(siren, companyName, date, $("#sortAccount").val());
+        listAccounts(siren, companyName, $("#sortAccount").val());
     });
 
     // export
     $("#export_type").on("change", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
-        date = $('#date').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "date": date, "context": context, "export_type": export_type },
+            data: { "siren": siren, "companyName": companyName, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
@@ -55,19 +49,18 @@ $(function () {
 function listAccounts(
     siren,
     companyName,
-    date,
     sort
 ) {
     var formData = [];
     formData.push({ name: 'siren', value: siren });
     formData.push({ name: 'companyName', value: companyName });
-    formData.push({ name: 'date', value: date });
     formData.push({ name: 'sortAccount', value: sort });
+
     $.ajax({
         url: "includes/getAccounts.php",
         type: "POST",
         dataType: "JSON",
-        data: { "siren": siren, "companyName": companyName, "date": date, "sortAccount": sort },
+        data: { "siren": siren, "companyName": companyName, "sortAccount": sort },
         success: function (data) {
             listAccountData = data.ListAccounts;
             console.log(listAccountData);
@@ -81,7 +74,25 @@ function listAccounts(
     $("#accordionListAcounts").empty();
     $.map(listAccountData, function (data, dataKey) {
         html = "";
-        // html += "to Add";
+        html += '<div class="accordion-item my-3">';
+        html += '<h2 class="accordion-header">';
+        html += '<button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
+        html += '<span class="col-3 col-md-1">' + + '</span>';
+        html += '<span class="col-1">-</span>';
+        html += '<span class="col-6 col-md-3">' + + '</span>';
+        html += '</button>';
+        html += '</h2>';
+        html += '<div id="flush-collapse' + dataKey + '" class="accordion-collapse collapse">';
+        html += '<div class="accordion-body">';
+        html += '<div class="infos d-flex flex-column flex-sm-row pb-2">';
+        html += '<span class="col-5 col-sm-5 col-md-6">' + data.transactions + ' transactions</span>';
+        html += '<span class="col-1">' + + '</span>';
+        html += '<span class="col-4 col-sm-4 col-md-3">SOLDE</span>';
+        html += '<span class="col-2">' + + '</span>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
 
         $("#accordionListAcounts").append(html);
     });

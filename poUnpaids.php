@@ -58,7 +58,7 @@
                         <label for="label">Motif</label>
                     </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
-                        <input type="number" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
+                        <input type="text" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
                         <label for="idUnpaid">Numéro Dossier</label>
                     </div>
                     <div class="form-floating text-dark d-flex align-items-center justify-content-between mt-1 mb-2 mb-lg-0">
