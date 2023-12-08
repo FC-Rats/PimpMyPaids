@@ -26,12 +26,12 @@ espace client :
     graph sur 12 mois glissants → ajax
 
 remises client : 
-    somme totale actuelle → include
+    x somme totale actuelle → include
     recherche → ajax
 (on oublie pas de donner le détail )
 
 impayés client : 
-    somme totale actuelle → somme en js
+    x somme totale actuelle → include
     graph par motif → ajax
     recherche + tri → ajax
 

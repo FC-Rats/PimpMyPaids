@@ -1,6 +1,18 @@
-<?php if (!isset($_SESSION)) {
+<?php
+if (!isset($_SESSION)) {
     session_start();
-} ?>
+} 
+if (!class_exists('Connection')) {
+    include('./includes/connectionFunctions.php');
+}
+
+$DataClient = "SELECT 
+(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
+(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
+$conditions = array(array(":siren", $_SESSION["siren"]));
+$datas = $db->query($DataClient, $conditions);
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,7 +40,7 @@
     <?php include('./header.php'); ?>
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises</h1>
-        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold">100</span> <span id="clientCurrency">EUR</span></div>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold"><?php echo $datas[0]["sumRemises"];?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"];?></span></div>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
