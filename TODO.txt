@@ -31,7 +31,7 @@ remises client :
 (on oublie pas de donner le détail )
 
 impayés client : 
-    x somme totale actuelle → include
+    xsomme totale actuelle → somme en js
     graph par motif → ajax
     recherche + tri → ajax
 
