@@ -108,7 +108,6 @@ function viewDetailUnpaid(id) {
     $.map(dataDetail, function (data, dataKey) {
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.siren").val(data.siren);
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.dateTransac").val(data.dateTransac);
-        $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.dateRemittance").val(data.dateRemittance);
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.network").val(data.network);
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.creditCardNumber").val(data.creditCardNumber);
         $("#offcanvasDetailUnpaidClient\\#" + data.id + "\\.idUnpaid").val(data.idUnpaid);

@@ -86,7 +86,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -98,7 +97,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -110,7 +108,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -122,7 +119,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -134,7 +130,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -146,7 +141,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
@@ -158,7 +152,6 @@
                 <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-6 siren">N° SIREN</span>
                     <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 dateRemittance">Date remise</span>
                     <span class="col-6 network">Reseau</span>
                     <span class="col-6 creditCardNumber">N° carte</span>
                     <span class="col-6 idUnpaid">N° dossier impayé</span>
