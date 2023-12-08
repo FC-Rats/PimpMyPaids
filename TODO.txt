@@ -20,9 +20,9 @@ change pwd :
     hashage
 
 espace client : 
-    solde actuel → include
-    somme remises actuelle → include
-    somme impayés actuelle → include
+    x solde actuel → include
+    x somme remises actuelle → include
+    x somme impayés actuelle → include
     graph sur 12 mois glissants → ajax
 
 remises client : 
@@ -36,7 +36,7 @@ impayés client :
     recherche + tri → ajax
 
 espace PO : 
-    dernières actions → include
+    x dernières actions → include
     demande à l'admin → ajax
 
 liste comptes : 

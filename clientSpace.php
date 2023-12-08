@@ -1,10 +1,10 @@
-<?php if (!isset($_SESSION)) {
+<?php
+if (!isset($_SESSION)) {
     session_start();
 } 
 if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
-include('./includes/usefulFonctions.php');
 $names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
 
 $allDataClient = "SELECT 
@@ -14,6 +14,7 @@ $allDataClient = "SELECT
 (SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
 $conditions = array(array(":siren", $_SESSION["siren"]));
 $datas = $db->query($allDataClient, $conditions);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -1,6 +1,13 @@
-<?php if (!isset($_SESSION)) {
+<?php 
+if (!isset($_SESSION)) {
     session_start();
-} ?>
+} 
+include('./includes/connectionFunctions.php');
+
+$names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
+$lastTr = $db->query('SELECT * FROM TRAN_TRANSACTIONS ORDER BY dateTransac DESC LIMIT 3');
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -29,8 +36,6 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <?php //include('../includes/usefulFunctions.php'); 
-    ?>
 
     <div class="container espace-po-section">
         <div class="row container-cols-espace-po">
@@ -38,64 +43,29 @@
                 <div>
                     <div class="pb-5">
                         <h2>Content de vous revoir parmi nous,</h2>
-                        <h1><span id="poName">NOM</span> <span id="poFirstName">Prénom</span></h1>
-                        <!-- getNames() -->
+                        <h1><span id="clientName"><?php echo $names[0]['lastName'];?></span> <span id="clientFirstName"><?php echo $names[0]['firstName'];?></span></h1>
                     </div>
 
                     <div class="rounded p-2 p-md-5 bg-grey news">
                         <h4 class="text-center">Dernières actions sur l'application</h4>
-                        <!-- getEspaceData() -->
-                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >14/02/2023</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span >N°123456789</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" >-10000,00 $</span>
-                            </div>
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >Impayé</span>
-                            </div>
-                            <div class="col-2 d-none d-md-block mb-2">
-                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
-                            </div>
-                        </div>
-                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >14/02/2023</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span >N°123456789</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" >-10000,00 $</span>
-                            </div>
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >Impayé</span>
-                            </div>
-                            <div class="col-2 d-none d-md-block mb-2">
-                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
-                            </div>
-                        </div>
-                        <div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >14/02/2023</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span >N°123456789</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <span class="fw-bold" >-10000,00 $</span>
-                            </div>
-                            <div class="col-6 col-md-2 mb-2">
-                                <span >Impayé</span>
-                            </div>
-                            <div class="col-2 d-none d-md-block mb-2">
-                                <i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i>
-                            </div>
-                        </div>
+                        <?php
+                        
+                        for ($i = 0; $i < 3; $i++){
+                        $dateTransac = date('d/m/Y', strtotime($lastTr[$i]['dateTransac']));
+
+                        echo '<div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">';
+                        echo '<div class="col-6 col-md-2 mb-2"><span>' . $dateTransac . '</span></div>';
+                        echo '<div class="col-6 col-md-3 mb-2"><span>N°' . $lastTr[$i]['idTransac'] . '</span></div>';
+                        echo '<div class="col-6 col-md-3 mb-2"><span class="fw-bold">'.$lastTr[$i]['sign'].' ' . number_format($lastTr[$i]['amount'], 2, ',', ' ') . ' $</span></div>';
+                        if ($lastTr[$i]['remittanceNumber'] === null) {
+                            echo '<div class="col-6 col-md-2 mb-2"><span> Remise </span></div>';
+                        } else {
+                            echo '<div class="col-6 col-md-2 mb-2"><span> ' . htmlspecialchars($lastTr[$i]['remittanceNumber']) . ' </span></div>';
+                        }
+                        echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i></div>';
+                        echo '</div>';
+                        }
+                        ?>
                     </div>
 
                     <div class="align-items-center justify-content-center text-center pt-5 d-none d-sm-block">
