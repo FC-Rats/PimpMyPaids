@@ -1,17 +1,26 @@
 <?php
-if (!class_exists('Connection')) {
-    include('connectionFunctions.php');
-    $_SESSION['db'] = $db;
-}
-$db = $_SESSION['db'];
-
-    $add = 'INSERT INTO TRAN_REQUEST_PO VALUES (:login, :companyName, :comment)';
-    if (!isset(($_POST['comment']))) {
-        $comment = "";
-    } else {
-        $comment = $_POST['comment'];
+    session_start();
+    if (!class_exists('Connection')) {
+        include('connectionFunctions.php');
     }
-    $conditions = array(array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':comment', $_POST['comment']));
-    $queryAdd = $db->query($add, $conditions);
-    header('Location: ../poSpace.php');
+
+    switch ($_SESSION["profil"]) {
+        case 'PO':
+            $delete = 'INSERT INTO TRAN_REQUEST_PO VALUES (:login, :companyName, :comment)';
+            if (!isset(($_POST['comment']))) {
+                $comment = "";
+            } else {
+                $comment = $_POST['comment'];
+            }
+            $conditions = array(array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':comment', $_POST['comment']));
+            $queryDelete = $db->query($delete, $conditions);
+            header('Location: ../index.php?p=my-space');
+            break;
+        case 'Admin':
+            $suppMerchant = "DELETE FROM TRAN_USERS WHERE login = :login";
+            $conditions = array(array(':login', $_POST['login']));
+            $query3 = $db->query($suppMerchant, $conditions);
+            header('Location: ../index.php?p=list-compte');
+            break;
+    }
 ?>

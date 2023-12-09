@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // include('./db-connection.php');
-$config = parse_ini_file('../includes/config.ini');
 
 require '../framework/PHPMailer/src/Exception.php';
 require '../framework/PHPMailer/src/PHPMailer.php';
@@ -18,6 +17,7 @@ function envoi_mail($to_email,$conn,$objet,$message)
     $mail = new PHPMailer(true);
 
     try {
+        $config = parse_ini_file('../includes/config.ini');
         //Server settings
         $mail->isSMTP();
         $mail->SMTPDebug = 0;
