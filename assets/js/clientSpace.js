@@ -25,7 +25,37 @@ $(function () {
         success: function (data) {
             if (data.GraphBalance) {
                 console.log(data.GraphBalance);
-                //TODO: fill chart
+                var seriesData = Object.keys(data.GraphBalance).map(function(key) {
+                    return {
+                        name: key,
+                        y: parseFloat(data.GraphBalance[key])
+                    };
+                });
+                Highcharts.chart("container-soldes", {
+                    chart: {
+                        type: "column",
+                    },
+                    title: {
+                        text: "Évolution de votre trésorerie",
+                    },
+                    xAxis: {
+                        categories: Object.keys(donnees),
+                    },
+                    credits: {
+                        enabled: false,
+                    },
+                    plotOptions: {
+                        column: {
+                            borderRadius: "25%",
+                        },
+                    },
+                    series: [
+                        {
+                            name: "Trésorerie",
+                            data: seriesData,
+                        },
+                    ],
+                });
             }
         },
         error: function (data) {
@@ -34,7 +64,7 @@ $(function () {
     });
 });
 
-// a supprimer 
+/* // a supprimer 
 Highcharts.chart("container-soldes", {
     chart: {
         type: "column",
@@ -75,4 +105,4 @@ Highcharts.chart("container-soldes", {
             ],
         },
     ],
-});
+}); */
