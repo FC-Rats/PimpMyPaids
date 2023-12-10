@@ -23,7 +23,7 @@ if (!isset($_SESSION)) {
                     <li class="nav-item">
                         <a href="index.php?p=list-compte" class="nav-link text-light" aria-current="page" style="text-align: center;">
                             <i class="fa-solid fa-users fa-xl"></i><br>
-                            <span>Compte</span>
+                            <span>Comptes</span>
                         </a>
                     </li>
                 <?php

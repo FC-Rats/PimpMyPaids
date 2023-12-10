@@ -121,13 +121,14 @@ $(function () {
         afterDate = $('#afterDate').val();
         label = $('#label').val();
         idUnpaid = $('#idUnpaid').val();
+        var sorting = $('#formSortClientUnpaids').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "context": context, "export_type": export_type },
+            data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "sort": sorting, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
