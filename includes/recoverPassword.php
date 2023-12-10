@@ -30,8 +30,10 @@ if (isset($_POST['mail'])) {
     } else {
         // si le mail n'existe pas dans la base de données
         header("Location: ../index.php?p=login");
+        exit;
     }
 } else {
     // si le formulaire n'a pas été rempli
     header("Location: ../index.php?p=login");
+    exit;
 }

@@ -111,11 +111,12 @@ if ($_GET['token']) {
         <?php
     } else {
         //Pas trouvé de token
-        echo "Code de réinitialisation invalide."; // A changer
+        header('Location: index.php?p=login');
+        exit;
     }
 
 } else { //Pas de token dans le lien
-    header('Location: login.php');
+    header('Location: index.php?p=login');
     exit;
 }
 
