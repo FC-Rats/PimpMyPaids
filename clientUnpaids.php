@@ -1,14 +1,14 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
-} 
+}
 if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
 
 $DataClient = "SELECT 
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
-(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
+(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";
 $conditions = array(array(":siren", $_SESSION["siren"]));
 $datas = $db->query($DataClient, $conditions);
 
@@ -47,7 +47,7 @@ $datas = $db->query($DataClient, $conditions);
     <?php include('./header.php'); ?>
     <div class="container client-unpaids-section align-items-center jsutify-content-center">
         <h1 class="p-4 text-center">Vos Impayés</h1>
-        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale : <span id="clientSumUnpaids" class="fw-bold"><?php echo $datas[0]["sumImpayes"];?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"];?></span></div>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale : <span id="clientSumUnpaids" class="fw-bold"><?php echo $datas[0]["sumImpayes"]; ?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"]; ?></span></div>
         <div class="d-flex flex-row flex-wrap">
             <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0" style="height: auto!important;">
                 <form class="d-flex align-items-center justify-content-around" id="formClientUnpaids" onsubmit="return false">
@@ -59,9 +59,21 @@ $datas = $db->query($DataClient, $conditions);
                         <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
                         <label for="afterDate">Après le</label>
                     </div>
-                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
-                        <input type="text" class="form-control" id="label" name="label" placeholder=" ">
-                        <label for="label">Motif</label>
+                    <div class="text-dark d-flex align-items-center justify-content-between">
+                        <!-- <input type="text" class="form-control" id="label" name="label" placeholder=" ">
+                        <label for="label">Motif</label> -->
+                        <select class="form-select" aria-label="formExportClientDataUnpaids" name="label" id="label" style="max-width: 200px;">
+                            <option value="" selected>Motif</option>
+                            <option value="Fraude à la carte">Fraude à la carte</option>
+                            <option value="Compte à découvert">Compte à découvert</option>
+                            <option value="Compte clôturé">Compte clôturé</option>
+                            <option value="Compte bloqué">Compte bloqué</option>
+                            <option value="Provision insuffisante">Provision insuffisante</option>
+                            <option value="Opération contestée par le débiteur">Opération contestée par le débiteur</option>
+                            <option value="Titulaire décédé">Titulaire décédé</option>
+                            <option value="Raison non communiquée, contactez la banque du client">Raison non communiquée, contactez la banque du client</option>
+                            <option value="Autre raison">Autre raison</option>
+                        </select>
                     </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="text" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">

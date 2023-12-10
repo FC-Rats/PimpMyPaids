@@ -4,6 +4,12 @@ var afterDate = "";
 var label = "";
 var idUnpaid = "";
 
+var unpaidsElement = document.getElementById("clientSumUnpaids");
+var unpaids = parseFloat(unpaidsElement.textContent);
+if (unpaids < 0) {
+    unpaidsElement.style.color = "#AE2A00";
+}
+
 $(function () {
     $.ajax({
         url: "includes/graphUnpaid.php",
@@ -13,7 +19,53 @@ $(function () {
         success: function (data) {
             if (data.GraphUnpaids) {
                 console.log(data.GraphUnpaids);
-                //TODO: fill chart
+                var jsonData = data.GraphUnpaids;
+                var seriesData = jsonData.map(function(item) {
+                    return {
+                        name: item.motif_impaye,
+                        y: parseInt(item.nombre_impayes)
+                    };
+                });
+                Highcharts.chart("container", {
+                    chart: {
+                        type: "pie",
+                        options3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 0,
+                        },
+                    },
+                    title: {
+                        text: "Répartition des raisons des vos impayés",
+                        align: "left",
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: "%",
+                        },
+                    },
+                    tooltip: {
+                        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: "pointer",
+                            depth: 35,
+                            dataLabels: {
+                                enabled: true,
+                                format: "{point.name}",
+                            },
+                        },
+                    },
+                    series: [
+                        {
+                            type: "pie",
+                            name: "Pourcentage",
+                            data: seriesData,
+                        },
+                    ],
+                });
             }
         },
         error: function (data) {
@@ -26,6 +78,20 @@ $(function () {
     label = $('#label').val();
     idUnpaid = $('#idUnpaid').val();
     listClientUnpaids(beforeDate, afterDate, label, idUnpaid, $("#formSortClientUnpaids").val());
+
+    $("#label").on("change", function () {
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        label = $('#label').val();
+        idUnpaid = $('#idUnpaid').val();
+        listClientUnpaids(
+            beforeDate,
+            afterDate,
+            label,
+            idUnpaid,
+            $("#formSortClientUnpaids").val()
+        );
+    });
 
     $("#formSortClientUnpaids").on("change", function () {
         beforeDate = $('#beforeDate').val();
@@ -90,73 +156,51 @@ function listClientUnpaids(
             listClientUnpaidsData = data.ListUnpaidsClient;
             console.log(listClientUnpaidsData);
             $("#countResults").text(listClientUnpaidsData.length);
+            $("#container-unpaid-list").empty();
+            $.map(listClientUnpaidsData, function (data, dataKey) {
+                var html = "";
+                html += '<div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="' + data.idUnpaid + '">';
+                html += '<span class="col-12 col-sm-6 col-lg-1 dateTransac">' + data.dateTransac + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-1 network"> KEKE </span>';
+                html += '<span class="col-12 col-sm-6 col-lg-2 creditCardNumber">' + data.creditCardNumber + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-2 idUnpaid">' + data.unpaidFileNumber + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-1 sign">' + data.sign + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-1 amount">' + data.amount + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-1 currency"> KEKE </span>';
+                html += '<span class="col-12 col-sm-6 col-lg-2 label">' + data.unpaidName + '</span>';
+                html += "</div>";
+        
+                $("#container-unpaid-list").append(html);
+            });
+
+            if (listClientUnpaidsData.length == 0) {
+                $("#container-unpaid-list").append('<div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center">Aucun résultat</div>');
+            }
+
+            hideCreditCardNumber();
+            formatDate();
         },
         error: function (data) {
             console.log(data);
         },
     });
+}
 
-    $("#container-unpaid-list").empty();
-    $.map(listClientUnpaidsData, function (data, dataKey) {
-        html = "";
-        // html += "to Add";
-
-        $("#container-unpaid-list").append(html);
+function hideCreditCardNumber() {
+    $(".creditCardNumber").each(function () {
+        var creditCardNumber = $(this).text();
+        var creditCardNumberHide = creditCardNumber.replace(/\d(?=\d{4})/g, "*");
+        $(this).text(creditCardNumberHide);
     });
 }
 
-// a supprimer
-Highcharts.chart("container", {
-    chart: {
-        type: "pie",
-        options3d: {
-            enabled: true,
-            alpha: 45,
-            beta: 0,
-        },
-    },
-    title: {
-        text: "Répartition des raisons des vos impayés",
-        align: "left",
-    },
-    accessibility: {
-        point: {
-            valueSuffix: "%",
-        },
-    },
-    tooltip: {
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: "pointer",
-            depth: 35,
-            dataLabels: {
-                enabled: true,
-                format: "{point.name}",
-            },
-        },
-    },
-    series: [
-        {
-            type: "pie",
-            name: "Pourcentage",
-            data: [
-                ["Fraude à la carte", 23],
-                ["Compte à découvert", 18],
-                {
-                    name: "Compte clôturé",
-                    y: 12,
-                    sliced: true,
-                    selected: true,
-                },
-                ["Compte bloqué", 9],
-                ["Provision insuffisante", 8],
-                ["Opération constestée par le débiteur", 5],
-                ["Titulaire décédé", 10],
-                ["Raison non communiquée, contactez la banque du client", 15],
-            ],
-        },
-    ],
-});
+function formatDate() {
+    $(".dateTransac").each(function () {
+        var dateTransac = $(this).text();
+        var date = new Date(dateTransac);
+        var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
+                             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
+                             + date.getFullYear();
+        $(this).text(formattedDate);
+    });
+}
