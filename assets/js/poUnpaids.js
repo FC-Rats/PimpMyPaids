@@ -4,8 +4,6 @@ var siren = "";
 var companyName = "";
 var beforeDate = "";
 var afterDate = "";
-var label = "";
-var idUnpaid = "";
 
 $(function () {
     $.ajax({
@@ -28,18 +26,14 @@ $(function () {
     companyName = $('#companyName').val();
     beforeDate = $('#beforeDate').val();
     afterDate = $('#afterDate').val();
-    label = $('#label').val();
-    idUnpaid = $('#idUnpaid').val();
-    listUnpaids(siren, companyName, beforeDate, afterDate, label, idUnpaid);
+    listUnpaids(siren, companyName, beforeDate, afterDate);
 
     $("#searchUnpaidsButton").on("click", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
-        label = $('#label').val();
-        idUnpaid = $('#idUnpaid').val();
-        listUnpaids(siren, companyName, beforeDate, afterDate, label, idUnpaid);
+        listUnpaids(siren, companyName, beforeDate, afterDate);
     });
 
     // export
@@ -48,15 +42,13 @@ $(function () {
         companyName = $('#companyName').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
-        label = $('#label').val();
-        idUnpaid = $('#idUnpaid').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "context": context, "export_type": export_type },
+            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
@@ -73,15 +65,13 @@ function listUnpaids(
     siren,
     companyName,
     beforeDate,
-    afterDate,
-    label,
-    idUnpaid
+    afterDate
 ) {
     $.ajax({
         url: "includes/listUnpaids.php",
         type: "POST",
         dataType: "JSON",
-        data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "numDossier": idUnpaid },
+        data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate },
         success: function (data) {
             listUnpaidsData = data.ListUnpaids;
             listUnpaidsDetailsData = data.ListUnpaidsDetails;

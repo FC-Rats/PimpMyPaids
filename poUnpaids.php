@@ -53,14 +53,14 @@
                         <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
                         <label for="afterDate">Après le</label>
                     </div>
-                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+<!--                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="text" class="form-control" id="label" name="label" placeholder=" ">
                         <label for="label">Motif</label>
                     </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="text" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
                         <label for="idUnpaid">Numéro Dossier</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating text-dark d-flex align-items-center justify-content-between mt-1 mb-2 mb-lg-0">
                         <button type="button" id="searchUnpaidsButton" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
                             <span class="me-2 fs-5 text-start">Rechercher</span>
