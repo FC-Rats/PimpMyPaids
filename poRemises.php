@@ -30,7 +30,7 @@
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
-            <form class="d-flex align-items-center justify-content-around justify-content-lg-between" method="POST">
+            <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="text" class="form-control" name="siren" id="siren" placeholder=" ">
                     <label for="siren">N° SIREN</label>
@@ -49,10 +49,10 @@
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
-                    <label for="afterDate">Apres le</label>
+                    <label for="afterDate">Après le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
-                    <button type="submit" id="searchRemittances" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
+                    <button type="button" id="searchRemittances" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
                         <span class="me-2 fs-5 text-start">Rechercher</span>
                         <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
                     </button>
@@ -84,7 +84,7 @@
                 <h5 id="offcanvasDetailRemittancePoLabel">Détail Remises <br> Compte : <span id="companyNameDetail">RAISON SOCIALE</span> <br> N° : <span id="idRemittanceDetail">Remise</span></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body" id="offcanvas-body">
                 <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-12">Date vente</span>
                     <span class="col-4">VISA</span>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-remise-list">
+        <div class="container-remise-list" id="container-remise-list">
             <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
                 <span class="col-12 col-sm-6 col-lg-1">N° SIREN</span>
                 <span class="col-12 col-sm-6 col-lg-2">Raison Sociale</span>

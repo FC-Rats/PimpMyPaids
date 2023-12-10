@@ -1,5 +1,4 @@
 var listRemittancesData = "";
-var listRemittancesDetailsData = "";
 var amount = "";
 var remittanceNumber = "";
 var beforeDate = "";

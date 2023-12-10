@@ -57,7 +57,7 @@ $datas = $db->query($DataClient, $conditions);
                 </div>
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
-                    <label for="afterDate">Apres le</label>
+                    <label for="afterDate">Après le</label>
                 </div>
                 <div class="form-floating text-dark d-flex align-items-center justify-content-between">
                     <button type="button" id="searchRemittanceClientButton" class="btn btn-primary border-0 text-uppercase d-flex align-items-center px-2 py-2 px-md-3 col-12">
@@ -95,11 +95,8 @@ $datas = $db->query($DataClient, $conditions);
             <div class="offcanvas-body" id="offcanvas-body">
             </div>
         </div>
-    </div>
-    <div class="container-remise-list" id="container-remise-list">
-    </div>
-    </div>
-    </div>
+        <div class="container-remise-list" id="container-remise-list">
+        </div>
     </div>
     <?php include('./footer.php'); ?>
     <!-- JQuery -->
