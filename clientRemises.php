@@ -93,38 +93,6 @@ $datas = $db->query($DataClient, $conditions);
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body" id="offcanvas-body">
-<!--                 <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-12">Date vente</span>
-                    <span class="col-4">VISA</span>
-                    <span class="col-4">N° Carte</span>
-                    <span class="col-4">N° Autoris</span>
-                    <span class="col-4">Montant</span>
-                    <span class="col-8">EUR</span>
-                </div>
-                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-12">Date vente</span>
-                    <span class="col-4">VISA</span>
-                    <span class="col-4">N° Carte</span>
-                    <span class="col-4">N° Autoris</span>
-                    <span class="col-4">Montant</span>
-                    <span class="col-8">EUR</span>
-                </div>
-                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-12">Date vente</span>
-                    <span class="col-4">VISA</span>
-                    <span class="col-4">N° Carte</span>
-                    <span class="col-4">N° Autoris</span>
-                    <span class="col-4">Montant</span>
-                    <span class="col-8">EUR</span>
-                </div>
-                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-12">Date vente</span>
-                    <span class="col-4">VISA</span>
-                    <span class="col-4">N° Carte</span>
-                    <span class="col-4">N° Autoris</span>
-                    <span class="col-4">Montant</span>
-                    <span class="col-8">EUR</span>
-                </div> -->
             </div>
         </div>
     </div>
