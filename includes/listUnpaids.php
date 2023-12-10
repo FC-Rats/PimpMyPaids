@@ -36,9 +36,9 @@ switch ($_SESSION["profil"]) {
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
                 if (strpos($query, "WHERE") == false) {
-                    $query .= " WHERE {$values[2]} = '{$values[0]}' ";
+                    $query .= " WHERE {$values[2]} = {$values[0]}";
                 } else {
-                    $query .= " AND {$values[2]} = '{$values[0]}' ";
+                    $query .= " AND {$values[2]} = {$values[0]}";
                 }
             }
 

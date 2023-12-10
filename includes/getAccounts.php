@@ -27,10 +27,10 @@ switch ($_SESSION["profil"]) {
                     LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
             foreach ($conditions as $values) {
-                if (strpos($query, "WHERE") == false) {
-                    $query .= " WHERE {$values[2]} = '{$values[0]}' ";
+                if (strpos($query2, "WHERE") == false) {
+                    $query .= " WHERE {$values[2]} = {$values[0]}";
                 } else {
-                    $query .= " AND {$values[2]} = '{$values[0]}' ";
+                    $query .= " AND {$values[2]} = {$values[0]}";
                 }
             }
             

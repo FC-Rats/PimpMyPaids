@@ -35,9 +35,9 @@ switch ($_SESSION["profil"]) {
 
             foreach ($conditions as $values) {
                 if (strpos($query1, "WHERE") == false) {
-                    $query1 .= " WHERE {$values[2]} = '{$values[0]}' ";
+                    $query1 .= " WHERE {$values[2]} = {$values[0]}";
                 } else {
-                    $query1 .= " AND {$values[2]} = '{$values[0]}' ";
+                    $query1 .= " AND {$values[2]} = {$values[0]}";
                 }
             }
             if (!empty($_POST['beforeDate'])) {
@@ -89,13 +89,9 @@ switch ($_SESSION["profil"]) {
         case 'Merchant':
 
             $conditions = array();
-
-            if (!empty($_POST['creditCardNumber'])) {
-                $conditions[] = array(":creditCardNumber", $_POST['creditCardNumber'], "t.creditCardNumber");
-            }
     
             if (!empty($_POST['remittanceNumber'])) {
-                $conditions[] = array(":remittanceNumber", $_POST['remittanceNumber'], "r.remittanceNumber");
+                $conditions[] = array(":remittanceNumber",  $_POST['remittanceNumber'], "t.remittanceNumber");
             }
 
             $query1 = "SELECT 
@@ -110,7 +106,7 @@ switch ($_SESSION["profil"]) {
                     WHERE c.siren = :siren";
             
             foreach ($conditions as $values) {
-                $query1 .= " AND {$values[2]} = '{$values[0]}' ";
+                $query1 .= " AND {$values[2]} = {$values[0]}";
             }
 
             if (!empty($_POST['beforeDate'])) {
@@ -123,14 +119,14 @@ switch ($_SESSION["profil"]) {
                 $query1 .= " AND dateTransac > :afterDate";
             }
 
-            $conditions[] = array(":siren", $_SESSION["siren"]);
-
             $query1 .= " GROUP BY r.remittanceNumber";
 
             if (!empty($_POST['amount'])) {
                 $conditions[] = array(":amount", $_POST['amount']);
                 $query1 .= " HAVING montantTotal = :amount";
             }
+
+            $conditions[] = array(":siren", $_SESSION["siren"]);
 
             $remittancesMerchant = $db->query($query1, $conditions);
             

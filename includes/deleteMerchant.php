@@ -5,25 +5,25 @@ if (!class_exists('Connection')) {
 }
 $response = [];
 
-switch ($_SESSION["profil"]) {
-    case 'PO':
-        $delete = 'INSERT INTO TRAN_REQUEST_PO VALUES (:login, :companyName, :comment)';
-        if (!isset(($_POST['comment']))) {
-            $comment = "";
-        } else {
-            $comment = $_POST['comment'];
-        }
-        $conditions = array(array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':comment', $comment));
-        $queryDelete = $db->query($delete, $conditions);
+    switch ($_SESSION["profil"]) {
+        case 'PO':
+            $delete = 'INSERT INTO TRAN_REQUEST_PO VALUES (:login, :companyName, :comment)';
+            if (!isset(($_POST['comment']))) {
+                $comment = "";
+            } else {
+                $comment = $_POST['comment'];
+            }
+            $conditions = array(array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':comment', $comment));
+            $queryDelete = $db->query($delete, $conditions);
 
-        $response["DeleteMerchant"] = $queryDelete;
-        echo json_encode($response);
+            $response["DeleteMerchant"] = $queryDelete;
+            echo json_encode($response);
 
-        break;
-    case 'Admin':
-        $suppMerchant = "DELETE FROM TRAN_USERS WHERE login = :login";
-        $conditions = array(array(':login', $_POST['login']));
-        $query3 = $db->query($suppMerchant, $conditions);
-        header('Location: ../index.php?p=list-compte');
-        break;
-}
+            break;
+        case 'Admin':
+            $suppMerchant = "DELETE FROM TRAN_USERS WHERE login = :login";
+            $conditions = array(array(':login', $_POST['login']));
+            $query3 = $db->query($suppMerchant, $conditions);
+            break;
+    }
+?>
