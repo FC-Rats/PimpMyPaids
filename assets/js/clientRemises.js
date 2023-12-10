@@ -79,7 +79,7 @@ function listClientRemittances(
                 remittanceNumberToKey[data.remittanceNumber] = dataKey;
             });
 
-            $("#pagination").val(1);
+            $("#pageToShow").val(1);
             $("#nbLineByPage").val(Math.min(3, listRemittancesData.length));
             rowsPerPage = $('#nbLineByPage').val();
             pageToShow = $('#pageToShow').val();
@@ -95,7 +95,8 @@ function listClientRemittances(
 function printClientRemittances() {
     $("#container-remise-list").empty();
     var start = rowsPerPage*(pageToShow-1);
-    var itemsToShow = listRemittancesData.slice(start, start+rowsPerPage);
+    var sum = parseInt(start, 10)+parseInt(rowsPerPage, 10);
+    var itemsToShow = listRemittancesData.slice(start, sum);
     $.map(itemsToShow, function (data, dataKey) {
         var html = "";
         html += '<div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="'+ data.remittanceNumber +'">';
