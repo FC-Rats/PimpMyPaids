@@ -8,12 +8,16 @@ var comment = "";
 $(function () {
     $("#addRequestPo").on("click", function () {
         fetchDataForm("add");
-        addAccount();
+        addAccount().then(function () {
+            sendMailAdd();
+        });
     });
 
     $("#deleteRequestPo").on("click", function () {
         fetchDataForm("delete");
-        addAccount();
+        deleteAccount().then(function () {
+            sendMailDelete();
+        });
     });
 });
 
@@ -34,25 +38,30 @@ function deleteDataForm() {
     $('#currency').val('');
     $('#login').val('');
     $('#companyName').val('');
-    $('#comment').val('');    
+    $('#comment').val('');
 }
 
 function addAccount() {
-    $.ajax({
-        url: "includes/addMerchant.php",
-        type: "POST",
-        dataType: "JSON",
-        data: { "login": login, "siren": siren, "companyName": companyName, "email": email, "currency": currency, "comment": comment },
-        success: function (data) {
-            var result = data.AddMerchant;
-            console.log(result);
-            var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
-            modal.show();
-            deleteDataForm();
-        },
-        error: function (data) {
-            console.log(data);
-        },
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: "includes/addMerchant.php",
+            type: "POST",
+            dataType: "JSON",
+            data: { "login": login, "siren": siren, "companyName": companyName, "email": email, "currency": currency, "comment": comment },
+            success: function (data) {
+                var result = data.AddMerchant;
+                console.log(result);
+                var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
+                modal.show();
+                deleteDataForm();
+                //resolve();
+            },
+            error: function (data) {
+                console.log(data);
+                reject();
+            },
+        });
+        resolve();
     });
 }
 
@@ -68,6 +77,23 @@ function deleteAccount() {
             var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
             modal.show();
             deleteDataForm();
+        },
+        error: function (data) {
+            console.log(data);
+        },
+    });
+}
+
+function sendMailAdd() {
+    var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
+    modal.show();
+    $.ajax({
+        url: "includes/clientValidation.php",
+        type: "POST",
+        dataType: "JSON",
+        data: { "email": email },
+        success: function (data) {
+            console.log(data.Result);
         },
         error: function (data) {
             console.log(data);
