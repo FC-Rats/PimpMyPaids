@@ -68,7 +68,7 @@ function listAccounts(
                 var html = "";
                 html += '<div class="accordion-item my-3">';
                 html += '<h2 class="accordion-header">';
-                if (data.montant > 0) {
+                if (data.montant >= 0) {
                     html += '<button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
                 } else {
                     html += '<button class="accordion-button collapsed rounded compte danger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
@@ -82,7 +82,7 @@ function listAccounts(
                 html += '<div class="accordion-body">';
                 html += '<div class="infos d-flex flex-column flex-sm-row pb-2">';
                 html += '<span class="col-5 col-sm-5 col-md-6">' + data.nbTransactions + ' transaction(s)</span>';
-                if (data.montant > 0) { 
+                if (data.montant >= 0) { 
                     html += '<span class="col-1">+</span>';
                 } else {
                     html += '<span class="col-1">-</span>';

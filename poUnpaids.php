@@ -82,84 +82,7 @@
                 <h5 id="offcanvasDetailUnpaidClientLabel">Impayés de <span id="nameCompany">Nom entreprise</span></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body d-flex flex-column">
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
-                <div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                    <span class="col-6 siren">N° SIREN</span>
-                    <span class="col-6 dateTransac">Date vente</span>
-                    <span class="col-6 network">Reseau</span>
-                    <span class="col-6 creditCardNumber">N° carte</span>
-                    <span class="col-6 idUnpaid">N° dossier impayé</span>
-                    <span class="col-6 sign">-</span>
-                    <span class="col-6 amount">Montant</span>
-                    <span class="col-6 currency">Devise</span>
-                    <span class="col-6 label">Libellé</span>
-                </div>
+            <div class="offcanvas-body d-flex flex-column" id="offcanvas-body">
             </div>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
@@ -176,55 +99,7 @@
                 </form>
             </div>
         </div>
-        <div class="container-unpaid-list">
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-3 companyName">Raison sociale</span>
-                <div class="d-flex flex-row justify-content-start justify-content-lg-center align-items-center col-12 col-sm-6 col-lg-4">
-                    <span class="col-1 sign">-</span>
-                    <span class="col-auto me-2 me-lg-0 col-lg-4 amount">Somme</span>
-                    <span class="col-3 col-lg-2 currency">Devise</span>
-                </div>
-                <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
-                    <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient" onclick="viewDetailUnpaid(id);">Détail</button>
-                </div>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-3 companyName">Raison sociale</span>
-                <div class="d-flex flex-row justify-content-start justify-content-lg-center align-items-center col-12 col-sm-6 col-lg-4">
-                    <span class="col-1 sign">-</span>
-                    <span class="col-auto me-2 me-lg-0 col-lg-4 amount">Somme</span>
-                    <span class="col-3 col-lg-2 currency">Devise</span>
-                </div>
-                <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
-                    <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient" onclick="viewDetailUnpaid(id);">Détail</button>
-                </div>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-3 companyName">Raison sociale</span>
-                <div class="d-flex flex-row justify-content-start justify-content-lg-center align-items-center col-12 col-sm-6 col-lg-4">
-                    <span class="col-1 sign">-</span>
-                    <span class="col-auto me-2 me-lg-0 col-lg-4 amount">Somme</span>
-                    <span class="col-3 col-lg-2 currency">Devise</span>
-                </div>
-                <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
-                    <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient" onclick="viewDetailUnpaid(id);">Détail</button>
-                </div>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 siren">N° SIREN</span>
-                <span class="col-12 col-sm-6 col-lg-3 companyName">Raison sociale</span>
-                <div class="d-flex flex-row justify-content-start justify-content-lg-center align-items-center col-12 col-sm-6 col-lg-4">
-                    <span class="col-1 sign">-</span>
-                    <span class="col-auto me-2 me-lg-0 col-lg-4 amount">Somme</span>
-                    <span class="col-3 col-lg-2 currency">Devise</span>
-                </div>
-                <div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">
-                    <button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient" onclick="viewDetailUnpaid(id);">Détail</button>
-                </div>
-            </div>
+        <div class="container-unpaid-list" id="container-unpaid-list">
         </div>
     </div>
     <?php include('./footer.php'); ?>
