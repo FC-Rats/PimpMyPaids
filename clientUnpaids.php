@@ -113,46 +113,6 @@ $datas = $db->query($DataClient, $conditions);
             </select>
         </div>
         <div id="container-unpaid-list">
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
-                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
-                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
-                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
-            </div>
-            <div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1 dateTransac">Date vente</span>
-                <span class="col-12 col-sm-6 col-lg-1 network">Reseau</span>
-                <span class="col-12 col-sm-6 col-lg-2 creditCardNumber">N° carte</span>
-                <span class="col-12 col-sm-6 col-lg-2 idUnpaid">N° dossier impayé</span>
-                <span class="col-12 col-sm-6 col-lg-1 sign">-</span>
-                <span class="col-12 col-sm-6 col-lg-1 amount">Montant</span>
-                <span class="col-12 col-sm-6 col-lg-1 currency">Devise</span>
-                <span class="col-12 col-sm-6 col-lg-2 label">Libellé</span>
-            </div>
         </div>
     </div>
     <?php include('./footer.php'); ?>

@@ -1,14 +1,14 @@
 <?php
 if (!isset($_SESSION)) {
     session_start();
-} 
+}
 if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
 
 $DataClient = "SELECT 
 (SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
-(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
+(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";
 $conditions = array(array(":siren", $_SESSION["siren"]));
 $datas = $db->query($DataClient, $conditions);
 
@@ -40,7 +40,7 @@ $datas = $db->query($DataClient, $conditions);
     <?php include('./header.php'); ?>
     <div class="container remise-section">
         <h1 class="p-4 text-center">Liste des remises</h1>
-        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold"><?php echo $datas[0]["sumRemises"];?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"];?></span></div>
+        <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumRemises">Somme totale : <span id="clientSumRemises" class="fw-bold"><?php echo $datas[0]["sumRemises"]; ?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"]; ?></span></div>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">
                 <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
@@ -92,8 +92,8 @@ $datas = $db->query($DataClient, $conditions);
                 <h5 id="offcanvasDetailRemittanceClientLabel">Détail Remises <br> N° : <span id="idRemittanceDetail">Remise</span></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-                <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
+            <div class="offcanvas-body" id="offcanvas-body">
+<!--                 <div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="">
                     <span class="col-12">Date vente</span>
                     <span class="col-4">VISA</span>
                     <span class="col-4">N° Carte</span>
@@ -124,32 +124,12 @@ $datas = $db->query($DataClient, $conditions);
                     <span class="col-4">N° Autoris</span>
                     <span class="col-4">Montant</span>
                     <span class="col-8">EUR</span>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="container-remise-list">
-            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
-            </div>
-            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
-            </div>
-            <div class="remise-element rounded-3 my-3 px-2 px-lg-5 py-3 d-flex flex-row flex-wrap justify-content-end justify-content-lg-between align-items-center" id="">
-                <span class="col-12 col-sm-6 col-lg-1">N° Remise</span>
-                <span class="col-12 col-sm-6 col-lg-1">11/22/3222</span>
-                <span class="col-12 col-sm-6 col-lg-2">X transactions</span>
-                <span class="col-12 col-sm-6 col-lg-2"> + Montant total (EUR)</span>
-                <button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(id);">+</button>
-            </div>
-        </div>
+    </div>
+    <div class="container-remise-list" id="container-remise-list">
+    </div>
     </div>
     </div>
     </div>
