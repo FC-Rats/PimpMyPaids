@@ -22,7 +22,8 @@ switch ($_SESSION["profil"]) {
                         c.siren,
                         c.companyName,
                         COUNT(t.idTransac) AS nbTransactions,
-                        SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montant
+                        SUM(CASE WHEN t.sign = '+' THEN t.amount ELSE -t.amount END) AS montant,
+                        c.currency
                     FROM TRAN_CUSTOMER_ACCOUNT c
                     LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
