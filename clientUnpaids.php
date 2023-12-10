@@ -105,7 +105,7 @@ $datas = $db->query($DataClient, $conditions);
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
             <span><span id="countResults">X</span> résultats</span>
             <input type="hidden" name="context" value="clientUnpaids" id="context">
-            <select class="form-select mb-2" aria-label="formExportClientDataUnpaids">
+            <select class="form-select mb-2" aria-label="formExportClientDataUnpaids" name="export_type" id="export_type">
                 <option value="noExport" selected>Exporter les données</option>
                 <option value="pdf">PDF</option>
                 <option value="csv">CSV</option>
