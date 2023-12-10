@@ -18,14 +18,6 @@ switch ($_SESSION["profil"]) {
                 $conditions[] = array(":companyName", $_POST['companyName'], "CA.companyName");
             }
 
-            if (!empty($_POST['label'])) {
-                $conditions[] = array(":label", $_POST['label'], "UR.unpaidName");
-            }
-    
-            if (!empty($_POST['numDossier'])) {
-                $conditions[] = array(":numDossier", $_POST['numDossier'], "UA.unpaidFileNumber");
-            }
-    
             // Construction de la query
             $query = "SELECT
                             ca.siren,

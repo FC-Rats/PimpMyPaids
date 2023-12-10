@@ -94,10 +94,6 @@ switch ($_SESSION["profil"]) {
                 $conditions[] = array(":creditCardNumber", $_POST['creditCardNumber'], "t.creditCardNumber");
             }
     
-            if (!empty($_POST['amount'])) {
-                $conditions[] = array(":amount", $_POST['amount'], "t.amount");
-            }
-    
             if (!empty($_POST['remittanceNumber'])) {
                 $conditions[] = array(":remittanceNumber", $_POST['remittanceNumber'], "r.remittanceNumber");
             }
@@ -129,7 +125,12 @@ switch ($_SESSION["profil"]) {
 
             $conditions[] = array(":siren", $_SESSION["siren"]);
 
-            $query1 .= " GROUP BY r.remittanceNumber;";
+            $query1 .= " GROUP BY r.remittanceNumber";
+
+            if (!empty($_POST['amount'])) {
+                $conditions[] = array(":amount", $_POST['amount']);
+                $query1 .= "HAVING montantTotal = :amount";
+            }
 
             $remittancesMerchant = $db->query($query1, $conditions);
             
