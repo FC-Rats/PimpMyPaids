@@ -59,13 +59,17 @@ function generateTokenLink($email, $conn)
 {
     // TODO: change link to the real one on chamsedine's database
     $token = generateUniqueID(12);
-    $link = "http://perso-etudiant.u-pem.fr/~kellian.bredeau/Projet-SAE/Pages/recuperation-password.php?token=";
-    $link .= $token;
-    session_start();
-    if (isset($_SESSION['db'])) {
-        $db = $_SESSION['db'];
-        $getId = $db->query("SELECT id FROM Users WHERE email = :email;",array(array(":email", $email)));
-        $updatePassword = $db->query("UPDATE Users SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
+    
+    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/change.php?token=";
+    $link .= $token;    
+    if (!class_exists('Connection')) {
+        include('./includes/connectionFunctions.php');
+    } else {
+        $config = parse_ini_file('config.ini');
+        $db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
     }
+    
+    $updateToken= $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
+
     return $link;
 }
