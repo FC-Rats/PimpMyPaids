@@ -25,12 +25,29 @@ $(function () {
         success: function (data) {
             if (data.GraphBalance) {
                 console.log(data.GraphBalance);
-                var seriesData = Object.keys(data.GraphBalance).map(function(key) {
+                var keys = Object.keys(data.GraphBalance);
+            
+                // Triez les clés en fonction de leur valeur numérique
+                keys.sort(function(a, b) {
+                    return parseFloat(a) - parseFloat(b);
+                });
+            
+                // Obtenez l'index du mois actuel (supposons que ce mois soit "MM")
+                var currentMonth = new Date().getMonth() + 1; // +1 car les mois dans JavaScript sont indexés à partir de 0
+                var currentIndex = keys.indexOf(currentMonth.toString());
+            
+                // Déplacez le mois actuel à la fin du tableau
+                if (currentIndex !== -1) {
+                    keys.push(keys.splice(currentIndex, 1)[0]);
+                }
+            
+                var seriesData = keys.map(function(key) {
                     return {
                         name: key,
                         y: parseFloat(data.GraphBalance[key])
                     };
                 });
+            
                 Highcharts.chart("container-soldes", {
                     chart: {
                         type: "column",
@@ -39,7 +56,7 @@ $(function () {
                         text: "Évolution de votre trésorerie",
                     },
                     xAxis: {
-                        categories: Object.keys(donnees),
+                        categories: keys,
                     },
                     credits: {
                         enabled: false,
@@ -63,46 +80,3 @@ $(function () {
         },
     });
 });
-
-/* // a supprimer 
-Highcharts.chart("container-soldes", {
-    chart: {
-        type: "column",
-    },
-    title: {
-        text: "Évolution de votre trésorerie",
-    },
-    xAxis: {
-        categories: [
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-        ],
-    },
-    credits: {
-        enabled: false,
-    },
-    plotOptions: {
-        column: {
-            borderRadius: "25%",
-        },
-    },
-    series: [
-        {
-            name: "Trésorerie",
-            data: [
-                25000, 20000, 15000, 10000, 5000, 0, -5000, -2500, 3000, 10000, 20000,
-                30000,
-            ],
-        },
-    ],
-}); */
