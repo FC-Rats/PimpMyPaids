@@ -39,14 +39,12 @@ switch ($_SESSION["profil"]) {
                 $query .= " AND dateTransac < :date";
             }
 
-            $orderBy = "";
+            $query .= " GROUP BY c.siren";            
+            
             if (!empty($_POST['sortAccount'])) {
                 $sortOption = ($_POST['sortAccount'] === 'siren') ? 'siren' : 'montant';
-                $orderBy = " ORDER BY {$sortOption} ASC";
+                $query .= " ORDER BY {$sortOption} ASC";
             }
-
-            $query .= " GROUP BY c.siren";
-            $query .= $orderBy;
 
             $accountInfo = $db->query($query, $conditions);
             
