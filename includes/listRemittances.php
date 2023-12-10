@@ -129,7 +129,7 @@ switch ($_SESSION["profil"]) {
 
             if (!empty($_POST['amount'])) {
                 $conditions[] = array(":amount", $_POST['amount']);
-                $query1 .= "HAVING montantTotal = :amount";
+                $query1 .= " HAVING montantTotal = :amount";
             }
 
             $remittancesMerchant = $db->query($query1, $conditions);
