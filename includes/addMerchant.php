@@ -32,6 +32,12 @@
             $suppRPO = "DELETE FROM TRAN_REQUEST_PO WHERE siren = :siren";
             $conditions3 = array(array(':siren', $_POST['siren']));
             $query3 = $db->query($suppRPO, $conditions3);
+            // trouver le mail du PO
+            $mailPO = "SELECT email FROM TRAN_USERS WHERE profil = 'PO'";
+            $message = "Veuillez confirmer le compte du client  {$_POST['login']} en cliquant sur le lien suivant : ";
+            $objet = "Confirmation du compte client";
+            envoi_mail($mailPO,$conn,$objet, $message.generateTokenLinkForValidationClient($_POST['email'],$conn));
+            header('Location: ../index.php?p=my-space');
             break;
     }
 ?>
