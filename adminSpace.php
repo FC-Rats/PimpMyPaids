@@ -30,7 +30,7 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <?php //include('../includes/usefulFunctions.php'); 
+    <?php include('./includes/getRequestPo.php');
     ?>
 
     <div class="container espace-admin-section">
@@ -46,66 +46,31 @@
 
 
                     <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
-                        <div class="accordion-item my-3">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed rounded compte ajout" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <span class="col-5 col-md-3">AJOUTER</span>
-                                    <span class="col-1">-</span>
-                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <div class="infos d-flex flex-wrap pb-2">
-                                        <span class="col-12">Raison Sociale : RS</span>
-                                        <span class="col-12">Num Siren : 0125412265542415</span>
-                                        <span class="col-12">Devise : EUR</span>
-                                        <span class="col-12">Login : RS</span>
-                                        <span class="col-12">Email : lololabest@gmail.com</span>
-                                        <span class="col-12">Commentaire : blablablal zjiorhazuiezhadi zerad a </span>
+                        <?php foreach ($requests as $index => $request) : ?>
+                            <div class="accordion-item my-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded compte <?= $request['type'] == 0 ? 'ajout' : 'delete' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $index ?>" aria-expanded="false" aria-controls="flush-collapse<?= $index ?>">
+                                        <span class="col-5 col-md-3"><?= $request['type'] === 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
+                                        <span class="col-1">-</span>
+                                        <span class="col-4 col-md-6"><?= $request['companyName'] ?></span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapse<?= $index ?>" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="infos d-flex flex-wrap pb-2">
+                                            <span class="col-12">Raison Sociale : <?= $request['companyName'] ?></span>
+                                            <span class="col-12">Login : <?= $request['login'] ?></span>
+                                            <?php if ($request['type'] == 0) : ?>
+                                                <span class="col-12">Num Siren : <?= $request['siren'] ?></span>
+                                                <span class="col-12">Devise : <?= $request['currency'] ?></span>
+                                                <span class="col-12">Email : <?= $request['email'] ?></span>
+                                            <?php endif; ?>
+                                            <span class="col-12">Commentaire : <?= $request['comment'] ?></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item my-3">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed rounded compte delete" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    <span class="col-5 col-md-3">SUPPRIMER</span>
-                                    <span class="col-1">-</span>
-                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <div class="infos d-flex flex-wrap pb-2">
-                                        <span class="col-12">Raison Sociale : MACDONALD VEGAN</span>
-                                        <span class="col-12">Login : LoloLaBosse</span>
-                                        <span class="col-12">Commentaire : Bilbobjzag biobiu ahjeg zduazi </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item my-3">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed compte rounded ajout" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
-                                    <span class="col-5 col-md-3">AJOUTER</span>
-                                    <span class="col-1">-</span>
-                                    <span class="col-4 col-md-6">RAISON SOCIALE</span>
-                                </button>
-                            </h2>
-                            <div id="flush-collapse3" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <div class="infos d-flex flex-wrap pb-2">
-                                        <span class="col-12">Raison Sociale : RS</span>
-                                        <span class="col-12">Num Siren : 0125412265542415</span>
-                                        <span class="col-12">Devise : EUR</span>
-                                        <span class="col-12">Login : RS</span>
-                                        <span class="col-12">Email : lololabest@gmail.com</span>
-                                        <span class="col-12">Commentaire : blablablal zjiorhazuiezhadi zerad a </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>
