@@ -4,7 +4,7 @@
         include('connectionFunctions.php');
     }
     $response = [];
-    
+    include('../mailer/mailer.php');
     switch ($_SESSION["profil"]) {
         case 'PO':
             $add = 'INSERT INTO TRAN_REQUEST_PO VALUES (:siren, :login, :companyName, :currency, :email, :comment)';
