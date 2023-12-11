@@ -52,6 +52,14 @@ impayés PO :
     recherche → ajax
 (on oublie pas de donner le détail )
 
+espace admin : 
+    dernières requetes : include
+    form : ajax/include
+
+list account admin : 
+    list : ajax
+    suppression : ajax
+
 
 ---- export 
 context : 
@@ -61,14 +69,14 @@ context :
     clientUnpaids
     clientListRemises
     poRemises
-
-    typhus : 
+    poSpace
+    clientSpace
     clientListRemisesDetails
     poRemisesDetails
 
+    typhus : 
+
     ok-tiers : 
-     poSpace
-     clientSpace
      adminSpace
      adminListAccount
 

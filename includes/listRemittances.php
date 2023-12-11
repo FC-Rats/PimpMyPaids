@@ -22,7 +22,7 @@ switch ($_SESSION["profil"]) {
             }
 
             $query1 = "SELECT 
-                        MAX(t.siren),
+                        MAX(t.siren) AS siren,
                         GROUP_CONCAT(DISTINCT c.companyName) AS companyName,
                         r.remittanceNumber,
                         r.dateRemittance, 
