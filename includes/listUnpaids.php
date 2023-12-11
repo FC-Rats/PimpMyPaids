@@ -102,11 +102,12 @@ switch ($_SESSION["profil"]) {
             }
     
             // Construction de la query
-            $query = "SELECT t.dateTransac, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, un.unpaidName
+            $query = "SELECT t.dateTransac, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, un.unpaidName, t.network, c.currency
                       FROM TRAN_TRANSACTIONS t
                       JOIN TRAN_UNPAIDS u ON t.idTransac = u.idTransac
                       JOIN TRAN_UNPAID_REASONS un ON u.idUnpaidReason = un.idUnpaidReason
-                      WHERE t.siren = :siren ";
+                      JOIN TRAN_CUSTOMER_ACCOUNT c ON c.siren = t.siren
+                      WHERE t.siren = :siren";
     
             // Ajout des conditions à la query
             foreach ($conditions as $values) {
