@@ -53,7 +53,7 @@ switch ($_SESSION["profil"]) {
             echo json_encode($response);
 
         case 'Admin':
-            $sql = "SELECT u.email, u.login, c.currency
+            $sql = "SELECT c.siren, c.companyName, u.email, u.login, c.currency
                         FROM TRAN_USERS u
                         INNER JOIN TRAN_CUSTOMER_ACCOUNT c ON u.idUser = c.idUser";
             $accountAdmin = $db->query($sql);
