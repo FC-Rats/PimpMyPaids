@@ -44,7 +44,7 @@ $(function () {
         afterDate = $('#afterDate').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
-        var dataToExport = {
+/*         var dataToExport = {
             "siren": siren,
             "companyName": companyName,
             "remittanceNumber": remittanceNumber,
@@ -53,14 +53,14 @@ $(function () {
             "context": context,
             "export_type": export_type,
             "rows": listRemittancesData
-        };
-        dataToExport = JSON.stringify(dataToExport);
+        }; */
+        dataToExport = JSON.stringify(listRemittancesData);
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "dataToExport": dataToExport },
-            // data: { "siren": siren, "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
+            //data: { "dataToExport": dataToExport },
+            data: { "siren": siren, "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
                 if (data.Test) {
                     console.log(data.Test);
