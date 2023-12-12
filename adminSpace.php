@@ -96,6 +96,14 @@
                             <label for="companyName">Raison Sociale</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder=" " required>
+                            <label for="firstName">Prénom</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder=" " required>
+                            <label for="lastName">Nom</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
                             <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
                             <label for="email">Email</label>
                         </div>
@@ -108,7 +116,7 @@
                             <label for="comment">Mot de Passe</label>
                         </div>
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
-                            <input id="submit-task-button" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="button" value="Ajouter">
+                            <input id="addMerchant" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="button" value="Ajouter">
                         </div>
                     </form>
                 </div>
@@ -123,6 +131,8 @@
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="assets/js/adminSpace.js"></script>
 </body>
 
 </html>
