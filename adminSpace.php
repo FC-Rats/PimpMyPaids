@@ -122,6 +122,24 @@
                 </div>
             </div>
         </div>
+        <!-- Modal confirmation -->
+        <div class="modal fade" id="modalAddMerchant" aria-hidden="true" aria-labelledby="modalAddMerchantLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalAddMerchantLabel">Confirmation d'ajout de client</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Votre ajout de client au prêt de la base de données a bien été prise en exécutée.
+                        Le Product Owner recevra un mail de confirmation très prochainement.
+                    </div>
+                    <div class="modal-footer">
+                        <small class="fst-italic">PimpMyPaids</small>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

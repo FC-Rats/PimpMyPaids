@@ -28,7 +28,7 @@
     <div class="container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des clients</h1>
         <!-- $accountInfo -->
-        <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
+        <div class="accordion accordion-flush py-3 mb-3" id="accordionListAcounts">
             <div class="accordion-item my-3">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -97,14 +97,13 @@
             </div>
         </div>
     </div>
-    </div>
     <?php include('./footer.php'); ?>
     <!-- JQuery -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- HighCharts JS -->
-    <script src="assets/js/highcharts.js"></script>
+    <!-- JS -->
+    <script src="assets/js/adminListAccount.js"></script>
 </body>
 
 </html>
