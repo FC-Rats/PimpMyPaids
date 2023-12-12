@@ -1,8 +1,8 @@
 {
-    "name": "vendor/package",
+    "name": "chams/framework",
     "autoload": {
         "psr-4": {
-            "Vendor\\Package\\": "src/"
+            "Chams\\Framework\\": "src/"
         }
     },
     "authors": [
@@ -12,6 +12,11 @@
         }
     ],
     "require": {
-        "phpoffice/phpspreadsheet": "^1.29"
+        "phpoffice/phpspreadsheet": "^1.8"
+    },
+    "config": {
+        "platform": {
+            "php": "7.0.33"
+        }
     }
 }

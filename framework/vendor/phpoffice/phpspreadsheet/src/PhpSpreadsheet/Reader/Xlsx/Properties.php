@@ -5,14 +5,11 @@ namespace PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\Document\Properties as DocumentProperties;
 use PhpOffice\PhpSpreadsheet\Reader\Security\XmlScanner;
 use PhpOffice\PhpSpreadsheet\Settings;
-use SimpleXMLElement;
 
 class Properties
 {
-    /** @var XmlScanner */
     private $securityScanner;
 
-    /** @var DocumentProperties */
     private $docProps;
 
     public function __construct(XmlScanner $securityScanner, DocumentProperties $docProps)
@@ -21,39 +18,28 @@ class Properties
         $this->docProps = $docProps;
     }
 
-    /**
-     * @param mixed $obj
-     */
-    private static function nullOrSimple($obj): ?SimpleXMLElement
+    private function extractPropertyData($propertyData)
     {
-        return ($obj instanceof SimpleXMLElement) ? $obj : null;
-    }
-
-    private function extractPropertyData(string $propertyData): ?SimpleXMLElement
-    {
-        // okay to omit namespace because everything will be processed by xpath
-        $obj = simplexml_load_string(
+        return simplexml_load_string(
             $this->securityScanner->scan($propertyData),
             'SimpleXMLElement',
             Settings::getLibXmlLoaderOptions()
         );
-
-        return self::nullOrSimple($obj);
     }
 
-    public function readCoreProperties(string $propertyData): void
+    public function readCoreProperties($propertyData)
     {
         $xmlCore = $this->extractPropertyData($propertyData);
 
         if (is_object($xmlCore)) {
-            $xmlCore->registerXPathNamespace('dc', Namespaces::DC_ELEMENTS);
-            $xmlCore->registerXPathNamespace('dcterms', Namespaces::DC_TERMS);
-            $xmlCore->registerXPathNamespace('cp', Namespaces::CORE_PROPERTIES2);
+            $xmlCore->registerXPathNamespace('dc', 'http://purl.org/dc/elements/1.1/');
+            $xmlCore->registerXPathNamespace('dcterms', 'http://purl.org/dc/terms/');
+            $xmlCore->registerXPathNamespace('cp', 'http://schemas.openxmlformats.org/package/2006/metadata/core-properties');
 
             $this->docProps->setCreator((string) self::getArrayItem($xmlCore->xpath('dc:creator')));
             $this->docProps->setLastModifiedBy((string) self::getArrayItem($xmlCore->xpath('cp:lastModifiedBy')));
-            $this->docProps->setCreated((string) self::getArrayItem($xmlCore->xpath('dcterms:created'))); //! respect xsi:type
-            $this->docProps->setModified((string) self::getArrayItem($xmlCore->xpath('dcterms:modified'))); //! respect xsi:type
+            $this->docProps->setCreated(strtotime(self::getArrayItem($xmlCore->xpath('dcterms:created')))); //! respect xsi:type
+            $this->docProps->setModified(strtotime(self::getArrayItem($xmlCore->xpath('dcterms:modified')))); //! respect xsi:type
             $this->docProps->setTitle((string) self::getArrayItem($xmlCore->xpath('dc:title')));
             $this->docProps->setDescription((string) self::getArrayItem($xmlCore->xpath('dc:description')));
             $this->docProps->setSubject((string) self::getArrayItem($xmlCore->xpath('dc:subject')));
@@ -62,7 +48,7 @@ class Properties
         }
     }
 
-    public function readExtendedProperties(string $propertyData): void
+    public function readExtendedProperties($propertyData)
     {
         $xmlCore = $this->extractPropertyData($propertyData);
 
@@ -73,19 +59,16 @@ class Properties
             if (isset($xmlCore->Manager)) {
                 $this->docProps->setManager((string) $xmlCore->Manager);
             }
-            if (isset($xmlCore->HyperlinkBase)) {
-                $this->docProps->setHyperlinkBase((string) $xmlCore->HyperlinkBase);
-            }
         }
     }
 
-    public function readCustomProperties(string $propertyData): void
+    public function readCustomProperties($propertyData)
     {
         $xmlCore = $this->extractPropertyData($propertyData);
 
         if (is_object($xmlCore)) {
             foreach ($xmlCore as $xmlProperty) {
-                /** @var SimpleXMLElement $xmlProperty */
+                /** @var \SimpleXMLElement $xmlProperty */
                 $cellDataOfficeAttributes = $xmlProperty->attributes();
                 if (isset($cellDataOfficeAttributes['name'])) {
                     $propertyName = (string) $cellDataOfficeAttributes['name'];
@@ -101,12 +84,8 @@ class Properties
         }
     }
 
-    /**
-     * @param null|array|false $array
-     * @param mixed $key
-     */
-    private static function getArrayItem($array, $key = 0): ?SimpleXMLElement
+    private static function getArrayItem(array $array, $key = 0)
     {
-        return is_array($array) ? ($array[$key] ?? null) : null;
+        return isset($array[$key]) ? $array[$key] : null;
     }
 }

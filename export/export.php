@@ -45,9 +45,10 @@ function exportToXlsx($filename, $headers, $data, $title) {
 
     // Créer le writer et envoyer le fichier pour téléchargement
     $writer = new Xlsx($spreadsheet);
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    $writer->save('php://output');
+    $filePath = '../../' . $filename;
+    $writer->save($filePath);
+
+    echo json_encode(["fileUrl" => "export/download.php?file=" . basename($filePath)]);
 }
 
 function exportToCsv($filename, $headers, $data, $title) {

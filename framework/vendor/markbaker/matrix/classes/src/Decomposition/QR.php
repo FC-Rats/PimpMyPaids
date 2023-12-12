@@ -22,7 +22,7 @@ class QR
         $this->decompose();
     }
 
-    public function getHouseholdVectors(): Matrix
+    public function getHouseholdVectors()
     {
         $householdVectors = [];
         for ($row = 0; $row < $this->rows; ++$row) {
@@ -38,7 +38,7 @@ class QR
         return new Matrix($householdVectors);
     }
 
-    public function getQ(): Matrix
+    public function getQ()
     {
         $qGrid = [];
 
@@ -77,16 +77,16 @@ class QR
         return new Matrix($qGrid);
     }
 
-    public function getR(): Matrix
+    public function getR()
     {
         $rGrid = [];
 
         for ($row = 0; $row < $this->columns; ++$row) {
             for ($column = 0; $column < $this->columns; ++$column) {
                 if ($row < $column) {
-                    $rGrid[$row][$column] = $this->qrMatrix[$row][$column] ?? 0.0;
+                    $rGrid[$row][$column] = isset($this->qrMatrix[$row][$column]) ? $this->qrMatrix[$row][$column] : 0.0;
                 } elseif ($row === $column) {
-                    $rGrid[$row][$column] = $this->rDiagonal[$row] ?? 0.0;
+                    $rGrid[$row][$column] = isset($this->rDiagonal[$row]) ? $this->rDiagonal[$row] : 0.0;
                 } else {
                     $rGrid[$row][$column] = 0.0;
                 }
@@ -100,7 +100,7 @@ class QR
         return new Matrix($rGrid);
     }
 
-    private function hypo($a, $b): float
+    private function hypo($a, $b)
     {
         if (abs($a) > abs($b)) {
             $r = $b / $a;
@@ -118,7 +118,7 @@ class QR
     /**
      * QR Decomposition computed by Householder reflections.
      */
-    private function decompose(): void
+    private function decompose()
     {
         for ($k = 0; $k < $this->columns; ++$k) {
             // Compute 2-norm of k-th column without under/overflow.
@@ -151,7 +151,10 @@ class QR
         }
     }
 
-    public function isFullRank(): bool
+    /**
+     * @return bool
+     */
+    public function isFullRank()
     {
         for ($j = 0; $j < $this->columns; ++$j) {
             if ($this->rDiagonal[$j] == 0.0) {
@@ -171,7 +174,7 @@ class QR
      *
      * @return Matrix matrix that minimizes the two norm of Q*R*X-B
      */
-    public function solve(Matrix $B): Matrix
+    public function solve(Matrix $B)
     {
         if ($B->rows !== $this->rows) {
             throw new Exception('Matrix row dimensions are not equal');

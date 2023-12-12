@@ -62,9 +62,7 @@ $(function () {
             //data: { "dataToExport": dataToExport },
             data: { "siren": siren, "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
-                if (data.Test) {
-                    console.log(data.Test);
-                }
+                window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
             },
             error: function (data) {
                 console.log(data);
