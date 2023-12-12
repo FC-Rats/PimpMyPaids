@@ -4,7 +4,9 @@ ini_set('display_errors', 1);
 include 'export.php';
 
 if (isset($_POST['export_type'])) {
-    $dataToExport = json_decode($_POST['dataToExport'], true);
+    $jsonData = $_POST["dataToExport"];
+    $rows = json_decode($jsonData, true);
+    $data = [];
     $context = $_POST['context'] ?? null;
     $exportType = $_POST['export_type'];
     if ($exportType == 'xls') {
@@ -27,21 +29,37 @@ if (isset($_POST['export_type'])) {
 
             case 'poRemises':
                 $headers = ['N° SIREN', 'Raison sociale', 'N° Remise','Date', 'Nombre de transactions','Montant Total', 'Devise'];
-                $data = [['123456789', 'McDo Champs', 'REM001','18/11/2023','5', '100', 'EUR'], ['987654321', 'Leroy Merlin Noisy','REM002', '19/11/2023', '5', '350', 'EUR']];
-
                 
+                foreach ($rows as $row) {
+                    $baseInfo = [
+                        'siren' => $row['siren'],
+                        'companyName' => $row['companyName'],
+                        'remittanceNumber' => $row['remittanceNumber'],
+                        'dateRemittance' => $row['dateRemittance'],
+                        'nbTransactions' => $row['nbTransactions'],
+                        'montantTotal' => $row['montantTotal'],
+                        'currency' => $row['currency']
+                    ];
 
+                     
+                    $data[] = $baseInfo;
+                }
                 exportToXlsx('export_clientListRemises.xlsx', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS');
                 break;
-        }
-        
+        }   
     }
+    
 }
     
 
-if (isset($_POST['export_type']) && $_POST['export_type'] == 'csv') {
-    if (isset($_POST['context'])) {
-        switch ($_POST['context']) {
+if (isset($_POST['export_type'])) {
+    $jsonData = $_POST["dataToExport"];
+    $rows = json_decode($jsonData, true);
+    $data = [];
+    $context = $_POST['context'] ?? null;
+    $exportType = $_POST['export_type'];
+    if ($exportType == 'csv') {
+        switch ($context) {
             case 'poListAccount' :
                 $headers = ['SIREN', 'Raison Sociale', 'Nombre de transactions', 'Solde', 'Devise'];
                 $data = [['123456789', 'McDo Champs', '5', '100', 'EUR'], ['234567890', 'HomePlus Central', '42', '1900', 'EUR'], ['876543219', 'QuickMart Town', '34', '-850', 'EUR'],['987654321', 'Leroy Merlin Noisy
@@ -59,12 +77,28 @@ if (isset($_POST['export_type']) && $_POST['export_type'] == 'csv') {
             
             case 'poRemises':
                 $headers = ['Numéro de SIREN', 'Raison sociale', 'Numéro de Remise','Date', 'Nombre de transactions','Montant Total', 'Devise'];
-                $data = [['123456789', 'McDo Champs', 'REM001','18/11/2023','5', '100', 'EUR'], ['987654321', 'Leroy Merlin Noisy','REM002', '19/11/2023', '5', '350', 'EUR']];
+                $data = [];
+                foreach ($rows as $row) {
+                    $baseInfo = [
+                        'siren' => $row['siren'],
+                        'companyName' => $row['companyName'],
+                        'remittanceNumber' => $row['remittanceNumber'],
+                        'dateRemittance' => $row['dateRemittance'],
+                        'nbTransactions' => $row['nbTransactions'],
+                        'montantTotal' => $row['montantTotal'],
+                        'currency' => $row['currency']
+                    ];
 
-                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS'); // a rajouter
+                     
+                    $data[] = $baseInfo;
+                }
+                
+
+                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS');
                 break;
         }
     }
 }
+
 
 ?>

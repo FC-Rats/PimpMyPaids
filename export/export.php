@@ -36,7 +36,7 @@ function exportToXlsx($filename, $headers, $data, $title) {
     foreach ($data as $row) {
         $column = 'A';
         foreach ($row as $cell) {
-            $sheet->setCellValue($column . $rowNumber, $cell);
+            $sheet->setCellValueExplicit($column . $rowNumber, $cell, PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
             $sheet->getStyle($column . '3')->getFont()->setBold(true);
             $column++;
         }
@@ -83,8 +83,9 @@ function exportToCsv($filename, $headers, $data, $title) {
     // Créer le writer pour CSV
     $writer = new Csv($spreadsheet);
     $writer->setDelimiter(';');
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="' . $filename . '"');
-    $writer->save('php://output');
+    $filePath = '../../' . $filename;
+    $writer->save($filePath);
+
+    echo json_encode(["fileUrl" => "export/download.php?file=" . basename($filePath)]);
 }
 ?>
