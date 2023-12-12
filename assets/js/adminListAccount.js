@@ -1,66 +1,22 @@
 var listAccountData = "";
-var siren = "";
-var companyName = "";
 
 $(function () {
-    siren = $('#siren').val();
-    companyName = $('#companyName').val();
-    listAccounts(siren, companyName, $("#sortAccount").val());
+    listAccounts();
 
-    $("#sortAccount").on("change", function () {
-        siren = $('#siren').val();
-        companyName = $('#companyName').val();
-        listAccounts(
-            siren,
-            companyName,
-            $("#sortAccount").val()
-        );
-    });
-
-    $("#searchAccountsButton").on("click", function () {
-        siren = $('#siren').val();
-        companyName = $('#companyName').val();
-        listAccounts(siren, companyName, $("#sortAccount").val());
-    });
-
-    // export
-    $("#export_type").on("change", function () {
-        siren = $('#siren').val();
-        companyName = $('#companyName').val();
-        context = $('#context').val();
-        export_type = $('#export_type').val();
-        var sorting = $('#sortAccount').val();
-        $.ajax({
-            url: "export/export_data.php",
-            type: "POST",
-            dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "sort": sorting, "context": context, "export_type": export_type },
-            success: function (data) {
-                if (data.Test) {
-                    console.log(data.Test);
-                }
-            },
-            error: function (data) {
-                console.log(data);
-            },
-        });
+    $(".fa-solid.fa-trash.fa-xl").on("click", function () {
+        listAccounts();
     });
 });
 
-function listAccounts(
-    siren,
-    companyName,
-    sort
-) {
+function listAccounts() {
     $.ajax({
         url: "includes/getAccounts.php",
         type: "POST",
         dataType: "JSON",
-        data: { "siren": siren, "companyName": companyName, "sortAccount": sort },
+        data: { },
         success: function (data) {
             listAccountData = data.ListAccounts;
             console.log(listAccountData);
-            $("#numberAccounts").text(listAccountData.length);
 
             $("#accordionListAcounts").empty();
             $.map(listAccountData, function (data, dataKey) {

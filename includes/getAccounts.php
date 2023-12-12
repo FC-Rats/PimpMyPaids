@@ -57,5 +57,8 @@ switch ($_SESSION["profil"]) {
                         FROM TRAN_USERS u
                         INNER JOIN TRAN_CUSTOMER_ACCOUNT c ON u.idUser = c.idUser";
             $accountAdmin = $db->query($sql);
+
+            $response["ListAccounts"] = $accountAdmin;
+            echo json_encode($response);
     }
 ?>
