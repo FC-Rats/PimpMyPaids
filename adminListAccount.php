@@ -25,7 +25,7 @@
 
 <body>
     <?php include('./header.php'); ?>
-    <div class="container po-list-accounts-section">
+    <div class="conteuneur container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des clients</h1>
         <!-- $accountInfo -->
         <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">

@@ -32,7 +32,7 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <div class="container po-unpaids-section">
+    <div class="conteuneur container po-unpaids-section">
         <h1 class="p-4 text-center">Liste des impayés clients</h1>
         <div class="d-flex flex-row flex-wrap">
             <div class="searchnavbar bg-grey d-flex border border-dark col-12 col-md-5 p-0">

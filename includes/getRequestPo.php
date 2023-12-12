@@ -11,3 +11,5 @@ switch ($_SESSION["profil"]) {
 
         break;
 }
+
+?>

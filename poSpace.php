@@ -1,13 +1,7 @@
-<?php
-if (!isset($_SESSION)) {
+<?php if (!isset($_SESSION)) {
     session_start();
-}
-include('./includes/connectionFunctions.php');
+} ?>
 
-$names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
-$lastTr = $db->query('SELECT * FROM TRAN_TRANSACTIONS ORDER BY dateTransac DESC LIMIT 3');
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,8 +30,9 @@ $lastTr = $db->query('SELECT * FROM TRAN_TRANSACTIONS ORDER BY dateTransac DESC 
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
+    <?php include('./includes/getSpace.php');?>
 
-    <div class="container espace-po-section">
+    <div class="conteuneur container espace-po-section">
         <div class="row container-cols-espace-po">
             <div class="col-xl-6 col-12 d-flex flex-column justify-content-center align-items-center pt-4">
                 <div>

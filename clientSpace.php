@@ -1,21 +1,7 @@
-<?php
-if (!isset($_SESSION)) {
+<?php if (!isset($_SESSION)) {
     session_start();
-} 
-if (!class_exists('Connection')) {
-    include('./includes/connectionFunctions.php');
-}
-$names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
+} ?>
 
-$allDataClient = "SELECT 
-(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T WHERE T.siren = :siren) AS totalAmount,
-(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_REMITTANCES R ON T.remittanceNumber = R.remittanceNumbeR WHERE T.remittanceNumber IS NOT NULL AND T.siren = :siren) AS sumRemises,
-(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
-(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";        
-$conditions = array(array(":siren", $_SESSION["siren"]));
-$datas = $db->query($allDataClient, $conditions);
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -44,8 +30,9 @@ $datas = $db->query($allDataClient, $conditions);
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
+    <?php include('./includes/getSpace.php');?>
     <!-- getEspaceData() -->
-    <div class="container espace-client-section">
+    <div class="conteuneur container espace-client-section">
         <div class="row container-cols-espace-client">
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center pt-4">
                 <div>

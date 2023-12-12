@@ -26,7 +26,7 @@
 
 <body>
     <?php include('./header.php'); ?>
-    <div class="container po-list-accounts-section">
+    <div class="conteuneur container po-list-accounts-section">
         <h1 class="p-4 text-center">Liste des comptes clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <!-- getAccounts.php -->

@@ -2,16 +2,6 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if (!class_exists('Connection')) {
-    include('./includes/connectionFunctions.php');
-}
-
-$DataClient = "SELECT 
-(SELECT SUM(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) FROM TRAN_TRANSACTIONS T JOIN TRAN_CUSTOMER_ACCOUNT C ON T.siren = C.siren JOIN TRAN_UNPAIDS U ON T.idTransac = U.idTransac WHERE T.siren = :siren) AS sumImpayes,
-(SELECT currency FROM TRAN_CUSTOMER_ACCOUNT WHERE siren = :siren) AS currency;";
-$conditions = array(array(":siren", $_SESSION["siren"]));
-$datas = $db->query($DataClient, $conditions);
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,7 +35,9 @@ $datas = $db->query($DataClient, $conditions);
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <div class="container client-unpaids-section align-items-center jsutify-content-center">
+    <?php include('./includes/getClientUnpaids.php');?>
+
+    <div class="conteuneur container client-unpaids-section align-items-center jsutify-content-center">
         <h1 class="p-4 text-center">Vos Impayés</h1>
         <div class="col-12 text-center rounded-2 p-2 mb-2 fs-3" id="sumUnpaids">Somme totale : <span id="clientSumUnpaids" class="fw-bold"><?php echo $datas[0]["sumImpayes"]; ?></span> <span id="clientCurrency"><?php echo $datas[0]["currency"]; ?></span></div>
         <div class="d-flex flex-row flex-wrap">

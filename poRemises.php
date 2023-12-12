@@ -27,7 +27,7 @@
 <body>
     <!-- listRemittances.php -->
     <?php include('./header.php'); ?>
-    <div class="container remise-section">
+    <div class="conteuneur container remise-section">
         <h1 class="p-4 text-center">Liste des remises clients</h1>
         <div class="searchnavbar bg-grey d-flex border border-dark ">
             <form class="d-flex align-items-center justify-content-around justify-content-lg-between" onsubmit="return false">

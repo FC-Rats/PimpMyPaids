@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <div class="container-fluid login-section">
+    <div class="conteuneur container-fluid login-section">
         <div class="row container-cols-login">
             <div class="col-lg-8 col-12 text-center d-flex flex-column justify-content-center align-items-center p-5">
                 <img class="p-2 img-fluid img-max w-45" src="assets/img/logorect.png" alt="Logo Pimp My Paids" title="Logo Pimp My Paids" />

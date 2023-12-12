@@ -33,7 +33,7 @@
     <?php include('./includes/getRequestPo.php');
     ?>
 
-    <div class="container espace-admin-section">
+    <div class="conteuneur container espace-admin-section">
         <div class="row container-cols-espace-admin ">
             <div class="col-xl-6 col-12 d-flex flex-column justify-content-center align-items-center pt-4">
                 <div class="pb-5">
