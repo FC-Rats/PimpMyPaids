@@ -50,7 +50,7 @@
                             <div class="accordion-item my-3">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed rounded compte <?= $request['type'] == 0 ? 'ajout' : 'delete' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $index ?>" aria-expanded="false" aria-controls="flush-collapse<?= $index ?>">
-                                        <span class="col-5 col-md-3"><?= $request['type'] === 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
+                                        <span class="col-5 col-md-3"><?= $request['type'] == 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
                                         <span class="col-1">-</span>
                                         <span class="col-4 col-md-6"><?= $request['companyName'] ?></span>
                                     </button>
