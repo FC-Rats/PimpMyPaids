@@ -77,7 +77,7 @@ function generateTokenLinkForValidationClient($emailClient, $conn)
 {
     $token = generateUniqueID(12);
 
-    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/includes/clientValidation.php?token=";
+    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/clientValidation.php?token=";
     $link .= $token;
     if (!class_exists('Connection')) {
         include('./includes/connectionFunctions.php');
