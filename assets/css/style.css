@@ -7,6 +7,7 @@
     --floralWhite: #F8F4EA;
     --rasisinBlack: #272727;
 }
+
 /* Colors
     --bs-cerulean: 0,111,149;
     --bs-darkBlueMunsell: 0,133,162;
@@ -45,18 +46,18 @@
 }
 
 body {
-    background-color: var(--floralWhite)!important;
-    font-family: 'SplineSans-Regular'!important;
+    background-color: var(--floralWhite) !important;
+    font-family: 'SplineSans-Regular' !important;
 }
 
 .titleFont {
-    font-family: 'Glegoo-Bold'!important;
+    font-family: 'Glegoo-Bold' !important;
 }
 
 .conteuneur {
-    min-height: calc(100vh - 197px - 90px)!important;
+    min-height: calc(100vh - 197px - 90px) !important;
 }
 
 .highcharts-credits {
-    display: none!important;
+    display: none !important;
 }
