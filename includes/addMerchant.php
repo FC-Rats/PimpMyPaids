@@ -4,7 +4,7 @@ if (!class_exists('Connection')) {
     include('connectionFunctions.php');
 }
 $response = [];
-include('./mailer/mailer.php');
+include('../mailer/mailer.php');
 switch ($_SESSION["profil"]) {
     case 'PO':
         if (!empty($_POST['siren']) && !empty($_POST['login']) && !empty($_POST['companyName']) && !empty($_POST['currency']) && !empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['email'])) {
@@ -33,10 +33,11 @@ switch ($_SESSION["profil"]) {
             $query3 = $db->query($suppRPO, $conditions3);
 
             // trouver le mail du PO
-            /*$mailPO = "SELECT email FROM TRAN_USERS WHERE profil = 'PO'";
-                $message = "Veuillez confirmer le compte du client  {$_POST['login']} en cliquant sur le lien suivant : ";
-                $objet = "Confirmation du compte client";
-                envoi_mail($mailPO,$conn,$objet, $message.generateTokenLinkForValidationClient($_POST['email'],$conn)); */
+            $mailPO = "SELECT email FROM TRAN_USERS WHERE profil = 'PO'";
+            $message = "Veuillez confirmer le compte du client ".$_POST['login']." en cliquant sur le lien suivant : " . generateTokenLinkForValidationClient($_POST['email'],$conn);
+            $objet = "Confirmation du compte client";
+            $queryMailPO = $db->query($mailPO);
+            envoi_mail($queryMailPO[0]["email"], $conn, $objet, $message);
 
             $response["AddMerchant"] = $query3;
             echo json_encode($response);
