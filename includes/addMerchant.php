@@ -34,10 +34,10 @@ switch ($_SESSION["profil"]) {
 
             // trouver le mail du PO
             $mailPO = "SELECT email FROM TRAN_USERS WHERE profil = 'PO'";
-            $message = "Veuillez confirmer le compte du client ".$_POST['login']." en cliquant sur le lien suivant : " . generateTokenLinkForValidationClient($_POST['email'],$conn);
+            $message = "Veuillez confirmer le compte du client ".$_POST['login']." en cliquant sur le lien suivant : " . generateTokenLinkForValidationClient($_POST['email'],$db);
             $objet = "Confirmation du compte client";
             $queryMailPO = $db->query($mailPO);
-            envoi_mail($queryMailPO[0]["email"], $conn, $objet, $message);
+            envoi_mail($queryMailPO[0]["email"], $db, $objet, $message);
 
             $response["AddMerchant"] = $query3;
             echo json_encode($response);
