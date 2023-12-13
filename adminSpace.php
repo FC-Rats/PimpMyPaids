@@ -30,7 +30,7 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <?php include('./includes/getRequestPo.php');
+    <?php include('./includes/getSpace.php');
     ?>
 
     <div class="conteuneur container espace-admin-section">
@@ -43,7 +43,6 @@
 
                 <div class="rounded p-2 p-md-5 bg-grey adminnews">
                     <h4 class="text-center">Dernières requetes du Product Owner</h4>
-
 
                     <div class="accordion accordion-flush py-3 mb-3" id="accordionFlushExample">
                         <?php foreach ($requests as $index => $request) : ?>
