@@ -25,7 +25,9 @@ switch ($_SESSION["profil"]) {
             $query1 = $db->query($addUser, $conditions1);
 
             $addAccount = "INSERT INTO TRAN_CUSTOMER_ACCOUNT (siren, companyName, currency, idUser) VALUES (:siren, :companyName, :currency, :id)";
-            $conditions2 = array(array(':siren', $_POST['siren']), array(':companyName', $_POST['companyName']), array(':currency', $_POST['currency']), array(':id', "LAST_INSERT_ID()"));
+            $lastId = $db->query("SELECT LAST_INSERT_ID();");
+            $idUser = $lastId[0]["LAST_INSERT_ID()"];
+            $conditions2 = array(array(':siren', $_POST['siren']), array(':companyName', $_POST['companyName']), array(':currency', $_POST['currency']), array(':id', $idUser));
             $query2 = $db->query($addAccount, $conditions2);
 
             $suppRPO = "DELETE FROM TRAN_REQUEST_PO WHERE siren = :siren";
