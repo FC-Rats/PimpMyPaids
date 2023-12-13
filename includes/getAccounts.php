@@ -28,11 +28,7 @@ switch ($_SESSION["profil"]) {
                     LEFT JOIN TRAN_TRANSACTIONS t ON c.siren = t.siren";
 
             foreach ($conditions as $values) {
-                if (strpos($query2, "WHERE") == false) {
-                    $query .= " WHERE {$values[2]} = {$values[0]}";
-                } else {
-                    $query .= " AND {$values[2]} = {$values[0]}";
-                }
+                $query .= (strpos($query, "WHERE") === false) ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
             }
             
             if (!empty($_POST['date'])) {
@@ -51,6 +47,7 @@ switch ($_SESSION["profil"]) {
             
             $response["ListAccounts"] = $accountInfo;
             echo json_encode($response);
+            break;
 
         case 'Admin':
             $sql = "SELECT c.siren, c.companyName, u.email, u.login, c.currency
@@ -60,5 +57,6 @@ switch ($_SESSION["profil"]) {
 
             $response["ListAccounts"] = $accountAdmin;
             echo json_encode($response);
+            break;
     }
 ?>
