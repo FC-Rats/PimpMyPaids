@@ -52,12 +52,13 @@
                             echo '<div class="col-6 col-md-2 mb-2"><span>' . $dateTransac . '</span></div>';
                             echo '<div class="col-6 col-md-3 mb-2"><span>N°' . $lastTr[$i]['idTransac'] . '</span></div>';
                             echo '<div class="col-6 col-md-3 mb-2"><span class="fw-bold">' . $lastTr[$i]['sign'] . ' ' . number_format($lastTr[$i]['amount'], 2, ',', ' ') . ' $</span></div>';
-                            if ($lastTr[$i]['remittanceNumber'] === null) {
-                                echo '<div class="col-6 col-md-2 mb-2"><span> Remise </span></div>';
+                            if (is_null($lastTr[$i]['remittanceNumber'])) {
+                                echo '<div class="col-6 col-md-2 mb-2"><span> Transaction </span></div>';
+                                echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-money-bill-transfer fa-xl fa-bounce"></i></div>';
                             } else {
                                 echo '<div class="col-6 col-md-2 mb-2"><span> ' . htmlspecialchars($lastTr[$i]['remittanceNumber']) . ' </span></div>';
+                                echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i></div>';
                             }
-                            echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i></div>';
                             echo '</div>';
                         }
                         ?>
