@@ -61,7 +61,7 @@ $(function () {
     });
 
     // export details
-    $("#export_typeDetails").on("change", function () {
+    $("#offcanvasDetailRemittancePo").on("change", "#export_typeDetails", function () {
         var idDetails = $('#idDetails').val();
         companyName = $('#offcanvasDetailRemittancePo #companyNameDetail').val();
         remittanceNumber = $('#offcanvasDetailRemittancePo #idRemittanceDetail').val();
