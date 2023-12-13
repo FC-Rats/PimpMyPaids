@@ -34,28 +34,16 @@ switch ($_SESSION["profil"]) {
                     INNER JOIN TRAN_REMITTANCES r ON r.remittanceNumber = t.remittanceNumber";
 
             foreach ($conditions as $values) {
-                if (strpos($query1, "WHERE") == false) {
-                    $query1 .= " WHERE {$values[2]} = {$values[0]}";
-                } else {
-                    $query1 .= " AND {$values[2]} = {$values[0]}";
-                }
+                $query1 .= strpos($query1, "WHERE") === false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
             }
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
-                if (strpos($query1, "WHERE") == false) {
-                    $query1 .= " WHERE dateTransac < :beforeDate";
-                } else {
-                    $query1 .= " AND dateTransac < :beforeDate";
-                }
+                $conditions[] = [":beforeDate", $beforeDate];
+                $query1 .= strpos($query1, "WHERE") === false ? " WHERE dateTransac < :beforeDate" : " AND dateTransac < :beforeDate";
             }
     
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
-                if (strpos($query1, "WHERE") == false) {
-                    $query1 .= " WHERE dateTransac > :afterDate";
-                } else {
-                    $query1 .= " AND dateTransac > :afterDate";
-                }
+                $conditions[] = [":afterDate", $afterDate];
+                $query1 .= strpos($query1, "WHERE") === false ? " WHERE dateTransac > :afterDate" : " AND dateTransac > :afterDate";
             }
 
             $query1 .= " GROUP BY r.remittanceNumber;";

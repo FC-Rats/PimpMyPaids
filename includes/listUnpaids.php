@@ -33,31 +33,17 @@ switch ($_SESSION["profil"]) {
                         GROUP BY
                             ca.siren;";
     
-            // Ajout des conditions à la query
             foreach ($conditions as $values) {
-                if (strpos($query, "WHERE") == false) {
-                    $query .= " WHERE {$values[2]} = {$values[0]}";
-                } else {
-                    $query .= " AND {$values[2]} = {$values[0]}";
-                }
+                $query .= strpos($query1, "WHERE") === false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
+            }
+            if (!empty($_POST['beforeDate'])) {
+                $conditions[] = [":beforeDate", $beforeDate];
+                $query .= strpos($query1, "WHERE") === false ? " WHERE dateTransac < :beforeDate" : " AND dateTransac < :beforeDate";
             }
 
-            if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
-                if (strpos($query, "WHERE") == false) {
-                    $query .= " WHERE dateTransac < :beforeDate";
-                } else {
-                    $query .= " AND dateTransac < :beforeDate";
-                }
-            }
-    
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
-                if (strpos($query, "WHERE") == false) {
-                    $query .= " WHERE dateTransac > :afterDate";
-                } else {
-                    $query .= " AND dateTransac > :afterDate";
-                }
+                $conditions[] = [":afterDate", $afterDate];
+                $query .= strpos($query1, "WHERE") === false ? " WHERE dateTransac > :afterDate" : " AND dateTransac > :afterDate";
             }
 
             $unpaidPO = $db->query($query, $conditions);

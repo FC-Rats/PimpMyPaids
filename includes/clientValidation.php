@@ -7,9 +7,6 @@ ini_set('display_errors', 1);
 
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-} else {
-    $config = parse_ini_file('config.ini');
-    $db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
 }
 
 if ($_GET['token']) {
@@ -27,7 +24,7 @@ if ($_GET['token']) {
             [":idClient", $getId[0]['idUser']]
         ];
         $db->query($updateQuery, $updateConditions);
-        echo "le compte du client a bien été activé";
+        echo "Le compte du client a bien été activé";
     } else {
         // si le token n'existe pas dans la base de données
         header("Location: ../index.php?p=login");

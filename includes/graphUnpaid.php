@@ -17,7 +17,7 @@ if (!class_exists('Connection')) {
                         GROUP BY
                             UR.unpaidName";
 
-            $graphUnpaidPO = $db->query($query, array());
+            $graphUnpaidPO = $db->query($query);
             $response["GraphUnpaids"] = $graphUnpaidPO;
             echo json_encode($response);
             break;
