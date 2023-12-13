@@ -30,15 +30,15 @@ $(function () {
         context = $('#context').val();
         export_type = $('#export_type').val();
         var sorting = $('#sortAccount').val();
+        dataToExport = JSON.stringify(listAccountData);
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "sort": sorting, "context": context, "export_type": export_type },
+            data: { "siren": siren, "companyName": companyName, "sort": sorting, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
-                if (data.Test) {
-                    console.log(data.Test);
-                }
+                window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
+                $("#export_type").val("noExport");
             },
             error: function (data) {
                 console.log(data);
@@ -95,6 +95,10 @@ function listAccounts(
 
                 $("#accordionListAcounts").append(html);
             });
+
+            if (listAccountData.length == 0) {
+                $("#accordionListAcounts").append('<div class="text-center">Aucun compte</div>');
+            }
         },
         error: function (data) {
             console.log(data);

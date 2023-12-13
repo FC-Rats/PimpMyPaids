@@ -87,11 +87,19 @@
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="siren" name="siren" placeholder=" " required>
-                            <label for="siren">SIREN</label>
+                            <label for="siren">Siren</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" " required>
                             <label for="companyName">Raison Sociale</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder=" " required>
+                            <label for="firstName">Prénom</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder=" " required>
+                            <label for="lastName">Nom</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="email" class="form-control" id="email" name="email" placeholder=" " required>
@@ -141,7 +149,6 @@
                     </div>
                     <div class="modal-body">
                         Votre demande d'ajout de client au prêt de l'administrateur a bien été prise en compte.
-                        Vous recevrez un mail de confirmation très prochainement.
                     </div>
                     <div class="modal-footer">
                         <small class="fst-italic">PimpMyPaids</small>
@@ -158,7 +165,6 @@
                     </div>
                     <div class="modal-body">
                         Votre demande de suppresion de client au prêt de l'administrateur a bien été prise en compte.
-                        Vous recevrez un mail de confirmation très prochainement.
                     </div>
                     <div class="modal-footer">
                         <small class="fst-italic">PimpMyPaids</small>

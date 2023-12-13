@@ -13,7 +13,7 @@
             } else {
                 $comment = $_POST['comment'];
             }
-            $conditions = array(array(':siren', $_POST['siren']), array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':currency', $_POST['currency']), array(':email', $_POST['email']), array(':comment', $comment), array(':type', '0'));
+            $conditions = array(array(':siren', $_POST['siren']), array(':login', $_POST['login']), array(':companyName', $_POST['companyName']), array(':currency', $_POST['currency']), array(':firstName', $_POST['firstName']), array(':lastName', $_POST['lastName']), array(':email', $_POST['email']), array(':comment', $comment), array(':type', '0'));
             $queryAdd = $db->query($add, $conditions);
             
             $response["AddMerchant"] = $queryAdd;
@@ -32,6 +32,7 @@
             $suppRPO = "DELETE FROM TRAN_REQUEST_PO WHERE siren = :siren";
             $conditions3 = array(array(':siren', $_POST['siren']));
             $query3 = $db->query($suppRPO, $conditions3);
+
             // trouver le mail du PO
 /*             $mailPO = "SELECT email FROM TRAN_USERS WHERE profil = 'PO'";
             $message = "Veuillez confirmer le compte du client  {$_POST['login']} en cliquant sur le lien suivant : ";

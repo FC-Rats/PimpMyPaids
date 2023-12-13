@@ -24,6 +24,10 @@ $response = [];
             $suppMerchant = "DELETE FROM TRAN_USERS WHERE login = :login";
             $conditions = array(array(':login', $_POST['login']));
             $query3 = $db->query($suppMerchant, $conditions);
+
+            $response["DeleteMerchant"] = $query3;
+            echo json_encode($response);
+
             break;
     }
 ?>
