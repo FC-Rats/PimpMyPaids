@@ -86,7 +86,11 @@ function listAccounts(
                 } else {
                     html += '<span class="col-1">-</span>';
                 }
-                html += '<span class="col-4 col-sm-4 col-md-3">' + data.montant + '</span>';
+                if (data.montant != null) {
+                    html += '<span class="col-4 col-sm-4 col-md-3">' + data.montant + '</span>';
+                } else {
+                    html += '<span class="col-4 col-sm-4 col-md-3">0</span>';
+                }
                 html += '<span class="col-2">(' + data.currency + ')</span>';
                 html += '</div>';
                 html += '</div>';
