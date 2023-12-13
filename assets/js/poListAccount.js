@@ -87,7 +87,7 @@ function listAccounts(
                     html += '<span class="col-1">-</span>';
                 }
                 html += '<span class="col-4 col-sm-4 col-md-3">' + data.montant + '</span>';
-                html += '<span class="col-2">(' + 'KEKE' + ')</span>';
+                html += '<span class="col-2">(' + data.currency + ')</span>';
                 html += '</div>';
                 html += '</div>';
                 html += '</div>';

@@ -64,6 +64,7 @@ $(function () {
 
     // export details
     $("#export_typeDetails").on("change", function () {
+        console.log("export details");
         var idDetails = $('#idDetails').val();
         remittanceNumber = $('#offcanvasDetailRemittanceClientLabel #idRemittanceDetail').val();
         context = $('#contextDetails').val();
@@ -76,7 +77,7 @@ $(function () {
             data: { "remittanceNumber": remittanceNumber, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
                 window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
-                $("#export_type").val("noExport");
+                $("#export_typeDetails").val("noExport");
             },
             error: function (data) {
                 console.log(data);
@@ -131,7 +132,11 @@ function printClientRemittances() {
         html += '<span class="col-12 col-sm-6 col-lg-1 remittanceNumber">' + data.remittanceNumber + '</span>';
         html += '<span class="col-12 col-sm-6 col-lg-3 dateRemittance">' + data.dateRemittance + '</span>';
         html += '<span class="col-12 col-sm-6 col-lg-3 nbTransactions">' + data.nbTransactions + ' transaction(s)</span>';
-        html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">KEKE ' + data.montantTotal + ' (' + data.currency + ')</span>';
+        if (data.montantTotal < 0) {
+            html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">- ' + data.montantTotal + ' (' + data.currency + ')</span>';
+        } else {
+            html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">+ ' + data.montantTotal + ' (' + data.currency + ')</span>';
+        }
         html += '<button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(' + remittanceNumberToKey[data.remittanceNumber] + ');">+</button>';
         html += '</div>';
 
@@ -154,16 +159,19 @@ function viewClientDetailRemittance(id) {
     $("#offcanvasDetailRemittanceClient #offcanvas-body").empty();
     $("#offcanvasDetailRemittanceClientLabel #idRemittanceDetail").text(dataDetail[0].remittanceNumber);
 
+    html ="";
+    html += '<input type="hidden" name="contextDetails" value="clientRemisesDetails" id="contextDetails">';
+    html += '<input type="hidden" name="idDetails" value="'+id+'" id="idDetails">';
+    html += '<select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_typeDetails" id="export_typeDetails">';
+    html += '<option value="noExport" selected>Exporter les données</option>';
+    html += '<option value="pdf">PDF</option>';
+    html += '<option value="csv">CSV</option>';
+    html += '<option value="xls">XLSX</option>';
+    html += '</select>';
+    $("#offcanvasDetailRemittanceClient #offcanvas-body").append(html);
+
     $.map(dataDetail, function (data, dataKey) {
         html = "";
-        html += '<input type="hidden" name="contextDetails" value="clientRemisesDetails" id="contextDetails">';
-        html += '<input type="hidden" name="idDetails" value="'+id+'" id="idDetails">';
-        html += '<select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_typeDetails" id="export_typeDetails"></select>';
-        html += '<option value="noExport" selected>Exporter les données</option>';
-        html += '<option value="pdf">PDF</option>';
-        html += '<option value="csv">CSV</option>';
-        html += '<option value="xls">XLSX</option>';
-        html += '</select>';
         html += '<div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center">';
         html += '<span class="col-12 dateTransac">' + data.dateTransac + '</span>';
         html += '<span class="col-6 network">' + data.network + '</span>';
@@ -179,6 +187,8 @@ function viewClientDetailRemittance(id) {
 
     hideCreditCardNumber();
     formatDateDetail();
+
+    var monElement = document.getElementById("export_typeDetails");
 }
 
 function formatDate() {

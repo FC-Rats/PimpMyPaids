@@ -168,16 +168,20 @@ function viewDetailRemittance(id) {
     $("#offcanvasDetailRemittancePo #companyNameDetail").text(dataDetail.companyName);
     $("#offcanvasDetailRemittancePo #idRemittanceDetail").text(dataDetail.remittanceNumber);
 
+    html = "";
+    html += '<input type="hidden" name="contextDetails" value="poRemisesDetails" id="contextDetails">';
+    html += '<input type="hidden" name="idDetails" value="'+id+'" id="idDetails">';
+    html += '<select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_typeDetails" id="export_typeDetails">';
+    html += '<option value="noExport" selected>Exporter les données</option>';
+    html += '<option value="pdf">PDF</option>';
+    html += '<option value="csv">CSV</option>';
+    html += '<option value="xls">XLSX</option>';
+    html += '</select>';
+
+    $("#offcanvasDetailRemittancePo #offcanvas-body").append(html);
+
     $.map(dataDetail.details, function (data, dataKey) {
         html = "";
-        html += '<input type="hidden" name="contextDetails" value="poRemisesDetails" id="contextDetails">';
-        html += '<input type="hidden" name="idDetails" value="'+id+'" id="idDetails">';
-        html += '<select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_typeDetails" id="export_typeDetails"></select>';
-        html += '<option value="noExport" selected>Exporter les données</option>';
-        html += '<option value="pdf">PDF</option>';
-        html += '<option value="csv">CSV</option>';
-        html += '<option value="xls">XLSX</option>';
-        html += '</select>';
         html += '<div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="' + data.numAutorisation + '">';
         html += '<span class="col-12 dateTransac">' + data.dateTransac + '</span>';
         html += '<span class="col-4 network">' + data.network + '</span>';
@@ -193,6 +197,11 @@ function viewDetailRemittance(id) {
 
     hideCreditCardNumber();
     formatDateDetail();
+
+    var monElement = document.getElementById("export_typeDetails");
+    console.log(monElement);
+
+    console.log("okk");
 }
 
 function formatDateDetail() {

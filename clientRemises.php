@@ -38,7 +38,7 @@
                     <input type="text" class="form-control" id="amount" name="amount" placeholder=" ">
                     <label for="amount">Montant</label>
                 </div>
-                <div class="form-floating text-dark col-12 col-sm-12 col-lg-2">
+                <div class="form-floating text-dark col-12 col-sm-6 col-lg-2">
                     <input type="text" class="form-control" id="remittanceNumber" name="remittanceNumber" placeholder=" ">
                     <label for="remittanceNumber">N° Remise</label>
                 </div>
@@ -66,7 +66,7 @@
             <div class="export d-flex flex-row-reverse align-items-baseline col-12 col-sm-auto">
                 <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
                     <input type="hidden" name="context" value="clientListRemises" id="context">
-                    <select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
+                    <select class="d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_type" id="export_type">
                         <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
