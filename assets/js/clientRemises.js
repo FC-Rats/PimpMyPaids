@@ -63,9 +63,12 @@ $(function () {
     });
 
     // export details
-    $("#offcanvasDetailRemittancePo").on("change", "#export_typeDetails", function () {
+    $("#offcanvasDetailRemittanceClient").on("change", "#export_typeDetails", function () {
         var idDetails = $('#idDetails').val();
-        remittanceNumber = $('#offcanvasDetailRemittanceClientLabel #idRemittanceDetail').val();
+        var dateRemittance = listRemittancesData[idDetails].dateRemittance;
+        montantTotal = listRemittancesData[idDetails].montantTotal;
+        currency = listRemittancesData[idDetails].currency;
+        remittanceNumber = $('#idRemittanceDetail').text();
         context = $('#contextDetails').val();
         export_type = $('#export_typeDetails').val();
         dataToExport = JSON.stringify(listRemittancesData[idDetails].details);
@@ -73,7 +76,7 @@ $(function () {
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "remittanceNumber": remittanceNumber, "context": context, "export_type": export_type, "dataToExport": dataToExport },
+            data: { "remittanceNumber": remittanceNumber, "dateRemittance": dateRemittance, "montantTotal": montantTotal, "currency": currency, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
                 window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
                 $("#export_typeDetails").val("noExport");

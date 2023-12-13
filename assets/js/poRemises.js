@@ -63,8 +63,11 @@ $(function () {
     // export details
     $("#offcanvasDetailRemittancePo").on("change", "#export_typeDetails", function () {
         var idDetails = $('#idDetails').val();
-        companyName = $('#offcanvasDetailRemittancePo #companyNameDetail').val();
-        remittanceNumber = $('#offcanvasDetailRemittancePo #idRemittanceDetail').val();
+        var dateRemittance = listRemittancesData[idDetails].dateRemittance;
+        montantTotal = listRemittancesData[idDetails].montantTotal;
+        currency = listRemittancesData[idDetails].currency;
+        companyName = $('#companyNameDetail').text();
+        remittanceNumber = $('#idRemittanceDetail').text();
         context = $('#contextDetails').val();
         export_type = $('#export_typeDetails').val();
         dataToExport = JSON.stringify(listRemittancesData[idDetails].details);
@@ -72,7 +75,7 @@ $(function () {
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "companyName": companyName, "remittanceNumber": remittanceNumber, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
+            data: { "companyName": companyName, "remittanceNumber": remittanceNumber, "dateRemittance": dateRemittance, "montantTotal": montantTotal, "currency": currency, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
                 window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
                 $("#export_typeDetails").val("noExport");
@@ -197,11 +200,6 @@ function viewDetailRemittance(id) {
 
     hideCreditCardNumber();
     formatDateDetail();
-
-    var monElement = document.getElementById("export_typeDetails");
-    console.log(monElement);
-
-    console.log("okk");
 }
 
 function formatDateDetail() {
