@@ -124,15 +124,15 @@ $(function () {
         var sorting = $('#formSortClientUnpaids').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
+        dataToExport = JSON.stringify(listClientUnpaidsData);
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "sort": sorting, "context": context, "export_type": export_type },
+            data: { "beforeDate": beforeDate, "afterDate": afterDate, "label": label, "idUnpaid": idUnpaid, "sort": sorting, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
-                if (data.Test) {
-                    console.log(data.Test);
-                }
+                window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
+                $("#export_type").val("noExport");
             },
             error: function (data) {
                 console.log(data);

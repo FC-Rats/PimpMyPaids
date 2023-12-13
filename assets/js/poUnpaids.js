@@ -87,15 +87,15 @@ $(function () {
         afterDate = $('#afterDate').val();
         context = $('#context').val();
         export_type = $('#export_type').val();
+        dataToExport = JSON.stringify(listUnpaidsData);
         $.ajax({
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type },
+            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
-                if (data.Test) {
-                    console.log(data.Test);
-                }
+                window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
+                $("#export_type").val("noExport");
             },
             error: function (data) {
                 console.log(data);
@@ -165,7 +165,7 @@ function viewDetailUnpaid(id) {
         html += '<span class="col-6 sign">'+ data.sign +'</span>';
         html += '<span class="col-6 amount">' + data.amount + '</span>';
         html += '<span class="col-6 currency">' + data.currency + '</span>';
-        html += '<span class="col-6 label">' + data.unpaidName + '</span>';
+        html += '<span class="col-12 label">' + data.unpaidName + '</span>';
         html += '</div>';
 
         $("#offcanvasDetailUnpaidClient #offcanvas-body").append(html);

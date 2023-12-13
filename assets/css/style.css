@@ -56,3 +56,7 @@ body {
 .conteuneur {
     min-height: calc(100vh - 197px - 90px);
 }
+
+.highcharts-credits {
+    display: none!important;
+}

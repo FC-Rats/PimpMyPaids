@@ -2,10 +2,6 @@ var listAccountData = "";
 
 $(function () {
     listAccounts();
-
-    $(".fa-solid.fa-trash.fa-xl").on("click", function () {
-        listAccounts();
-    });
 });
 
 function listAccounts() {
@@ -13,7 +9,7 @@ function listAccounts() {
         url: "includes/getAccounts.php",
         type: "POST",
         dataType: "JSON",
-        data: { },
+        data: {},
         success: function (data) {
             listAccountData = data.ListAccounts;
             console.log(listAccountData);
@@ -23,11 +19,7 @@ function listAccounts() {
                 var html = "";
                 html += '<div class="accordion-item my-3">';
                 html += '<h2 class="accordion-header">';
-                if (data.montant >= 0) {
-                    html += '<button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
-                } else {
-                    html += '<button class="accordion-button collapsed rounded compte danger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
-                }
+                html += '<button class="accordion-button collapsed rounded compte pasdanger" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' + dataKey + '" aria-expanded="false" aria-controls="flush-collapse' + dataKey + '">';
                 html += '<span class="col-3 col-md-1">' + data.siren + '</span>';
                 html += '<span class="col-1 text-center">-</span>';
                 html += '<span class="col-6 col-md-3">' + data.companyName + '</span>';
@@ -35,15 +27,14 @@ function listAccounts() {
                 html += '</h2>';
                 html += '<div id="flush-collapse' + dataKey + '" class="accordion-collapse collapse">';
                 html += '<div class="accordion-body">';
-                html += '<div class="infos d-flex flex-column flex-sm-row pb-2">';
-                html += '<span class="col-5 col-sm-5 col-md-6">' + data.nbTransactions + ' transaction(s)</span>';
-                if (data.montant >= 0) { 
-                    html += '<span class="col-1">+</span>';
-                } else {
-                    html += '<span class="col-1">-</span>';
-                }
-                html += '<span class="col-4 col-sm-4 col-md-3">' + data.montant + '</span>';
-                html += '<span class="col-2">(' + 'KEKE' + ')</span>';
+                html += '<div class="infos d-flex flex-wrap pb-2">';
+                html += '<span class="col-12 col-sm-7 col-md-9">Email : <span class="emailCustomer">' + data.email + '</span></span>';
+                html += '<span class="col-12 col-sm-7 col-md-9">DEVISE : <span class="currency">' + data.currency + '</span></span>';
+                html += '<span class="col-4 col-sm-1 col-lg-1 d-flex justify-content-end clear-button align-items-center">';
+                html += '<div class="btn border-0" onclick="deleteCustomer(' + data.login + ');"><i class="fa-solid fa-trash fa-xl"></i></div>';
+                html += '</span>';
+                html += '<br>';
+                html += '<span class="col-12">Login : <span class="login">' + data.login + '</span></span>';
                 html += '</div>';
                 html += '</div>';
                 html += '</div>';
@@ -51,6 +42,22 @@ function listAccounts() {
 
                 $("#accordionListAcounts").append(html);
             });
+        },
+        error: function (data) {
+            console.log(data);
+        },
+    });
+}
+
+function deleteCustomer(login) {
+    $.ajax({
+        url: "includes/deleteMerchant.php",
+        type: "POST",
+        dataType: "JSON",
+        data: { "login": login },
+        success: function (data) {
+            console.log(data.DeleteMerchant);
+            listAccounts();
         },
         error: function (data) {
             console.log(data);

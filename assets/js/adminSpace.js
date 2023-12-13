@@ -10,9 +10,7 @@ var password = "";
 $(function () {
     $("#addMerchant").on("click", function () {
         fetchDataForm();
-        addAccount().then(function () {
-            sendMailAdd();
-        });
+        addAccount();
     });
 });
 
@@ -39,37 +37,17 @@ function deleteDataForm() {
 }
 
 function addAccount() {
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            url: "includes/addMerchant.php",
-            type: "POST",
-            dataType: "JSON",
-            data: { "login": login, "siren": siren, "firstName": firstName, "lastName": lastName, "companyName": companyName, "email": email, "currency": currency, "password": password },
-            success: function (data) {
-                var result = data.AddMerchant;
-                console.log(result);
-                var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
-                modal.show();
-                deleteDataForm();
-                resolve();
-            },
-            error: function (data) {
-                console.log(data);
-                reject();
-            },
-        });
-        resolve();
-    });
-}
-
-function sendMailAdd() {
     $.ajax({
-        url: "includes/clientValidation.php",
+        url: "includes/addMerchant.php",
         type: "POST",
         dataType: "JSON",
-        data: { "email": email },
+        data: { "login": login, "siren": siren, "firstName": firstName, "lastName": lastName, "companyName": companyName, "email": email, "currency": currency, "password": password },
         success: function (data) {
-            console.log(data.Result);
+            var result = data.AddMerchant;
+            console.log(result);
+            var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
+            modal.show();
+            deleteDataForm();
         },
         error: function (data) {
             console.log(data);
