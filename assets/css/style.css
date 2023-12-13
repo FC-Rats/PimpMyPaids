@@ -54,7 +54,7 @@ body {
 }
 
 .conteuneur {
-    min-height: calc(100vh - 197px - 90px);
+    min-height: calc(100vh - 197px - 90px)!important;
 }
 
 .highcharts-credits {
