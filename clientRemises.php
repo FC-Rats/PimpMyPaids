@@ -60,7 +60,7 @@
         </div>
         <div class="headquery d-flex flex-row flex-wrap align-items-center justify-content-between mt-5 border-black border-bottom ">
             <div class="d-flex flex-row flex-wrap col-12 col-sm-auto">
-                <span class="pe-2"><span id="countResults">X</span> résultats -</span>
+                <span class="pe-2"><span id="countResults">X</span> résultat(s) -</span>
                 <span class="d-flex flex-row">Afficher<input type="number" id="nbLineByPage" class="pagi mx-2" placeholder="3" value="3" min="1" max="100" style="min-width: 50px!important; max-height: 30px!important;" />lignes par page</span>
             </div>
             <div class="export d-flex flex-row-reverse align-items-baseline col-12 col-sm-auto">
@@ -70,7 +70,7 @@
                         <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
-                        <option value="xls">XLS</option>
+                        <option value="xls">XLSX</option>
                     </select>
                 </form>
             </div>

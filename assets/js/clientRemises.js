@@ -133,6 +133,12 @@ function printClientRemittances() {
 
     });
 
+    if (listRemittancesData.length == 0) {
+        $("#container-remise-list").append('<div class="text-center">Aucune remise</div>');
+    } else if (itemsToShow.length == 0) {
+        $("#container-remise-list").append('<div class="text-center">Aucun résultat</div>');
+    }
+
     formatDate();
 }
 
@@ -150,7 +156,7 @@ function viewClientDetailRemittance(id) {
         html += '<option value="noExport" selected>Exporter les données</option>';
         html += '<option value="pdf">PDF</option>';
         html += '<option value="csv">CSV</option>';
-        html += '<option value="xls">XLS</option>';
+        html += '<option value="xls">XLSX</option>';
         html += '</select>';
         html += '<div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center">';
         html += '<span class="col-12 dateTransac">' + data.dateTransac + '</span>';

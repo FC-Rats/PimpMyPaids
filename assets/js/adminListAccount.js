@@ -42,6 +42,10 @@ function listAccounts() {
 
                 $("#accordionListAcounts").append(html);
             });
+
+            if (listAccountData.length == 0) {
+                $("#accordionListAcounts").append('<div class="text-center">Aucun compte</div>');
+            }
         },
         error: function (data) {
             console.log(data);
@@ -58,6 +62,8 @@ function deleteCustomer(login) {
         success: function (data) {
             console.log(data.DeleteMerchant);
             listAccounts();
+            var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
+            modal.show();
         },
         error: function (data) {
             console.log(data);

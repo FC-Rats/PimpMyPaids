@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="headquery d-flex align-items-center justify-content-between mt-5 border-bottom border-black">
-            <span><span id="nbResults">X</span> résultats - Somme des impayés par Raison Sociale</span>
+            <span><span id="nbResults">X</span> résultat(s) - Somme des impayés par Raison Sociale</span>
             <div class="export d-flex flex-row-reverse align-items-baseline">
                 <form class="d-flex align-items-center justify-content-around justify-content-lg-between mb-1">
                     <input type="hidden" name="context" value="poUnpaids" id="context">
@@ -94,7 +94,7 @@
                         <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
-                        <option value="xls">XLS</option>
+                        <option value="xls">XLSX</option>
                     </select>
                 </form>
             </div>

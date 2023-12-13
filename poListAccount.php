@@ -64,7 +64,7 @@
                         <option value="noExport" selected>Exporter les données</option>
                         <option value="pdf">PDF</option>
                         <option value="csv">CSV</option>
-                        <option value="xls">XLS</option>
+                        <option value="xls">XLSX</option>
                     </select>
                 </form>
             </div>
