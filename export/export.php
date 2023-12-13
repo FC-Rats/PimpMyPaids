@@ -7,7 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
-function exportToXlsx($filename, $headers, $data, $title) {
+function exportToXlsx($filename, $headers, $data, $title, $filters, $valueFilters) {
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
 
@@ -43,6 +43,17 @@ function exportToXlsx($filename, $headers, $data, $title) {
         $rowNumber++;
     }
 
+    //Filtres
+    $sheet->setCellValue('D1', 'Filtres :');
+    $sheet->getStyle('D1')->getFont()->setBold(true);
+    $column = 'E';
+    foreach ($filters as $filter) {
+        $count = 0;
+        $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
+        $count++;
+        $column++;
+    }
+
     // Créer le writer et envoyer le fichier pour téléchargement
     $writer = new Xlsx($spreadsheet);
     $filePath = '../../' . $filename;
@@ -51,7 +62,7 @@ function exportToXlsx($filename, $headers, $data, $title) {
     echo json_encode(["fileUrl" => "export/download.php?file=" . basename($filePath)]);
 }
 
-function exportToCsv($filename, $headers, $data, $title) {
+function exportToCsv($filename, $headers, $data, $title, $filters, $valueFilters) {
     $spreadsheet = new Spreadsheet();
     $sheet = $spreadsheet->getActiveSheet();
 
@@ -78,6 +89,16 @@ function exportToCsv($filename, $headers, $data, $title) {
             $column++;
         }
         $rowNumber++;
+    }
+
+    //Filtres
+    $sheet->setCellValue('D1', 'Filtres :');
+    $column = 'E';
+    foreach ($filters as $filter) {
+        $count = 0;
+        $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
+        $count++;
+        $column++;
     }
 
     // Créer le writer pour CSV

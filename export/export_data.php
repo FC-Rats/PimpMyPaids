@@ -44,7 +44,10 @@ if (isset($_POST['export_type'])) {
                      
                     $data[] = $baseInfo;
                 }
-                exportToXlsx('export_clientListRemises.xlsx', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS');
+
+                $filters = ['siren', 'companyName', 'remittanceNumber', 'beforeDate', 'afterDate'];
+                $valueFilters = $_POST;
+                exportToXlsx('export_clientListRemises.xlsx', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS', $filters, $valueFilters);
                 break;
         }   
     }
@@ -93,8 +96,9 @@ if (isset($_POST['export_type'])) {
                     $data[] = $baseInfo;
                 }
                 
-
-                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS');
+                $filters = ['siren', 'companyName', 'remittanceNumber', 'beforeDate', 'afterDate'];
+                $valueFilters = $_POST;
+                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DE TOUS LES CLIENTS', $filters, $valueFilters);
                 break;
         }
     }
