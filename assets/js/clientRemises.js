@@ -7,6 +7,12 @@ var rowsPerPage = 3;
 var pageToShow = 1;
 var remittanceNumberToKey = [];
 
+var remisesElement = document.getElementById("clientSumRemises");
+var remises = parseFloat(remisesElement.textContent);
+if (remises < 0) {
+    remisesElement.style.color = "#AE2A00";
+}
+
 $(function () {
     amount = $('#amount').val();
     remittanceNumber = $('#remittanceNumber').val();
