@@ -63,8 +63,7 @@ $(function () {
     });
 
     // export details
-    $("#export_typeDetails").on("change", function () {
-        console.log("export details");
+    $("#offcanvasDetailRemittancePo").on("change", "#export_typeDetails", function () {
         var idDetails = $('#idDetails').val();
         remittanceNumber = $('#offcanvasDetailRemittanceClientLabel #idRemittanceDetail').val();
         context = $('#contextDetails').val();
@@ -187,8 +186,6 @@ function viewClientDetailRemittance(id) {
 
     hideCreditCardNumber();
     formatDateDetail();
-
-    var monElement = document.getElementById("export_typeDetails");
 }
 
 function formatDate() {
