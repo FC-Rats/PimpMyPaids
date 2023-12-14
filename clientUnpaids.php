@@ -35,7 +35,7 @@ if (!isset($_SESSION)) {
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <?php include('./includes/getClientUnpaids.php');?>
+    <?php include('./includes/getClientUnpaids.php'); ?>
 
     <div class="conteuneur container client-unpaids-section align-items-center jsutify-content-center">
         <h1 class="p-4 text-center">Vos Impayés</h1>
@@ -51,9 +51,7 @@ if (!isset($_SESSION)) {
                         <input type="date" class="form-control ps-4" id="afterDate" name="afterDate" placeholder=" ">
                         <label for="afterDate">Après le</label>
                     </div>
-                    <div class="text-dark d-flex align-items-center justify-content-between">
-                        <!-- <input type="text" class="form-control" id="label" name="label" placeholder=" ">
-                        <label for="label">Motif</label> -->
+                    <div class="text-dark d-flex align-items-center justify-content-between col-12 col-sm-5">
                         <select class="form-select" aria-label="formExportClientDataUnpaids" name="label" id="label" style="max-width: 200px;">
                             <option value="" selected>Motif</option>
                             <option value="Fraude à la carte">Fraude à la carte</option>
@@ -71,7 +69,7 @@ if (!isset($_SESSION)) {
                         <input type="text" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
                         <label for="idUnpaid">Numéro Dossier</label>
                     </div>
-                    <div class="text-dark d-flex align-items-center justify-content-between">
+                    <div class="text-dark d-flex align-items-center justify-content-between col-12 col-sm-5">
                         <select class="form-select" id="formSortClientUnpaids">
                             <option value="noSorting" selected>Trier les impayés</option>
                             <option value="az">Ordre croissant</option>

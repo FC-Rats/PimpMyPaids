@@ -10,7 +10,8 @@ if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
 
-function decodeTokenForConfirmation($token, $secretKey) {
+function decodeTokenForConfirmation($token, $secretKey)
+{
     // Décoder le token depuis base64
     $decodedToken = base64_decode($token);
 
@@ -46,4 +47,3 @@ if ($_GET['token']) {
         exit;
     }
 }
-?>
