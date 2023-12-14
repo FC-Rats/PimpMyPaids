@@ -186,13 +186,11 @@ function viewDetailRemittance(id) {
     $.map(dataDetail.details, function (data, dataKey) {
         html = "";
         html += '<div class="remise-element rounded-3 my-3 px-2 py-3 d-flex flex-row flex-wrap justify-content-between align-items-center" id="' + data.numAutorisation + '">';
-        html += '<span class="col-12 dateTransac">' + data.dateTransac + '</span>';
-        html += '<span class="col-4 network">' + data.network + '</span>';
-        html += '<span class="col-6 creditCardNumber">' + data.creditCardNumber + '</span>';
-        html += '<span class="col-12 numAutorisation">' + data.numAutorisation + '</span>';
-        html += '<span class="col-1 sign">' + data.sign + '</span>';
-        html += '<span class="col-4 amount">' + data.amount + '</span>';
-        html += '<span class="col-2 currency">' + data.currency + '</span>';
+        html += '<span class="col-12 dateTransac">Date de Transaction : ' + data.dateTransac + '</span>';
+        html += '<span class="col-12 network">Réseau : ' + data.network + '</span>';
+        html += '<span class="col-12 creditCardNumber">Carte : ' + data.creditCardNumber + '</span>';
+        html += '<span class="col-12 numAutorisation">Numéro d\'autorisation : ' + data.numAutorisation + '</span>';
+        html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency +')</span>';
         html += '</div>';
 
         $("#offcanvasDetailRemittancePo #offcanvas-body").append(html);
@@ -209,7 +207,7 @@ function formatDateDetail() {
         var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
             + date.getFullYear();
-        $(this).text(formattedDate);
+        $(this).text("Date de Transaction : "+formattedDate);
     });
 }
 

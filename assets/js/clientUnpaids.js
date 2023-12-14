@@ -162,12 +162,10 @@ function listClientUnpaids(
                 var html = "";
                 html += '<div class="unpaid-element rounded-3 my-3 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="' + data.idUnpaid + '">';
                 html += '<span class="col-12 col-sm-6 col-lg-1 dateTransac">' + data.dateTransac + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-1 network">' + data.network + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-2 creditCardNumber">' + data.creditCardNumber + '</span>';
+                html += '<span class="col-2 col-lg-1 network">' + data.network + '</span>';
+                html += '<span class="col-10 col-lg-2 creditCardNumber">' + data.creditCardNumber + '</span>';
                 html += '<span class="col-12 col-sm-6 col-lg-2 idUnpaid">' + data.unpaidFileNumber + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-1 sign">' + data.sign + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-1 amount">' + data.amount + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-1 currency">' + data.currency + '</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-3 sign">' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
                 html += '<span class="col-12 col-sm-6 col-lg-2 label">' + data.unpaidName + '</span>';
                 html += "</div>";
         

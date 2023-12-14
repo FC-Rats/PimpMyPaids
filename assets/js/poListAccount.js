@@ -81,17 +81,15 @@ function listAccounts(
                 html += '<div class="accordion-body">';
                 html += '<div class="infos d-flex flex-column flex-sm-row pb-2">';
                 html += '<span class="col-5 col-sm-5 col-md-6">' + data.nbTransactions + ' transaction(s)</span>';
-                if (data.montant >= 0) { 
-                    html += '<span class="col-1">+</span>';
-                } else {
-                    html += '<span class="col-1">-</span>';
-                }
                 if (data.montant != null) {
-                    html += '<span class="col-4 col-sm-4 col-md-3">' + data.montant + '</span>';
+                    if (data.montant >= 0) {
+                        html += '<span class="col-6 col-sm-6 col-md-5">+ ' + data.montant + ' (' + data.currency + ')' + '</span>';
+                    } else {
+                        html += '<span class="col-6 col-sm-6 col-md-5">- ' + data.montant + ' (' + data.currency + ')' + '</span>';
+                    }
                 } else {
-                    html += '<span class="col-4 col-sm-4 col-md-3">0</span>';
+                    html += '<span class="col-6 col-sm-6 col-md-5">0 (' + data.currency + ')' + '</span>';
                 }
-                html += '<span class="col-2">(' + data.currency + ')</span>';
                 html += '</div>';
                 html += '</div>';
                 html += '</div>';

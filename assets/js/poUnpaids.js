@@ -9,12 +9,12 @@ $(function () {
         url: "includes/graphUnpaid.php",
         type: "POST",
         dataType: "JSON",
-        data: { },
+        data: {},
         success: function (data) {
             if (data.GraphUnpaids) {
                 console.log(data.GraphUnpaids);
                 var jsonData = data.GraphUnpaids;
-                var seriesData = jsonData.map(function(item) {
+                var seriesData = jsonData.map(function (item) {
                     return {
                         name: item.motif_impaye,
                         y: parseInt(item.nombre_impayes)
@@ -130,11 +130,11 @@ function listUnpaids(
                 html += '<span class="col-auto me-2 me-lg-0 col-lg-4 amount">' + data.totalUnpaids + '</span>';
                 html += '<span class="col-3 col-lg-2 currency">' + data.currency + '</span>';
                 html += '</div>';
-                html += '<div class="d-flex justify-content-start justify-content-lg-end align-items-center col-12 col-sm-6 col-lg-2">';
+                html += '<div class="d-flex justify-content-end align-items-center col-12 col-sm-6 col-lg-2">';
                 html += '<button class="btn btn-primary border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailUnpaidClient" aria-controls="offcanvasDetailUnpaidClient" onclick="viewDetailUnpaid(' + dataKey + ');">Détail</button>';
                 html += '</div>';
                 html += '</div>';
-        
+
                 $("#container-unpaid-list").append(html);
             });
 
@@ -156,16 +156,14 @@ function viewDetailUnpaid(id) {
 
     $.map(dataDetail.details, function (data, dataKey) {
         var html = "";
-        html += '<div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="'+ data.unpaidFileNumber +'">';
-        html += '<span class="col-6 siren">' + dataDetail.siren + '</span>';
-        html += '<span class="col-6 dateTransac">' + data.dateTransac + '</span>';
-        html += '<span class="col-6 network">' + data.network + '</span>';
-        html += '<span class="col-6 creditCardNumber">' + data.creditCardNumber + '</span>';
-        html += '<span class="col-6 idUnpaid">' + data.unpaidFileNumber + '</span>';
-        html += '<span class="col-6 sign">'+ data.sign +'</span>';
-        html += '<span class="col-6 amount">' + data.amount + '</span>';
-        html += '<span class="col-6 currency">' + data.currency + '</span>';
-        html += '<span class="col-12 label">' + data.unpaidName + '</span>';
+        html += '<div class="unpaid-element rounded-3 my-1 p-2 d-flex flex-row flex-wrap justify-content-between align-items-center" id="' + data.unpaidFileNumber + '">';
+        html += '<span class="col-12 siren">Siren : ' + dataDetail.siren + '</span>';
+        html += '<span class="col-12 dateTransac">Date de Transaction : ' + data.dateTransac + '</span>';
+        html += '<span class="col-12 network">Réseau : ' + data.network + '</span>';
+        html += '<span class="col-12 creditCardNumber">Carte : ' + data.creditCardNumber + '</span>';
+        html += '<span class="col-12 idUnpaid">Numéro impayé : ' + data.unpaidFileNumber + '</span>';
+        html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
+        html += '<span class="col-12 label">Raison : ' + data.unpaidName + '</span>';
         html += '</div>';
 
         $("#offcanvasDetailUnpaidClient #offcanvas-body").append(html);
@@ -188,8 +186,8 @@ function formatDate() {
         var dateTransac = $(this).text();
         var date = new Date(dateTransac);
         var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
-                             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
-                             + date.getFullYear();
-        $(this).text(formattedDate);
+            + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
+            + date.getFullYear();
+        $(this).text("Date de Transaction : " + formattedDate);
     });
 }
