@@ -35,7 +35,7 @@ function listAccounts() {
                 html += '<div class="col-12">Login : <span class="login">' + data.login + '</span></div>';
                 html += '</div>';
                 html += '<div class="d-flex justify-content-end clear-button align-items-center col-12">';
-                html += '<div class="btn border-0" onclick="deleteCustomer(' + data.login + ');"><i class="fa-solid fa-trash fa-xl"></i></div>';
+                html += '<div class="btn border-0" onclick="deleteCustomer(\'' + data.login + '\');"><i class="fa-solid fa-trash fa-xl"></i></div>';
                 html += '</div>';
                 html += '</div>';
                 html += '</div>';

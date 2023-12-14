@@ -62,6 +62,8 @@
                                             <?php if ($request['type'] == 0) : ?>
                                                 <span class="col-12">Num Siren : <?= $request['siren'] ?></span>
                                                 <span class="col-12">Devise : <?= $request['currency'] ?></span>
+                                                <span class="col-12">Prénom : <?= $request['firstName'] ?></span>
+                                                <span class="col-12">Nom : <?= $request['lastName'] ?></span>
                                                 <span class="col-12">Email : <?= $request['email'] ?></span>
                                             <?php endif; ?>
                                             <span class="col-12">Commentaire : <?= $request['comment'] ?></span>
@@ -111,8 +113,8 @@
                             <label for="currency">Devise</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <textarea class="form-control" id="password" name="password" placeholder=" "></textarea>
-                            <label for="comment">Mot de Passe</label>
+                            <input class="form-control" id="password" name="password" placeholder=" " required>
+                            <label for="password">Mot de Passe</label>
                         </div>
                         <div class="text-center col-12 d-flex flex-column align-items-center justify-content-center">
                             <input id="addMerchant" class="btn btn-dark text-uppercase d-flex justify-content-center px-3 py-3 px-md-5" type="button" value="Ajouter">

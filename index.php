@@ -60,6 +60,10 @@ switch ($p) {
         header("Location: ./includes/signOut.php");
         break;
     default:
-        include_once("login.php");
+        if($_GET['e']) {
+            include_once("login.php?e=".$_GET['e']);
+        } else {
+            include_once("login.php");
+        }
         break;
 }

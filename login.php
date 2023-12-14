@@ -1,11 +1,11 @@
-<?php 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    if (!isset($_SESSION["try"])){
-        $_SESSION["try"] = 3;
-    }
-    
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION["try"])) {
+    $_SESSION["try"] = 3;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
             <div class="col-lg-4 col-12 d-flex flex-column justify-content-center p-5 col-login">
                 <form action="./includes/signIn.php" method="post">
                     <h2 class="text-center fs-1 pb-5">Bienvenue</h2>
-                
+
                     <div class="form-floating mb-3 text-dark">
                         <input type="text" class="form-control" id="login" name="login" placeholder=" " required>
                         <label for="login">Identifiant<span class="required"> *</span></label>
@@ -72,38 +72,45 @@
             </div>
         </div>
         <!--Toasts -->
-        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
-            <div class="toast toastFirst fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body fs-5">
-                        C'est la 1<sup>ere</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
-                    </div>
-                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        <?php
+        if ($_GET['e']) {
+            echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
+                <div class=\"toast toastFirst fade w-auto\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+                    <div class=\"d-flex\">
+                        <div class=\"toast-body fs-5\">";
+            if ($_GET['e'] == 1) {
+                $error = "Mot de passe incorrect. Il vous reste ".($_SESSION["try"])." essai".($_SESSION["try"] > 1 ? "s." : ".");
+                echo $error;
+            } else if ($_GET['e'] == 2) {
+                echo "Votre compte a été désactivé";
+            } else if ($_GET['e'] == 3) {
+                $error = "Identifiant incorrect. Il vous reste ".($_SESSION["try"]). " essai".($_SESSION["try"] > 1 ? "s." : ".");
+                echo $error;
+            }
+            echo "</div> <button type=\"button\" class=\"btn-close me-2 m-auto w-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
                 </div>
             </div>
-        </div>
-        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
-            <div class="toast toastAlert fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body fs-5">
-                        C'est la 2<sup>e</sup> fois que vous ratez votre connexion... ATTENTION : C'est votre dernier essai !
-                    </div>
-                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>";
+        }
+        ?>
+        <?php
+        if ($_GET['m']) {
+            echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
+                <div class=\"toast toastSecond fade w-auto bg-warning-border-subtle\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+                    <div class=\"d-flex\">
+                        <div class=\"toast-body fs-5\">";
+            if ($_GET['m'] == 1) {
+                echo "Votre requête a bien été acceptée !";
+            } else if ($_GET['m'] == 2) {
+                echo "Votre requête n'a pas pu être effectué !";
+            }
+            echo "</div> <button type=\"button\" class=\"btn-close me-2 m-auto w-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
                 </div>
             </div>
-        </div>
-        <div class="toast-container bottom-0 start-50 translate-middle-x pb-5">
-            <div class="toast toastQuit fade w-auto" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body fs-5">
-                        Vous avez utilisé vos 3 tentatives de connexion... Vous ne pouvez plus vous connecter !
-                    </div>
-                    <button type="button" class="btn-close me-2 m-auto w-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
+        </div>";
+        }
+        ?>
     </div>
-    
     <script>
         var nbAttemptsCo = <?php echo json_encode($_SESSION["try"]); ?>;
     </script>

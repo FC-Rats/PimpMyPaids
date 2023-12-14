@@ -57,35 +57,28 @@ function generateUniqueID($length)
 
 function generateTokenLink($email, $conn)
 {
-
     $token = generateUniqueID(12);
     
     $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/change.php?token=";
     $link .= $token;    
     if (!class_exists('Connection')) {
         include('./includes/connectionFunctions.php');
-    } else {
-        $config = parse_ini_file('config.ini');
-        $db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
     }
-    
-    $updateToken= $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
-
+    $updateToken = $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
     return $link;
 }
-function generateTokenLinkForValidationClient($emailClient, $conn)
-{
-    $token = generateUniqueID(12);
 
-    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/clientValidation.php?token=";
-    $link .= $token;
-    if (!class_exists('Connection')) {
-        include('./includes/connectionFunctions.php');
-    } else {
-        $config = parse_ini_file('config.ini');
-        $db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
-    }
-    $updateToken= $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $emailClient)));
+function generateTokenForConfirmation($user, $request, $type) {
+    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+
+    $dataToEncrypt = $user . '|' . $request . '|' . $type;
+
+    $config = parse_ini_file('../includes/config.ini');
+    $encryptedData = openssl_encrypt($dataToEncrypt, 'aes-256-cbc', $config['secret-key'], 0, $iv);
+
+    $token = base64_encode($iv . $encryptedData);
+
+    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/clientValidation.php?token=" . $token;
     return $link;
 }
 ?>

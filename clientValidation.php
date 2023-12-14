@@ -10,30 +10,40 @@ if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
 
+function decodeTokenForConfirmation($token, $secretKey) {
+    // Décoder le token depuis base64
+    $decodedToken = base64_decode($token);
+
+    // Déchiffrer les données avec AES-256-CBC
+    $decryptedData = openssl_decrypt($decodedToken, 'aes-256-cbc', $secretKey, 0, $secretKey);
+
+    // Diviser les données en tableau
+    $dataArray = explode('|', $decryptedData);
+
+    // Retourner les données
+    return [
+        'user' => $dataArray[0],
+        'request' => $dataArray[1],
+        'type' => $dataArray[2],
+    ];
+}
+
 if ($_GET['token']) {
-    $token = $_GET['token'];
-    $getIdAndMail = $db->query("SELECT idUser, email FROM TRAN_USERS WHERE tokenR = :token;", array(array(":token", $token)));
+    $config = parse_ini_file('../includes/config.ini');
+    $data = decodeTokenForConfirmation($_GET['token'], $config['secret-key']);
 
-
-    if (!empty($getIdAndMail)) {
-        $idUser = $getIdAndMail[0]["idUser"];
-        // Update client status code to 1
-        $updateQuery = "UPDATE TRAN_USERS SET state = 1 , tokenR = null WHERE idUser = :idClient"; //mettre le token a null pour ne pas pouvoir réutiliser le lien
-        $updateConditions = [
-            [":idClient", $idUser]
-        ];
-        $db->query($updateQuery, $updateConditions);
-        echo "Le compte du client a bien été activé";
-        //envoi_mail($getIdAndMail[0]["email"], "Votre compte a été activé", "Votre compte a été activé, vous pouvez désormais vous connecter à votre espace client.");
-        echo '<a href="./index.php?p=login"><button>Aller à la page de connexion</button></a>';
+    if (!empty($data)) {
+        if ($data['type'] == 0) {
+            $db->query("UPDATE TRAN_USERS SET state = 1 WHERE idUser = :idClient", [[":idClient", $data['user']]]);
+            $db->query("DELETE FROM TRAN_REQUEST_PO WHERE idRequest = :idRequest", [[":idRequest", $data['request']]]);
+        } else if ($data['type'] == 1) {
+            $db->query("DELETE FROM TRAN_USERS WHERE idUser = :idClient", [[":idClient", $data['user']]]);
+            $db->query("DELETE FROM TRAN_REQUEST_PO WHERE idRequest = :idRequest", [[":idRequest", $data['request']]]);
+        }
+        header("Location: ./index.php?m=1");
     } else {
-        // si le token n'existe pas dans la base de données
-        header("Location: ./index.php?p=login");
+        header("Location: ./index.php?m=2");
         exit;
     }
-} else {
-    // si le lien n'a pas été cliqué
-    header("Location: ./index.php?p=login");
-    exit;
 }
 ?>
