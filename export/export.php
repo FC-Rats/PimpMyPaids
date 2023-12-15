@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../framework/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -108,5 +109,43 @@ function exportToCsv($filename, $headers, $data, $title, $filters, $valueFilters
     $writer->save($filePath);
 
     echo json_encode(["fileUrl" => "export/download.php?file=" . basename($filePath)]);
+}
+
+function exportToPdf($filename, $headers, $data, $title, $filters, $valueFilters) {
+    $mpdf = new \Mpdf\Mpdf();
+
+    // Date du jour
+    $today = date("d/m/Y");
+
+    // Commencer le buffer pour capturer le HTML
+    ob_start();
+
+    echo "<h1>" . $title . "</h1>";
+
+    echo "<table border='1'>";
+    
+    echo "<tr>";
+    foreach ($headers as $header) {
+        echo "<th>" . $header . "</th>";
+    }
+    echo "</tr>";
+
+    foreach ($data as $row) {
+        echo "<tr>";
+        foreach ($row as $cell) {
+            echo "<td>" . $cell . "</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
+
+    $html = ob_get_contents();
+    ob_end_clean();
+
+    // Écrire le HTML dans mPDF
+    $mpdf->WriteHTML($html);
+
+    // Sortie du fichier PDF dans le navigateur pour téléchargement
+    $mpdf->Output($filename, 'D');
 }
 ?>
