@@ -20,3 +20,13 @@
 .accordion-item {
     border-radius: 10px!important;
 }
+
+.bg-success-custom {
+    background-color: #198754!important;
+    color: #0a3622!important;
+}
+
+.bg-warning-custom {
+    background-color: #fd7e14!important;
+    color: #664d03!important;
+}

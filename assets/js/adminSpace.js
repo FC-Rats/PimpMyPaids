@@ -65,6 +65,10 @@ function deleteCustomer(login) {
             console.log(data.DeleteMerchant);
             var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
             modal.show();
+            setTimeout(function () {
+                modal.hide();
+                location.reload();
+            }, 2000);
         },
         error: function (data) {
             console.log(data);

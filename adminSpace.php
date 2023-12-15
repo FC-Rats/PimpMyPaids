@@ -13,8 +13,8 @@
     <!-- Nos pages CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/adminSpace.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/poSpace.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/adminSpace.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/footer.css" />
     <!-- FontAwesome -->
     <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
@@ -49,10 +49,12 @@
                             <div class="accordion-item my-3">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed rounded compte <?= $request['type'] == 0 ? 'ajout' : 'delete' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $index ?>" aria-expanded="false" aria-controls="flush-collapse<?= $index ?>">
-                                        <span class="col-5 col-md-3"><?= $request['type'] == 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
-                                        <span class="col-1">-</span>
-                                        <span class="col-4 col-md-6"><?= $request['companyName'] ?></span>
-                                        <span class="badge <?= $request['statement'] == "En cours de confirmation" ? 'bg-label-success' : 'bg-label-warning' ?>"><?= $request['statement'] ?></span>
+                                        <div class="d-flex flex-row flex-wrap justify-content-start align-items-center col-11">
+                                            <span class="col-12 col-sm-5 col-lg-3"><?= $request['type'] == 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
+                                            <span class="col-1 d-none d-sm-block">-</span>
+                                            <span class="col-12 col-sm-6 col-lg-3"><?= $request['companyName'] ?></span>
+                                            <span class="col-auto badge <?= $request['statement'] == "En attente de confirmation" ? 'bg-success-custom' : 'bg-warning-custom' ?>"><?= $request['statement'] ?></span>
+                                        </div>
                                     </button>
                                 </h2>
                                 <div id="flush-collapse<?= $index ?>" class="accordion-collapse collapse">
