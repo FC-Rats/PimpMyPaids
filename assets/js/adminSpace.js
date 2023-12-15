@@ -54,3 +54,20 @@ function addAccount() {
         },
     });
 }
+
+function deleteCustomer(login) {
+    $.ajax({
+        url: "includes/deleteMerchant.php",
+        type: "POST",
+        dataType: "JSON",
+        data: { "login": login },
+        success: function (data) {
+            console.log(data.DeleteMerchant);
+            var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
+            modal.show();
+        },
+        error: function (data) {
+            console.log(data);
+        },
+    });
+}

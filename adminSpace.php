@@ -52,21 +52,27 @@
                                         <span class="col-5 col-md-3"><?= $request['type'] == 0 ? 'AJOUTER' : 'SUPPRIMER' ?></span>
                                         <span class="col-1">-</span>
                                         <span class="col-4 col-md-6"><?= $request['companyName'] ?></span>
+                                        <span class="badge <?= $request['statement'] == "En cours de confirmation" ? 'bg-label-success' : 'bg-label-warning' ?>"><?= $request['statement'] ?></span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapse<?= $index ?>" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                         <div class="infos d-flex flex-wrap pb-2">
+                                            <span class="col-12">Identifiant : <?= $request['login'] ?></span>
                                             <span class="col-12">Raison Sociale : <?= $request['companyName'] ?></span>
-                                            <span class="col-12">Login : <?= $request['login'] ?></span>
                                             <?php if ($request['type'] == 0) : ?>
-                                                <span class="col-12">Num Siren : <?= $request['siren'] ?></span>
-                                                <span class="col-12">Devise : <?= $request['currency'] ?></span>
+                                                <span class="col-12">Siren : <?= $request['siren'] ?></span>
                                                 <span class="col-12">Prénom : <?= $request['firstName'] ?></span>
                                                 <span class="col-12">Nom : <?= $request['lastName'] ?></span>
                                                 <span class="col-12">Email : <?= $request['email'] ?></span>
+                                                <span class="col-12">Devise : <?= $request['currency'] ?></span>
                                             <?php endif; ?>
                                             <span class="col-12">Commentaire : <?= $request['comment'] ?></span>
+                                            <?php if ($request['type'] == 1) : ?>
+                                                <div class="d-flex justify-content-end clear-button align-items-center col-12">
+                                                    <div class="btn border-0" onclick="deleteCustomer('<?= $request['login'] ?>');"><i class="fa-solid fa-trash fa-xl"></i></div>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -89,12 +95,12 @@
                             <label for="login">Identifiant</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
-                            <input type="text" class="form-control" id="siren" name="siren" placeholder=" " required>
-                            <label for="siren">SIREN</label>
-                        </div>
-                        <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" " required>
                             <label for="companyName">Raison Sociale</label>
+                        </div>
+                        <div class="form-floating mb-3 text-dark">
+                            <input type="text" class="form-control" id="siren" name="siren" placeholder=" " required>
+                            <label for="siren">SIREN</label>
                         </div>
                         <div class="form-floating mb-3 text-dark">
                             <input type="text" class="form-control" id="firstName" name="firstName" placeholder=" " required>
@@ -133,6 +139,24 @@
                     </div>
                     <div class="modal-body">
                         Votre ajout de client au prêt de la base de données a bien été prise en exécutée.
+                        Le Product Owner recevra un mail de confirmation très prochainement.
+                    </div>
+                    <div class="modal-footer">
+                        <small class="fst-italic">PimpMyPaids</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal confirmation delete -->
+        <div class="modal fade" id="modalDeleteMerchant" aria-hidden="true" aria-labelledby="modalDeleteMerchantLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalDeleteMerchantLabel">Confirmation de suppression de client</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Votre suppression de client au prêt de la base de données a bien été prise en exécutée.
                         Le Product Owner recevra un mail de confirmation très prochainement.
                     </div>
                     <div class="modal-footer">

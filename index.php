@@ -8,9 +8,6 @@ if (!isset($_SESSION["profil"])){
 $p = isset($_GET['p']) ? $_GET['p'] : 'login';
 
 switch ($p) {
-    case 'login':
-        include_once("login.php");
-        break;
     case 'recover-password':
         include_once("recover.php");
         break;
@@ -60,10 +57,21 @@ switch ($p) {
         header("Location: ./includes/signOut.php");
         break;
     default:
-        if($_GET['e']) {
-            include_once("login.php?e=".$_GET['e']);
+        if(isset($_GET['e'])) {
+            header("Location: login.php?e=".$_GET['e']);
+            break;
+        } else if(isset($_GET['m'])) {
+            header("Location: login.php?m=".$_GET['m']);
+            break;
+        } else if(isset($_GET['c'])) {
+            header("Location: login.php?c=".$_GET['c']);
+            break;
+        } else if(isset($_GET['u'])) {
+            header("Location: login.php?u=".$_GET['u']);
+            break;
         } else {
-            include_once("login.php");
+            header("Location: login.php");
+            break;
         }
         break;
 }

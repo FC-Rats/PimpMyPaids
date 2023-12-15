@@ -31,7 +31,7 @@
         <div class="accordion accordion-flush py-3 mb-3" id="accordionListAcounts">
         </div>
         <!-- Modal confirmation delete -->
-        <div class="modal fade" id="modalDeleteMerchant" aria-hidden="true" aria-labelledby="modalDeleteMerchantLabel" tabindex="-1">
+<!--         <div class="modal fade" id="modalDeleteMerchant" aria-hidden="true" aria-labelledby="modalDeleteMerchantLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <?php include('./footer.php'); ?>
     <!-- JQuery -->

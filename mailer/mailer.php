@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function envoi_mail($to_email,$conn,$objet,$message)
+function envoi_mail($to_email,$objet,$message)
 {
     $mail = new PHPMailer(true);
 
@@ -55,16 +55,14 @@ function generateUniqueID($length)
     return $randomString;
 }
 
-function generateTokenLink($email, $conn)
+function generateTokenLink($email, $db)
 {
     $token = generateUniqueID(12);
     
-    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/change.php?token=";
+    $link = "https://perso-etudiant.u-pem.fr/~kellian.bredeau/PimpMyPaids/change.php?token=";
     $link .= $token;    
-    if (!class_exists('Connection')) {
-        include('./includes/connectionFunctions.php');
-    }
-    $updateToken = $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
+
+    $db->query("UPDATE TRAN_USERS SET tokenR = :token WHERE email = :email;", array(array(":token", $token), array(":email", $email)));
     return $link;
 }
 
@@ -78,7 +76,7 @@ function generateTokenForConfirmation($user, $request, $type) {
 
     $token = base64_encode($iv . $encryptedData);
 
-    $link = "http://etudiant.u-pem.fr/~chamsedine.amouche/PimpMyPaids/clientValidation.php?token=" . $token;
+    $link = "https://perso-etudiant.u-pem.fr/~kellian.bredeau/PimpMyPaids/clientValidation.php?token=" . $token;
     return $link;
 }
 ?>

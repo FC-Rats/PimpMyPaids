@@ -21,26 +21,36 @@ $(function () {
 
 function fetchDataForm(type) {
     if (type == "add") {
-        siren = $('#siren').val();
-        firstName = $('#firstName').val();
-        lastName = $('#lastName').val();
-        email = $('#email').val();
-        currency = $('#currency').val();
+        siren = $('#ajout-form #siren').val();
+        firstName = $('#ajout-form #firstName').val();
+        lastName = $('#ajout-form #lastName').val();
+        email = $('#ajout-form #email').val();
+        currency = $('#ajout-form #currency').val();
+        login = $('#ajout-form #login').val();
+        companyName = $('#ajout-form #companyName').val();
+        comment = $('#ajout-form #comment').val();
+    } else if (type == "delete") {
+        login = $('#suppression-form #login').val();
+        companyName = $('#suppression-form #companyName').val();
+        comment = $('#suppression-form #comment').val();
     }
-    login = $('#login').val();
-    companyName = $('#companyName').val();
-    comment = $('#comment').val();
 }
 
-function deleteDataForm() {
-    $('#siren').val('');
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#email').val('');
-    $('#currency').val('');
-    $('#login').val('');
-    $('#companyName').val('');
-    $('#comment').val('');
+function deleteDataForm(type) {
+    if (type == "add") {
+        $('#ajout-form #siren').val('');
+        $('#ajout-form #firstName').val('');
+        $('#ajout-form #lastName').val('');
+        $('#ajout-form #email').val('');
+        $('#ajout-form #currency').val('');
+        $('#ajout-form #login').val('');
+        $('#ajout-form #companyName').val('');
+        $('#ajout-form #comment').val('');
+    } else if (type == "delete") {
+        $('#suppression-form #login').val('');
+        $('#suppression-form #companyName').val('');
+        $('#suppression-form #comment').val('');
+    }
 }
 
 function addAccount() {
@@ -54,7 +64,7 @@ function addAccount() {
             console.log(result);
             var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
             modal.show();
-            deleteDataForm();
+            deleteDataForm("add");
         },
         error: function (data) {
             console.log(data);
@@ -73,7 +83,7 @@ function deleteAccount() {
             console.log(result);
             var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
             modal.show();
-            deleteDataForm();
+            deleteDataForm("delete");
         },
         error: function (data) {
             console.log(data);

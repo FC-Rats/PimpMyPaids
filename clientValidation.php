@@ -10,18 +10,14 @@ if (!class_exists('Connection')) {
     include('./includes/connectionFunctions.php');
 }
 
-function decodeTokenForConfirmation($token, $secretKey)
-{
-    // Décoder le token depuis base64
+function decodeTokenForConfirmation($token, $secretKey) {
+
     $decodedToken = base64_decode($token);
-
-    // Déchiffrer les données avec AES-256-CBC
-    $decryptedData = openssl_decrypt($decodedToken, 'aes-256-cbc', $secretKey, 0, $secretKey);
-
-    // Diviser les données en tableau
+    $iv = substr($decodedToken, 0, openssl_cipher_iv_length('aes-256-cbc'));
+    $encryptedData = substr($decodedToken, openssl_cipher_iv_length('aes-256-cbc'));
+    $decryptedData = openssl_decrypt($encryptedData, 'aes-256-cbc', $secretKey, 0, $iv);
     $dataArray = explode('|', $decryptedData);
 
-    // Retourner les données
     return [
         'user' => $dataArray[0],
         'request' => $dataArray[1],
@@ -30,7 +26,7 @@ function decodeTokenForConfirmation($token, $secretKey)
 }
 
 if ($_GET['token']) {
-    $config = parse_ini_file('../includes/config.ini');
+    $config = parse_ini_file('./includes/config.ini');
     $data = decodeTokenForConfirmation($_GET['token'], $config['secret-key']);
 
     if (!empty($data)) {

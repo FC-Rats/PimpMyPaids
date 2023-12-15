@@ -91,7 +91,7 @@ if ($_GET['token']) {
                                     <button type="submit" id="submit-button" class="btn text-dark border-0 text-uppercase d-flex align-items-center px-3 py-3 px-md-5">
                                         <span class="fs-5 fw-semibold">Changer</span>
                                     </button>
-                                    <a href="index.php?p=login" class="ps-4 ps-lg-2 ps-xl-4 btn btn-link text-dark mx-3 text-decoration-none fs-4 fw-semibold" title="Annuler">Annuler</a>
+                                    <a href="index.php" class="ps-4 ps-lg-2 ps-xl-4 btn btn-link text-dark mx-3 text-decoration-none fs-4 fw-semibold" title="Annuler">Annuler</a>
                                 </div>
                             </div>
                         </form>
@@ -111,12 +111,12 @@ if ($_GET['token']) {
         <?php
     } else {
         //Pas trouvé de token
-        header('Location: index.php?p=login');
+        header('Location: index.php');
         exit;
     }
 
 } else { //Pas de token dans le lien
-    header('Location: index.php?p=login');
+    header('Location: index.php');
     exit;
 }
 

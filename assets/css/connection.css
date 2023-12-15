@@ -83,6 +83,11 @@
     color: rgb(105, 0, 0) !important;
 }
 
+.toastOrange {
+    background-color: #ffedb2 !important;
+    color: rgb(105, 77, 0) !important;
+}
+
 /* ===== FORGET PASSWORD ===== */
 /*bouton connexion*/
 #submit-recover-button[disabled] {

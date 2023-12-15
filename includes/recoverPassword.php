@@ -22,18 +22,18 @@ if (isset($_POST['mail'])) {
         $message = " Cher client, 
         <br> Il semble que vous avez oublié votre mot de passe.  
         <br> Si ce n'est pas vous à l'origine de cette récupération de compte, ignorez ce mail. \n
-        <br><br> Lien d'activation : " . generateTokenLink($email,$conn) . "
+        <br><br> Lien d'activation : " . generateTokenLink($email, $db) . "
         <br><br> De la part de : projet.saebut@gmail.com";
 
-        envoi_mail($email,$conn,$objet,$message);
-        header("Location: ../index.php?p=login");
+        envoi_mail($email,$objet,$message);
+        header("Location: ../index.php?c=1");
     } else {
         // si le mail n'existe pas dans la base de données
-        header("Location: ../index.php?p=login");
+        header("Location: ../index.php?c=2");
         exit;
     }
 } else {
     // si le formulaire n'a pas été rempli
-    header("Location: ../index.php?p=login");
+    header("Location: ../index.php?c=3");
     exit;
 }

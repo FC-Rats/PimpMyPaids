@@ -39,7 +39,7 @@ switch ($_SESSION["profil"]) {
             $message = "Veuillez confirmer la suppresion du compte du client ".$_POST['login']." en cliquant sur le lien suivant : " . generateTokenForConfirmation($query2[0]['idUser'], $query3[0]['idRequest'], $query3[0]['type']);
             $objet = "Confirmation de suppression du compte client : ".$_POST['login'];
             $queryMailPO = $db->query("SELECT email FROM TRAN_USERS WHERE profil = :profil", array(array(':profil', 'PO')));
-            envoi_mail($queryMailPO[0]["email"], $db, $objet, $message);
+            envoi_mail($queryMailPO[0]["email"], $objet, $message);
 
             $response["DeleteMerchant"] = $query4;
             echo json_encode($response);

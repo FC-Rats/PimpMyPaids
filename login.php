@@ -71,9 +71,9 @@ if (!isset($_SESSION["try"])) {
                 </form>
             </div>
         </div>
-        <!--Toasts -->
+        <!--Toast Tentatives co -->
         <?php
-        if ($_GET['e']) {
+        if (isset($_GET['e'])) {
             echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
                 <div class=\"toast toastFirst fade w-auto\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
                     <div class=\"d-flex\">
@@ -93,16 +93,76 @@ if (!isset($_SESSION["try"])) {
         </div>";
         }
         ?>
+        <!--Toast Validation client -->
         <?php
-        if ($_GET['m']) {
+        if (isset($_GET['m'])) {
             echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
-                <div class=\"toast toastSecond fade w-auto bg-warning-border-subtle\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
-                    <div class=\"d-flex\">
-                        <div class=\"toast-body fs-5\">";
+            <div class=\"toast toastSecond fade w-auto";
+            
+            if ($_GET['m'] == 1) {
+                echo " toastOrange";
+            }
+
+            echo "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+            <div class=\"d-flex\">
+                <div class=\"toast-body fs-5\">";
+            
             if ($_GET['m'] == 1) {
                 echo "Votre requête a bien été acceptée !";
             } else if ($_GET['m'] == 2) {
-                echo "Votre requête n'a pas pu être effectué !";
+                echo "Votre requête n'a pas pu être effectuée !";
+            }
+            echo "</div> <button type=\"button\" class=\"btn-close me-2 m-auto w-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+        <!--Toast envoi mail pour changer mdp -->
+        <?php
+        if (isset($_GET['c'])) {
+            echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
+            <div class=\"toast toastThird fade w-auto";
+
+            if ($_GET['c'] == 1) {
+                echo " toastOrange";
+            }
+
+            echo "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+            <div class=\"d-flex\">
+                <div class=\"toast-body fs-5\">";
+
+            if ($_GET['c'] == 1) {
+                echo "Un email a bien été envoyé sur votre boite mail !";
+            } else if ($_GET['c'] == 2) {
+                echo "L'email n'existe pas dans la base de données, réessayez !";
+            } else if ($_GET['c'] == 3) {
+                echo "L'email n'a pas été renseigné !";
+            }
+            echo "</div> <button type=\"button\" class=\"btn-close me-2 m-auto w-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+        <!--Toast changer mdp -->
+        <?php
+        if (isset($_GET['u'])) {
+            echo "<div class=\"toast-container bottom-0 start-50 translate-middle-x pb-5\">
+            <div class=\"toast toastFourth fade w-auto";
+
+            if ($_GET['u'] == 1) {
+                echo " toastOrange";
+            }
+
+            echo "\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\">
+            <div class=\"d-flex\">
+                <div class=\"toast-body fs-5\">";
+
+            if ($_GET['u'] == 1) {
+                echo "Votre mot de passe a bien été modifié !";
+            } else if ($_GET['u'] == 2) {
+                echo "Echec lors de la modification du mot de passe !";
             }
             echo "</div> <button type=\"button\" class=\"btn-close me-2 m-auto w-auto\" data-bs-dismiss=\"toast\" aria-label=\"Close\"></button>
                 </div>
