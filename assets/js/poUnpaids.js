@@ -147,7 +147,7 @@ function listUnpaids(
                 html += '<span class="col-12 col-sm-6 col-lg-1 siren">' + data.siren + '</span>';
                 html += '<span class="col-12 col-sm-6 col-lg-3 companyName">' + data.companyName + '</span>';
                 html += '<div class="d-flex flex-row justify-content-start justify-content-lg-center align-items-center col-12 col-sm-6 col-lg-4">';
-                html += '<span class="col-auto me-2 me-lg-0 col-lg-4 amount">' + data.totalUnpaids + '</span>';
+                html += '<span class="col-auto me-2 me-lg-0 col-lg-4 amount negative fw-bold">' + data.totalUnpaids + '</span>';
                 html += '<span class="col-3 col-lg-2 currency">' + data.currency + '</span>';
                 html += '</div>';
                 html += '<div class="d-flex justify-content-end align-items-center col-12 col-sm-6 col-lg-2">';
@@ -182,7 +182,7 @@ function viewDetailUnpaid(id) {
         html += '<span class="col-12 network">Réseau : ' + data.network + '</span>';
         html += '<span class="col-12 creditCardNumber">Carte : ' + data.creditCardNumber + '</span>';
         html += '<span class="col-12 idUnpaid">Numéro impayé : ' + data.unpaidFileNumber + '</span>';
-        html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
+        html += '<span class="col-12 total fw-bold" style="color:' + calculateRGB(data.amount) + ' ;">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
         html += '<span class="col-12 label">Raison : ' + data.unpaidName + '</span>';
         html += '</div>';
 
@@ -191,6 +191,27 @@ function viewDetailUnpaid(id) {
 
     hideCreditCardNumber();
     formatDate();
+}
+
+function calculateRGB(amount) {
+    switch (true) {
+        case (amount >= 0 && amount < 100):
+            return "rgb(30,180,0)";
+        case (amount >= 100 && amount < 200):
+            return "rgb(163,190,0)";
+        case (amount >= 200 && amount < 300):
+            return "rgb(170,170,0)";
+        case (amount >= 300 && amount < 400):
+            return "rgb(210,150,0)";
+        case (amount >= 400 && amount < 500):
+            return "rgb(210,90,0)";
+        case (amount >= 500 && amount < 600):
+            return "rgb(210,30,0)";
+        case (amount >= 600 && amount < 700):
+            return "rgb(150,0,0)";
+        default:
+            return "rgb(0,0,0)"; // Default case if none of the ranges match
+    }
 }
 
 function hideCreditCardNumber() {

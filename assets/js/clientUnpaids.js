@@ -10,6 +10,8 @@ if (unpaids < 0) {
     unpaidsElement.style.color = "#AE2A00";
 }
 
+var codeRGB = (9, 210, 60);
+
 $(function () {
     $.ajax({
         url: "includes/graphUnpaid.php",
@@ -20,7 +22,7 @@ $(function () {
             if (data.GraphUnpaids) {
                 console.log(data.GraphUnpaids);
                 var jsonData = data.GraphUnpaids;
-                var seriesData = jsonData.map(function(item) {
+                var seriesData = jsonData.map(function (item) {
                     return {
                         name: item.motif_impaye,
                         y: parseInt(item.nombre_impayes)
@@ -165,10 +167,10 @@ function listClientUnpaids(
                 html += '<span class="col-2 col-lg-1 network">' + data.network + '</span>';
                 html += '<span class="col-10 col-lg-2 creditCardNumber">' + data.creditCardNumber + '</span>';
                 html += '<span class="col-12 col-sm-6 col-lg-2 idUnpaid">' + data.unpaidFileNumber + '</span>';
-                html += '<span class="col-12 col-sm-6 col-lg-3 sign">' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
+                html += '<span class="col-12 col-sm-6 col-lg-3 sign fw-bold" style="color:' + calculateRGB(data.amount) + ' ;">' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
                 html += '<span class="col-12 col-sm-6 col-lg-2 label">' + data.unpaidName + '</span>';
                 html += "</div>";
-        
+
                 $("#container-unpaid-list").append(html);
             });
 
@@ -185,6 +187,27 @@ function listClientUnpaids(
     });
 }
 
+function calculateRGB(amount) {
+    switch (true) {
+        case (amount >= 0 && amount < 100):
+            return "rgb(30,180,0)";
+        case (amount >= 100 && amount < 200):
+            return "rgb(163,190,0)";
+        case (amount >= 200 && amount < 300):
+            return "rgb(170,170,0)";
+        case (amount >= 300 && amount < 400):
+            return "rgb(210,150,0)";
+        case (amount >= 400 && amount < 500):
+            return "rgb(210,90,0)";
+        case (amount >= 500 && amount < 600):
+            return "rgb(210,30,0)";
+        case (amount >= 600 && amount < 700):
+            return "rgb(150,0,0)";
+        default:
+            return "rgb(0,0,0)"; // Default case if none of the ranges match
+    }
+}
+
 function hideCreditCardNumber() {
     $(".creditCardNumber").each(function () {
         var creditCardNumber = $(this).text();
@@ -198,8 +221,8 @@ function formatDate() {
         var dateTransac = $(this).text();
         var date = new Date(dateTransac);
         var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
-                             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
-                             + date.getFullYear();
+            + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
+            + date.getFullYear();
         $(this).text(formattedDate);
     });
 }

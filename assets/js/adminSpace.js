@@ -48,6 +48,9 @@ function addAccount() {
             var modal = new bootstrap.Modal(document.getElementById("modalAddMerchant"));
             modal.show();
             deleteDataForm();
+            $('#modalAddMerchant').on('hidden.bs.modal', function () {
+                location.reload();
+            });
         },
         error: function (data) {
             console.log(data);
@@ -65,10 +68,9 @@ function deleteCustomer(login) {
             console.log(data.DeleteMerchant);
             var modal = new bootstrap.Modal(document.getElementById("modalDeleteMerchant"));
             modal.show();
-            setTimeout(function () {
-                modal.hide();
+            $('#modalDeleteMerchant').on('hidden.bs.modal', function () {
                 location.reload();
-            }, 2000);
+            });
         },
         error: function (data) {
             console.log(data);

@@ -179,7 +179,7 @@ function viewClientDetailRemittance(id) {
         html += '<span class="col-12 network">Réseau : ' + data.network + '</span>';
         html += '<span class="col-12 creditCardNumber">Carte : ' + data.creditCardNumber + '</span>';
         html += '<span class="col-12 numAutorisation">Numéro d\'autorisation : ' + data.numAutorisation + '</span>';
-        if (data.sing == "-") {
+        if (data.sign == "-") {
             html += '<span class="col-12 negative total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
         } else {
             html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';

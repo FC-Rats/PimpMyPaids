@@ -52,7 +52,7 @@ if (!isset($_SESSION)) {
                         <label for="afterDate">Après le</label>
                     </div>
                     <div class="text-dark d-flex align-items-center justify-content-between col-12 col-sm-5">
-                        <select class="form-select" aria-label="formExportClientDataUnpaids" name="label" id="label" style="max-width: 200px;">
+                        <select class="" aria-label="formExportClientDataUnpaids" name="label" id="label" style="max-width: 200px;">
                             <option value="" selected>Motif</option>
                             <option value="Fraude à la carte">Fraude à la carte</option>
                             <option value="Compte à découvert">Compte à découvert</option>
