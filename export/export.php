@@ -2,11 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require '../framework/vendor/autoload.php';
-require_once __DIR__ . '/vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
+
+
+
 
 function exportToXlsx($filename, $headers, $data, $title, $filters, $valueFilters) {
     $spreadsheet = new Spreadsheet();
@@ -44,16 +46,19 @@ function exportToXlsx($filename, $headers, $data, $title, $filters, $valueFilter
         $rowNumber++;
     }
 
-    //Filtres
-    $sheet->setCellValue('D1', 'Filtres :');
-    $sheet->getStyle('D1')->getFont()->setBold(true);
-    $column = 'E';
-    foreach ($filters as $filter) {
-        $count = 0;
-        $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
-        $count++;
-        $column++;
+    if ($filters != NULL) {
+        //Filtres
+        $sheet->setCellValue('D1', 'Filtres :');
+        $sheet->getStyle('D1')->getFont()->setBold(true);
+        $column = 'E';
+        foreach ($filters as $filter) {
+            $count = 0;
+            $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
+            $count++;
+            $column++;
+        }
     }
+    
 
     // Créer le writer et envoyer le fichier pour téléchargement
     $writer = new Xlsx($spreadsheet);
@@ -92,14 +97,17 @@ function exportToCsv($filename, $headers, $data, $title, $filters, $valueFilters
         $rowNumber++;
     }
 
-    //Filtres
-    $sheet->setCellValue('D1', 'Filtres :');
-    $column = 'E';
-    foreach ($filters as $filter) {
-        $count = 0;
-        $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
-        $count++;
-        $column++;
+    if ($filters != NULL) {
+        //Filtres
+        $sheet->setCellValue('D1', 'Filtres :');
+        $column = 'E';
+
+        foreach ($filters as $filter) {
+            $count = 0;
+            $sheet->setCellValue($column . '1', $filter . ' : ' . $valueFilters[$filter]);
+            $count++;
+            $column++;
+        }
     }
 
     // Créer le writer pour CSV
@@ -112,7 +120,22 @@ function exportToCsv($filename, $headers, $data, $title, $filters, $valueFilters
 }
 
 function exportToPdf($filename, $headers, $data, $title, $filters, $valueFilters) {
-    $mpdf = new \Mpdf\Mpdf();
+    $mpdf = new \Mpdf\Mpdf(['tempDir' => '/home/3binf2/chamsedine.amouche/WWW/']);
+    $stylesheet = '
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        table, th, td {
+            border: 1px solid black;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    ';
 
     // Date du jour
     $today = date("d/m/Y");
@@ -122,9 +145,25 @@ function exportToPdf($filename, $headers, $data, $title, $filters, $valueFilters
 
     echo "<h1>" . $title . "</h1>";
 
+    echo "<h2>EXTRAIT DU " . $today . "</h2>";
+
+    
+    if ($filters != NULL) {
+        echo "<table border='1' style='margin-bottom: 20px;'>";
+    
+        echo "<tr>";
+        foreach ($filters as $filter) {
+            echo "<th>" . $filter . " : " . $valueFilters[$filter] . "</th>";
+        }
+
+        echo "</tr>";
+        echo "</table>";
+    }
+    
     echo "<table border='1'>";
     
     echo "<tr>";
+
     foreach ($headers as $header) {
         echo "<th>" . $header . "</th>";
     }
@@ -142,10 +181,13 @@ function exportToPdf($filename, $headers, $data, $title, $filters, $valueFilters
     $html = ob_get_contents();
     ob_end_clean();
 
-    // Écrire le HTML dans mPDF
-    $mpdf->WriteHTML($html);
+    
+    $mpdf->WriteHTML($stylesheet, \Mpdf\HTMLParserMode::HEADER_CSS);
+    $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
 
-    // Sortie du fichier PDF dans le navigateur pour téléchargement
-    $mpdf->Output($filename, 'D');
+    $filePath = '../../' . $filename;
+    $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
+
+    echo json_encode(["fileUrl" => "export/download.php?file=" . basename($filePath)]);
 }
 ?>
