@@ -51,12 +51,11 @@
                             echo '<div class="act rounded p-1 p-md-3 bg-dark fs-6 d-flex flex-row flex-wrap align-items-center justify-content-center text-center text-light">';
                             echo '<div class="col-6 col-md-2 mb-2"><span>' . $dateTransac . '</span></div>';
                             echo '<div class="col-6 col-md-3 mb-2"><span>N°' . $lastTr[$i]['idTransac'] . '</span></div>';
-                            echo '<div class="col-6 col-md-3 mb-2"><span class="fw-bold">' . $lastTr[$i]['sign'] . ' ' . number_format($lastTr[$i]['amount'], 2, ',', ' ') . ' $</span></div>';
-                            if (is_null($lastTr[$i]['remittanceNumber'])) {
-                                echo '<div class="col-6 col-md-2 mb-2"><span> Transaction </span></div>';
-                                echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-money-bill-transfer fa-xl fa-bounce"></i></div>';
+                            if ($lastTr[$i]['sign'] == "-") {
+                                echo '<div class="col-6 col-md-3 mb-2 negative"><span class="fw-bold">' . $lastTr[$i]['sign'] . ' ' . number_format($lastTr[$i]['amount'], 2, ',', ' ') . '&nbsp;&nbsp;&nbsp;'.$lastTr[$i]['currency'].'</span></div>';
+                                echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-people-pulling fa-beat fa-xl" style="color: #ffffff;"></i></div>';
                             } else {
-                                echo '<div class="col-6 col-md-2 mb-2"><span> ' . htmlspecialchars($lastTr[$i]['remittanceNumber']) . ' </span></div>';
+                                echo '<div class="col-6 col-md-3 mb-2"><span class="fw-bold">' . $lastTr[$i]['sign'] . ' ' . number_format($lastTr[$i]['amount'], 2, ',', ' ') . '&nbsp;&nbsp;&nbsp;'.$lastTr[$i]['currency'].'</span></div>';
                                 echo '<div class="col-2 d-none d-md-block mb-2"><i class="fa-solid fa-piggy-bank fa-xl fa-bounce"></i></div>';
                             }
                             echo '</div>';

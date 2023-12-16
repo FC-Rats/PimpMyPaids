@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
 
 <header class="bg-primary">
     <div class="container d-flex flex-wrap justify-content-center py-2 navbar navbar-expand-lg align-items-center">
-        <a href="#" class="d-flex align-items-center mb-md-0 me-md-auto ms-md-4 text-light text-decoration-none navbar-brand logobrand">
+        <a href="index.php?p=my-space" class="d-flex align-items-center mb-md-0 me-md-auto ms-md-4 text-light text-decoration-none navbar-brand logobrand">
             <img src="./assets/img/logorond.png" width="60" height="60" alt="">
             <span class="fs-4">PimpMyPaids</span>
         </a>

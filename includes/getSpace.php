@@ -17,7 +17,7 @@ switch ($_SESSION["profil"]) {
         break;
     case 'PO':
         $names = $db->query('SELECT firstName, lastName FROM TRAN_USERS WHERE idUser = :idUser', array(array(':idUser', $_SESSION['id'])));
-        $lastTr = $db->query('SELECT * FROM TRAN_TRANSACTIONS ORDER BY dateTransac DESC LIMIT 3');
+        $lastTr = $db->query('SELECT t.dateTransac, t.idTransac, t.sign, t.amount, c.currency FROM TRAN_TRANSACTIONS t JOIN TRAN_CUSTOMER_ACCOUNT c ON t.siren=c.siren ORDER BY t.dateTransac DESC, t.idTransac DESC LIMIT 3');
         break;
     case 'Admin':
         $lastRequest = "SELECT * FROM TRAN_REQUEST_PO ORDER BY idRequest DESC";
