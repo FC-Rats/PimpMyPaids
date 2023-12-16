@@ -45,6 +45,24 @@
                         <input type="text" class="form-control" id="companyName" name="companyName" placeholder=" ">
                         <label for="companyName">Raison Sociale</label>
                     </div>
+                    <div class="text-dark d-flex align-items-center justify-content-between col-12 col-sm-5 m-1">
+                        <select class="form-select" name="label" id="label" style="max-width: 200px;">
+                            <option value="" selected>Motif</option>
+                            <option value="Fraude à la carte">Fraude à la carte</option>
+                            <option value="Compte à découvert">Compte à découvert</option>
+                            <option value="Compte clôturé">Compte clôturé</option>
+                            <option value="Compte bloqué">Compte bloqué</option>
+                            <option value="Provision insuffisante">Provision insuffisante</option>
+                            <option value="Opération contestée par le débiteur">Opération contestée par le débiteur</option>
+                            <option value="Titulaire décédé">Titulaire décédé</option>
+                            <option value="Raison non communiquée, contactez la banque du client">Raison non communiquée, contactez la banque du client</option>
+                            <option value="Autre raison">Autre raison</option>
+                        </select>
+                    </div>
+                    <div class="form-floating text-dark col-12 col-sm-5 m-1">
+                        <input type="text" class="form-control" id="idUnpaid" name="idUnpaid" placeholder=" ">
+                        <label for="idUnpaid">Numéro Dossier</label>
+                    </div>
                     <div class="form-floating text-dark col-12 col-sm-5 m-1">
                         <input type="date" class="form-control ps-4" id="beforeDate" name="beforeDate" placeholder=" ">
                         <label for="beforeDate">Avant le</label>
