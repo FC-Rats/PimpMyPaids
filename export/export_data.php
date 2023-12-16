@@ -327,7 +327,7 @@ if (isset($_POST['export_type'])) {
                     $data[] = $baseInfo;
                 }
 
-                $filters = ['siren', 'companyName','beforeDate', 'afterDate'];
+                $filters = ['siren', 'companyName','beforeDate', 'numDossier', 'label','afterDate'];
                 $valueFilters = $_POST;
                 exportToCsv('export_poUnpaids.csv', $headers, $data, 'PO LISTE DES IMPAYÉS', $filters, $valueFilters);
                 break;
@@ -506,8 +506,8 @@ if (isset($_POST['export_type'])) {
                         
                     $data[] = $baseInfo;
                 }
-
-                $filters = ['siren', 'companyName','beforeDate', 'afterDate'];
+ 
+                $filters = ['siren', 'companyName', 'numDossier', 'label', 'beforeDate', 'afterDate'];
                 $valueFilters = $_POST;
                 exportToPdf('export_poUnpaids.pdf', $headers, $data, 'PO LISTE DES IMPAYÉS', $filters, $valueFilters);
                 break;
