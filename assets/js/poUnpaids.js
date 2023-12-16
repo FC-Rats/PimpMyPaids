@@ -1,6 +1,8 @@
 var listUnpaidsData = "";
 var siren = "";
 var companyName = "";
+var idUnpaid = "";
+var bael = "";
 var beforeDate = "";
 var afterDate = "";
 
@@ -67,22 +69,38 @@ $(function () {
 
     siren = $('#siren').val();
     companyName = $('#companyName').val();
+    idUnpaid = $('#idUnpaid').val();
+    label = $('#label').val();
     beforeDate = $('#beforeDate').val();
     afterDate = $('#afterDate').val();
-    listUnpaids(siren, companyName, beforeDate, afterDate);
+    listUnpaids(siren, companyName, idUnpaid, label, beforeDate, afterDate);
 
     $("#searchUnpaidsButton").on("click", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
+        idUnpaid = $('#idUnpaid').val();
+        label = $('#label').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
-        listUnpaids(siren, companyName, beforeDate, afterDate);
+        listUnpaids(siren, companyName, idUnpaid, label, beforeDate, afterDate);
+    });
+
+    $("#label").on("change", function () {
+        siren = $('#siren').val();
+        companyName = $('#companyName').val();
+        idUnpaid = $('#idUnpaid').val();
+        label = $('#label').val();
+        beforeDate = $('#beforeDate').val();
+        afterDate = $('#afterDate').val();
+        listUnpaids(siren, companyName, idUnpaid, label, beforeDate, afterDate);
     });
 
     // export
     $("#export_type").on("change", function () {
         siren = $('#siren').val();
         companyName = $('#companyName').val();
+        idUnpaid = $('#idUnpaid').val();
+        label = $('#label').val();
         beforeDate = $('#beforeDate').val();
         afterDate = $('#afterDate').val();
         context = $('#context').val();
@@ -92,7 +110,7 @@ $(function () {
             url: "export/export_data.php",
             type: "POST",
             dataType: "JSON",
-            data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
+            data: { "siren": siren, "companyName": companyName, "numDossier": idUnpaid, "label": label, "beforeDate": beforeDate, "afterDate": afterDate, "context": context, "export_type": export_type, "dataToExport": dataToExport },
             success: function (data) {
                 window.location.href = data.fileUrl; // Cela déclenchera le téléchargement du fichier
                 $("#export_type").val("noExport");
@@ -107,6 +125,8 @@ $(function () {
 function listUnpaids(
     siren,
     companyName,
+    idUnpaid,
+    label,
     beforeDate,
     afterDate
 ) {
@@ -114,7 +134,7 @@ function listUnpaids(
         url: "includes/listUnpaids.php",
         type: "POST",
         dataType: "JSON",
-        data: { "siren": siren, "companyName": companyName, "beforeDate": beforeDate, "afterDate": afterDate },
+        data: { "siren": siren, "companyName": companyName, "numDossier": idUnpaid, "label": label, "beforeDate": beforeDate, "afterDate": afterDate },
         success: function (data) {
             listUnpaidsData = data.ListUnpaids;
             console.log(listUnpaidsData);
