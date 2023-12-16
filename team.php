@@ -89,7 +89,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="./assets/img/avatar3.png" class="card-img-top w-80 h-60 object-cover transition duration-200 hover:scale-110 mx-auto mx-3 p-2" alt="Olivia Rhye">
+                    <img src="./assets/img/avatar5.png" class="card-img-top w-80 h-60 object-cover transition duration-200 hover:scale-110 mx-auto mx-3 p-2" alt="Olivia Rhye">
                     <div class="card-body text-center pb-4 ">
                         <h5 class="card-title text-dark font-weight-bold">Chamsedine Amouche</h5>
                         <p class="card-text text-purple-600">Developpeur</p>
