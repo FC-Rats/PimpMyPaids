@@ -61,3 +61,7 @@ body {
 .highcharts-credits {
     display: none !important;
 }
+
+.negative {
+    color: #AE2A00 !important;
+}

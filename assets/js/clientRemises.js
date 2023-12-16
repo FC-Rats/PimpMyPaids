@@ -135,9 +135,9 @@ function printClientRemittances() {
         html += '<span class="col-12 col-sm-6 col-lg-3 dateRemittance">' + data.dateRemittance + '</span>';
         html += '<span class="col-12 col-sm-6 col-lg-3 nbTransactions">' + data.nbTransactions + ' transaction(s)</span>';
         if (data.montantTotal < 0) {
-            html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">- ' + data.montantTotal + ' (' + data.currency + ')</span>';
+            html += '<span class="col-12 col-sm-6 col-lg-3 negative totalAmount">' + data.montantTotal + ' (' + data.currency + ')</span>';
         } else {
-            html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">+ ' + data.montantTotal + ' (' + data.currency + ')</span>';
+            html += '<span class="col-12 col-sm-6 col-lg-3 totalAmount">' + data.montantTotal + ' (' + data.currency + ')</span>';
         }
         html += '<button class="col-12 col-sm-6 col-lg-1 d-flex justify-content-end clear-button fs-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDetailRemittanceClient" aria-controls="offcanvasDetailRemittanceClient" onclick="viewClientDetailRemittance(' + remittanceNumberToKey[data.remittanceNumber] + ');">+</button>';
         html += '</div>';
@@ -161,9 +161,9 @@ function viewClientDetailRemittance(id) {
     $("#offcanvasDetailRemittanceClient #offcanvas-body").empty();
     $("#offcanvasDetailRemittanceClientLabel #idRemittanceDetail").text(dataDetail[0].remittanceNumber);
 
-    html ="";
+    html = "";
     html += '<input type="hidden" name="contextDetails" value="clientRemisesDetails" id="contextDetails">';
-    html += '<input type="hidden" name="idDetails" value="'+id+'" id="idDetails">';
+    html += '<input type="hidden" name="idDetails" value="' + id + '" id="idDetails">';
     html += '<select class=" d-flex form-select btn btn-primary border-0 p-1 pe-5" name="export_typeDetails" id="export_typeDetails">';
     html += '<option value="noExport" selected>Exporter les données</option>';
     html += '<option value="pdf">PDF</option>';
@@ -179,7 +179,11 @@ function viewClientDetailRemittance(id) {
         html += '<span class="col-12 network">Réseau : ' + data.network + '</span>';
         html += '<span class="col-12 creditCardNumber">Carte : ' + data.creditCardNumber + '</span>';
         html += '<span class="col-12 numAutorisation">Numéro d\'autorisation : ' + data.numAutorisation + '</span>';
-        html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency +')</span>';
+        if (data.sing == "-") {
+            html += '<span class="col-12 negative total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
+        } else {
+            html += '<span class="col-12 total">Montant : ' + data.sign + ' ' + data.amount + ' (' + data.currency + ')</span>';
+        }
         html += '</div>';
 
         $("#offcanvasDetailRemittanceClient #offcanvas-body").append(html);
@@ -196,7 +200,7 @@ function formatDate() {
         var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
             + date.getFullYear();
-        $(this).text("Date de Remise : "+formattedDate);
+        $(this).text("Date de Remise : " + formattedDate);
     });
 }
 
@@ -207,7 +211,7 @@ function formatDateDetail() {
         var formattedDate = ("0" + date.getDate()).slice(-2) + "/"
             + ("0" + (date.getMonth() + 1)).slice(-2) + "/"
             + date.getFullYear();
-        $(this).text("Date de Transaction : "+formattedDate);
+        $(this).text("Date de Transaction : " + formattedDate);
     });
 }
 
