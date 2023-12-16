@@ -56,6 +56,9 @@ switch ($p) {
     case 'deconnexion':
         header("Location: ./includes/signOut.php");
         break;
+    case 'team' ;
+        header("Location: team.php");
+        break;
     default:
         if(isset($_GET['e'])) {
             header("Location: login.php?e=".$_GET['e']);
