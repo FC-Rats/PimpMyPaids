@@ -139,8 +139,8 @@ switch ($_SESSION["profil"]) {
             // Construction du order by
             $orderBy = "";
             if (!empty($_POST['formSortClientUnpaids'])) {
-                $sortOption = ($_POST['formSortClientUnpaids'] === 'az') ? 'ASC' : 'DESC';
-                $orderBy = " ORDER BY dateTransac {$sortOption}";
+                $sortOption = ($_POST['formSortClientUnpaids'] === 'az') ? 'DESC' : 'ASC';
+                $orderBy = " ORDER BY t.amount {$sortOption}";
             }
     
             // Construction de la query

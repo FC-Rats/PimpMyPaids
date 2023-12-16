@@ -71,7 +71,7 @@ if (!isset($_SESSION)) {
                     </div>
                     <div class="text-dark d-flex align-items-center justify-content-between col-12 col-sm-5">
                         <select class="form-select" id="formSortClientUnpaids">
-                            <option value="noSorting" selected>Trier les impayés</option>
+                            <option value="noSorting" selected>Trier par montant</option>
                             <option value="az">Ordre croissant</option>
                             <option value="za">Odre décroissant</option>
                         </select>
