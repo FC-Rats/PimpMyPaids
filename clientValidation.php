@@ -26,8 +26,8 @@ function decodeTokenForConfirmation($token, $secretKey) {
 }
 
 if ($_GET['token']) {
-    $config = parse_ini_file('./includes/config.ini');
-    $data = decodeTokenForConfirmation($_GET['token'], $config['secret-key']);
+    include('./includes/config.php');
+    $data = decodeTokenForConfirmation($_GET['token'], $config['secret-key']['secret-key']);
 
     if (!empty($data)) {
         if ($data['type'] == 0) {

@@ -17,19 +17,19 @@ function envoi_mail($to_email,$objet,$message)
     $mail = new PHPMailer(true);
 
     try {
-        $config = parse_ini_file('../includes/config.ini');
+        include('../includes/config.php');
         //Server settings
         $mail->isSMTP();
         $mail->SMTPDebug = 0;
         $mail->SMTPSecure = 'ssl';
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = $config['mailadress'];
-        $mail->Password = $config['mailpassword'];
+        $mail->Username = $config['PHPMailer']['mailadress'];
+        $mail->Password = $config['PHPMailer']['mailpassword'];
         $mail->Port = 465;
 
         //Recipients
-        $mail->setFrom($config['mailadress'], 'FC Rats');
+        $mail->setFrom($config['PHPMailer']['mailadress'], 'FC Rats');
         $mail->addAddress(trim(strip_tags($to_email)), 'Client');
 
         //Content à changer
@@ -71,8 +71,8 @@ function generateTokenForConfirmation($user, $request, $type) {
 
     $dataToEncrypt = $user . '|' . $request . '|' . $type;
 
-    $config = parse_ini_file('../includes/config.ini');
-    $encryptedData = openssl_encrypt($dataToEncrypt, 'aes-256-cbc', $config['secret-key'], 0, $iv);
+    include('../includes/config.php');
+    $encryptedData = openssl_encrypt($dataToEncrypt, 'aes-256-cbc', $config['secret-key']['secret-key'], 0, $iv);
 
     $token = base64_encode($iv . $encryptedData);
 

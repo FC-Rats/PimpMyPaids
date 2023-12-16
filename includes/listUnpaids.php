@@ -19,11 +19,11 @@ switch ($_SESSION["profil"]) {
             }
 
             if (!empty($_POST['label'])) {
-                $conditions[] = array(":unpaidName", $_POST['unpaidName'], "ur.unpaidName");
+                $conditions[] = array(":unpaidName", $_POST['label'], "un.unpaidName");
             }
 
-            if (!empty($_POST['idUnpaid'])) {
-                $conditions[] = array(":unpaidFileNumber", $_POST['unpaidFileNumber'], "u.unpaidFileNumber");
+            if (!empty($_POST['numDossier'])) {
+                $conditions[] = array(":unpaidFileNumber", $_POST['numDossier'], "u.unpaidFileNumber");
             }
 
             // Construction de la query
@@ -39,7 +39,7 @@ switch ($_SESSION["profil"]) {
                         JOIN
                             TRAN_UNPAIDS u ON t.idTransac = u.idTransac
                         JOIN
-                            TRAN_UNPAID_REASONS ur ON u.idUnpaidReason = ur.idUnpaidReason";
+                            TRAN_UNPAID_REASONS un ON u.idUnpaidReason = un.idUnpaidReason";
     
             foreach ($conditions as $values) {
                 $query .= strpos($query, "WHERE") == false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
@@ -76,11 +76,11 @@ switch ($_SESSION["profil"]) {
                 }
     
                 if (!empty($_POST['label'])) {
-                    $conditions2[] = array(":unpaidName", $_POST['unpaidName'], "ur.unpaidName");
+                    $conditions2[] = array(":unpaidName", $_POST['label'], "un.unpaidName");
                 }
     
-                if (!empty($_POST['idUnpaid'])) {
-                    $conditions2[] = array(":unpaidFileNumber", $_POST['unpaidFileNumber'], "u.unpaidFileNumber");
+                if (!empty($_POST['numDossier'])) {
+                    $conditions2[] = array(":unpaidFileNumber", $_POST['numDossier'], "u.unpaidFileNumber");
                 }
 
                 $query2 = "SELECT t.dateTransac, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, c.currency, un.unpaidName, t.network
@@ -99,18 +99,18 @@ switch ($_SESSION["profil"]) {
                 if (!empty($_POST['beforeDate'])) {
                     $conditions2[] = array(":beforeDate", $_POST['beforeDate']);
                     if (strpos($query, "WHERE") == false) {
-                        $query .= " WHERE dateTransac < :beforeDate";
+                        $query2 .= " WHERE dateTransac < :beforeDate";
                     } else {
-                        $query .= " AND dateTransac < :beforeDate";
+                        $query2 .= " AND dateTransac < :beforeDate";
                     }
                 }
     
                 if (!empty($_POST['afterDate'])) {
                     $conditions2[] = array(":afterDate", $_POST['afterDate']);
-                    if (strpos($query, "WHERE") == false) {
-                        $query .= " WHERE dateTransac > :afterDate";
+                    if (strpos($query2, "WHERE") == false) {
+                        $query2 .= " WHERE dateTransac > :afterDate";
                     } else {
-                        $query .= " AND dateTransac > :afterDate";
+                        $query2 .= " AND dateTransac > :afterDate";
                     }
                 }
 

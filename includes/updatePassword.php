@@ -7,9 +7,6 @@ ini_set('display_errors', 1);
 
 if (!class_exists('Connection')) {
     include('connectionFunctions.php');
-} else {
-    $config = parse_ini_file('config.ini');
-    $db = new Connection($config['host'],$config['db'],$config['login'],$config['password']);
 }
 
 $token = $_POST['token'];
