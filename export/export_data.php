@@ -143,7 +143,7 @@ if (isset($_POST['export_type'])) {
                     $data[] = $baseInfo;
                 }
 
-                $filters = ['siren', 'companyName','beforeDate', 'afterDate'];
+                $filters = ['siren', 'companyName', 'numDossier', 'label','beforeDate', 'afterDate'];
                 $valueFilters = $_POST;
                 exportToXlsx('export_poUnpaids.xlsx', $headers, $data, 'PO LISTE DES IMPAYÉS', $filters, $valueFilters);
                 break;
