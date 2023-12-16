@@ -18,6 +18,14 @@ switch ($_SESSION["profil"]) {
                 $conditions[] = array(":companyName", $_POST['companyName'], "ca.companyName");
             }
 
+            if (!empty($_POST['label'])) {
+                $conditions[] = array(":unpaidName", $_POST['unpaidName'], "ur.unpaidName");
+            }
+
+            if (!empty($_POST['idUnpaid'])) {
+                $conditions[] = array(":unpaidFileNumber", $_POST['unpaidFileNumber'], "u.unpaidFileNumber");
+            }
+
             // Construction de la query
             $query = "SELECT
                             ca.siren,
@@ -29,7 +37,9 @@ switch ($_SESSION["profil"]) {
                         JOIN
                             TRAN_TRANSACTIONS t ON ca.siren = t.siren
                         JOIN
-                            TRAN_UNPAIDS u ON t.idTransac = u.idTransac";
+                            TRAN_UNPAIDS u ON t.idTransac = u.idTransac
+                        JOIN
+                            TRAN_UNPAID_REASONS ur ON u.idUnpaidReason = ur.idUnpaidReason";
     
             foreach ($conditions as $values) {
                 $query .= strpos($query, "WHERE") == false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
@@ -59,6 +69,20 @@ switch ($_SESSION["profil"]) {
             foreach ($unpaidPO as &$row) {
                 $siren = $row['siren'];
 
+                $conditions2 = array(array(":siren", $siren));
+
+                if (!empty($_POST['companyName'])) {
+                    $conditions2[] = array(":companyName", $_POST['companyName'], "ca.companyName");
+                }
+    
+                if (!empty($_POST['label'])) {
+                    $conditions2[] = array(":unpaidName", $_POST['unpaidName'], "ur.unpaidName");
+                }
+    
+                if (!empty($_POST['idUnpaid'])) {
+                    $conditions2[] = array(":unpaidFileNumber", $_POST['unpaidFileNumber'], "u.unpaidFileNumber");
+                }
+
                 $query2 = "SELECT t.dateTransac, t.creditCardNumber, u.unpaidFileNumber, t.sign, t.amount, c.currency, un.unpaidName, t.network
                                 FROM TRAN_TRANSACTIONS t
                                 JOIN TRAN_CUSTOMER_ACCOUNT c ON t.siren = c.siren
@@ -66,7 +90,31 @@ switch ($_SESSION["profil"]) {
                                 JOIN TRAN_UNPAID_REASONS un ON u.idUnpaidReason = un.idUnpaidReason
                                 WHERE t.siren = :siren";
 
-                $details = $db->query($query2, array(array(":siren", $siren)));
+                foreach ($conditions2 as $values) {
+                    if ($values[0] != ":siren") {
+                        $query2 .= " AND {$values[2]} = {$values[0]}";
+                    }
+                }
+                
+                if (!empty($_POST['beforeDate'])) {
+                    $conditions2[] = array(":beforeDate", $_POST['beforeDate']);
+                    if (strpos($query, "WHERE") == false) {
+                        $query .= " WHERE dateTransac < :beforeDate";
+                    } else {
+                        $query .= " AND dateTransac < :beforeDate";
+                    }
+                }
+    
+                if (!empty($_POST['afterDate'])) {
+                    $conditions2[] = array(":afterDate", $_POST['afterDate']);
+                    if (strpos($query, "WHERE") == false) {
+                        $query .= " WHERE dateTransac > :afterDate";
+                    } else {
+                        $query .= " AND dateTransac > :afterDate";
+                    }
+                }
+
+                $details = $db->query($query2, $conditions2);
                 $row['details'] = $details;
             }
 
