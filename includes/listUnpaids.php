@@ -11,11 +11,11 @@ switch ($_SESSION["profil"]) {
             $conditions = array();
             // Conditions supplémentaires    
             if (!empty($_POST['siren'])) {
-                $conditions[] = array(":siren", $_POST['siren'], "T.siren");
+                $conditions[] = array(":siren", $_POST['siren'], "t.siren");
             }
 
             if (!empty($_POST['companyName'])) {
-                $conditions[] = array(":companyName", $_POST['companyName'], "CA.companyName");
+                $conditions[] = array(":companyName", $_POST['companyName'], "ca.companyName");
             }
 
             // Construction de la query
