@@ -29,22 +29,30 @@ switch ($_SESSION["profil"]) {
                         JOIN
                             TRAN_TRANSACTIONS t ON ca.siren = t.siren
                         JOIN
-                            TRAN_UNPAIDS u ON t.idTransac = u.idTransac
-                        GROUP BY
-                            ca.siren;";
+                            TRAN_UNPAIDS u ON t.idTransac = u.idTransac";
     
             foreach ($conditions as $values) {
-                $query .= strpos($query1, "WHERE") === false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
+                $query .= strpos($query, "WHERE") == false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
             }
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = [":beforeDate", $beforeDate];
-                $query .= strpos($query1, "WHERE") === false ? " WHERE dateTransac < :beforeDate" : " AND dateTransac < :beforeDate";
+                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+                if (strpos($query, "WHERE") == false) {
+                    $query .= " WHERE dateTransac < :beforeDate";
+                } else {
+                    $query .= " AND dateTransac < :beforeDate";
+                }
             }
 
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = [":afterDate", $afterDate];
-                $query .= strpos($query1, "WHERE") === false ? " WHERE dateTransac > :afterDate" : " AND dateTransac > :afterDate";
+                $conditions[] = array(":afterDate", $_POST['afterDate']);
+                if (strpos($query, "WHERE") == false) {
+                    $query .= " WHERE dateTransac > :afterDate";
+                } else {
+                    $query .= " AND dateTransac > :afterDate";
+                }
             }
+
+            $query .= " GROUP BY ca.siren";
 
             $unpaidPO = $db->query($query, $conditions);
 
