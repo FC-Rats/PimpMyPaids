@@ -76,7 +76,7 @@ function generateTokenForConfirmation($user, $request, $type) {
 
     $token = base64_encode($iv . $encryptedData);
 
-    $link = "https://perso-etudiant.u-pem.fr/~kellian.bredeau/PimpMyPaids/clientValidation.php?token=" . $token;
+    $link = "https://perso-etudiant.u-pem.fr/~kellian.bredeau/PimpMyPaids/includes/clientValidation.php?token=" . $token;
     return $link;
 }
 ?>

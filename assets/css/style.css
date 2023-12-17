@@ -62,6 +62,10 @@ body {
     display: none !important;
 }
 
+.highcharts-negative {
+    fill: #AE2A00 !important;
+}
+
 .negative {
     color: #AE2A00 !important;
 }
