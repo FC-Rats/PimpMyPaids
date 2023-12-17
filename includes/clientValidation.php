@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 
 //include('./mailer/mailer.php');
 if (!class_exists('Connection')) {
-    include('./includes/connectionFunctions.php');
+    include('connectionFunctions.php');
 }
 
 function decodeTokenForConfirmation($token, $secretKey) {
@@ -26,7 +26,7 @@ function decodeTokenForConfirmation($token, $secretKey) {
 }
 
 if ($_GET['token']) {
-    include('./includes/config.php');
+    include('config.php');
     $data = decodeTokenForConfirmation($_GET['token'], $config['secret-key']['secret-key']);
 
     if (!empty($data)) {
