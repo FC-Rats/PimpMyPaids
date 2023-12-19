@@ -24,7 +24,7 @@
 
 4. Renommez le fichier ``dev-config.php`` en ``config.php`` et et complètez les gens comme indiqué !
 
-5. Prenez soin de modifié les liens dans le fichier ```mailer.php``` qui se trouve dans le fichier ```mailer``` ainsi que les emails dans la table ``TRAN_USERS`` de la base de données pour profiter au maximum des fonctionnalités du site.
+5. Prenez soin de modifier les liens dans le fichier ```mailer.php``` qui se trouve dans le fichier ```mailer``` ainsi que les emails dans la table ``TRAN_USERS`` de la base de données pour profiter au maximum des fonctionnalités du site.
 
 6. Vous pouvez lancer le site ! **Youpiii !**
 
