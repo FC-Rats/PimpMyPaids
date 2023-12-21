@@ -15,6 +15,7 @@ $firstName = $db->query("SELECT firstName FROM TRAN_USERS WHERE login = :login",
 $lastName = $db->query("SELECT lastName FROM TRAN_USERS WHERE login = :login", array(array(":login",$_SESSION["login"])));
 
 $nom_client = $firstName[0]['firstName'] . ' ' . $lastName[0]['lastName'];
+$siren = $_SESSION['siren'];
 
 if (isset($_POST['export_type'])) {
     $jsonData = $_POST["dataToExport"];
@@ -73,7 +74,7 @@ if (isset($_POST['export_type'])) {
                 $filters = ['amount', 'remittanceNumber', 'beforeDate', 'afterDate'];
                 $valueFilters = $_POST;
                 
-                exportToXlsx('export_clientListRemises.xlsx', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client),  $filters, $valueFilters);
+                exportToXlsx('export_clientListRemises.xlsx', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client) . ' N° SIREN ' . $siren,  $filters, $valueFilters);
                 break;
 
             case 'poRemises':
@@ -125,7 +126,7 @@ if (isset($_POST['export_type'])) {
 
                 $filters = ['beforeDate', 'afterDate', 'label', 'idUnpaid'];
                 $valueFilters = $_POST;
-                exportToXlsx('export_clientUnpaids.xlsx', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client), $filters, $valueFilters);
+                exportToXlsx('export_clientUnpaids.xlsx', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client)  . ' N° SIREN ' . $siren, $filters, $valueFilters);
                 break;
             
             case 'poUnpaids':
@@ -257,7 +258,7 @@ if (isset($_POST['export_type'])) {
                 $filters = ['amount', 'remittanceNumber', 'beforeDate', 'afterDate'];
                 $valueFilters = $_POST;
 
-                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client), $filters, $valueFilters);
+                exportToCsv('export_clientListRemises.csv', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client)  . ' N° SIREN ' . $siren, $filters, $valueFilters);
                 break;
             
             case 'poRemises':
@@ -309,7 +310,7 @@ if (isset($_POST['export_type'])) {
 
                 $filters = ['beforeDate', 'afterDate', 'label', 'idUnpaid'];
                 $valueFilters = $_POST;
-                exportToCsv('export_clientUnpaids.csv', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client), $filters, $valueFilters);
+                exportToCsv('export_clientUnpaids.csv', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client)  . ' N° SIREN ' . $siren, $filters, $valueFilters);
                 break;
 
             case 'poUnpaids':
@@ -377,7 +378,7 @@ if (isset($_POST['export_type'])) {
                     $data[] = $baseInfo;
                 }
 
-                exportToCsv('export_clientRemisesDetails.csv', $headers, $data, 'DETAILS DE LA REMISE ' . $_POST['remittanceNumber'], NULL, NULL);
+                exportToCsv('export_clientRemisesDetails.csv', $headers, $data, 'DETAILS DE LA REMISE ' . $_POST['remittanceNumber']  . ' N° SIREN ' . $siren, NULL, NULL);
                 break;
         }
     }
@@ -437,7 +438,7 @@ if (isset($_POST['export_type'])) {
                 $filters = ['amount', 'remittanceNumber', 'beforeDate', 'afterDate'];
                 $valueFilters = $_POST;
 
-                exportToPdf('export_clientListRemises.pdf', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client), $filters, $valueFilters);
+                exportToPdf('export_clientListRemises.pdf', $headers, $data, 'LISTE DES REMISES DU CLIENT ' . strtoupper($nom_client)  . ' N° SIREN ' . $siren, $filters, $valueFilters);
                 break;
             
             case 'poRemises':
@@ -489,7 +490,7 @@ if (isset($_POST['export_type'])) {
 
                 $filters = ['beforeDate', 'afterDate', 'label', 'idUnpaid'];
                 $valueFilters = $_POST;
-                exportToPdf('export_clientUnpaids.pdf', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client), $filters, $valueFilters);
+                exportToPdf('export_clientUnpaids.pdf', $headers, $data, 'LISTE DES IMPAYÉS DU CLIENT ' . strtoupper($nom_client)  . ' N° SIREN ' . $siren, $filters, $valueFilters);
                 break;
 
             case 'poUnpaids':

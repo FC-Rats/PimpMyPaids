@@ -135,6 +135,14 @@ function exportToPdf($filename, $headers, $data, $title, $filters, $valueFilters
             padding: 8px;
             text-align: left;
         }
+
+        th {
+            background-color : #8E8D8D;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #D5D4D4;
+          }
     ';
 
     // Date du jour
