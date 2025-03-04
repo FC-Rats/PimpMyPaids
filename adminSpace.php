@@ -30,8 +30,6 @@
     <script src="assets/js/export-data.js"></script>
     <script src="assets/js/accessibility.js"></script>
     <?php include('./header.php'); ?>
-    <?php include('./includes/getSpace.php');
-    ?>
 
     <div class="conteuneur container espace-admin-section">
         <div class="row container-cols-espace-admin ">

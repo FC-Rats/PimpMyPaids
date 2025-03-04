@@ -7,7 +7,7 @@
 
     $query = "SELECT
                     DATE_FORMAT(dateTransac, '%m') AS mois,
-                    AVG(CASE WHEN T.sign = '+' THEN T.amount ELSE -T.amount END) AS moyenneTransactions
+                    AVG(T.amount) AS moyenneTransactions
                 FROM
                     TRAN_TRANSACTIONS T
                 WHERE

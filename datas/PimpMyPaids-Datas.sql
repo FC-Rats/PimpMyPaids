@@ -51,7 +51,7 @@ INSERT INTO `TRAN_CUSTOMER_ACCOUNT` (`siren`, `companyName`, `currency`, `idUser
 
 CREATE TABLE `TRAN_REMITTANCES` (
   `remittanceNumber` varchar(30) NOT NULL,
-  `dateRemittance` date NOT NULL
+  `dateRemittance` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -115,7 +115,7 @@ INSERT INTO `TRAN_REQUEST_PO` (`idRequest`, `siren`, `login`, `companyName`, `cu
 
 CREATE TABLE `TRAN_TRANSACTIONS` (
   `idTransac` int(11) NOT NULL,
-  `dateTransac` date NOT NULL,
+  `dateTransac` time NOT NULL,
   `amount` decimal(15,2) NOT NULL,
   `numAutorisation` char(6) NOT NULL,
   `creditCardNumber` char(16) NOT NULL,

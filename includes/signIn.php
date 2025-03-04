@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($connectionVerif[0]['state'] == 1) {
                 //On vérifie si le mot de passe est correct
-                if (password_verify($password, $connectionVerif[0]['password'])) {
+                if ($password == $connectionVerif[0]['password']) {
                     $_SESSION["login"] = $connectionVerif[0]['login'];
                     $_SESSION["id"] = $connectionVerif[0]['idUser'];
                     $_SESSION["profil"] = $connectionVerif[0]['profil'];
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
 
                 //Si le mot de passe est incorrect on renvoie l'erreur et on diminue les essais restants
-                } else if (!password_verify($password, $connectionVerif[0]['password'] || $connectionVerif[0]['login'] != $login)) {
+                } else if ($password != $connectionVerif[0]['password'] || $connectionVerif[0]['login'] != $login) {
                     $_SESSION["try"] -= 1;
                     header("Location: ../index.php?e=1");
                     exit();

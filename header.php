@@ -18,7 +18,7 @@ if (!isset($_SESSION)) {
         <div class="collapse navbar-collapse flex-grow-0 bg-primary" id="navbarNavAltMarkup">
             <ul class="navbar-nav nav-pills text-light">
                 <?php
-                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Admin")) {
+                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Admin") && false) {
                 ?>
                     <li class="nav-item">
                         <a href="index.php?p=list-compte" class="nav-link text-light" aria-current="page" style="text-align: center;">
@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
                     </li>
                 <?php
                 }
-                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant")) {
+                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant") && false) {
                 ?>
                 <li class="nav-item">
                     <a href="index.php?p=list-remise" class="nav-link text-light" aria-current="page" style="text-align: center;">
@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
                 </li>
                 <?php
                 }
-                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant")) {
+                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant") && false) {
                 ?>
                 <li class="nav-item">
                     <a href="index.php?p=list-impayés" class="nav-link text-light" aria-current="page" style="text-align: center;">
@@ -48,7 +48,7 @@ if (!isset($_SESSION)) {
                 </li>
                 <?php
                 }
-                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant" || $_SESSION["profil"] === "Admin")) {
+                if (isset($_SESSION["profil"]) && ($_SESSION["profil"] === "PO" || $_SESSION["profil"] === "Merchant" || $_SESSION["profil"] === "Admin") && false) {
                 ?>
                 <li class="nav-item dropdown dropdown-center text-light pe-4">
                     <a href="index.php?p=my-space" class="nav-link dropdown-toggle text-light" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-align: center;">

@@ -10,15 +10,15 @@ switch ($_SESSION["profil"]) {
 
             $conditions = array();
             if (!empty($_POST['siren'])) {
-                $conditions[] = array(":siren", $_POST['siren'], "c.siren");
+                $conditions = array(":siren", $_POST['siren'], "c.siren");
             }
     
             if (!empty($_POST['companyName'])) {
-                $conditions[] = array(":companyName", $_POST['companyName'], "c.companyName");
+                $conditions = array(":companyName", $_POST['companyName'], "c.companyName");
             }
     
             if (!empty($_POST['remittanceNumber'])) {
-                $conditions[] = array(":remittanceNumber", $_POST['remittanceNumber'], "r.remittanceNumber");
+                $conditions = array(":remittanceNumber", $_POST['remittanceNumber'], "r.remittanceNumber");
             }
 
             $query1 = "SELECT 
@@ -37,7 +37,7 @@ switch ($_SESSION["profil"]) {
                 $query1 .= strpos($query1, "WHERE") == false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
             }
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+                $conditions = array(":beforeDate", $_POST['beforeDate']);
                 if (strpos($query1, "WHERE") == false) {
                     $query1 .= " WHERE dateTransac < :beforeDate";
                 } else {
@@ -46,7 +46,7 @@ switch ($_SESSION["profil"]) {
             }
     
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
+                $conditions = array(":afterDate", $_POST['afterDate']);
                 if (strpos($query1, "WHERE") == false) {
                     $query1 .= " WHERE dateTransac > :afterDate";
                 } else {
@@ -87,7 +87,7 @@ switch ($_SESSION["profil"]) {
             $conditions = array();
     
             if (!empty($_POST['remittanceNumber'])) {
-                $conditions[] = array(":remittanceNumber",  $_POST['remittanceNumber'], "t.remittanceNumber");
+                $conditions = array(":remittanceNumber",  $_POST['remittanceNumber'], "t.remittanceNumber");
             }
 
             $query1 = "SELECT 
@@ -106,23 +106,23 @@ switch ($_SESSION["profil"]) {
             }
 
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+                $conditions = array(":beforeDate", $_POST['beforeDate']);
                 $query1 .= " AND dateTransac < :beforeDate";
             }
     
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
+                $conditions = array(":afterDate", $_POST['afterDate']);
                 $query1 .= " AND dateTransac > :afterDate";
             }
 
             $query1 .= " GROUP BY r.remittanceNumber";
 
             if (!empty($_POST['amount'])) {
-                $conditions[] = array(":amount", $_POST['amount']);
+                $conditions = array(":amount", $_POST['amount']);
                 $query1 .= " HAVING montantTotal = :amount";
             }
 
-            $conditions[] = array(":siren", $_SESSION["siren"]);
+            $conditions = array(":siren", $_SESSION["siren"]);
 
             $remittancesMerchant = $db->query($query1, $conditions);
             

@@ -36,7 +36,7 @@ if (!class_exists('Connection')) {
                         GROUP BY
                             UR.unpaidName";
             
-            $graphUnpaidMerchant = $db->query($query, array(array(":siren", $_SESSION["siren"])));
+            $graphUnpaidMerchant = $db->query($query, array(array(":siren", '876543219')));
             $response["GraphUnpaids"] = $graphUnpaidMerchant;
             echo json_encode($response);
             break;

@@ -11,11 +11,11 @@ switch ($_SESSION["profil"]) {
             $conditions = array();
     
             if (!empty($_POST['siren'])) {
-                $conditions[] = array(":siren", $_POST['siren'], "c.siren");
+                $conditions = array(":siren", $_POST['siren'], "c.siren");
             }
     
             if (!empty($_POST['companyName'])) {
-                $conditions[] = array(":companyName", $_POST['companyName'], "c.companyName");
+                $conditions = array(":companyName", $_POST['companyName'], "c.companyName");
             }
 
             $query = "SELECT 
@@ -32,7 +32,7 @@ switch ($_SESSION["profil"]) {
             }
             
             if (!empty($_POST['date'])) {
-                $conditions[] = array(":date", $_POST['date']);
+                $conditions = array(":date", $_POST['date']);
                 $query .= " AND dateTransac < :date";
             }
 

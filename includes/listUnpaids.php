@@ -11,19 +11,19 @@ switch ($_SESSION["profil"]) {
             $conditions = array();
             // Conditions supplémentaires    
             if (!empty($_POST['siren'])) {
-                $conditions[] = array(":siren", $_POST['siren'], "t.siren");
+                $conditions = array(":siren", $_POST['siren'], "t.siren");
             }
 
             if (!empty($_POST['companyName'])) {
-                $conditions[] = array(":companyName", $_POST['companyName'], "ca.companyName");
+                $conditions = array(":companyName", $_POST['companyName'], "ca.companyName");
             }
 
             if (!empty($_POST['label'])) {
-                $conditions[] = array(":unpaidName", $_POST['label'], "un.unpaidName");
+                $conditions = array(":unpaidName", $_POST['label'], "un.unpaidName");
             }
 
             if (!empty($_POST['numDossier'])) {
-                $conditions[] = array(":unpaidFileNumber", $_POST['numDossier'], "u.unpaidFileNumber");
+                $conditions = array(":unpaidFileNumber", $_POST['numDossier'], "u.unpaidFileNumber");
             }
 
             // Construction de la query
@@ -45,7 +45,7 @@ switch ($_SESSION["profil"]) {
                 $query .= strpos($query, "WHERE") == false ? " WHERE {$values[2]} = {$values[0]}" : " AND {$values[2]} = {$values[0]}";
             }
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+                $conditions = array(":beforeDate", $_POST['beforeDate']);
                 if (strpos($query, "WHERE") == false) {
                     $query .= " WHERE dateTransac < :beforeDate";
                 } else {
@@ -54,7 +54,7 @@ switch ($_SESSION["profil"]) {
             }
 
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
+                $conditions = array(":afterDate", $_POST['afterDate']);
                 if (strpos($query, "WHERE") == false) {
                     $query .= " WHERE dateTransac > :afterDate";
                 } else {
@@ -129,11 +129,11 @@ switch ($_SESSION["profil"]) {
     
             // Conditions supplémentaires    
             if (!empty($_POST['label'])) {
-                $conditions[] = array(":label", $_POST['label'], "un.unpaidName");
+                $conditions = array(":label", $_POST['label'], "un.unpaidName");
             }
     
             if (!empty($_POST['numDossier'])) {
-                $conditions[] = array(":numDossier", $_POST['numDossier'], "u.unpaidFileNumber");
+                $conditions = array(":numDossier", $_POST['numDossier'], "u.unpaidFileNumber");
             }
     
             // Construction du order by
@@ -157,19 +157,19 @@ switch ($_SESSION["profil"]) {
             }
 
             if (!empty($_POST['beforeDate'])) {
-                $conditions[] = array(":beforeDate", $_POST['beforeDate']);
+                $conditions = array(":beforeDate", $_POST['beforeDate']);
                 $query .= " AND dateTransac < :beforeDate";
             }
     
             if (!empty($_POST['afterDate'])) {
-                $conditions[] = array(":afterDate", $_POST['afterDate']);
+                $conditions = array(":afterDate", $_POST['afterDate']);
                 $query .= " AND dateTransac > :afterDate";
             }
     
             // Add ORDER BY clause
             $query .= $orderBy;
 
-            $conditions[] = array(":siren", $_SESSION["siren"]);
+            $conditions = array(":siren", $_SESSION["siren"]);
     
             $unpaidClient = $db->query($query, $conditions);
             $response["ListUnpaidsClient"] = $unpaidClient;
